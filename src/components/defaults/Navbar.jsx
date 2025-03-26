@@ -36,25 +36,25 @@ const itemVariants = {
 const Navbar = () => {
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Holidays", href: "/Projects" },
+    { name: "Holidays", href: "/home" },
     {
       name: "Hot Bargains",
       href: "#",
       dropdown: [
-        { name: "Top Deals", href: "/WhyUs" },
-        { name: "Beach Holidays", href: "/WhatWeDo" },
-        { name: "City Breaks", href: "/HowWeWork" },
-        { name: "Luxury Holidays", href: "/AboutUs" },
+        { name: "Top Deals", href: "/topdeals" },
+        { name: "Beach Holidays", href: "/beachholidays" },
+        { name: "City Breaks", href: "/citybreakes" },
+        { name: "Luxury Holidays", href: "/luxaryholidays" },
       ],
     },
     {
       name: "Destinations",
       href: "#",
       dropdown: [
-        { name: "Europe", href: "/WhyUs" },
-        { name: "Asia", href: "/WhatWeDo" },
-        { name: "Caribbean", href: "/HowWeWork" },
-        { name: "Middle East", href: "/AboutUs" },
+        { name: "Europe", href: "/europe" },
+        { name: "Asia", href: "/asia" },
+        { name: "Caribbean", href: "/caribbean" },
+        { name: "Middle East", href: "/middleeast" },
       ],
     },
   ];

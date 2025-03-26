@@ -17,6 +17,7 @@ import {
   BlogDetail,
 } from "./pages";
 import { MainScreen } from "./screens";
+import CardOver from "./defaults/CardOver";
 
 const Main = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -89,6 +90,15 @@ const Main = () => {
 
         <Routes>
           <Route path="/" element={<MainScreen />} />
+          <Route path="/home" element={<MainScreen />} />
+          <Route path="/topdeals" element={<MainScreen />} />
+          <Route path="/beachholidays" element={<MainScreen />} />
+          <Route path="/citybreakes" element={<MainScreen />} />
+          <Route path="/luxaryholidays" element={<MainScreen />} />
+          <Route path="/europe" element={<MainScreen />} />
+          <Route path="/asia" element={<MainScreen />} />
+          <Route path="/caribbean" element={<MainScreen />} />
+          <Route path="/middleeast" element={<MainScreen />} />
           <Route path="/Projects" element={<ForSale />} />
           <Route path="/DetailedView" element={<DetailedView />} />
           <Route path="/OurServices" element={<Services />} />
@@ -100,6 +110,9 @@ const Main = () => {
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
         </Routes>
+        <div className="z-20 mt-20 -mb-28 flex flex-col justify-center items-center p-4 md:p-0">
+          <CardOver />
+        </div>
         <Footer />
       </div>
     </Router>
