@@ -4,6 +4,8 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const destinations = [
   {
     country: "Spain",
+    cimage:
+      "https://images.unsplash.com/photo-1559386081-325882507af7?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     packages: [
       { title: "Lake Garda", price: "$240", location: "Spain" },
       { title: "Mount Etna", price: "$300", location: "Spain" },
@@ -14,6 +16,8 @@ const destinations = [
   },
   {
     country: "Dubai",
+    cimage:
+      "https://plus.unsplash.com/premium_photo-1697729749013-d5263b662999?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     packages: [
       { title: "Desert Safari", price: "$350", location: "Dubai" },
       { title: "Burj Khalifa", price: "$400", location: "Dubai" },
@@ -24,6 +28,8 @@ const destinations = [
   },
   {
     country: "Switzerland",
+    cimage:
+      "https://images.unsplash.com/photo-1573137785546-9d19e4f33f87?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     packages: [
       { title: "Zurich Tour", price: "$280", location: "Switzerland" },
       { title: "Alps Hiking", price: "$350", location: "Switzerland" },
@@ -70,18 +76,38 @@ const TravelPackages = () => {
         <div
           key={index}
           className={`flex items-center justify-between w-full gap-10 ${
-            index % 2 !== 0 ? "md:flex-row-reverse flex-col" : "md:flex-row flex-col"
+            index % 2 !== 0
+              ? "md:flex-row-reverse flex-col"
+              : "md:flex-row flex-col"
           }`}
         >
           {/* Main Country Container */}
-          <div className="relative w-80 h-20 md:w-[350px] md:h-[340px] flex items-center justify-center bg-blue-600 text-white rounded-xl shadow-xl p-6">
+          <div
+            className="relative w-80 h-20 md:w-[350px] md:h-[340px] flex items-center justify-center rounded-xl shadow-xl p-6 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${destination.cimage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            {/* Conditional Overlay on the image */}
+            <div
+              className={`absolute inset-0 rounded-xl ${
+                index % 2 !== 0
+                  ? "bg-gradient-to-l from-black/90 to-black/5"
+                  : "bg-gradient-to-r from-black/90 to-black/5"
+              }`}
+            ></div>
+
             <button
               className="absolute left-4 bg-white p-3 rounded-full text-black shadow-lg hover:scale-110 transition-transform"
               onClick={() => scrollLeft(index)}
             >
               <FaArrowLeft />
             </button>
-            <h2 className="text-2xl font-bold">{destination.country}</h2>
+            <h2 className="absolute text-2xl font-bold text-white px-3 py-1 rounded-md">
+              {destination.country}
+            </h2>
             <button
               className="absolute right-4 bg-white p-3 rounded-full text-black shadow-lg hover:scale-110 transition-transform"
               onClick={() => scrollRight(index)}
