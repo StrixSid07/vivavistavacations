@@ -7,25 +7,24 @@ const SpeedDiel = () => {
       {/* Phone Link */}
       <a
         href="tel:+02037805023"
-        className="text-green-500 hover:text-green-600 transition-transform transform hover:scale-110"
+        className="text-green-500 hover:text-teal-600 transition-all duration-500 ease-in-out hover:scale-110"
       >
         <FaPhoneAlt size={28} />
       </a>
-
       {/* WhatsApp Link */}
       <a
         href="https://wa.me/442037805023"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-green-500 hover:text-green-600 transition-transform transform hover:scale-110"
+        className="text-green-500 hover:text-teal-600 transition-all duration-500 ease-in-out hover:scale-110"
       >
-        <FaWhatsapp size={28} />
+        <FaWhatsapp size={30} />
       </a>
 
       {/* Email Link */}
       <a
         href="mailto:admin@vivavistavactions.co.uk"
-        className="text-green-500 hover:text-green-600 transition-transform transform hover:scale-110"
+        className="text-green-500 hover:text-teal-600 transition-all duration-500 ease-in-out hover:scale-110"
       >
         <FaEnvelope size={28} />
       </a>
