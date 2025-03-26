@@ -94,7 +94,7 @@ const TravelPackages = () => {
             <div
               className={`absolute inset-0 rounded-xl ${
                 index % 2 !== 0
-                  ? "bg-gradient-to-l from-black/90 to-black/5"
+                  ? "md:bg-gradient-to-l from-black/90 to-black/5 bg-gradient-to-r"
                   : "bg-gradient-to-r from-black/90 to-black/5"
               }`}
             ></div>
@@ -105,7 +105,7 @@ const TravelPackages = () => {
             >
               <FaArrowLeft />
             </button>
-            <h2 className="absolute text-2xl font-bold text-white px-3 py-1 rounded-md">
+            <h2 className="absolute text-2xl md:text-5xl font-bold text-white px-3 py-1 rounded-md">
               {destination.country}
             </h2>
             <button
