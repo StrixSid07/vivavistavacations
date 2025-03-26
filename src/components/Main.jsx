@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, ExtraNavbar, Footer } from "./defaults";
+import { Navbar, ExtraNavbar, Footer, CardOver, SpeedDiel } from "./defaults";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import {
   ForSale,
-  ForRent,
-  NewProperty,
   Blogs,
   ContactUs,
   WhyUs,
@@ -17,7 +15,6 @@ import {
   BlogDetail,
 } from "./pages";
 import { MainScreen } from "./screens";
-import CardOver from "./defaults/CardOver";
 
 const Main = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -47,7 +44,7 @@ const Main = () => {
 
   return (
     <Router>
-      <div className=" overflow-x-hidden">
+      <div className="overflow-x-hidden relative">
         {/* <div
           className={`z-50 top-0 transition-transform duration-0 ease-out ${
             hideExtraNavbar ? "-translate-y-full duration-300" : ""
@@ -114,6 +111,10 @@ const Main = () => {
           <CardOver />
         </div>
         <Footer />
+        {/* Fixed SpeedDiel Button */}
+        <div className="fixed right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-[1000]">
+          <SpeedDiel />
+        </div>
       </div>
     </Router>
   );
