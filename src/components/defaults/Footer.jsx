@@ -8,6 +8,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 import {
   logo,
   payment1,
@@ -82,13 +83,16 @@ const Footer = () => {
               </span>
             </li>
             <li className="flex items-center">
-              <div className="text-white group sm:text-left mb-4 sm:mb-0 ml-0">
-                <span className="font-bold   text-orange-600"> Address:</span>
+              <div className="text-white flex w-64 items-start justify-center gap-1 group sm:text-left mb-4 sm:mb-0 ml-0">
+                <span className="font-bold   text-orange-600">
+                  {" "}
+                  <FaLocationDot size={18} />
+                </span>
                 <br />{" "}
                 <a
                   href="/"
                   target="_blank"
-                  className="transition-all  ease-in-out group-hover:text-orange-600"
+                  className="transition-all ease-in-out group-hover:text-orange-600"
                 >
                   01, 195-197 Wood Street, London, England, E17 3NU
                 </a>
