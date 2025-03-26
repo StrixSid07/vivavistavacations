@@ -5,25 +5,30 @@ import {
   CardBody,
   CardFooter,
   Typography,
+  Button,
 } from "@material-tailwind/react";
-import { FaShareAlt, FaRegStar } from "react-icons/fa";
-import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
+import { FaShareAlt, FaStar, FaRegStar } from "react-icons/fa";
+import {
+  MdOutlineArrowBackIos,
+  MdOutlineArrowForwardIos,
+} from "react-icons/md";
+import { HiOutlineLocationMarker } from "react-icons/hi";
+import { BiCalendar } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NewAddedCardComponent = ({
   images,
-  name,
-  address,
-  area,
-  bedrooms,
-  bathrooms,
-  daysAgo,
+  location,
+  packageDays,
+  price,
+  rating,
   currentImage,
   nextImage,
   prevImage,
 }) => {
   return (
-    <Card className="max-w-[24rem] w-full overflow-hidden h-[30rem]">
+    <Card className="max-w-[24rem] w-full overflow-hidden shadow-lg rounded-lg">
+      {/* Image Section */}
       <CardHeader
         floated={false}
         shadow={false}
@@ -35,15 +40,16 @@ const NewAddedCardComponent = ({
             <motion.img
               key={currentImage}
               src={images[currentImage]}
-              alt="Property"
+              alt="Tour Destination"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.4 }}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover rounded-t-lg"
             />
           </AnimatePresence>
 
+          {/* Image Navigation */}
           <button
             onClick={prevImage}
             className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
@@ -58,31 +64,51 @@ const NewAddedCardComponent = ({
           </button>
         </div>
       </CardHeader>
-      <CardBody className="flex-grow">
-        <Typography variant="h4" color="blue-gray">
-          {name}
-        </Typography>
-        <Typography variant="small" color="gray" className="mt-3 font-normal">
-          {address}
-        </Typography>
-        <div className="flex justify-between items-center mt-3">
-          <Typography variant="small" color="gray">
-            Area: {area}
+
+      {/* Card Content */}
+      <CardBody className="p-4 space-y-3">
+        {/* Price & Nights */}
+        <div className="flex items-center justify-between">
+          <Typography variant="h5" className="font-bold text-black">
+            £{price}{" "}
+            <span className="text-sm font-normal text-gray-500">
+              /Per Person
+            </span>
           </Typography>
-          <Typography variant="small" color="gray">
-            Bedrooms: {bedrooms}
+          <div className="flex items-center text-gray-700">
+            <BiCalendar className="mr-1 text-xl" />
+            <Typography variant="small">{packageDays} Nights</Typography>
+          </div>
+        </div>
+
+        {/* Location */}
+        <div className="flex items-center text-gray-700">
+          <HiOutlineLocationMarker
+            size={18}
+            className="mr-1 text-lg text-red-500"
+          />
+          <Typography
+            variant="large"
+            className="font-medium text-xl text-deep-orange-600"
+          >
+            {location}
           </Typography>
-          <Typography variant="small" color="gray">
-            Bathrooms: {bathrooms}
+        </div>
+
+        {/* Rating */}
+        <div className="flex items-center space-x-2">
+          <FaStar className="text-yellow-400" />
+          <Typography className="text-gray-700 font-medium">
+            {rating} Rating
           </Typography>
         </div>
       </CardBody>
-      <CardFooter className="flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <FaShareAlt className="text-gray-600" />
-          <FaRegStar className="text-gray-600" />
-        </div>
-        <Typography className="font-normal">{daysAgo} day(s) ago</Typography>
+
+      {/* Footer Section */}
+      <CardFooter className="p-4">
+        <Button className="w-full bg-deep-orange-600 hover:bg-deep-orange-800 transition-colors duration-500 ease-in-out text-white font-medium text-lg rounded-md">
+          View Details
+        </Button>
       </CardFooter>
     </Card>
   );
