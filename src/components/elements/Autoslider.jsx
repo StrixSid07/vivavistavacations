@@ -67,7 +67,7 @@ const AutoSlider = () => {
   };
 
   return (
-    <div className="relative w-full h-[70vh] overflow-hidden bg-gray-100 px-4 md:px-10">
+    <div className="relative w-full h-[70vh] overflow-hidden bg-white px-4 md:px-10">
       <div className="relative w-full h-full flex items-center justify-center">
         {slides.map((slide, index) => (
           <div
@@ -81,7 +81,7 @@ const AutoSlider = () => {
               transition-transform duration-500 
               ${
                 index === currentIndex && focused
-                  ? "ring-4 ring-orange-500 scale-105"
+                  ? "ring-4 ring-orange-500 scale-75"
                   : ""
               }`}
               onClick={handleFocus}
@@ -89,9 +89,9 @@ const AutoSlider = () => {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-[800px] h-[500px] object-cover cursor-pointer"
+                className="w-[400px] h-[350px] md:w-[800px] md:h-[500px] object-cover cursor-pointer"
               />
-              <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-black/90 to-white/5  p-4 md:p-8 flex flex-col justify-center text-white">
+              <div className="absolute inset-0 md:w-1/2 w-full bg-gradient-to-r from-black/90 to-white/5  p-4 md:p-8 flex flex-col justify-center text-white">
                 <h2 className="text-4xl md:text-3xl sm:text-2xl font-bold">
                   {slide.title}
                 </h2>
@@ -120,12 +120,12 @@ const AutoSlider = () => {
       </button>
 
       {/* Dots Navigation */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 md:gap-4 lg:gap-5">
+      <div className="absolute bottom-1 mt-10 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 md:gap-4 lg:gap-5">
         {slides.map((_, index) => (
           <div
             key={index}
             className={`${
-              index === currentIndex ? "bg-orange-500 scale-125" : "bg-gray-500"
+              index === currentIndex ? "bg-orange-500 scale-110" : "bg-gray-500"
             } 
               transition-transform cursor-pointer w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 rounded-full`}
             onClick={() => setCurrentIndex(index)}

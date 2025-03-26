@@ -40,7 +40,7 @@ const MainScreen = () => {
       <NewAdded />
       <div className="h-12 bg-gradient-to-t from-green-500 to-green-500"></div>
       <Looking />
-      <div className="p-2 md:p-0">
+      <div className="p-2 md:p-0 mt-3 md:mt-10">
         <Autoslider />
       </div>
     </div>
