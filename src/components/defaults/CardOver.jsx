@@ -10,7 +10,7 @@ const CardOver = () => {
         <input
           type="text"
           placeholder="Enter your email"
-          className="w-full md:w-96 text-lg md:text-xl rounded-t-md md:rounded-l-md md:rounded-t-none bg-white text-black font-medium p-3"
+          className="w-full md:w-96 text-lg md:text-xl rounded-t-md md:rounded-tl-md md:rounded-bl-md md:rounded-t-none bg-white text-black font-medium p-3"
         />
         <button className="w-full md:w-auto text-white text-lg md:text-xl bg-orange-700 hover:bg-black transition-colors duration-700 ease-in-out font-bold rounded-b-md md:rounded-r-md md:rounded-b-none px-6 py-3">
           SUBSCRIBE
