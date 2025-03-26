@@ -8,6 +8,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
+import { HiChevronRight } from "react-icons/hi";
 import { FaLocationDot } from "react-icons/fa6";
 import {
   logo,
@@ -16,6 +17,7 @@ import {
   payment3,
   payment4,
   payment5,
+  support,
 } from "../../assets";
 
 const currentYear = new Date().getFullYear();
@@ -132,6 +134,28 @@ const Footer = () => {
               >
                 <FaWhatsapp size={24} />
               </a>
+            </div>
+          </div>
+          <div className="flex flex-col items-start justify-center text-center mt-6">
+            <a
+              href="https://wa.me/442037805023" // Replace with your WhatsApp link
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center w-60 justify-between gap-2 bg-green-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-300"
+            >
+              <FaWhatsapp className="text-xl" />
+              <span>Chat on WhatsApp</span>
+              <HiChevronRight className="text-xl" />
+            </a>
+            <div className="flex flex-col justify-center items-center w-56">
+              {/* Icon with circular background and border */}
+              <div className="w-24 h-24 flex items-center justify-center bg-[#304F47] rounded-full border-2 border-orange-500 mt-6">
+                <img src={support} className="h-20 p-2" alt="support" />
+              </div>
+              {/* Text below the icon */}
+              <p className="mt-3 text-orange-500 font-bold">
+                Around-the-Clock Care!
+              </p>
             </div>
           </div>
         </div>
