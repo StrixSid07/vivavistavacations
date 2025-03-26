@@ -136,28 +136,6 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="flex flex-col items-start justify-center text-center mt-6">
-            <a
-              href="https://wa.me/442037805023" // Replace with your WhatsApp link
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center w-60 justify-between gap-2 bg-green-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-300"
-            >
-              <FaWhatsapp className="text-xl" />
-              <span>Chat on WhatsApp</span>
-              <HiChevronRight className="text-xl" />
-            </a>
-            <div className="flex flex-col justify-center items-center w-56">
-              {/* Icon with circular background and border */}
-              <div className="w-24 h-24 flex items-center justify-center bg-[#304F47] rounded-full border-2 border-orange-500 mt-6">
-                <img src={support} className="h-20 p-2" alt="support" />
-              </div>
-              {/* Text below the icon */}
-              <p className="mt-3 text-orange-500 font-bold">
-                Around-the-Clock Care!
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* Column 3: Support Links */}
@@ -177,7 +155,7 @@ const Footer = () => {
         {/* Column 4: We Accepts */}
         <div>
           <h2 className="text-2xl font-bold mb-5">We Accept:</h2>
-          <div className="grid grid-cols-3 gap-3 max-w-60">
+          <div className="grid md:grid-cols-3 grid-cols-5 gap-1 md:max-w-60 max-w-80">
             {[payment1, payment2, payment3, payment4, payment5].map(
               (payment, index) => (
                 <img
@@ -188,6 +166,38 @@ const Footer = () => {
                 />
               )
             )}
+          </div>
+          <div className="flex md:flex-col flex-row items-start justify-center text-center mt-6">
+            <div className="md:hidden">
+              {/* Icon with circular background and border */}
+              <div className="w-16 h-16 flex items-center justify-center bg-[#304F47] rounded-full border-2 border-orange-500">
+                <img src={support} className="h-16 p-2" alt="support" />
+              </div>
+              {/* Text below the icon */}
+              <p className="mt-3 text-start text-orange-500 font-bold">
+                Around-the-Clock Care!
+              </p>
+            </div>
+            <a
+              href="https://wa.me/442037805023" // Replace with your WhatsApp link
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center w-60 justify-between gap-2 bg-green-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-300"
+            >
+              <FaWhatsapp className="text-xl" />
+              <span>Chat on WhatsApp</span>
+              <HiChevronRight className="text-xl" />
+            </a>
+            <div className="md:flex flex-col justify-center items-center w-56 hidden">
+              {/* Icon with circular background and border */}
+              <div className="w-24 h-24 flex items-center justify-center bg-[#304F47] rounded-full border-2 border-orange-500 mt-6">
+                <img src={support} className="h-20 p-2" alt="support" />
+              </div>
+              {/* Text below the icon */}
+              <p className="mt-3 text-orange-500 font-bold">
+                Around-the-Clock Care!
+              </p>
+            </div>
           </div>
         </div>
       </div>
