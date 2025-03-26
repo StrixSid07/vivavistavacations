@@ -105,7 +105,7 @@ const TravelPackages = () => {
             >
               <FaArrowLeft />
             </button>
-            <h2 className="absolute text-2xl md:text-5xl font-bold text-white px-3 py-1 rounded-md">
+            <h2 className="absolute text-2xl md:text-3xl font-bold text-white px-3 py-1 rounded-md">
               {destination.country}
             </h2>
             <button
