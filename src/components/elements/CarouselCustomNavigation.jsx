@@ -56,7 +56,7 @@ export function CarouselCustomNavigation() {
             alt={`Slide ${index + 1}`}
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 flex flex-col items-start justify-center bg-black/40">
+          <div className="absolute inset-0 flex flex-col items-start justify-center bg-gradient-to-r from-black/90 to-black/5 ">
             <h2 className="text-white text-2xl md:text-6xl md:ml-32 ml-4 md:max-w-5xl max-w-xl font-bold text-left">
               {slide.text}
             </h2>
