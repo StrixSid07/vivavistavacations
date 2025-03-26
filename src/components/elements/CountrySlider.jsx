@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
 const destinations = [
   {
@@ -100,19 +100,19 @@ const TravelPackages = () => {
             ></div>
 
             <button
-              className="absolute left-4 bg-white p-3 rounded-full text-black shadow-lg hover:scale-110 transition-transform"
+              className="absolute left-4 text-white rounded-full hover:scale-110 transition-transform"
               onClick={() => scrollLeft(index)}
             >
-              <FaArrowLeft />
+              <IoIosArrowDropleft size={48} />
             </button>
             <h2 className="absolute text-2xl md:text-3xl font-bold text-white px-3 py-1 rounded-md">
               {destination.country}
             </h2>
             <button
-              className="absolute right-4 bg-white p-3 rounded-full text-black shadow-lg hover:scale-110 transition-transform"
+              className="absolute right-4 text-white rounded-full hover:scale-110 transition-transform"
               onClick={() => scrollRight(index)}
             >
-              <FaArrowRight />
+              <IoIosArrowDropright size={48} />
             </button>
           </div>
 
