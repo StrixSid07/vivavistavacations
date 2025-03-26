@@ -62,7 +62,7 @@ const Looking = () => {
     <div className="relative h-auto bg-gradient-to-t from-teal-900 to-teal-300 rounded-t-2xl -mt-3 pb-4 md:pb-12 lg:pb-16 border-t-2 border-white z-10">
       <div className="absolute top-0 left-0 w-full">
         <div className="flex justify-center items-center -mt-8 -mb-4">
-          <div className="p-4 flex-wrap flex justify-center md:w-full w-80 items-center border-t-2 border-white text-center bg-black text-white font-bold text-2xl md:text-3xl rounded-xl shadow-[0_4px_10px_rgba(255,255,255,0.5)]">
+          <div className="p-4 flex-wrap flex justify-center md:w-1/2 w-80 items-center border-t-2 border-white text-center bg-black text-white font-bold text-2xl md:text-3xl rounded-xl shadow-[0_4px_10px_rgba(255,255,255,0.5)]">
             Why You Are Travel With Viva Vista
           </div>
         </div>

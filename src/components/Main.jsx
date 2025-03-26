@@ -47,7 +47,7 @@ const Main = () => {
 
   return (
     <Router>
-      <div>
+      <div className=" overflow-x-hidden">
         {/* <div
           className={`z-50 top-0 transition-transform duration-0 ease-out ${
             hideExtraNavbar ? "-translate-y-full duration-300" : ""
