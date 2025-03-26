@@ -39,7 +39,7 @@ const Footer = () => {
   }, [pathname]);
 
   return (
-    <footer className="bg-[#0b1121] text-white py-10 px-5 md:px-10 lg:px-20 pt-36">
+    <footer className="bg-[#0b1121] text-white py-10 px-5 md:px-10 lg:px-10 pt-36">
       <div className="max-w-full p-10 mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Column 1: About Section */}
         <div>
@@ -50,10 +50,10 @@ const Footer = () => {
           />
 
           <h2 className="text-2xl font-bold mb-5">Viva Vista Vacations</h2>
-          <p className="mb-4 w-80">
+          <p className="mb-4 flex flex-wrap">
             Discover the best travel deals with Viva Vista Vacations.
           </p>
-          <p className="mb-4 w-80">
+          <p className="mb-4 flex flex-wrap">
             Book your dream holiday with our exclusive offers.
           </p>
         </div>
@@ -79,8 +79,11 @@ const Footer = () => {
                 <FaEnvelope size={18} />
               </span>{" "}
               <span className="transition duration-700 ease-in-out hover:text-orange-600">
-                <a href="mailto:admin@vivavistavactions.co.uk">
-                  &nbsp;admin@vivavistavactions.co.uk
+                <a
+                  className="flex flex-wrap"
+                  href="mailto:admin@vivavistavactions.co.uk"
+                >
+                  admin@vivavistavactions.co.uk
                 </a>
               </span>
             </li>
