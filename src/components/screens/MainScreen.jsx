@@ -24,7 +24,7 @@ const MainScreen = () => {
         </div>
       </div>
       <div className="mt-80 md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
-        <div className="text-2xl md:text-6xl mt-10 font-bold text-center max-w-4xl">
+        <div className="text-2xl md:text-4xl mt-10 font-bold text-center max-w-4xl">
           Select Your best Package For Your Travel
         </div>
       </div>
@@ -34,7 +34,7 @@ const MainScreen = () => {
         <h3 className="text-xl md:text-2xl  text-orange-600 mb-6 font-medium">
           Popular Destinations
         </h3>
-        <h2 className="text-3xl md:text-6xl max-w-3xl text-center font-semibold mb-6">
+        <h2 className="text-3xl md:text-4xl max-w-3xl text-center font-semibold mb-6">
           Select Our Best Popular Destinations
         </h2>
         <CountrySlider />

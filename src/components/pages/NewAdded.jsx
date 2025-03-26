@@ -253,8 +253,8 @@ const NewAdded = () => {
 
   // Determine the chunk size based on the screen width
   const getChunkSize = () => {
-    if (window.innerWidth >= 1024) return 3; // Large screens: 3 cards
-    if (window.innerWidth >= 768) return 2; // Tablet screens: 2 cards
+    if (window.innerWidth >= 1024) return 4; // Large screens: 3 cards
+    if (window.innerWidth >= 768) return 3; // Tablet screens: 2 cards
     return 1; // Mobile screens: 1 card
   };
 
