@@ -19,11 +19,11 @@ const MainScreen = () => {
         <Home />
 
         {/* Recent Projects section overlapping the Home component */}
-        <div className="absolute md:bottom-0 left-0 w-full z-10 flex justify-center items-center md:bg-white font-body text-md text-white py-2">
+        <div className="absolute md:bottom-0 left-0 w-full z-10 flex justify-center items-center md:bg-white font-body text-md text-white py-2 md:p-4">
           <SearchBar />
         </div>
       </div>
-      <div className="mt-80 md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
+      <div className="mt-[500px] md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
         <div className="text-2xl md:text-4xl mt-10 font-bold text-center max-w-4xl">
           Select Your best Package For Your Travel
         </div>
