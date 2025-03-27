@@ -111,14 +111,14 @@ const AutoSlider = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 md:left-6 transform -translate-y-1/2 bg-white text-gray-800 p-3 md:p-4 rounded-full shadow-xl hover:bg-gray-200 transition"
+        className="absolute hidden md:flex top-1/2 left-4 md:left-6 transform -translate-y-1/2 bg-white text-gray-800 p-3 md:p-4 rounded-full shadow-xl hover:bg-gray-200 transition"
       >
         <FaArrowLeft size={24} />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 md:right-6 transform -translate-y-1/2 bg-white text-gray-800 p-3 md:p-4 rounded-full shadow-xl hover:bg-gray-200 transition"
+        className="absolute hidden md:flex top-1/2 right-4 md:right-6 transform -translate-y-1/2 bg-white text-gray-800 p-3 md:p-4 rounded-full shadow-xl hover:bg-gray-200 transition"
       >
         <FaArrowRight size={24} />
       </button>

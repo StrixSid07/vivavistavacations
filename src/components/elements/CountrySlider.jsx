@@ -143,10 +143,10 @@ const TravelPackages = () => {
     const screenWidth = window.innerWidth;
 
     if (screenWidth >= 1200) {
-      setVisibleCards(2);
+      setVisibleCards(1);
       setCardWidth(320);
     } else if (screenWidth >= 900) {
-      setVisibleCards(2);
+      setVisibleCards(1);
       setCardWidth(320);
     } else {
       setVisibleCards(1);

@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 
 const SearchBar = () => {
   return (
-    <div className="relative bg-[#304F47]/95 px-8 md:px-32 py-6 md:py-10 rounded-xl md:max-w-7xl w-[300px] md:w-auto mx-auto -mt-16 shadow-lg">
+    <div className="relative bg-[#304F47]/95 px-8 md:px-24 py-6 md:py-10 rounded-xl md:max-w-7xl w-[300px] md:w-full mx-auto -mt-16 shadow-lg">
       <div className="flex md:flex-row flex-col justify-center items-center gap-4 md:gap-4">
         {/* Departure Airport */}
         <div className="flex flex-col w-full md:w-48">
