@@ -24,14 +24,19 @@ const currentYear = new Date().getFullYear();
 
 const Footer = () => {
   const navInfos = [
-    { name: "Contact Us", href: "/" },
     { name: "About Us", href: "/AboutUs" },
     { name: "FAQ's", href: "/faq" },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms & Conditions", href: "/termsandcondition" },
     { name: "Cookies", href: "/cookies" },
     { name: "Services", href: "/" },
+  ];
+
+  const quickLinks = [
+    { name: "Contact Us", href: "/" },
+    { name: "Cookies", href: "/cookies" },
     { name: "Group Booking", href: "/" },
+    { name: "Blog", href: "/" },
   ];
 
   // Scroll to top on route change
@@ -42,8 +47,8 @@ const Footer = () => {
   }, [pathname]);
 
   return (
-    <footer className="bg-[#0b1121] text-white py-10 px-5 md:px-10 lg:px-10 pt-36">
-      <div className="max-w-full p-10 mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+    <footer className="bg-[#0b1121] text-white py-10 px-5 md:px-10 md:pt-28 lg:px-10 pt-20">
+      <div className="max-w-full p-10 mx-auto grid grid-cols-1 md:grid-cols-5 gap-6">
         {/* Column 1: About Section */}
         <div>
           <img
@@ -78,13 +83,12 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-2">
               <span className="font-bold text-orange-600">
-                {" "}
                 <FaEnvelope size={18} />
-              </span>{" "}
+              </span>
               <span className="transition duration-700 ease-in-out hover:text-orange-600">
                 <a
-                  className="flex flex-wrap"
                   href="mailto:admin@vivavistavactions.co.uk"
+                  className="block w-44 overflow-hidden text-ellipsis whitespace-nowrap"
                 >
                   admin@vivavistavactions.co.uk
                 </a>
@@ -107,8 +111,10 @@ const Footer = () => {
               </div>
             </li>
           </ul>
-          <h2 className="text-2xl font-bold mb-4 mt-5">Follow Us:</h2>
-          <div className="flex mt-4 space-x-4">
+          <h2 className="text-2xl font-bold mb-4 mt-5 md:flex hidden">
+            Follow Us:
+          </h2>
+          <div className="md:flex mt-4 space-x-4 hidden">
             <div className=" flex flex-col justify-center items-center space-y-2 group">
               <a
                 href="#"
@@ -144,9 +150,25 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Column 3: Support Links */}
-        <div>
-          <h2 className="text-2xl font-bold mb-5">Support</h2>
+        {/* Column 3: Quick Links */}
+        <div className="hidden md:flex flex-col">
+          <h2 className="text-2xl font-bold mb-5 hidden md:flex flex-row">
+            Quick Links
+          </h2>
+          <ul className="space-y-4">
+            {quickLinks.map((item, index) => (
+              <li key={index}>
+                <Link to={item.href} className="hover:text-orange-600">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 4: Information Links */}
+        <div className="hidden md:flex flex-col">
+          <h2 className="text-2xl font-bold mb-5">Information</h2>
           <ul className="space-y-4">
             {navInfos.map((item, index) => (
               <li key={index}>
@@ -158,7 +180,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 4: We Accepts */}
+        {/* Column 5: We Accepts */}
         <div>
           <h2 className="text-2xl font-bold mb-5">We Accept:</h2>
           <div className="grid md:grid-cols-3 grid-cols-5 gap-1 md:max-w-60 max-w-80">
@@ -173,6 +195,7 @@ const Footer = () => {
               )
             )}
           </div>
+
           <div className="flex md:flex-col flex-row items-start justify-center text-center mt-6">
             <div className="md:hidden">
               {/* Icon with circular background and border */}
@@ -208,10 +231,44 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-gray-700 mt-10 pt-5 text-center">
+      <div className="border-t border-gray-700 pt-1 text-center">
+        <div className="flex mt-4 justify-center items-center space-x-8 md:hidden">
+          <div className=" flex flex-col justify-center items-center space-y-2 group">
+            <a
+              href="#"
+              className="transition-all ease-out duration-500 group-hover:text-blue-900"
+            >
+              <FaFacebookF size={24} />
+            </a>
+          </div>
+          <div className=" flex flex-col justify-center items-center space-y-2 group mt-2">
+            <a
+              href="#"
+              className="transition-all ease-out duration-500 group-hover:text-pink-500"
+            >
+              <FaInstagram size={24} />
+            </a>
+          </div>
+          <div className=" flex flex-col justify-center items-center space-y-2 group mt-2">
+            <a
+              href="#"
+              className="transition-all ease-out duration-500 group-hover:text-blue-500"
+            >
+              <FaTwitter size={24} />
+            </a>
+          </div>
+          <div className=" flex flex-col justify-center items-center space-y-2 group mt-2">
+            <a
+              href="#"
+              className="transition-all ease-out duration-500 group-hover:text-green-700"
+            >
+              <FaWhatsapp size={24} />
+            </a>
+          </div>
+        </div>
         <div
           variant="small"
-          className="-mb-1 mt-3 text-center font-normal text-white md:mb-0"
+          className="-mb-1 mt-3 pt-2 text-center font-normal text-white md:mb-0"
         >
           &copy; {currentYear}{" "}
           <span className="text-orange-600 transition duration-700 hover:text-orange-400">

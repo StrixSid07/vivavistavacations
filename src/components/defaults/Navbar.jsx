@@ -59,6 +59,41 @@ const Navbar = () => {
     },
   ];
 
+  const navItemsForMobile = [
+    { name: "Home", href: "/" },
+    { name: "Holidays", href: "/home" },
+    {
+      name: "Hot Bargains",
+      href: "#",
+      dropdown: [
+        { name: "Top Deals", href: "/topdeals" },
+        { name: "Beach Holidays", href: "/beachholidays" },
+        { name: "City Breaks", href: "/citybreakes" },
+        { name: "Luxury Holidays", href: "/luxaryholidays" },
+      ],
+    },
+    {
+      name: "Destinations",
+      href: "#",
+      dropdown: [
+        { name: "Europe", href: "/europe" },
+        { name: "Asia", href: "/asia" },
+        { name: "Caribbean", href: "/caribbean" },
+        { name: "Middle East", href: "/middleeast" },
+      ],
+    },
+    { name: "About Us", href: "/AboutUs" },
+    { name: "FAQ's", href: "/faq" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms & Conditions", href: "/termsandcondition" },
+    { name: "Cookies", href: "/cookies" },
+    { name: "Services", href: "/" },
+    { name: "Contact Us", href: "/" },
+    { name: "Cookies", href: "/cookies" },
+    { name: "Group Booking", href: "/" },
+    { name: "Blog", href: "/" },
+  ];
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [dropdownStates, setDropdownStates] = useState({});
   const isMobileOrTablet = useMediaQuery({ query: "(max-width: 1024px)" });
@@ -142,90 +177,101 @@ const Navbar = () => {
           </div>
           <motion.div
             ref={sidebarRef}
-            className={`fixed top-9 left-0 h-full w-3/4 ${navbarStyles.backgroundColor} z-50 p-4`}
+            className={`fixed top-9 left-0 h-full w-3/5 ${navbarStyles.backgroundColor} z-50 p-4`}
             initial="hidden"
             animate={isSidebarOpen ? "visible" : "hidden"}
             variants={sidebarVariants}
           >
-            <img src={logo} alt="VivaVistaFe" className="h-12 select-none" />
-            <motion.ul
-              className={`${navbarStyles.headerTextColor} mt-10 space-y-4`}
+            {/* Fixed Logo */}
+            <div className="sticky top-0 z-50 bg-white">
+              <img src={logo} alt="VivaVistaFe" className="h-16 select-none" />
+              <hr className="w-full border-[0.1px] border-gray-900 mt-4" />
+            </div>
+            <div
+              className="overflow-y-auto -mt-8"
+              style={{ maxHeight: "calc(100% - 5rem)" }}
             >
-              {navItems.map((item, index) => (
-                <motion.li
-                  key={index}
-                  className="relative"
-                  variants={itemVariants}
-                >
-                  {item.dropdown ? (
-                    <div
-                      className="relative"
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={(e) => handleMouseLeave(index, e)}
-                    >
-                      <button
-                        className={`flex justify-between items-center gap-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
-                          isDropdownActive(item.dropdown)
+              <motion.ul
+                className={`${navbarStyles.headerTextColor} mt-10 space-y-4`}
+              >
+                {navItemsForMobile.map((item, index) => (
+                  <motion.li
+                    key={index}
+                    className="relative"
+                    variants={itemVariants}
+                  >
+                    {item.dropdown ? (
+                      <div
+                        className="relative"
+                        onMouseEnter={() => handleMouseEnter(index)}
+                        onMouseLeave={(e) => handleMouseLeave(index, e)}
+                      >
+                        <button
+                          className={`flex justify-between items-center gap-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
+                            isDropdownActive(item.dropdown)
+                              ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
+                              : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
+                          }`}
+                        >
+                          {item.name}
+                          <motion.div
+                            animate={{
+                              rotate: dropdownStates[index] ? 180 : 0,
+                            }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="ml-2"
+                          >
+                            <FaChevronDown />
+                          </motion.div>
+                        </button>
+                        {dropdownStates[index] && (
+                          <motion.ul
+                            className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-auto p-4 z-50"
+                            initial="hidden"
+                            animate="visible"
+                            variants={sidebarVariants}
+                          >
+                            {item.dropdown.map((subItem, subIndex) => (
+                              <motion.li key={subIndex} variants={itemVariants}>
+                                <Link
+                                  to={subItem.href}
+                                  className={`block px-4 py-2 rounded-md transition-all duration-500 ease-in-out ${
+                                    location.pathname === subItem.href
+                                      ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
+                                      : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
+                                  }`}
+                                  onClick={() => {
+                                    closeAllDropdowns();
+                                    toggleSidebar();
+                                  }}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              </motion.li>
+                            ))}
+                          </motion.ul>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className={`block px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
+                          location.pathname === item.href
                             ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
                             : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
                         }`}
+                        onClick={() => {
+                          closeAllDropdowns();
+                          toggleSidebar();
+                        }}
                       >
                         {item.name}
-                        <motion.div
-                          animate={{ rotate: dropdownStates[index] ? 180 : 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="ml-2"
-                        >
-                          <FaChevronDown />
-                        </motion.div>
-                      </button>
-                      {dropdownStates[index] && (
-                        <motion.ul
-                          className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-auto p-4 z-50"
-                          initial="hidden"
-                          animate="visible"
-                          variants={sidebarVariants}
-                        >
-                          {item.dropdown.map((subItem, subIndex) => (
-                            <motion.li key={subIndex} variants={itemVariants}>
-                              <Link
-                                to={subItem.href}
-                                className={`block px-4 py-2 rounded-md transition-all duration-500 ease-in-out ${
-                                  location.pathname === subItem.href
-                                    ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                                    : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
-                                }`}
-                                onClick={() => {
-                                  closeAllDropdowns();
-                                  toggleSidebar();
-                                }}
-                              >
-                                {subItem.name}
-                              </Link>
-                            </motion.li>
-                          ))}
-                        </motion.ul>
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      to={item.href}
-                      className={`block px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
-                        location.pathname === item.href
-                          ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                          : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
-                      }`}
-                      onClick={() => {
-                        closeAllDropdowns();
-                        toggleSidebar();
-                      }}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </motion.li>
-              ))}
-            </motion.ul>
+                      </Link>
+                    )}
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </div>
           </motion.div>
         </nav>
       ) : (

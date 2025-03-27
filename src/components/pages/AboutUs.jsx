@@ -21,24 +21,39 @@ const AboutUs = () => {
         </div>
       </section>
 
+      {/* Welcome Section */}
+      <section className="bg-gray-100 py-12 text-center px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#304F47]">
+            Welcome to Viva Vista Vacations!
+          </h2>
+          <p className="text-lg text-gray-700 mt-4">
+            Where every journey is a vibrant masterpiece.
+          </p>
+          <p className="text-lg text-gray-700 mt-4">
+            At Viva Vista Vacations, we believe that travel should be an
+            enriching and inspiring experience, not just a checklist of sights.
+            We're passionate about crafting unique and unforgettable journeys
+            that cater to your individual desires and inspire you to truly live,
+            explore, and connect.
+          </p>
+        </div>
+      </section>
+
       {/* About Section */}
       <section className="about bg-[#304F47] text-white py-12">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-4 text-center">
-            About Viva Vista Vacation
+            Viva Vista: A Philosophy Beyond Travel
           </h2>
           <p className="text-lg text-gray-300 mb-4">
-            Viva Vista Vacation LTD is a well-established, independent travel
-            agency committed to creating unforgettable travel experiences
-            tailored to your preferences. With over 15 years of experience, we
-            specialize in crafting the perfect holiday packages, ensuring
-            seamless and extraordinary travel experiences.
+            <strong>Viva:</strong> We encourage you to embrace life with
+            passion, to live fully and experience the world with open arms.
           </p>
-          <p className="text-lg text-gray-300 mb-6 text-center">
-            <strong>Company Number:</strong> 16227067
-            <br />
-            <strong>Registered Office Address:</strong> 01, 195-197 Wood Street,
-            London, England, E17 3NU
+          <p className="text-lg text-gray-300 mb-4">
+            <strong>Vista:</strong> We believe in showcasing the world's hidden
+            gems, breathtaking landscapes, and captivating stories that lie
+            beyond the well-trodden paths.
           </p>
         </div>
       </section>
@@ -52,31 +67,35 @@ const AboutUs = () => {
                 <GiTakeMyMoney />
               </div>
               <h3 className="text-xl font-semibold mb-2">
-                Financial Protection
+                Curated Experiences
               </h3>
               <p className="text-center text-gray-600">
-                Book with confidence knowing we are PTS members and all holidays
-                are ATOL protected.
+                We go beyond the ordinary, handpicking authentic experiences
+                that immerse you in local culture and breathtaking landscapes.
               </p>
             </div>
             <div className="feature flex flex-col items-center p-6 bg-white shadow-lg rounded-xl">
               <div className="text-5xl text-deep-orange-600 mb-4">
                 <FaTag />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Price Match</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                Personalized Service
+              </h3>
               <p className="text-center text-gray-600">
-                We pride ourselves on our customer service and high level of
-                repeat business.
+                We listen to your dreams and tailor your vacation to your
+                specific interests, budget, and travel style.
               </p>
             </div>
             <div className="feature flex flex-col items-center p-6 bg-white shadow-lg rounded-xl">
               <div className="text-5xl text-deep-orange-600 mb-4">
                 <FaHeadset />
               </div>
-              <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                Unwavering Commitment
+              </h3>
               <p className="text-center text-gray-600">
-                We provide round-the-clock customer service to assist you
-                anytime.
+                From consultation to farewell, our dedicated team ensures a
+                seamless and stress-free experience.
               </p>
             </div>
             <div className="feature flex flex-col items-center p-6 bg-white shadow-lg rounded-xl">
@@ -93,30 +112,21 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Why Choose Section */}
+      {/* Ready to Explore Section */}
       <section className="why-choose bg-[#304F47] text-white py-12">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-6 text-center">
-            Why Choose Viva Vista Vacations?
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-6">
+            Ready to Embark on Your Next Adventure?
           </h2>
-          <ul className="text-lg space-y-4 max-w-3xl mx-auto">
-            <li>
-              ✔ <strong>Tailor-Made Travel Experiences:</strong> Customized
-              holidays that suit your needs.
-            </li>
-            <li>
-              ✔ <strong>Best Value & Competitive Prices:</strong> Affordable
-              deals without compromising quality.
-            </li>
-            <li>
-              ✔ <strong>Worldwide Travel Solutions:</strong> From hotels and
-              flights to adventure packages and tours.
-            </li>
-            <li>
-              ✔ <strong>Trusted Service & Expertise:</strong> A professional
-              team ensuring seamless travel experiences.
-            </li>
-          </ul>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            Explore our website to discover a world of possibilities, from
+            breathtaking island escapes to exhilarating city adventures. Let
+            Viva Vista Vacations be your guide to crafting the perfect journey,
+            one that leaves you with memories that will last a lifetime.
+          </p>
+          <button className="mt-6 px-6 py-3 bg-white text-[#304F47] font-bold rounded-lg shadow-lg hover:bg-gray-200">
+            Start Planning Now
+          </button>
         </div>
       </section>
     </div>
