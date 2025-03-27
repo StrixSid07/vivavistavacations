@@ -113,7 +113,7 @@ const TermsAndConditions = () => {
             {/* Main Title */}
             <button
               onClick={() => toggleAccordion(mainIndex)}
-              className="w-full flex justify-between items-center py-4 text-2xl font-bold text-gray-900 focus:outline-none"
+              className="w-full flex justify-between text-left items-center py-4 text-2xl font-semibold text-gray-900 focus:outline-none"
             >
               <span>{section.mainTitle}</span>
               <FaChevronDown
@@ -139,7 +139,7 @@ const TermsAndConditions = () => {
                 >
                   {/* Render title only if it exists */}
                   {subSection.title && (
-                    <h2 className="text-xl font-bold mb-2 text-gray-800">
+                    <h2 className="text-xl font-semibold mb-2 text-gray-800">
                       {subSection.title}
                     </h2>
                   )}

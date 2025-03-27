@@ -1,3 +1,5 @@
+import { link } from "framer-motion/client";
+
 const tandc = [
   {
     mainTitle: "1. Application of These Booking Conditions",
@@ -950,7 +952,7 @@ const tandc = [
           },
           {
             paragraph:
-              "For pregnant travelers, airlines typically require a doctor’s certificate confirming fitness to travel from 28 weeks onward, with stricter requirements often starting at 32 weeks.",
+              "For pregnant travelers, airlines typically require a doctor's certificate confirming fitness to travel from 28 weeks onward, with stricter requirements often starting at 32 weeks.",
           },
           {
             paragraph:
@@ -991,6 +993,360 @@ const tandc = [
           {
             paragraph:
               "During your trip, you are required to cooperate fully with all safety procedures and instructions provided by any organization facilitating activities. Some activities may also require you to sign a waiver before participation.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    mainTitle: "14. Complaints",
+    data: [
+      {
+        title: "14.1 Reporting a Problem During Your Holiday",
+        content: [
+          {
+            paragraph:
+              "If you experience any issues during your holiday, please inform the relevant supplier immediately (e.g., hotel management or the local contact listed on your voucher). They will make every effort to resolve the matter as soon as possible.",
+          },
+          {
+            paragraph:
+              "If the issue is not resolved to your satisfaction, please contact our Customer Service Team via email or phone within 14 days of the end of your holiday. We will liaise with the supplier on your behalf to seek a resolution. Complaints sent via fax or submitted beyond the 14-day period will not be accepted. To help us address your concern efficiently, please keep your complaint concise and to the point.",
+          },
+        ],
+      },
+      {
+        title: "14.2 Liability for Supplier Negligence",
+        content: [
+          {
+            paragraph:
+              "If your complaint concerns the negligence of our suppliers, subcontractors, or agents (rather than Viva Vista Vacations or our employees), we cannot accept liability unless you report the issue during the trip and follow the procedure outlined above.",
+          },
+        ],
+      },
+      {
+        title: "14.3 Complaint Resolution Process",
+        content: [
+          {
+            paragraph:
+              "We aim to respond within 30 days, though this may take longer if an investigation is required or if we are awaiting responses from suppliers. Any legal dispute related to your holiday contract must be handled solely by the courts of England and Wales, which will have exclusive jurisdiction over such claims.",
+          },
+        ],
+      },
+      {
+        title: "14.4 Early Departure from Accommodation",
+        content: [
+          {
+            paragraph:
+              "If you choose to leave your accommodation before the booked duration, you will not be eligible for a refund for the unused nights. If you are dissatisfied with your accommodation, contact our local representative immediately. They will attempt to resolve the issue on-site. If the matter cannot be resolved locally, please reach out to our Customer Service Team via email or phone, and we will try to arrange alternative accommodation if possible. Complaints regarding accommodation cannot be considered upon your return unless they were reported during your stay.",
+          },
+        ],
+      },
+      {
+        title: "14.5 Following the Correct Complaint Procedure",
+        content: [
+          {
+            paragraph:
+              "Failure to report an issue while on holiday may limit our ability to investigate and rectify the situation, affecting your rights under this contract.",
+          },
+        ],
+      },
+      {
+        title: "14.6 Alternative Dispute Resolution",
+        content: [
+          {
+            paragraph:
+              "If a complaint cannot be resolved and it involves us, you may choose to use the",
+            linktitle:
+              "European Commission's Online Dispute Resolution Platform at",
+            links: " http://ec.europa.eu/odr.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    mainTitle: "15. Passport, Visa & Health Requirements",
+    data: [
+      {
+        title: "",
+        content: [
+          {
+            paragraph:
+              "• It is essential to allow sufficient time to apply for a passport. Please check with the relevant embassy for recommended processing times. As a general guideline, obtaining a full British passport currently takes approximately 4-6 weeks. Additionally, travelers should verify vaccination and health requirements, including COVID-19 vaccination and diagnostic testing guidelines.",
+          },
+          {
+            paragraph:
+              "• During peak periods, an additional fee may apply for visa processing beyond the stated charges. It is your responsibility to ensure you possess all necessary travel documents before departure. If a traveler is unable to secure a visa or travel due to incomplete documentation or missed appointments after booking and confirming the tour, the cancellation policy outlined in these terms and conditions will apply.",
+          },
+          {
+            paragraph:
+              "• For the latest travel advice, visit the Foreign, Commonwealth & Development Office (FCDO) website. British passport holders, as well as other EU nationals, should obtain up-to-date passport and visa requirements from the Embassy, High Commission, or Consulate of their destination or transit countries.",
+          },
+          {
+            paragraph:
+              "• Health-related travel information is available in the Department of Health's leaflet T6 (Health Advice for Travelers), which can be obtained from local health offices and most post offices. If traveling within Europe, ensure you have a valid European Health Insurance Card (EHIC). More details on the EHIC can be found at below link or your local health department office.",
+            linktitle: "Cookies on GOV.UK",
+            links: "www.dh.gov.uk",
+          },
+          {
+            paragraph:
+              "• We do not accept liability if you are unable to travel or experience losses due to non-compliance with passport, visa, immigration, or health formalities. Any fines or additional costs incurred by us due to your failure to meet these requirements must be reimbursed by you.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    mainTitle: "16. Force Majeure",
+    data: [
+      {
+        title: "",
+        content: [
+          {
+            paragraph:
+              "Unless explicitly stated otherwise in these Booking Conditions, we will not be held liable, nor are we obligated to provide refunds, price reductions, or compensation of any kind if our contractual obligations to you are disrupted or prevented due to unavoidable and extraordinary circumstances ('Force Majeure'). These events are beyond our control and could not have been avoided even with all reasonable precautions.",
+          },
+          {
+            paragraph: "Force Majeure events include, but are not limited to:",
+            sublist: [
+              "• War, acts of terrorism (or credible threats), civil unrest, or riots.",
+              "• Serious threats to human health, such as outbreaks of infectious diseases, pandemics, or epidemics, including variations of COVID-19 or SARS-COV2, or governmental actions, quarantine measures, or travel restrictions associated with such outbreaks.",
+              "• Natural disasters, including floods, earthquakes, hurricanes, tornadoes, or severe weather conditions.",
+              "• Government actions, including travel bans, border closures, movement restrictions, or directives from national, regional, or local authorities, including airspace, river, or port closures.",
+              "• Industrial disputes, strikes, lockouts, nuclear incidents, fires, chemical or biological disasters, or unavoidable technical failures with transport, as well as any other similar events beyond our or our supplier(s)’ control.",
+            ],
+          },
+          {
+            paragraph:
+              "In the event of a Force Majeure situation, we reserve the right to issue a credit note instead of a cash refund. The credit note will:",
+            sublist: [
+              "• Remain valid for 24 months from the date of issuance.",
+              "• Be non-transferable, unless otherwise agreed upon by us.",
+              "• Be applicable only for future bookings with Viva Vista Vacations and not redeemable for cash.",
+            ],
+          },
+          {
+            paragraph: "By accepting a credit note, you acknowledge that:",
+            sublist: [
+              "• You waive any right to seek further compensation, refunds, or chargebacks, whether directly or through third parties such as your credit card provider or payment processor, for the affected booking.",
+              "• The issuance of a credit note fully satisfies our liability regarding the impacted booking.",
+            ],
+          },
+          {
+            paragraph:
+              "Where a credit note is not a viable solution, we may offer alternative arrangements, which will be considered case by case based on the nature of the Force Majeure event. However, no cash refunds will be provided unless legally required.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    mainTitle: "17. Special Requests",
+    data: [
+      {
+        title: "",
+        content: [
+          {
+            paragraph:
+              "If you have any special requests (e.g., dietary requirements, room location preferences, specific hotel facilities, etc.), you must inform us at the time of booking. While we will make every effort to pass your request on to the relevant supplier, we cannot guarantee that it will be fulfilled, and we accept no liability if it is not met.",
+          },
+          {
+            paragraph:
+              "If you request written confirmation that your special request has been noted or forwarded to the supplier, or if you ask for it to be included in your confirmation invoice or other documentation, please be aware that this does not guarantee that the request will be fulfilled.",
+          },
+          {
+            paragraph:
+              "Failure to accommodate a special request will not constitute a breach of contract unless we have explicitly confirmed in writing that the request will be honored.",
+          },
+          {
+            paragraph:
+              "Please note that we do not accept bookings that are conditional upon special requests being met.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    mainTitle: "18. Medical Conditions & Disabilities",
+    data: [
+      {
+        title: "",
+        content: [
+          {
+            paragraph:
+              "If you or any member of your group has a medical condition or disability that may impact your booking or requires special arrangements, please inform us before making your reservation. This allows us to assess whether we can meet your specific needs.",
+          },
+          {
+            paragraph:
+              "You must provide full details in writing at the time of booking, as well as notify us of any changes in the condition or disability should they occur. We may request a doctor’s certificate confirming that you are fit to travel. Additionally, if any medical issue or disability arises after your booking is confirmed, you must notify us immediately.",
+          },
+          {
+            paragraph:
+              "If we determine that we are unable to reasonably accommodate specific medical or accessibility requirements, we reserve the right to decline the booking or, in cases where full disclosure was not made at the time of booking or the condition changes after confirmation, to cancel the reservation upon becoming aware of the circumstances.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    mainTitle: "19. COVID-19 Information Update",
+    data: [
+      {
+        title: "",
+        content: [
+          {
+            paragraph:
+              "Please be advised that due to the ongoing COVID-19 pandemic, our accommodation and cruise suppliers may need to enforce certain policies and procedures to help prevent the spread of the virus. These measures are implemented for guest safety and may result in some facilities or services being restricted, altered, or unavailable—especially during peak periods.",
+          },
+          {
+            paragraph:
+              "Wherever possible, we will inform you of any such changes or restrictions as soon as we become aware of them. However, please note that any modifications to available facilities due to COVID-19 will not be considered a 'significant change' to your booking.",
+          },
+          {
+            paragraph:
+              "Additionally, any PCR tests or other travel requirements necessary for entry into your destination country must be arranged by the traveler within the required timeframe and at their own expense. If, during your trip, you develop COVID-19 symptoms, any modifications to your travel plans—such as extended stays, hotel or flight changes—will be your financial responsibility and should be claimed through your travel insurance.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    mainTitle: "20. Flights",
+    data: [
+      {
+        title: "",
+        content: [
+          {
+            paragraph:
+              "In accordance with EU regulations, we are required to inform you of the airline carrier(s) operating your flight(s) at the time of booking. If the actual carrier is unknown at the time of booking, we will provide details of the most likely carrier and update you with the confirmed information as soon as it becomes available. Should there be any changes to the carrier after your booking has been confirmed, we will notify you at the earliest opportunity.",
+          },
+          {
+            paragraph:
+              "At the time of booking, we may not always be able to confirm aircraft type and exact flight timings. The flight details provided on our website, brochures, and your confirmation invoice are for guidance only and are subject to change. Your final flight details will be stated on your tickets, which must be reviewed carefully upon receipt. Please be aware that flight times may still change after ticket issuance. In such cases, we will notify you as soon as possible, but we strongly recommend checking your flight schedule directly with the airline at least 24 hours before departure and reconfirming return flight details during your trip.",
+          },
+          {
+            paragraph:
+              "Changes to the airline carrier, flight schedule, or aircraft type do not provide an automatic right to cancel or modify your booking without incurring our standard charges, except where specified in our terms and conditions. If your confirmed airline is banned from operating, making it impossible for us or the carrier to provide a suitable alternative, the terms outlined in Clause 8 (Changes and Cancellations by Us) will apply.",
+          },
+          {
+            paragraph:
+              "Under EU Regulation 261/2004, if you experience denied boarding, flight cancellations, or significant delays, it is the airline's responsibility to provide assistance, including meals, refreshments, and communication services. If an overnight stay is required, the airline must also arrange accommodation and transport. These rights are publicly displayed at EU airports and should be claimed directly from the airline. We bear no liability in these situations. If you decide to claim compensation from us instead of the airline, you must fully transfer your rights to us at the time of receiving any compensation.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    mainTitle: "21. Miscellaneous",
+    data: [
+      {
+        title: "",
+        content: [
+          {
+            paragraph:
+              "At Viva Vista Vacations, traveler safety is a top priority, but global conditions can change rapidly. Unforeseen events, including governmental travel advisories, may lead to modifications in accommodations, itineraries, or even trip cancellations. Travelers must acknowledge the inherent risks of global travel and take full responsibility for their travel decisions.",
+          },
+          {
+            paragraph:
+              "We strongly recommend that all travelers obtain comprehensive travel insurance. Some destinations may require valid medical insurance for entry, and it is solely the traveler’s responsibility to ensure compliance with such requirements. Viva Vista Vacations will not be held liable for denied entry due to the failure to provide necessary insurance details or for any other reason.",
+          },
+          {
+            paragraph:
+              "In the event of billing errors, whether due to technological issues or human oversight, Viva Vista Vacations reserves the right to correct invoices to reflect the accurate charges.",
+          },
+          {
+            paragraph:
+              "While we strive to maintain the accuracy of our brochures and promotional materials, we cannot be held responsible for printing or typographical errors. Conditions at destinations, accommodations, or attractions may change, and photographs or descriptions may not always reflect current circumstances during your trip.",
+          },
+          {
+            paragraph:
+              "All bookings with service providers, including transportation, accommodations, meals, and other services, are subject to the terms, conditions, exclusions, and liability limitations imposed by those providers.",
+          },
+          {
+            paragraph:
+              "Travelers who choose not to visit a destination based on government laws, entry requirements, or personal concerns do so at their own discretion. Viva Vista Vacations, its employees, and agents are not responsible or liable for any actions, omissions, circumstances, or health-related issues affecting the traveler.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    mainTitle: "22. More Information on Cruises",
+    data: [
+      {
+        title: "Age Restrictions for Cruises",
+        content: [
+          {
+            paragraph:
+              "Certain cruise operators enforce age restrictions for boarding the cruise vessel. Additionally, age limits may apply to the consumption of alcohol on board. It is your responsibility to adhere to the specific age policies set by the cruise operator. Please verify these details with us at the time of booking.",
+          },
+        ],
+      },
+      {
+        title: "Missing the Cruise Vessel",
+        content: [
+          {
+            paragraph:
+              "You must arrive at the port at least two hours before departure or as instructed at the time of debarkation. If you miss the vessel, it is your sole responsibility to arrange travel to the next port of call at your own expense. Viva Vista Vacations is not responsible for passengers who arrive late and miss their cruise departure.",
+          },
+        ],
+      },
+      {
+        title: "Cruise Line Offers",
+        content: [
+          {
+            paragraph:
+              "Promotional offers and discounts are applicable only to selected sailings. Please check the relevant cruise line’s website through the link provided on our website for full details.",
+          },
+        ],
+      },
+      {
+        title: "Extra Services on Cruises",
+        content: [
+          {
+            paragraph:
+              "Any additional services or goods purchased during the cruise, as well as port or airport taxes and charges not included in your original booking price, must be paid separately. Services provided on board the vessel must be settled before disembarkation. Please note that certain activities, events, and dining options are subject to availability and additional charges. Some activities may also have height restrictions.",
+          },
+        ],
+      },
+      {
+        title: "Flexi Dining",
+        content: [
+          {
+            paragraph:
+              "Some cruise operators offer Flexi Dining, but this option is not guaranteed and is subject to availability. Reservations must be made once on board, and additional service charges or fees may apply.",
+          },
+        ],
+      },
+      {
+        title: "Baggage Policies",
+        content: [
+          {
+            paragraph:
+              "All guests are subject to baggage restrictions imposed by airlines, land carriers, and the cruise operator. It is your responsibility to check and comply with these restrictions before departure. Any excess baggage fees or denied items are your responsibility.",
+          },
+          {
+            paragraph:
+              "For cruises, baggage must contain only personal clothing, effects, and gifts appropriate for the trip. Each piece of luggage must be clearly labeled with your name, vessel name, cabin number, and sailing date. Contact us at the time of booking for specific baggage allowances.",
+          },
+          {
+            paragraph: "Prohibited items include:",
+            sublist: [
+              "• Firearms, explosives, flammable materials, or hazardous substances. These must be immediately surrendered to the crew upon embarkation and may be confiscated, destroyed, or handed over to authorities.",
+              "• Alcohol purchased ashore for taking home must be surrendered to the ship’s Master for safekeeping and will be returned upon disembarkation.",
+            ],
+          },
+          {
+            paragraph:
+              "The vessel’s Master or crew has the authority to enter cabins for safety, maintenance, or security purposes and to conduct baggage or personal searches if necessary. Any baggage not stored in your cabin should be placed in the vessel’s baggage room or safe, and you should obtain a receipt from the crew.",
+          },
+          {
+            paragraph:
+              "It is your responsibility to identify your baggage during transfers (e.g., at airports, hotels, or new destinations). Any property left on the vessel at the final destination may be stored or returned at your expense.",
+          },
+          {
+            paragraph:
+              "Pets, birds, livestock, or any other animals are strictly prohibited on board.",
           },
         ],
       },

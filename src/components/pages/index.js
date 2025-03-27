@@ -18,6 +18,7 @@ import ClientTestimonials from "./ClientTestimonials";
 import FaqsAccordion from "./FaqsAccordion";
 import PrivacyPolicy from "./PrivacyPolicy";
 import TermsAndConditions from "./TermsAndConditions";
+import CookiePolicy from "./CookiePolicy";
 
 export {
   Home,
@@ -39,4 +40,5 @@ export {
   FaqsAccordion,
   PrivacyPolicy,
   TermsAndConditions,
+  CookiePolicy,
 };

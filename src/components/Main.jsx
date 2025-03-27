@@ -16,6 +16,7 @@ import {
   FaqsAccordion,
   PrivacyPolicy,
   TermsAndConditions,
+  CookiePolicy,
 } from "./pages";
 import { MainScreen } from "./screens";
 import TravelFilter from "./elements/TravelFilter";
@@ -110,6 +111,7 @@ const Main = () => {
             <Route path="/faq" element={<FaqsAccordion />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/termsandcondition" element={<TermsAndConditions />} />
+            <Route path="/cookies" element={<CookiePolicy />} />
             <Route path="/Blogs" element={<Blogs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
