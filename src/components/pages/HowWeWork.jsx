@@ -11,68 +11,6 @@ const steps = [
       "Budgeting: Develop a detailed budget that includes costs for design, construction, permits, and contingencies. Ensure you have sufficient funds to cover the entire project.",
     ],
   },
-  {
-    title: "2. Site Selection and Analysis",
-    content: [
-      "Site Selection: Choose a suitable location based on project requirements, accessibility, and zoning regulations.",
-      "Site Analysis: Conduct a thorough analysis of the site, including soil testing, environmental impact assessments, and utility availability. Identify any site-specific challenges or constraints.",
-    ],
-  },
-  {
-    title: "3. Design and Planning",
-    content: [
-      "Hire Professionals: Engage architects, engineers, and other professionals to develop the project design. Their expertise will ensure that the project meets all regulatory and design standards.",
-      "Develop Design Plans: Create detailed architectural and engineering plans that include layouts, elevations, and technical specifications.",
-      "Obtain Approvals: Submit design plans to local authorities for approval. This may include obtaining development approvals, construction permits, and zoning clearances.",
-    ],
-  },
-  {
-    title: "4. Pre-Construction Preparations",
-    content: [
-      "Select Contractors: Choose qualified contractors and subcontractors through a bidding process or direct selection. Evaluate their experience, reputation, and references.",
-      "Sign Contracts: Finalize and sign contracts with contractors, ensuring that all terms, conditions, and responsibilities are clearly defined.",
-      "Plan for Logistics: Develop a construction schedule and plan for logistics, including material procurement, equipment needs, and site management.",
-    ],
-  },
-  {
-    title: "5. Construction Phase",
-    content: [
-      "Site Preparation: Clear the site, set up necessary infrastructure, and prepare the ground for construction. This may include excavation, grading, and utility installation.",
-      "Foundation Work: Construct the foundation according to design specifications. This is a critical step that ensures the stability and safety of the structure.",
-      "Structural Work: Erect the main structure, including walls, floors, and roofs. Ensure that all work complies with design plans and building codes.",
-      "Systems Installation: Install essential systems such as plumbing, electrical, and HVAC (heating, ventilation, and air conditioning). Ensure proper integration with the building’s infrastructure.",
-      "Interior and Exterior Finishing: Complete interior finishes, such as drywall, painting, flooring, and cabinetry. Address exterior finishes, including siding, roofing, and landscaping.",
-    ],
-  },
-  {
-    title: "6. Quality Control and Inspections",
-    content: [
-      "Conduct Inspections: Perform regular inspections throughout the construction process to ensure quality and adherence to design specifications. This includes inspections by local building authorities and third-party inspectors.",
-      "Quality Assurance: Implement quality control measures to address any defects or issues promptly. Ensure that all work meets the required standards and specifications.",
-    ],
-  },
-  {
-    title: "7. Completion and Handover",
-    content: [
-      "Final Inspection: Conduct a final inspection to verify that all aspects of the construction are complete and meet the required standards.",
-      "Obtain Certificates: Secure necessary certificates of occupancy, compliance, and other approvals required for the building to be legally occupied or used.",
-      "Handover: Provide the client with all relevant documentation, including warranties, manuals, and maintenance instructions. Conduct a walk-through with the client to ensure satisfaction and address any final concerns.",
-    ],
-  },
-  {
-    title: "8. Post-Construction",
-    content: [
-      "Maintenance and Support: Offer ongoing maintenance and support services as needed. Address any post-construction issues or defects promptly.",
-      "Project Evaluation: Review the project to assess its success, including budget adherence, schedule performance, and client satisfaction. Use feedback to improve future projects.",
-    ],
-  },
-  {
-    title: "9. Documentation and Closure",
-    content: [
-      "Finalize Documentation: Ensure all project documentation is complete and properly filed, including contracts, permits, inspection reports, and change orders.",
-      "Close Out Accounts: Settle any outstanding financial matters, including payments to contractors, suppliers, and other stakeholders.",
-    ],
-  },
 ];
 
 const HowWeWork = () => {

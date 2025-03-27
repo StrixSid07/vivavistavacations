@@ -13,8 +13,12 @@ import {
   HowWeWork,
   DetailedView,
   BlogDetail,
+  FaqsAccordion,
+  PrivacyPolicy,
+  TermsAndConditions,
 } from "./pages";
 import { MainScreen } from "./screens";
+import TravelFilter from "./elements/TravelFilter";
 
 const Main = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -84,29 +88,33 @@ const Main = () => {
         >
           <Navbar />
         </div>
-
-        <Routes>
-          <Route path="/" element={<MainScreen />} />
-          <Route path="/home" element={<MainScreen />} />
-          <Route path="/topdeals" element={<MainScreen />} />
-          <Route path="/beachholidays" element={<MainScreen />} />
-          <Route path="/citybreakes" element={<MainScreen />} />
-          <Route path="/luxaryholidays" element={<MainScreen />} />
-          <Route path="/europe" element={<MainScreen />} />
-          <Route path="/asia" element={<MainScreen />} />
-          <Route path="/caribbean" element={<MainScreen />} />
-          <Route path="/middleeast" element={<MainScreen />} />
-          <Route path="/Projects" element={<ForSale />} />
-          <Route path="/DetailedView" element={<DetailedView />} />
-          <Route path="/OurServices" element={<Services />} />
-          <Route path="/WhyUs" element={<WhyUs />} />
-          <Route path="/WhatWeDo" element={<WhatWeDo />} />
-          <Route path="/HowWeWork" element={<HowWeWork />} />
-          <Route path="/AboutUs" element={<AboutUs />} />
-          <Route path="/Blogs" element={<Blogs />} />
-          <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/blog/:id" element={<BlogDetail />} />
-        </Routes>
+        <div className="mt-28">
+          <Routes>
+            <Route path="/" element={<MainScreen />} />
+            <Route path="/home" element={<TravelFilter />} />
+            <Route path="/topdeals" element={<MainScreen />} />
+            <Route path="/beachholidays" element={<MainScreen />} />
+            <Route path="/citybreakes" element={<MainScreen />} />
+            <Route path="/luxaryholidays" element={<MainScreen />} />
+            <Route path="/europe" element={<MainScreen />} />
+            <Route path="/asia" element={<MainScreen />} />
+            <Route path="/caribbean" element={<MainScreen />} />
+            <Route path="/middleeast" element={<MainScreen />} />
+            <Route path="/Projects" element={<ForSale />} />
+            <Route path="/DetailedView" element={<DetailedView />} />
+            <Route path="/OurServices" element={<Services />} />
+            <Route path="/WhyUs" element={<WhyUs />} />
+            <Route path="/WhatWeDo" element={<WhatWeDo />} />
+            <Route path="/HowWeWork" element={<HowWeWork />} />
+            <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/faq" element={<FaqsAccordion />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/termsandcondition" element={<TermsAndConditions />} />
+            <Route path="/Blogs" element={<Blogs />} />
+            <Route path="/ContactUs" element={<ContactUs />} />
+            <Route path="/blog/:id" element={<BlogDetail />} />
+          </Routes>
+        </div>
         <div className="z-20 mt-20 -mb-28 flex flex-col justify-center items-center p-4 md:p-0">
           <CardOver />
         </div>

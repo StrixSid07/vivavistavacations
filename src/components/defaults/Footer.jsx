@@ -25,10 +25,12 @@ const currentYear = new Date().getFullYear();
 const Footer = () => {
   const navInfos = [
     { name: "Contact Us", href: "/" },
-    { name: "About Us", href: "/" },
+    { name: "About Us", href: "/AboutUs" },
+    { name: "FAQ's", href: "/faq" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms & Conditions", href: "/termsandcondition" },
     { name: "Services", href: "/" },
     { name: "Group Booking", href: "/" },
-    { name: "Terms & Conditions", href: "/" },
   ];
 
   // Scroll to top on route change

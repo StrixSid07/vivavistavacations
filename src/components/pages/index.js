@@ -5,15 +5,38 @@ import ForRent from "./ForRent";
 import NewProperty from "./NewProperty";
 import Blogs from "./Blogs";
 import ContactUs from "./ContactUs";
-import NewAdded from "./NewAdded"
+import NewAdded from "./NewAdded";
 import Looking from "./Looking";
 import WhyUs from "./WhyUs";
 import Services from "./Services";
 import AboutUs from "./AboutUs";
 import WhatWeDo from "./WhatWeDo";
 import HowWeWork from "./HowWeWork";
-import DetailedView from './DetailedView'
+import DetailedView from "./DetailedView";
 import BlogDetail from "./BlogDetail";
 import ClientTestimonials from "./ClientTestimonials";
+import FaqsAccordion from "./FaqsAccordion";
+import PrivacyPolicy from "./PrivacyPolicy";
+import TermsAndConditions from "./TermsAndConditions";
 
-export { Home, ForSale, ForRent, NewProperty, Blogs, ContactUs, NewAdded, Looking, WhyUs, Services, AboutUs, WhatWeDo, HowWeWork, DetailedView, BlogDetail, ClientTestimonials };
+export {
+  Home,
+  ForSale,
+  ForRent,
+  NewProperty,
+  Blogs,
+  ContactUs,
+  NewAdded,
+  Looking,
+  WhyUs,
+  Services,
+  AboutUs,
+  WhatWeDo,
+  HowWeWork,
+  DetailedView,
+  BlogDetail,
+  ClientTestimonials,
+  FaqsAccordion,
+  PrivacyPolicy,
+  TermsAndConditions,
+};
