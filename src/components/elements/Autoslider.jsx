@@ -60,9 +60,9 @@ const AutoSlider = () => {
   const getSlidePosition = (index) => {
     if (index === currentIndex) return "z-10 scale-110";
     if (index === (currentIndex - 1 + slides.length) % slides.length)
-      return "z-0 -translate-x-[35%] opacity-70";
+      return "z-0 -translate-x-[50%] opacity-70";
     if (index === (currentIndex + 1) % slides.length)
-      return "z-0 translate-x-[35%] opacity-70";
+      return "z-0 translate-x-[50%] opacity-70";
     return "hidden";
   };
 
@@ -78,24 +78,28 @@ const AutoSlider = () => {
           >
             <div
               className={`relative w-full max-w-4xl md:max-w-3xl sm:max-w-sm h-auto rounded-xl overflow-hidden shadow-xl 
-              transition-transform duration-500 
-              ${
-                index === currentIndex && focused
-                  ? "ring-4 ring-orange-500 scale-75"
-                  : ""
-              }`}
+          transition-transform duration-500 
+          ${
+            index === currentIndex && focused
+              ? "ring-4 ring-orange-500 scale-75"
+              : ""
+          }`}
               onClick={handleFocus}
             >
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-[400px] h-[350px] md:w-[800px] md:h-[500px] object-cover cursor-pointer"
+                className="w-full h-[250px] md:w-[800px] md:h-[500px] object-cover cursor-pointer" // Adjusted for mobile
               />
-              <div className="absolute inset-0 md:w-1/2 w-full bg-gradient-to-r from-black/90 to-white/5  p-4 md:p-8 flex flex-col justify-center text-white">
-                <h2 className="text-4xl md:text-3xl sm:text-2xl font-bold">
+              <div className="absolute inset-0 md:w-1/2 w-full bg-gradient-to-r from-black/90 to-white/5 p-4 md:p-8 flex flex-col justify-center text-white">
+                <h2 className="text-3xl md:text-4xl sm:text-2xl font-bold">
+                  {" "}
+                  {/* Adjusted for mobile */}
                   {slide.title}
                 </h2>
-                <p className="mt-4 text-lg w-full md:text-base sm:text-sm">
+                <p className="mt-2 text-lg w-full md:text-base sm:text-sm">
+                  {" "}
+                  {/* Adjusted for mobile */}
                   {slide.description}
                 </p>
               </div>
@@ -120,14 +124,14 @@ const AutoSlider = () => {
       </button>
 
       {/* Dots Navigation */}
-      <div className="absolute bottom-1 mt-10 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 md:gap-4 lg:gap-5">
+      <div className="absolute md:hidden bottom-0 mt-10 md:mt-20 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 md:gap-4 lg:gap-5">
         {slides.map((_, index) => (
           <div
             key={index}
             className={`${
               index === currentIndex ? "bg-orange-500 scale-110" : "bg-gray-500"
             } 
-              transition-transform cursor-pointer w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 rounded-full`}
+          transition-transform cursor-pointer w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 rounded-full`}
             onClick={() => setCurrentIndex(index)}
           />
         ))}
