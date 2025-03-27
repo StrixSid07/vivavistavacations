@@ -28,7 +28,6 @@ const Footer = () => {
     { name: "FAQ's", href: "/faq" },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms & Conditions", href: "/termsandcondition" },
-    { name: "Cookies", href: "/cookies" },
     { name: "Services", href: "/" },
   ];
 
