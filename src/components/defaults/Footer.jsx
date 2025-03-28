@@ -55,8 +55,32 @@ const Footer = () => {
             alt="Viva Vissta  Vacation"
             className="h-24 md:mb-4"
           />
+          <div className="flex justify-center items-center gap-2 md:hidden mb-4">
+            <div className="flex flex-col justify-center items-center w-56 md:hidden">
+              {/* Icon with circular background and border */}
+              <div className="w-24 h-24 flex items-center justify-center bg-[#304F47] rounded-full border-2 border-orange-500 mt-6">
+                <img src={support} className="h-20 p-2" alt="support" />
+              </div>
+              {/* Text below the icon */}
+              <p className="mt-3 text-orange-500 font-medium">
+                Around-the-Clock Care!
+              </p>
+            </div>
+            <a
+              href="https://wa.me/442037805023" // Replace with your WhatsApp link
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center w-60 justify-between mb-8 gap-2 bg-green-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-300"
+            >
+              <FaWhatsapp className="text-xl" />
+              <span>Chat on WhatsApp</span>
+              <HiChevronRight className="text-xl" />
+            </a>
+          </div>
 
-          <h2 className="text-2xl font-bold mb-5">Viva Vista Vacations</h2>
+          <h2 className="md:text-2xl text-xl md:font-bold font-medium mb-5">
+            Viva Vista Vacations
+          </h2>
           <p className="mb-4 flex flex-wrap">
             Discover the best travel deals with Viva Vista Vacations.
           </p>
@@ -178,8 +202,10 @@ const Footer = () => {
         </div>
 
         {/* Column 5: We Accepts */}
-        <div>
-          <h2 className="text-2xl font-bold mb-5">We Accept:</h2>
+        <div className="md:flex flex-col justify-center items-center hidden">
+          <h2 className="md:text-2xl text-lg font-medium md:font-bold mb-5 md:text-center">
+            We Accept:
+          </h2>
           <div className="grid md:grid-cols-3 grid-cols-5 gap-1 md:max-w-60 max-w-80">
             {[payment1, payment2, payment3, payment4, payment5].map(
               (payment, index) => (
@@ -229,6 +255,24 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-gray-700 pt-1 text-center">
+        <div className="flex flex-col justify-center items-center mb-6 md:hidden">
+          <h2 className="md:text-2xl text-lg font-medium md:font-bold mb-5 md:text-center">
+            We Accept:
+          </h2>
+          <div className="grid md:grid-cols-3 grid-cols-5 gap-1 md:max-w-60 max-w-80">
+            {[payment1, payment2, payment3, payment4, payment5].map(
+              (payment, index) => (
+                <img
+                  key={index}
+                  src={payment}
+                  alt={`Payment method ${index + 1}`}
+                  className="h-12"
+                />
+              )
+            )}
+          </div>
+        </div>
+
         <div className="flex mt-4 justify-center items-center space-x-8 md:hidden">
           <div className=" flex flex-col justify-center items-center space-y-2 group">
             <a
