@@ -52,7 +52,7 @@ const TravelPackages = ({ destinations }) => {
   };
 
   return (
-    <div className="container mx-auto space-y-16 px-4 md:px-10 py-10">
+    <div className="container mx-auto space-y-16 px-0 md:px-10 py-10">
       {destinations.map((destination, index) => (
         <div
           key={index}
@@ -77,7 +77,7 @@ const TravelPackages = ({ destinations }) => {
               className="absolute left-4 top-1/2 -translate-y-1/2 text-white rounded-full hover:scale-110 transition-transform"
               onClick={() => scrollLeft(index)}
             >
-              <IoIosArrowDropleft size={48} />
+              <IoIosArrowDropleft className="w-6 h-6 md:w-12 md:h-12" />
             </button>
             {/* <h2 className="absolute top-1/3 md:mt-10 left-1/2 md:-ml-10 -ml-16 text-2xl md:text-3xl font-bold text-white"> */}
             <h2 className="absolute inset-0 flex items-center justify-center text-lg md:text-3xl font-bold text-white text-center pointer-events-none">
@@ -87,7 +87,7 @@ const TravelPackages = ({ destinations }) => {
               className="absolute right-4 top-1/2 -translate-y-1/2 text-white rounded-full hover:scale-110 transition-transform"
               onClick={() => scrollRight(index)}
             >
-              <IoIosArrowDropright size={48} />
+              <IoIosArrowDropright className="w-6 h-6 md:w-12 md:h-12" />
             </button>
           </div>
 
@@ -108,7 +108,7 @@ const TravelPackages = ({ destinations }) => {
                 // >
                 <div
                   key={pkgIndex}
-                  className="bg-white rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform group hover:scale-[1.02]"
+                  className="bg-white rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform group"
                   style={{ width: `${cardWidth}px` }} // ✅ Dynamic card width
                 >
                   {/* Image */}
