@@ -39,7 +39,7 @@ export function CarouselCustomNavigation({slides}) {
             alt={`Slide ${index + 1}`}
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 flex flex-col items-start justify-center">
+          {/* <div className="absolute inset-0 flex flex-col items-start justify-center">
             <h2 className="text-white text-lg md:text-4xl md:ml-32 ml-16 md:max-w-5xl max-w-xl font-bold text-left">
               {slide.text}
             </h2>
@@ -56,7 +56,7 @@ export function CarouselCustomNavigation({slides}) {
                 Book Now
               </Button>
             </motion.div>
-          </div>
+          </div> */}
         </div>
       ))}
     </Carousel>

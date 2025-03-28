@@ -11,9 +11,9 @@ import { CarouselCustomNavigation } from "../elements/CarouselCustomNavigation";
 
 const Home = ({ homeslides }) => {
   return (
-    <div className="relative z-10 h-screen w-full flex flex-col justify-center items-start p-4 md:p-6 lg:p-8 rounded-none">
+    <div className="relative z-10 md:h-[680px] h-[530px] w-full flex flex-col justify-center items-start p-4 md:p-6 lg:p-8 rounded-none">
       {/* Background Carousel */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-auto">
         <CarouselCustomNavigation slides={homeslides} />
       </div>
 

@@ -68,7 +68,7 @@ const MainScreen = () => {
           />
         </div>
       </div>
-      <div className="mt-[400px] md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
+      <div className="mt-[350px] md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
         <div className="text-2xl md:text-4xl mt-10 font-bold text-center max-w-4xl">
           Select Your best Package For Your Travel
         </div>

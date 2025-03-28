@@ -37,7 +37,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative bg-[#304F47]/95 px-8 md:px-24 py-6 md:py-10 rounded-xl md:max-w-7xl w-[300px] md:w-full mx-auto -mt-16 shadow-lg"
+      className="relative bg-[#304F47]/95 px-8 md:px-24 py-6 md:py-10 rounded-xl md:max-w-7xl w-[300px] md:w-full mx-auto -mt-28 md:-mt-16 shadow-lg"
     >
       <div className="flex md:flex-row flex-col justify-center items-center gap-4 md:gap-4">
         <div className="flex flex-col w-full md:w-48">
