@@ -108,6 +108,13 @@ const Navbar = () => {
     setIsSidebarOpen(false);
   };
 
+  const toggleDropdown = (index) => {
+    setDropdownStates((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
+
   // Update dropdown states on hover
   const handleMouseEnter = (index) => {
     setDropdownStates((prevState) => ({
@@ -202,8 +209,9 @@ const Navbar = () => {
                     {item.dropdown ? (
                       <div
                         className="relative"
-                        onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={(e) => handleMouseLeave(index, e)}
+                        // onMouseEnter={() => handleMouseEnter(index)}
+                        // onMouseLeave={(e) => handleMouseLeave(index, e)}
+                        onClick={() => toggleDropdown(index)}
                       >
                         <button
                           className={`flex justify-between items-center gap-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
