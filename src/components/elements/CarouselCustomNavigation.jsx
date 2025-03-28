@@ -10,28 +10,11 @@ const buttonVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-const slides = [
-  {
-    image: bg1,
-    text: "Montenegro Budva Beach Holiday With Flights",
-    destination: "7 Nights - Budva, Montenegro",
-  },
-  {
-    image: bg2,
-    text: "Egypt Hurghada & Nile Cruise With Flights",
-    destination: "7 Nights - Hurghada, Egypt",
-  },
-  {
-    image: bg3,
-    text: "Luxury All-Inclusive Week in Crete with Flights",
-    destination: "7 Nights - Sissi, Crete",
-  },
-];
 
-export function CarouselCustomNavigation() {
+export function CarouselCustomNavigation({slides}) {
   return (
     <Carousel
-      className="rounded-xl h-full w-full relative"
+      className="h-full w-full relative"
       transition={{ duration: 1 }}
       loop={true}
       autoplay={true}

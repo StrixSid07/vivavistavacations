@@ -7,7 +7,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import { FaShareAlt, FaStar, FaRegStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import {
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
@@ -70,6 +70,7 @@ const NewAddedCardComponent = ({
         {/* Price & Nights */}
         <div className="flex items-center justify-between">
           <Typography variant="h5" className="font-bold text-black">
+            {" "}
             £{price}{" "}
             <span className="text-sm font-normal text-gray-500">
               /Per Person

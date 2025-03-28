@@ -9,12 +9,12 @@ import { motion } from "framer-motion";
 import HomeSearchComponent from "../elements/HomeSearchComponent";
 import { CarouselCustomNavigation } from "../elements/CarouselCustomNavigation";
 
-const Home = () => {
+const Home = ({ homeslides }) => {
   return (
     <div className="relative z-10 h-screen w-full flex flex-col justify-center items-start p-4 md:p-6 lg:p-8 rounded-none">
       {/* Background Carousel */}
       <div className="absolute inset-0 w-full h-full">
-        <CarouselCustomNavigation />
+        <CarouselCustomNavigation slides={homeslides} />
       </div>
 
       {/* Search Card */}
