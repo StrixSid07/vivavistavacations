@@ -105,18 +105,29 @@ const Footer = () => {
               </div>
             </li>
             <li className="flex items-center gap-2">
-              <span className="font-bold text-orange-600">
+              <span className="font-bold -mt-4 md:mt-0 text-orange-600">
                 <FaEnvelope size={18} />
               </span>
               <span className="transition duration-700 ease-in-out hover:text-orange-600">
                 <a
                   href="mailto:admin@vivavistavactions.co.uk"
-                  className="block w-44 overflow-hidden text-ellipsis whitespace-nowrap"
+                  className="block -mt-4 md:w-56 md:mt-0 overflow-hidden text-ellipsis md:whitespace-nowrap"
                 >
                   admin@vivavistavactions.co.uk
                 </a>
               </span>
             </li>
+            {/* <li className="flex flex-col items-start gap-2">
+              <span className="font-bold text-orange-600">
+                <FaEnvelope size={18} />
+              </span>
+              <span className="transition duration-700 ease-in-out hover:text-orange-600 block break-words">
+                <a className="flex flex-wrap" href="mailto:admin@vivavistavactions.co.uk">
+                  admin@vivavistavactions.co.uk
+                </a>
+              </span>
+            </li>
+ */}
             <li className="flex items-center">
               <div className="text-white flex w-64 items-start justify-center gap-1 group sm:text-left mb-4 sm:mb-0 ml-0">
                 <span className="font-bold   text-orange-600">
@@ -174,7 +185,7 @@ const Footer = () => {
         </div>
 
         {/* Column 3: Quick Links */}
-        <div className="flex flex-col">
+        <div className="flex flex-col md:ml-12">
           <h2 className="text-2xl font-bold mb-5 flex flex-row">Quick Links</h2>
           <ul className="space-y-4">
             {quickLinks.map((item, index) => (
