@@ -150,10 +150,8 @@ const Footer = () => {
         </div>
 
         {/* Column 3: Quick Links */}
-        <div className="hidden md:flex flex-col">
-          <h2 className="text-2xl font-bold mb-5 hidden md:flex flex-row">
-            Quick Links
-          </h2>
+        <div className="flex flex-col">
+          <h2 className="text-2xl font-bold mb-5 flex flex-row">Quick Links</h2>
           <ul className="space-y-4">
             {quickLinks.map((item, index) => (
               <li key={index}>
@@ -166,7 +164,7 @@ const Footer = () => {
         </div>
 
         {/* Column 4: Information Links */}
-        <div className="hidden md:flex flex-col">
+        <div className="flex flex-col">
           <h2 className="text-2xl font-bold mb-5">Information</h2>
           <ul className="space-y-4">
             {navInfos.map((item, index) => (

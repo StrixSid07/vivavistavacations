@@ -82,15 +82,6 @@ const Navbar = () => {
         { name: "Middle East", href: "/middleeast" },
       ],
     },
-    { name: "About Us", href: "/AboutUs" },
-    { name: "FAQ's", href: "/faq" },
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms & Conditions", href: "/termsandcondition" },
-    { name: "Cookies", href: "/cookies" },
-    { name: "Services", href: "/" },
-    { name: "Contact Us", href: "/" },
-    { name: "Group Booking", href: "/" },
-    { name: "Blog", href: "/" },
   ];
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
