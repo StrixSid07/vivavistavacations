@@ -286,50 +286,52 @@ const NewAdded = ({ data }) => {
   };
 
   return (
-    <div className="p-3 pl-5 bg-gradient-to-t from-green-500 to-white">
-      <Swiper
-        modules={[Autoplay]} // ✅ Use `modules` prop for Swiper v8+
-        loop={true}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
-        slidesPerView={1}
-        spaceBetween={10}
-      >
-        {dataChunks.map((chunk, chunkIndex) => (
-          <SwiperSlide key={chunkIndex}>
-            <div
-              className={`flex justify-center w-full items-center ${
-                chunkSize === 1 ? "flex-col" : "flex-row"
-              }`}
-            >
-              {chunk.map((property, index) => (
-                <div
-                  className={`w-full ${
-                    chunkSize === 1
-                      ? "mb-4"
-                      : chunkSize === 2
-                      ? "w-1/2"
-                      : "w-1/3"
-                  }`}
-                  key={index}
-                >
-                  <NewAddedCardComponent
-                    images={property.images}
-                    name={property.name}
-                    price={property.price}
-                    location={property.location}
-                    packageDays={property.packageDays}
-                    rating={property.rating}
-                    currentImage={currentImageIndex[index]}
-                    nextImage={() => nextImage(index)}
-                    prevImage={() => prevImage(index)}
-                    tag={property.tag}
-                  />
-                </div>
-              ))}
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className="p-3 pl-4 bg-gradient-to-t from-green-500 to-white flex justify-center">
+      <div className="w-full max-w-6xl">
+        <Swiper
+          modules={[Autoplay]} // ✅ Use `modules` prop for Swiper v8+
+          loop={true}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          slidesPerView={1}
+          spaceBetween={10}
+        >
+          {dataChunks.map((chunk, chunkIndex) => (
+            <SwiperSlide key={chunkIndex}>
+              <div
+                className={`flex justify-center md:gap-10 w-full items-center ${
+                  chunkSize === 1 ? "flex-col" : "flex-row"
+                }`}
+              >
+                {chunk.map((property, index) => (
+                  <div
+                    className={`w-full ${
+                      chunkSize === 1
+                        ? "mb-4"
+                        : chunkSize === 2
+                        ? "w-1/2"
+                        : "w-1/3"
+                    }`}
+                    key={index}
+                  >
+                    <NewAddedCardComponent
+                      images={property.images}
+                      name={property.name}
+                      price={property.price}
+                      location={property.location}
+                      packageDays={property.packageDays}
+                      rating={property.rating}
+                      currentImage={currentImageIndex[index]}
+                      nextImage={() => nextImage(index)}
+                      prevImage={() => prevImage(index)}
+                      tag={property.tag}
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };
