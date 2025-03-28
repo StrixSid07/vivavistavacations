@@ -155,7 +155,7 @@ const Navbar = () => {
     <header className={navbarStyles.backgroundColor}>
       {isMobileOrTablet ? (
         // Mobile version: uses click to toggle sidebar
-        <nav className={`${navbarStyles.backgroundColor} font-bold`}>
+        <nav className={`${navbarStyles.backgroundColor} font-medium`}>
           <div className="container mx-auto flex justify-between items-center p-4">
             <img src={logo} alt="VivaVistaFe" className="h-12 select-none" />
             <motion.div
