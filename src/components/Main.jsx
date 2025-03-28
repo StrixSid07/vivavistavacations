@@ -89,7 +89,7 @@ const Main = () => {
         >
           <Navbar />
         </div>
-        <div className="mt-28">
+        <div className="md:mt-28 mt-24">
           <Routes>
             <Route path="/" element={<MainScreen />} />
             <Route path="/home" element={<TravelFilter />} />

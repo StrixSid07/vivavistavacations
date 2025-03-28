@@ -150,7 +150,7 @@ const TravelPackages = () => {
       setCardWidth(320);
     } else {
       setVisibleCards(1);
-      setCardWidth(240);
+      setCardWidth(220);
     }
   };
 
@@ -208,7 +208,8 @@ const TravelPackages = () => {
             >
               <IoIosArrowDropleft size={48} />
             </button>
-            <h2 className="absolute top-1/3 md:mt-10 left-1/2 md:-ml-10 -ml-16 text-2xl md:text-3xl font-bold text-white">
+            {/* <h2 className="absolute top-1/3 md:mt-10 left-1/2 md:-ml-10 -ml-16 text-2xl md:text-3xl font-bold text-white"> */}
+            <h2 className="absolute inset-0 flex items-center justify-center text-lg md:text-3xl font-bold text-white text-center pointer-events-none">
               {destination.country}
             </h2>
             <button

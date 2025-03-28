@@ -89,7 +89,6 @@ const Navbar = () => {
     { name: "Cookies", href: "/cookies" },
     { name: "Services", href: "/" },
     { name: "Contact Us", href: "/" },
-    { name: "Cookies", href: "/cookies" },
     { name: "Group Booking", href: "/" },
     { name: "Blog", href: "/" },
   ];

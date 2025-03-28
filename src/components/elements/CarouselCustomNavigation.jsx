@@ -57,10 +57,10 @@ export function CarouselCustomNavigation() {
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 flex flex-col items-start justify-center">
-            <h2 className="text-white text-lg md:text-4xl md:ml-32 ml-4 md:max-w-5xl max-w-xl font-bold text-left">
+            <h2 className="text-white text-lg md:text-4xl md:ml-32 ml-16 md:max-w-5xl max-w-xl font-bold text-left">
               {slide.text}
             </h2>
-            <div className="bg-white rounded-full w-auto px-4 py-2 md:text-md text-sm font-medium md:font-semibold md:ml-32 ml-16 text-orange-600 mt-8">
+            <div className="bg-white md:rounded-full rounded-md w-auto px-4 py-2 md:text-md text-sm font-medium md:font-semibold md:ml-32 ml-16 text-orange-600 mt-8">
               {slide.destination}
             </div>
             <motion.div
@@ -69,7 +69,7 @@ export function CarouselCustomNavigation() {
               animate="visible"
               variants={buttonVariants}
             >
-              <Button className="bg-white text-orange-600 font-medium md:font-semibold px-6 py-3 rounded-md text-md md:text-lg transition-all duration-300 hover:bg-orange-600 hover:text-white hover:scale-105 shadow-md">
+              <Button className="bg-white text-orange-600 font-medium md:font-semibold md:px-6 md:py-3 px-4 py-2 rounded-md text-md md:text-lg transition-all duration-300 hover:bg-orange-600 hover:text-white hover:scale-105 shadow-md">
                 Book Now
               </Button>
             </motion.div>

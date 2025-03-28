@@ -30,7 +30,7 @@ const SearchBar = () => {
         </div>
 
         {/* Check-in Date */}
-        <div className="flex flex-col w-full md:w-40">
+        <div className="md:flex hidden flex-col w-full md:w-40">
           <label className="text-white text-md mb-1">Check-in Date</label>
           <input
             type="date"
@@ -39,12 +39,32 @@ const SearchBar = () => {
         </div>
 
         {/* Check-Out Date */}
-        <div className="flex flex-col w-full md:w-40">
+        <div className="md:flex hidden flex-col w-full md:w-40">
           <label className="text-white text-md mb-1">Check-Out Date</label>
           <input
             type="date"
             className="px-3 py-2 md:px-4 md:py-3 bg-white border border-orange-500 text-orange-600 rounded-md"
           />
+        </div>
+
+        <div className="flex md:hidden items-center justify-center gap-3">
+          {/* Check-in Date */}
+          <div className="flex flex-col w-28 md:w-40">
+            <label className="text-white text-md mb-1">Check-in</label>
+            <input
+              type="date"
+              className="px-3 py-2 md:px-4 md:py-3 bg-white border border-orange-500 text-orange-600 rounded-md"
+            />
+          </div>
+
+          {/* Check-Out Date */}
+          <div className="flex flex-col w-28 md:w-40">
+            <label className="text-white text-md mb-1">Check-Out</label>
+            <input
+              type="date"
+              className="px-3 py-2 md:px-4 md:py-3 bg-white border border-orange-500 text-orange-600 rounded-md"
+            />
+          </div>
         </div>
 
         {/* Rooms & Guests */}

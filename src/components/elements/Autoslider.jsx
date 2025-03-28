@@ -72,7 +72,7 @@ const AutoSlider = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute transition-transform duration-700 ease-in-out ${getSlidePosition(
+            className={`absolute transition-transform duration-700 ease-in-out group ${getSlidePosition(
               index
             )} transform`}
           >
@@ -89,15 +89,15 @@ const AutoSlider = () => {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-[250px] md:w-[800px] md:h-[500px] object-cover cursor-pointer" // Adjusted for mobile
+                className="w-full h-[250px] md:w-[800px] md:h-[500px] object-cover cursor-pointer transition-all duration-500 ease-in-out group-hover:scale-105" // Adjusted for mobile
               />
-              <div className="absolute inset-0 md:w-1/2 w-full bg-gradient-to-r from-black/90 to-white/5 p-4 md:p-8 flex flex-col justify-center text-white">
-                <h2 className="text-3xl md:text-4xl sm:text-2xl font-bold">
+              <div className="absolute inset-0 md:w-1/2 w-full bg-gradient-to-r from-black/60 to-white/5 p-4 md:p-8 flex flex-col justify-center text-white">
+                <h2 className="text-3xl md:text-4xl sm:text-2xl font-bold transition-all duration-500 ease-in-out group-hover:scale-95">
                   {" "}
                   {/* Adjusted for mobile */}
                   {slide.title}
                 </h2>
-                <p className="mt-2 text-lg w-full md:text-base sm:text-sm">
+                <p className="mt-2 text-lg w-full md:text-base sm:text-sm transition-all duration-500 ease-in-out group-hover:scale-95">
                   {" "}
                   {/* Adjusted for mobile */}
                   {slide.description}

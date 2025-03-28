@@ -113,7 +113,7 @@ const TermsAndConditions = () => {
             {/* Main Title */}
             <button
               onClick={() => toggleAccordion(mainIndex)}
-              className="w-full flex justify-between text-left items-center py-4 text-2xl font-semibold text-gray-900 focus:outline-none"
+              className="w-full flex justify-between text-start items-center py-4 md:text-2xl text-xl font-medium md:font-semibold text-gray-900 focus:outline-none"
             >
               <span>{section.mainTitle}</span>
               <FaChevronDown

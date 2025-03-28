@@ -19,7 +19,7 @@ const FaqsAccordion = () => {
             onClick={() => toggleAccordion(index)}
             className="w-full flex justify-between items-center py-4 focus:outline-none"
           >
-            <span className="text-xl text-start font-medium">
+            <span className="text-xl text-start font-medium md:w-full w-64">
               {faq.question}
             </span>
             <FaChevronDown
