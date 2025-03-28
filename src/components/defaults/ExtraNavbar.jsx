@@ -10,6 +10,12 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
+const flagUrls = {
+  UK: "https://flagcdn.com/gb.svg", // United Kingdom flag
+  ENG: "https://flagcdn.com/gb-eng.svg", // England flag
+  Canada: "https://flagcdn.com/ca.svg", // Canada flag
+};
+
 const ExtraNavbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [region, setRegion] = useState("UK"); // Default to UK
@@ -65,12 +71,18 @@ const ExtraNavbar = () => {
           </a>
         </div>
 
-        {/* Right Side - Region Selector */}
+        {/* Right Side - Region Selector with Flag */}
         <div className="relative">
           <button
             className="cursor-pointer flex items-center space-x-2 text-lg font-medium hover:text-gray-300 transition-colors duration-300 ease-in-out"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
+            {/* Display the flag icon */}
+            <img
+              src={flagUrls[region]}
+              alt={`${region} flag`}
+              className="w-5 h-5 object-cover"
+            />
             <span>{region}</span>
             <motion.div
               animate={{ rotate: isDropdownOpen ? 180 : 0 }}
@@ -91,13 +103,18 @@ const ExtraNavbar = () => {
               {["UK", "ENG", "Canada"].map((item) => (
                 <li
                   key={item}
-                  className="px-4 py-2 hover:bg-gray-200 text-[#D35400] font-semibold cursor-pointer transition-all duration-200"
+                  className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 text-[#D35400] font-semibold cursor-pointer transition-all duration-200"
                   onClick={() => {
                     setRegion(item);
                     setIsDropdownOpen(false);
                   }}
                 >
-                  {item}
+                  <img
+                    src={flagUrls[item]}
+                    alt={`${item} flag`}
+                    className="w-5 h-5 object-cover"
+                  />
+                  <span>{item}</span>
                 </li>
               ))}
             </motion.ul>
