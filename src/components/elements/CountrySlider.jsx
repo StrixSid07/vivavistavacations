@@ -227,6 +227,7 @@ const TravelPackages = () => {
               style={{
                 transform: `translateX(-${scrollPositions[index]}px)`,
                 width: `${cardWidth * destinations[index].packages.length}px`,
+                transition: "transform 1s ease-in-out",
               }}
             >
               {destination.packages.map((pkg, pkgIndex) => (
