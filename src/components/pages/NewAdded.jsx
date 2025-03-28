@@ -286,7 +286,7 @@ const NewAdded = ({ data }) => {
   };
 
   return (
-    <div className="p-3 bg-gradient-to-t from-green-500 to-white">
+    <div className="p-3 pl-5 bg-gradient-to-t from-green-500 to-white">
       <Swiper
         modules={[Autoplay]} // ✅ Use `modules` prop for Swiper v8+
         loop={true}
@@ -297,7 +297,7 @@ const NewAdded = ({ data }) => {
         {dataChunks.map((chunk, chunkIndex) => (
           <SwiperSlide key={chunkIndex}>
             <div
-              className={`flex justify-center w-full ${
+              className={`flex justify-center w-full items-center ${
                 chunkSize === 1 ? "flex-col" : "flex-row"
               }`}
             >
