@@ -52,15 +52,15 @@ const NewAddedCardComponent = ({
           {/* Image Navigation */}
           <button
             onClick={prevImage}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/5 p-2 rounded-full shadow-md"
           >
-            <MdOutlineArrowBackIos className="text-black" />
+            <MdOutlineArrowBackIos className="text-black/25" />
           </button>
           <button
             onClick={nextImage}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/5 p-2 rounded-full shadow-md"
           >
-            <MdOutlineArrowForwardIos className="text-black" />
+            <MdOutlineArrowForwardIos className="text-black/25" />
           </button>
         </div>
       </CardHeader>
