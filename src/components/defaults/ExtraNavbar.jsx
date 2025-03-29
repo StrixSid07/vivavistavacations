@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 
 const flagUrls = {
   UK: "https://flagcdn.com/gb.svg", // United Kingdom flag
-  ENG: "https://flagcdn.com/gb-eng.svg", // England flag
+  USA: "https://flagcdn.com/us.svg", // Usa flag
   Canada: "https://flagcdn.com/ca.svg", // Canada flag
 };
 
@@ -74,7 +74,7 @@ const ExtraNavbar = () => {
         {/* Right Side - Region Selector with Flag */}
         <div className="relative">
           <button
-            className="cursor-pointer flex items-center space-x-2 text-lg font-medium hover:text-gray-300 transition-colors duration-300 ease-in-out"
+            className="cursor-pointer flex items-center space-x-2 text-lg font-medium hover:text-black transition-colors duration-300 ease-in-out"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
             {/* Display the flag icon */}
@@ -100,7 +100,7 @@ const ExtraNavbar = () => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="absolute right-0 mt-2 w-36 bg-white text-black rounded-lg shadow-lg overflow-hidden border"
             >
-              {["UK", "ENG", "Canada"].map((item) => (
+              {["UK", "USA", "Canada"].map((item) => (
                 <li
                   key={item}
                   className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 text-[#D35400] font-semibold cursor-pointer transition-all duration-200"

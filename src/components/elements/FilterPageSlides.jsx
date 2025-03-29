@@ -11,44 +11,48 @@ import Itinerary from "./Itinerary";
 import Overview from "./Overview";
 import PriceCalendar from "./PriceCalendarCard";
 
-const OverviewComponent = () => (
-  <div className="md:p-4">
-    <Overview />
-  </div>
-);
-const ItineraryComponent = () => (
-  <div className="md:p-4">
-    <Itinerary />
-  </div>
-);
-const PriceCalendarComponent = () => (
-  <div className="md:p-4">
-    <PriceCalendar />
-  </div>
-);
-const TermsComponent = () => (
-  <div className="md:p-4">
-    <TermsAndConditions />
-  </div>
-);
-
-const tabComponents = [
-  { label: "Overview", value: "overview", component: <OverviewComponent /> },
-  { label: "Itinerary", value: "itinerary", component: <ItineraryComponent /> },
-  {
-    label: "Price Calendar",
-    value: "price-calendar",
-    component: <PriceCalendarComponent />,
-  },
-  {
-    label: "Terms and Conditions",
-    value: "terms",
-    component: <TermsComponent />,
-  },
-];
-
-const FilterPageSlides = () => {
+const FilterPageSlides = ({ tripData, itinerary, prices }) => {
   const [activeTab, setActiveTab] = useState("overview");
+
+  const OverviewComponent = () => (
+    <div className="md:p-4">
+      <Overview tripData={tripData} />
+    </div>
+  );
+  const ItineraryComponent = () => (
+    <div className="md:p-4">
+      <Itinerary itinerary={itinerary} />
+    </div>
+  );
+  const PriceCalendarComponent = () => (
+    <div className="md:p-4">
+      <PriceCalendar prices={prices} />
+    </div>
+  );
+  const TermsComponent = () => (
+    <div className="md:p-4">
+      <TermsAndConditions />
+    </div>
+  );
+
+  const tabComponents = [
+    { label: "Overview", value: "overview", component: <OverviewComponent /> },
+    {
+      label: "Itinerary",
+      value: "itinerary",
+      component: <ItineraryComponent />,
+    },
+    {
+      label: "Price Calendar",
+      value: "price-calendar",
+      component: <PriceCalendarComponent />,
+    },
+    {
+      label: "Terms and Conditions",
+      value: "terms",
+      component: <TermsComponent />,
+    },
+  ];
 
   return (
     <div className="w-full flex justify-center">

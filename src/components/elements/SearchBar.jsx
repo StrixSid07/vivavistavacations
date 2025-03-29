@@ -3,8 +3,10 @@ import { FaSearch } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({ airports, destinations, roomOptions }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     departure: "",
     destination: "",
@@ -139,6 +141,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
 
         <button
           type="submit"
+          onClick={() => navigate(`/search`)}
           className="flex items-center justify-center md:mt-7 gap-2 bg-deep-orange-500 transition-colors duration-500 ease-in-out hover:bg-deep-orange-700 text-white font-bold px-5 py-2 md:px-6 md:py-3 rounded-md mt-6"
         >
           <FaSearch size={16} />

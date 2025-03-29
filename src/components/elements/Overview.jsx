@@ -1,20 +1,7 @@
 import React from "react";
 import { Flame, MapPin, Utensils, Ruler, Waves } from "lucide-react";
 
-const tripData = {
-  title: "Luxury Trip to Maldives - 5 Nights",
-  description:
-    "Enjoy an all-inclusive 5-night stay in a beachfront resort in the Maldives.",
-  destination: { name: "Maldives", country: "Maldives" },
-  overview:
-    "Experience an unforgettable tropical getaway in the Maldives. Relax in a luxurious resort with pristine beaches and crystal-clear waters.",
-  boardBasis: "All Inclusive",
-  distanceToCenter: "1km",
-  distanceToBeach: "50m",
-  isTopDeal: true,
-};
-
-const Overview = () => {
+const Overview = ({tripData}) => {
   return (
     <div className="max-w-lg md:max-w-3xl mx-auto p-4 sm:p-6 bg-white shadow-md rounded-xl">
       <h1 className="text-xl sm:text-2xl font-bold text-orange-500 flex items-center">

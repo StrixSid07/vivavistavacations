@@ -15,8 +15,10 @@ import {
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { BiCalendar } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const NewAddedCardComponent = ({
+  id,
   images,
   location,
   packageDays,
@@ -26,6 +28,12 @@ const NewAddedCardComponent = ({
   nextImage,
   prevImage,
 }) => {
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate(`/deals/${id}`); // ✅ Navigate to deal details page
+  };
+
   return (
     <Card className="max-w-[24rem] w-full overflow-hidden shadow-lg rounded-lg">
       {/* Image Section */}
@@ -107,7 +115,10 @@ const NewAddedCardComponent = ({
 
       {/* Footer Section */}
       <CardFooter className="p-4">
-        <Button className="w-full bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md">
+        <Button
+          onClick={handleViewDetails}
+          className="w-full bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md"
+        >
           View Details
         </Button>
       </CardFooter>

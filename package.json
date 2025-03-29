@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "proxy": "http://localhost:5001",
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "@material-tailwind/react": "^2.1.10",

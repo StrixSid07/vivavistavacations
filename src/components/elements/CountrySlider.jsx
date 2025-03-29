@@ -3,8 +3,13 @@ import { Button } from "@material-tailwind/react";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const TravelPackages = ({ destinations }) => {
+  const navigate = useNavigate();
+  const handleViewDeals = (id) => {
+    navigate(`/deals/${id}`); // ✅ Navigate to deal details page
+  };
   const [scrollPositions, setScrollPositions] = useState(
     destinations.map(() => 0)
   );
@@ -159,7 +164,10 @@ const TravelPackages = ({ destinations }) => {
                       <FaStar size={18} className="text-amber-600" />
                       {pkg.rating} Rating
                     </p>
-                    <Button className="w-full mt-2 bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md">
+                    <Button
+                      onClick={() => handleViewDeals(pkg.id)}
+                      className="w-full mt-2 bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md"
+                    >
                       View Deal
                     </Button>
                   </div>

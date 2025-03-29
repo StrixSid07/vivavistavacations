@@ -1,12 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  FaPlaneArrival,
-  FaUmbrellaBeach,
-  FaSpa,
-  FaShip,
-  FaPlaneDeparture,
-} from "react-icons/fa";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -31,44 +24,7 @@ const item = {
   },
 };
 
-const itinerary = [
-  {
-    day: 1,
-    title: "Arrival & Resort Check-in",
-    description:
-      "Arrive at the Maldives airport and enjoy a speedboat transfer to the resort. Check-in and relax by the beach.",
-    icon: <FaPlaneArrival className="text-[#FF6B6B] text-xl" />,
-  },
-  {
-    day: 2,
-    title: "Snorkeling & Water Sports",
-    description:
-      "Explore the underwater world with a guided snorkeling session. Enjoy kayaking and paddleboarding.",
-    icon: <FaUmbrellaBeach className="text-[#FF6B6B] text-xl" />,
-  },
-  {
-    day: 3,
-    title: "Island Hopping Tour",
-    description:
-      "Visit nearby islands, experience local culture, and enjoy a private beach picnic.",
-    icon: <FaShip className="text-[#FF6B6B] text-xl" />,
-  },
-  {
-    day: 4,
-    title: "Spa & Sunset Cruise",
-    description:
-      "Relax with a luxury spa treatment followed by a romantic sunset cruise with dolphin watching.",
-    icon: <FaSpa className="text-[#FF6B6B] text-xl" />,
-  },
-  {
-    day: 5,
-    title: "Departure",
-    description: "Enjoy a farewell breakfast before your flight back home.",
-    icon: <FaPlaneDeparture className="text-[#FF6B6B] text-xl" />,
-  },
-];
-
-const Itinerary = () => {
+const Itinerary = ({itinerary}) => {
   return (
     <div>
       <motion.div variants={staggerContainer} className="max-w-3xl px-4 py-10">

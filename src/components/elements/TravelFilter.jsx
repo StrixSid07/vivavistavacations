@@ -11,10 +11,11 @@ import {
   CardHeader,
   CardBody,
 } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
 
 const travelDeals = [
   {
-    id: 1,
+    id: "67e82ded76f06faa1a6fde35",
     location: "Venice, Italy",
     title: "2 Nights Romantic Venice Retreat with Flights",
     price: 129,
@@ -24,7 +25,7 @@ const travelDeals = [
     images: ["https://placehold.co/300x200"],
   },
   {
-    id: 2,
+    id: "67e82ded76f06faa1a6fde35",
     location: "Paris, France",
     title: "Romantic Paris Getaway with Deluxe Stay & Flights",
     price: 129,
@@ -34,7 +35,7 @@ const travelDeals = [
     images: ["https://placehold.co/200x200"],
   },
   {
-    id: 3,
+    id: "67e82ded76f06faa1a6fde35",
     location: "Berlin, Germany",
     title: "3 Nights 4-Star Berlin City Break with Flights",
     price: 179,
@@ -44,7 +45,7 @@ const travelDeals = [
     images: ["https://placehold.co/300x200"],
   },
   {
-    id: 4,
+    id: "67e82ded76f06faa1a6fde35",
     location: "Sorrento, Italy",
     title: "3 Nights Deluxe Sorrento Escape with Flights",
     price: 219,
@@ -54,7 +55,7 @@ const travelDeals = [
     images: ["https://placehold.co/300x200"],
   },
   {
-    id: 5,
+    id: "67e82ded76f06faa1a6fde35",
     location: "Porto, Portugal",
     title: "Deluxe Porto Break with Flights & Douro Valley Tour",
     price: 229,
@@ -64,7 +65,7 @@ const travelDeals = [
     images: ["https://placehold.co/200x200"],
   },
   {
-    id: 6,
+    id: "67e82ded76f06faa1a6fde35",
     location: "London, UK",
     title: "3 Nights London Stay with Flights",
     price: 199,
@@ -74,7 +75,7 @@ const travelDeals = [
     images: ["https://placehold.co/300x200"],
   },
   {
-    id: 7,
+    id: "67e82ded76f06faa1a6fde35",
     location: "Barcelona, Spain",
     title: "4 Nights Barcelona Escape with Flights",
     price: 249,
@@ -84,7 +85,7 @@ const travelDeals = [
     images: ["https://placehold.co/300x200"],
   },
   {
-    id: 8,
+    id: "67e82ded76f06faa1a6fde35",
     location: "Amsterdam, Netherlands",
     title: "3 Nights Amsterdam Retreat with Flights",
     price: 189,
@@ -94,7 +95,7 @@ const travelDeals = [
     images: ["https://placehold.co/300x200"],
   },
   {
-    id: 9,
+    id: "67e82ded76f06faa1a6fde35",
     location: "Rome, Italy",
     title: "3 Nights Rome Break with Flights",
     price: 210,
@@ -115,6 +116,7 @@ const hotelTypes = [
 const ratingOptions = ["3", "4", "5"];
 
 const TravelFilter = () => {
+  const navigate = useNavigate();
   const [filters, setFilters] = useState({
     price: 500,
     boardBasis: [],
@@ -156,7 +158,6 @@ const TravelFilter = () => {
     currentPage * itemsPerPage
   );
 
-  // Update Filters
   const handleFilterChange = (key, value) => {
     if (key === "boardBasis" || key === "hotelType") {
       const currentFilters = filters[key];
@@ -167,6 +168,7 @@ const TravelFilter = () => {
           : [...currentFilters, value],
       });
     } else {
+      // Just set the value directly without converting
       setFilters({ ...filters, [key]: value });
     }
     setCurrentPage(1);
@@ -271,18 +273,18 @@ const TravelFilter = () => {
             <Typography variant="h6" className="text-black mt-4 mb-2">
               Rating
             </Typography>
-            <Select
-              label="Select Rating"
-              onChange={(val) => handleFilterChange("rating", val)}
+            <select
               value={filters.rating}
+              onChange={(e) => handleFilterChange("rating", e.target.value)}
+              className="block w-full p-2 border border-gray-300 rounded"
             >
-              <Option value="">Any Rating</Option>
+              <option value="">Any Rating</option>
               {ratingOptions.map((rating) => (
-                <Option key={rating} value={rating}>
+                <option key={rating} value={rating}>
                   {rating} Stars
-                </Option>
+                </option>
               ))}
-            </Select>
+            </select>
 
             <Button
               color="deep-orange"
@@ -305,33 +307,48 @@ const TravelFilter = () => {
             <Typography variant="h4" className="text-black mb-6">
               Showing {filteredDeals.length} Results
             </Typography>
+            <div className="max-h-[700px] overflow-y-auto">
+              <div className="grid grid-cols-1 gap-6">
+                {currentDeals.map((item) => (
+                  <Card
+                    key={item.id}
+                    className="shadow-md rounded-lg w-full md:w-[48rem] h-64 flex flex-row overflow-hidden"
+                  >
+                    {/* Image Section */}
+                    <div className="w-2/5 h-full shrink-0 rounded-r-none">
+                      <img
+                        src={item.images[0]}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {currentDeals.map((item) => (
-                <Card
-                  key={item.id}
-                  className="shadow-md rounded-lg overflow-hidden"
-                >
-                  <CardHeader floated={false} className="h-48">
-                    <img
-                      src={item.images[0]}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </CardHeader>
-                  <CardBody className="p-4">
-                    <Typography variant="h6" className="text-deep-orange-500">
-                      {item.title}
-                    </Typography>
-                    <Typography className="text-black">
-                      {item.location} - {item.rating} Star Hotel
-                    </Typography>
-                    <Typography className="text-deep-orange-500 font-bold">
-                      £{item.price} per person
-                    </Typography>
-                  </CardBody>
-                </Card>
-              ))}
+                    {/* Text Section */}
+                    <CardBody className="p-4 flex flex-col justify-center w-96 min-h-full">
+                      <Typography variant="h6" className="text-deep-orange-500">
+                        {item.title}
+                      </Typography>
+                      <Typography className="text-black">
+                        {item.location} - {item.rating} Star Hotel
+                      </Typography>
+                    </CardBody>
+
+                    {/* Price & Button Section */}
+                    <div className="w-1/5 flex flex-col bg-gray-100 justify-center items-center gap-4 p-4">
+                      <Typography className="text-center md:font-bold font-semibold text-deep-orange-500">
+                        £{item.price} per person
+                      </Typography>
+                      <Button
+                        color="deep-orange"
+                        size="sm"
+                        onClick={() => navigate(`/deals/${item.id}`)}
+                      >
+                        View Deal
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+              </div>
             </div>
 
             {/* Pagination */}

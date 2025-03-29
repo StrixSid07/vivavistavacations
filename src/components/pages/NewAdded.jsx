@@ -286,34 +286,44 @@ const NewAdded = ({ data }) => {
   };
 
   return (
-    <div className="p-3 pl-4 bg-gradient-to-t from-[#00AEEF] to-white flex justify-center">
-      <div className="w-full max-w-6xl">
+    <div className="p-3 bg-gradient-to-t from-[#00AEEF] to-white flex justify-center">
+      <div className="w-full max-w-6xl mx-auto">
         <Swiper
           modules={[Autoplay]} // ✅ Use `modules` prop for Swiper v8+
           loop={true}
           autoplay={{ delay: 2000, disableOnInteraction: false }}
           slidesPerView={1}
-          spaceBetween={10}
+          speed={2000}
+          spaceBetween={20} // Default for mobile view
+          breakpoints={{
+            768: {
+              // md and above (you can adjust the breakpoint)
+              spaceBetween: 40,
+            },
+          }}
         >
           {dataChunks.map((chunk, chunkIndex) => (
             <SwiperSlide key={chunkIndex}>
               <div
-                className={`flex justify-center md:gap-10 w-full items-center ${
+                className={`flex justify-center items-center mx-auto md:gap-10 w-full ${
                   chunkSize === 1 ? "flex-col" : "flex-row"
                 }`}
               >
                 {chunk.map((property, index) => (
                   <div
-                    className={`w-full ${
+                    key={index}
+                    // Remove w-full so it doesn't stretch
+                    // Add a max-w and mx-auto to center the card
+                    className={`mx-auto ${
                       chunkSize === 1
-                        ? "mb-4"
+                        ? "max-w-sm mb-4"
                         : chunkSize === 2
                         ? "w-1/2"
                         : "w-1/3"
                     }`}
-                    key={index}
                   >
                     <NewAddedCardComponent
+                      id={property.id}
                       images={property.images}
                       name={property.name}
                       price={property.price}

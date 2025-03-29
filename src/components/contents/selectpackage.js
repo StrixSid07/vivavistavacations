@@ -1,5 +1,6 @@
 export const selectPackage = [
   {
+    id: "67e82ded76f06faa1a6fde35",
     images: [
       "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1504615755583-2916b52192a3?q=80&w=1974&auto=format&fit=crop",
@@ -13,6 +14,7 @@ export const selectPackage = [
     tag: "Best Seller",
   },
   {
+    id: "67e82ded76f06faa1a6fde35",
     images: [
       "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1504615755583-2916b52192a3?q=80&w=1974&auto=format&fit=crop",
@@ -26,6 +28,7 @@ export const selectPackage = [
     tag: "Luxury Package",
   },
   {
+    id: "67e82ded76f06faa1a6fde35",
     images: [
       "https://images.unsplash.com/photo-1704149394002-e719fd0ff19e?q=80&w=2070&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1974&auto=format&fit=crop",
@@ -39,6 +42,7 @@ export const selectPackage = [
     tag: "Popular Choice",
   },
   {
+    id: "67e82ded76f06faa1a6fde35",
     images: [
       "https://images.unsplash.com/photo-1549045337-a9e207d164e4?q=80&w=2070&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1567446536435-85c8c2898a54?q=80&w=2070&auto=format&fit=crop",
@@ -52,6 +56,7 @@ export const selectPackage = [
     tag: "Cultural Experience",
   },
   {
+    id: "67e82ded76f06faa1a6fde35",
     images: [
       "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=2070&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1514898657509-786fabc5e37e?q=80&w=2070&auto=format&fit=crop",
@@ -78,6 +83,7 @@ export const selectPackage = [
     tag: "Wildlife Tour",
   },
   {
+    id: "67e82ded76f06faa1a6fde35",
     images: [
       "https://images.unsplash.com/photo-1565127815099-506250229f28?q=80&w=2070&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1571433708994-2b47fcbf97c3?q=80&w=2070&auto=format&fit=crop",
@@ -91,6 +97,7 @@ export const selectPackage = [
     tag: "Iconic Destinations",
   },
   {
+    id: "67e82ded76f06faa1a6fde35",
     images: [
       "https://images.unsplash.com/photo-1603308578012-d5f2a0790f4a?q=80&w=2070&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1541410616134-29d246190397?q=80&w=2070&auto=format&fit=crop",
@@ -104,6 +111,7 @@ export const selectPackage = [
     tag: "Exclusive Deal",
   },
   {
+    id: "67e82ded76f06faa1a6fde35",
     images: [
       "https://images.unsplash.com/photo-1524255684952-d7185b509571?q=80&w=2070&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=2070&auto=format&fit=crop",
@@ -117,6 +125,7 @@ export const selectPackage = [
     tag: "City Explorer",
   },
   {
+    id: "67e82ded76f06faa1a6fde35",
     images: [
       "https://images.unsplash.com/photo-1535359056830-d4badde79743?q=80&w=2070&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1588495949018-243d9b1c76a6?q=80&w=2070&auto=format&fit=crop",

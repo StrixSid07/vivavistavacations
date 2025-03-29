@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, ExtraNavbar, Footer, CardOver, SpeedDiel } from "./defaults";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import {
   ForSale,
@@ -93,7 +98,7 @@ const Main = () => {
         <div className="md:mt-28 mt-24">
           <Routes>
             <Route path="/" element={<MainScreen />} />
-            <Route path="/home" element={<TravelFilter />} />
+            <Route path="/search" element={<TravelFilter />} />
             <Route path="/topdeals" element={<MainScreen />} />
             <Route path="/beachholidays" element={<MainScreen />} />
             <Route path="/citybreakes" element={<MainScreen />} />
@@ -113,10 +118,12 @@ const Main = () => {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/termsandcondition" element={<TermsAndConditions />} />
             <Route path="/cookies" element={<CookiePolicy />} />
-            <Route path="/filter" element={<FilterPage />} />
+            <Route path="/deals/:id" element={<FilterPage />} />
             <Route path="/Blogs" element={<Blogs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
+            {/* Catch-all route for unmatched paths */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
         <div className="z-20 mt-20 -mb-28 flex flex-col justify-center items-center p-4 md:p-0">

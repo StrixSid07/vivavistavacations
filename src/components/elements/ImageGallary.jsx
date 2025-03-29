@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
+const BASE_URL = "http://localhost:5001";
+
 const ImageGallery = ({ images }) => {
   const [open, setOpen] = useState(false);
 
@@ -10,6 +12,9 @@ const ImageGallery = ({ images }) => {
   const handleOpen = () => {
     setOpen(true);
   };
+
+  // Ensure all images have the base URL prepended
+//   const fullImageUrls = images.map((img) => `${BASE_URL}${img}`);
 
   // Limit the collage to 5 images, but Lightbox still shows all
   const collageImages = images.slice(0, 5);
