@@ -37,7 +37,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative bg-[#304F47]/95 px-8 md:px-24 py-6 md:py-10 rounded-xl md:max-w-7xl w-[300px] md:w-full mx-auto -mt-28 md:-mt-16 shadow-lg"
+      className="relative bg-[#00AEEF]/95 px-8 md:px-24 py-6 md:py-10 rounded-xl md:max-w-7xl w-[300px] md:w-full mx-auto -mt-28 md:-mt-16 shadow-lg"
     >
       <div className="flex md:flex-row flex-col justify-center items-center gap-4 md:gap-4">
         <div className="flex flex-col w-full md:w-48">
@@ -46,7 +46,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
             name="departure"
             value={formData.departure}
             onChange={handleChange}
-            className="px-3 py-2 md:px-4 md:py-3 bg-white border border-orange-500 text-orange-600 rounded-md"
+            className="px-3 py-2 md:px-4 md:py-3 bg-white border border-deep-orange-500 text-deep-orange-600 rounded-md"
           >
             <option value="">Select Airport</option>
             {airports.map((airport, index) => (
@@ -63,7 +63,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
             name="destination"
             value={formData.destination}
             onChange={handleChange}
-            className="px-3 py-2 md:px-4 md:py-3 bg-white border border-orange-500 text-orange-600 rounded-md"
+            className="px-3 py-2 md:px-4 md:py-3 bg-white border border-deep-orange-500 text-deep-orange-600 rounded-md"
           >
             <option value="">Select Destination</option>
             {destinations.map((destination, index) => (
@@ -79,7 +79,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
           <DatePicker
             selected={formData.checkIn}
             onChange={(date) => handleDateChange(date, "checkIn")}
-            className="px-3 py-2 md:px-4 md:py-3 bg-white border border-orange-500 text-orange-600 rounded-md w-full"
+            className="px-3 py-2 md:px-4 md:py-3 bg-white border border-deep-orange-500 text-deep-orange-600 rounded-md w-full"
             placeholderText="Select Date"
             dateFormat="yyyy-MM-dd"
           />
@@ -90,7 +90,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
           <DatePicker
             selected={formData.checkIn}
             onChange={(date) => handleDateChange(date, "checkIn")}
-            className="px-3 py-2 md:px-4 md:py-3 bg-white border border-orange-500 text-orange-600 rounded-md w-full"
+            className="px-3 py-2 md:px-4 md:py-3 bg-white border border-deep-orange-500 text-deep-orange-600 rounded-md w-full"
             placeholderText="Select Date"
             dateFormat="yyyy-MM-dd"
           />
@@ -102,7 +102,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
             <DatePicker
               selected={formData.checkIn}
               onChange={(date) => handleDateChange(date, "checkIn")}
-              className="px-3 py-2 md:px-4 md:py-3 bg-white border border-orange-500 text-orange-600 rounded-md w-full"
+              className="px-3 py-2 md:px-4 md:py-3 bg-white border border-deep-orange-500 text-deep-orange-600 rounded-md w-full"
               placeholderText="Select Date"
               dateFormat="yyyy-MM-dd"
             />
@@ -113,7 +113,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
             <DatePicker
               selected={formData.checkIn}
               onChange={(date) => handleDateChange(date, "checkIn")}
-              className="px-3 py-2 md:px-4 md:py-3 bg-white border border-orange-500 text-orange-600 rounded-md w-full"
+              className="px-3 py-2 md:px-4 md:py-3 bg-white border border-deep-orange-500 text-deep-orange-600 rounded-md w-full"
               placeholderText="Select Date"
               dateFormat="yyyy-MM-dd"
             />
@@ -126,7 +126,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
             name="rooms"
             value={formData.rooms}
             onChange={handleChange}
-            className="px-3 py-2 md:px-4 md:py-3 bg-white border border-orange-500 text-orange-600 rounded-md"
+            className="px-3 py-2 md:px-4 md:py-3 bg-white border border-deep-orange-500 text-deep-orange-600 rounded-md"
           >
             <option value="">Select Option</option>
             {roomOptions.map((option, index) => (
@@ -139,7 +139,7 @@ const SearchBar = ({ airports, destinations, roomOptions }) => {
 
         <button
           type="submit"
-          className="flex items-center justify-center md:mt-7 gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 py-2 md:px-6 md:py-3 rounded-md mt-6"
+          className="flex items-center justify-center md:mt-7 gap-2 bg-deep-orange-500 transition-colors duration-500 ease-in-out hover:bg-deep-orange-700 text-white font-bold px-5 py-2 md:px-6 md:py-3 rounded-md mt-6"
         >
           <FaSearch size={16} />
           <span>Search</span>

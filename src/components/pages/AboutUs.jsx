@@ -24,7 +24,7 @@ const AboutUs = () => {
       {/* Welcome Section */}
       <section className="bg-gray-100 py-12 text-center px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#304F47]">
+          <h2 className="text-3xl font-bold text-[#00AEEF]">
             Welcome to Viva Vista Vacations!
           </h2>
           <p className="text-lg text-gray-700 mt-4">
@@ -41,16 +41,16 @@ const AboutUs = () => {
       </section>
 
       {/* About Section */}
-      <section className="about bg-[#304F47] text-white py-12">
+      <section className="about bg-[#00AEEF] text-white py-12">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-4 text-center">
             Viva Vista: A Philosophy Beyond Travel
           </h2>
-          <p className="text-lg text-gray-300 mb-4">
+          <p className="text-lg text-white mb-4">
             <strong>Viva:</strong> We encourage you to embrace life with
             passion, to live fully and experience the world with open arms.
           </p>
-          <p className="text-lg text-gray-300 mb-4">
+          <p className="text-lg text-white mb-4">
             <strong>Vista:</strong> We believe in showcasing the world's hidden
             gems, breathtaking landscapes, and captivating stories that lie
             beyond the well-trodden paths.
@@ -113,18 +113,18 @@ const AboutUs = () => {
       </section>
 
       {/* Ready to Explore Section */}
-      <section className="why-choose bg-[#304F47] text-white py-12">
+      <section className="why-choose bg-[#00AEEF] text-white py-12">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">
             Ready to Embark on Your Next Adventure?
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-white max-w-3xl mx-auto">
             Explore our website to discover a world of possibilities, from
             breathtaking island escapes to exhilarating city adventures. Let
             Viva Vista Vacations be your guide to crafting the perfect journey,
             one that leaves you with memories that will last a lifetime.
           </p>
-          <button className="mt-6 px-6 py-3 bg-white text-[#304F47] font-bold rounded-lg shadow-lg hover:bg-gray-200">
+          <button className="mt-6 px-6 py-3 bg-white text-[#304F47] font-bold rounded-lg shadow-lg transition-colors duration-500 ease-in-out hover:bg-deep-orange-600 hover:text-white">
             Start Planning Now
           </button>
         </div>

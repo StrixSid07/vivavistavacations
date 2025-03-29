@@ -28,7 +28,7 @@
 export const navbarStyles = {
   backgroundColor: "bg-white",
   headerTextColor: "text-gray-800",
-  activeTextColor: "text-orange-600",
+  activeTextColor: "text-deep-orange-500",
   activeBgColor: "bg-transparent",
   hoverTextColor: "group-hover:text-blue-600",
   underlineColor: "bg-blue-600",

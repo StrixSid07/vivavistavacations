@@ -117,17 +117,6 @@ const Footer = () => {
                 </a>
               </span>
             </li>
-            {/* <li className="flex flex-col items-start gap-2">
-              <span className="font-bold text-orange-600">
-                <FaEnvelope size={18} />
-              </span>
-              <span className="transition duration-700 ease-in-out hover:text-orange-600 block break-words">
-                <a className="flex flex-wrap" href="mailto:admin@vivavistavactions.co.uk">
-                  admin@vivavistavactions.co.uk
-                </a>
-              </span>
-            </li>
- */}
             <li className="flex items-center">
               <div className="text-white flex w-64 items-start justify-center gap-1 group sm:text-left mb-4 sm:mb-0 ml-0">
                 <span className="font-bold   text-orange-600">

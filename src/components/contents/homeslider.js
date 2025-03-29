@@ -1,6 +1,6 @@
 import bg1 from "../../assets/bg/homebg1.jpg";
-import bg2 from "../../assets/bg/homebg2.jpg";
-import bg3 from "../../assets/bg/homebg3.jpg";
+import bg2 from "../../assets/bg/homebg2.webp";
+import bg3 from "../../assets/bg/homebg3.webp";
 
 export const homeslides = [
   {

@@ -286,7 +286,7 @@ const NewAdded = ({ data }) => {
   };
 
   return (
-    <div className="p-3 pl-4 bg-gradient-to-t from-green-500 to-white flex justify-center">
+    <div className="p-3 pl-4 bg-gradient-to-t from-[#00AEEF] to-white flex justify-center">
       <div className="w-full max-w-6xl">
         <Swiper
           modules={[Autoplay]} // ✅ Use `modules` prop for Swiper v8+

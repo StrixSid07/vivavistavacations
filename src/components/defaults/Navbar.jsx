@@ -41,7 +41,7 @@ const Navbar = () => {
       name: "Hot Bargains",
       href: "#",
       dropdown: [
-        { name: "Top Deals", href: "/topdeals" },
+        { name: "Top Deals", href: "/filter" },
         { name: "Beach Holidays", href: "/beachholidays" },
         { name: "City Breaks", href: "/citybreakes" },
         { name: "Luxury Holidays", href: "/luxaryholidays" },
@@ -66,7 +66,7 @@ const Navbar = () => {
       name: "Hot Bargains",
       href: "#",
       dropdown: [
-        { name: "Top Deals", href: "/topdeals" },
+        { name: "Top Deals", href: "/filter" },
         { name: "Beach Holidays", href: "/beachholidays" },
         { name: "City Breaks", href: "/citybreakes" },
         { name: "Luxury Holidays", href: "/luxaryholidays" },
@@ -208,7 +208,7 @@ const Navbar = () => {
                           className={`flex justify-between items-center gap-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
                             isDropdownActive(item.dropdown)
                               ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                              : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
+                              : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
                           }`}
                         >
                           {item.name}
@@ -236,7 +236,7 @@ const Navbar = () => {
                                   className={`block px-4 py-2 rounded-md transition-all duration-500 ease-in-out ${
                                     location.pathname === subItem.href
                                       ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                                      : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
+                                      : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
                                   }`}
                                   onClick={() => {
                                     closeAllDropdowns();
@@ -256,7 +256,7 @@ const Navbar = () => {
                         className={`block px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
                           location.pathname === item.href
                             ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                            : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
+                            : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
                         }`}
                         onClick={() => {
                           closeAllDropdowns();
@@ -290,7 +290,7 @@ const Navbar = () => {
                         className={`flex justify-between items-center gap-2 px-4 py-2 rounded-full bg-transparent transition-all duration-700 ease-in-out ${
                           dropdownStates[index]
                             ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                            : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
+                            : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
                         }`}
                       >
                         {item.name}
@@ -311,7 +311,7 @@ const Navbar = () => {
                                 className={`block px-4 py-2 rounded-full transition-all duration-500 ease-in-out ${
                                   location.pathname === subItem.href
                                     ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                                    : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
+                                    : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
                                 }`}
                                 onClick={closeAllDropdowns}
                               >
@@ -328,7 +328,7 @@ const Navbar = () => {
                       className={`block px-4 py-2 rounded-full bg-transparent transition-all duration-500 ease-in-out ${
                         location.pathname === item.href
                           ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                          : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-orange-500 hover:bg-transparent`
+                          : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
                       }`}
                       onClick={closeAllDropdowns}
                     >

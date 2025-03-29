@@ -86,11 +86,11 @@ const NewAddedCardComponent = ({
         <div className="flex items-center text-gray-700">
           <HiOutlineLocationMarker
             size={18}
-            className="mr-1 text-lg text-red-500"
+            className="mr-1 text-lg text-deep-orange-500"
           />
           <Typography
             variant="large"
-            className="font-medium text-xl text-deep-orange-600"
+            className="font-medium text-xl text-deep-orange-500"
           >
             {location}
           </Typography>
@@ -98,7 +98,7 @@ const NewAddedCardComponent = ({
 
         {/* Rating */}
         <div className="flex items-center space-x-2">
-          <FaStar className="text-yellow-400" />
+          <FaStar className="text-amber-600" />
           <Typography className="text-gray-700 font-medium">
             {rating} Rating
           </Typography>
@@ -107,7 +107,7 @@ const NewAddedCardComponent = ({
 
       {/* Footer Section */}
       <CardFooter className="p-4">
-        <Button className="w-full bg-deep-orange-600 hover:bg-deep-orange-800 transition-colors duration-500 ease-in-out text-white font-medium text-lg rounded-md">
+        <Button className="w-full bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md">
           View Details
         </Button>
       </CardFooter>

@@ -19,6 +19,7 @@ import FaqsAccordion from "./FaqsAccordion";
 import PrivacyPolicy from "./PrivacyPolicy";
 import TermsAndConditions from "./TermsAndConditions";
 import CookiePolicy from "./CookiePolicy";
+import FilterPage from "./FilterPage";
 
 export {
   Home,
@@ -41,4 +42,5 @@ export {
   PrivacyPolicy,
   TermsAndConditions,
   CookiePolicy,
+  FilterPage,
 };

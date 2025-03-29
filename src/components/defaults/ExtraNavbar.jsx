@@ -21,20 +21,20 @@ const ExtraNavbar = () => {
   const [region, setRegion] = useState("UK"); // Default to UK
 
   return (
-    <header className="bg-[#2E4A42] text-white py-1 text-base">
+    <header className="bg-[#00AEEF] text-white py-1 text-base">
       <div className="container mx-auto flex justify-between items-center px-6">
         {/* Left Side - Contact Info */}
         <div className="flex items-center space-x-6 sm:space-x-4">
           <a
             href="tel:+17632275032"
-            className="flex items-center space-x-2 transition-colors duration-300 ease-in-out hover:text-[#D35400] text-lg"
+            className="flex items-center space-x-2 transition-colors duration-300 ease-in-out hover:text-deep-orange-700 text-lg"
           >
             <FaPhoneAlt />
             <span className="hidden sm:inline">0203 780 5023</span>
           </a>
           <a
             href="mailto:admin@vivavistavactions.co.uk"
-            className="flex items-center space-x-2 transition-colors duration-300 ease-in-out hover:text-[#D35400] text-lg"
+            className="flex items-center space-x-2 transition-colors duration-300 ease-in-out hover:text-deep-orange-700 text-lg"
           >
             <FaEnvelope />
             <span className="hidden sm:inline">
@@ -47,27 +47,27 @@ const ExtraNavbar = () => {
         <div className="hidden sm:flex items-center space-x-4">
           <a
             href="#"
-            className="text-[#D35400] transition-colors duration-300 ease-in-out hover:text-orange-500"
+            className="text-deep-orange-500 transition-colors duration-300 ease-in-out hover:text-orange-600"
           >
-            <FaInstagram size={18} />
+            <FaInstagram size={20} />
           </a>
           <a
             href="#"
-            className="text-[#D35400] transition-colors duration-300 ease-in-out hover:text-orange-500"
+            className="text-deep-orange-500 transition-colors duration-300 ease-in-out hover:text-orange-600"
           >
-            <FaFacebookF size={18} />
+            <FaFacebookF size={20} />
           </a>
           <a
             href="#"
-            className="text-[#D35400] transition-colors duration-300 ease-in-out hover:text-orange-500"
+            className="text-deep-orange-500 transition-colors duration-300 ease-in-out hover:text-orange-600"
           >
-            <FaTwitter size={18} />
+            <FaTwitter size={20} />
           </a>
           <a
             href="#"
-            className="text-[#D35400] transition-colors duration-300 ease-in-out hover:text-orange-500"
+            className="text-deep-orange-500 transition-colors duration-300 ease-in-out hover:text-orange-600"
           >
-            <FaWhatsapp size={18} />
+            <FaWhatsapp size={20} />
           </a>
         </div>
 
