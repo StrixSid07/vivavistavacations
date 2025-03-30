@@ -23,7 +23,6 @@ const MainScreen = () => {
       setLoading(true);
       try {
         const response = await axios.get(`${Base_Url}/home/homepage`);
-
         setData({
           featuredDeals: response.data.featuredDeals,
           destination: response.data.destinations,

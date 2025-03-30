@@ -205,11 +205,17 @@ const Navbar = () => {
                         onClick={() => toggleDropdown(index)}
                       >
                         <button
-                          className={`flex justify-between items-center gap-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
-                            isDropdownActive(item.dropdown)
-                              ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                              : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
-                          }`}
+                          className={`flex justify-between items-center gap-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out 
+                            ${
+                              item.name === "Hot Bargains"
+                                ? "animate-blink"
+                                : ""
+                            }
+                            ${
+                              isDropdownActive(item.dropdown)
+                                ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
+                                : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
+                            }`}
                         >
                           {item.name}
                           <motion.div
@@ -287,11 +293,13 @@ const Navbar = () => {
                       onMouseLeave={(e) => handleMouseLeave(index, e)}
                     >
                       <button
-                        className={`flex justify-between items-center gap-2 px-4 py-2 rounded-full bg-transparent transition-all duration-700 ease-in-out ${
-                          dropdownStates[index]
-                            ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                            : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
-                        }`}
+                        className={`flex justify-between items-center gap-2 px-4 py-2 rounded-full bg-transparent transition-all duration-700 ease-in-out
+                          ${item.name === "Hot Bargains" ? "animate-blink" : ""}
+                          ${
+                            dropdownStates[index]
+                              ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
+                              : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
+                          }`}
                       >
                         {item.name}
                         <motion.div
