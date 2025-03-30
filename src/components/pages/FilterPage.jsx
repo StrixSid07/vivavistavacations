@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { ImageGallery, FilterElement, FilterPageSlides } from "../elements";
 import { FaPlaneArrival, FaSpa, FaPlaneDeparture } from "react-icons/fa";
+import { Base_Url } from "../../utils/Api";
 
 const FilterPage = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const FilterPage = () => {
   useEffect(() => {
     if (!id) return;
     axios
-      .get(`http://localhost:5001/api/deals/${id}`)
+      .get(`${Base_Url}/deals/${id}`)
       .then((res) => {
         const data = res.data;
 
@@ -102,7 +103,12 @@ const FilterPage = () => {
           <h1 className="absolute bottom-0 z-30 left-4 text-lg text-white bg-black/40 w-1/2">
             {tripData.title}
           </h1>
-          <ImageGallery images={images} />
+          {/* <ImageGallery images={images} /> */}
+          <ImageGallery
+            images={images.map(
+              (img) => `https://vivavista-backend.onrender.com/uploads/${img}`
+            )}
+          />
         </div>
       </div>
       {/* <ImageGallery

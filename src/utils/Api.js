@@ -1,0 +1,1 @@
+export const Base_Url = "https://vivavista-backend.onrender.com/api";

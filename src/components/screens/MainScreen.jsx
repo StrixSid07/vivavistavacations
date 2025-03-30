@@ -10,6 +10,7 @@ import { destinationsData } from "../contents/destination";
 import { autoSlides } from "../contents/autoslides";
 import { homeslides } from "../contents/homeslider";
 import axios from "axios";
+import { Base_Url } from "../../utils/Api";
 
 const MainScreen = () => {
   const navigate = useNavigate();
@@ -17,32 +18,33 @@ const MainScreen = () => {
   // const [loading, setLoading] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const [packagesRes, destinationRes, homeslides] = await Promise.all([
-  //         axios.get("https://67e680f86530dbd31110414e.mockapi.io/package"),
-  //         axios.get("https://67e680f86530dbd31110414e.mockapi.io/countryslider"),
-  //         axios.get("https://67e680f86530dbd31110414e.mockapi.io/homeslider"),
-  //       ]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://vivavista-backend.onrender.com/api/home/homepage"
+        );
 
-  //       setData({
-  //         packages: packagesRes.data,
-  //         destinations: destinationRes.data,
-  //         homeslides: homeslides.data,
-  //       });
-  //     } catch (error) {
-  //       console.error("Error fetching data", error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+        setData({
+          featuredDeals: response.data.featuredDeals,
+          destination: response.data.destinations,
+          reviews: response.data.reviews,
+          blogs: response.data.blogs,
+        });
 
-  // useEffect(() => {
-  //   if (data) {
-  //     setLoading(false);
-  //   }
-  // }, [data]);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    }
+  }, [data]);
 
   const handleClick = () => {
     navigate("/ContactUs");
@@ -73,8 +75,9 @@ const MainScreen = () => {
           Select Your best Package For Your Travel
         </div>
       </div>
-      {/* <NewAdded data={data?.packages || selectPackage || []} /> */}
-      <NewAdded data={selectPackage || []} />
+      {/* <NewAdded data={data?.featuredDeals} /> */}
+      {data?.featuredDeals && <NewAdded data={data.featuredDeals} />}
+      {/* <NewAdded data={selectPackage || []} /> */}
       {/* <div className="md:h-12 h-5 -mt-1 bg-gradient-to-t from-green-500 to-green-500"></div> */}
       <div className="container mt-4 md:mt-0 flex flex-col justify-center items-center mx-auto p-4 text-center">
         <h3 className="text-xl md:text-2xl  text-orange-600 mb-6 font-medium">
@@ -83,8 +86,8 @@ const MainScreen = () => {
         <h2 className="text-3xl md:text-4xl max-w-3xl text-center font-semibold mb-6">
           Select Our Best Popular Destinations
         </h2>
-        {/* <CountrySlider destinations={data?.destinations || destinationsData || []}/> */}
-        <CountrySlider destinations={destinationsData || []} />
+        {data?.destination && <CountrySlider destinations={data.destination} />}
+        {/* <CountrySlider destinations={destinationsData || []} /> */}
       </div>
       <Looking />
       <div className="p-2 md:p-0 mt-3 md:mt-10">

@@ -270,7 +270,8 @@ const NewAdded = ({ data }) => {
   const nextImage = (index) => {
     setCurrentImageIndex((prev) => {
       const newIndex = [...prev];
-      newIndex[index] = (newIndex[index] + 1) % data[index].images.length;
+      newIndex[index] =
+        (newIndex[index] + 1) %data[index].images.length;
       return newIndex;
     });
   };
@@ -279,8 +280,8 @@ const NewAdded = ({ data }) => {
     setCurrentImageIndex((prev) => {
       const newIndex = [...prev];
       newIndex[index] =
-        (newIndex[index] - 1 + data[index].images.length) %
-        data[index].images.length;
+        (newIndex[index] - 1 +data[index].images.length) %
+       data[index].images.length;
       return newIndex;
     });
   };
@@ -323,17 +324,17 @@ const NewAdded = ({ data }) => {
                     }`}
                   >
                     <NewAddedCardComponent
-                      id={property.id}
+                      id={property._id}
                       images={property.images}
-                      name={property.name}
-                      price={property.price}
-                      location={property.location}
-                      packageDays={property.packageDays}
-                      rating={property.rating}
+                      name={property.title}
+                      price={property.prices[0].price}
+                      // location={property.location}
+                      // packageDays={property.packageDays}
+                      rating={property.Rating}
                       currentImage={currentImageIndex[index]}
                       nextImage={() => nextImage(index)}
                       prevImage={() => prevImage(index)}
-                      tag={property.tag}
+                      // tag={property.tag}
                     />
                   </div>
                 ))}
