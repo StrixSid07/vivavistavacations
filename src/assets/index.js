@@ -1,6 +1,6 @@
 import logo from "./vivavista.svg";
 import homebg from "./home.jpg";
-import Uk from "./bg/Uk.jpg";
+import Uk from "./bg/UK.jpg";
 import water from "./bg/water.jpg";
 import contact from "./contact.svg";
 import payment1 from "./payment/payment-card-1.png";
