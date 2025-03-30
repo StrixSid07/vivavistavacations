@@ -89,7 +89,7 @@ const MainScreen = () => {
         {/* <CountrySlider destinations={destinationsData || []} /> */}
       </div>
       <Looking />
-      <div className="p-2 md:p-0 mt-3 md:mt-10">
+      <div className="md:p-0 mt-3 md:mt-10">
         <Autoslider slides={autoSlides} />
       </div>
     </div>

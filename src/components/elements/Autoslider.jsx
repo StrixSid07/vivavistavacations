@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { water } from "../../assets";
 
 const AutoSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,12 +37,21 @@ const AutoSlider = ({ slides }) => {
   };
 
   return (
-    <div className="relative w-full h-[70vh] overflow-hidden bg-white px-4 md:px-10">
+    <div
+      className="relative w-full h-[50vh] md:h-[90vh] overflow-hidden bg-white px-4 md:px-10"
+      style={{
+        backgroundImage: `url(${water})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-white md:flex hidden"></div>
       <div className="relative w-full h-full flex items-center justify-center">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute transition-transform duration-700 ease-in-out group ${getSlidePosition(
+            className={`absolute transition-transform duration-700 ease-in-out pl-4 pr-4 group ${getSlidePosition(
               index
             )} transform`}
           >
@@ -93,12 +103,12 @@ const AutoSlider = ({ slides }) => {
       </button>
 
       {/* Dots Navigation */}
-      <div className="absolute md:hidden bottom-0 mt-10 md:mt-20 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 md:gap-4 lg:gap-5">
+      <div className="absolute md:hidden bottom-0 mt-10 pb-3 md:mt-20 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 md:gap-4 lg:gap-5">
         {slides.map((_, index) => (
           <div
             key={index}
             className={`${
-              index === currentIndex ? "bg-orange-500 scale-110" : "bg-gray-500"
+              index === currentIndex ? "bg-orange-500 scale-110" : "bg-white"
             } 
           transition-transform cursor-pointer w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 rounded-full`}
             onClick={() => setCurrentIndex(index)}

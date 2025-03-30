@@ -16,7 +16,7 @@ const lookingOptions = [
   },
   {
     icon: PiCalendarStarFill,
-    title: "10+ Years of Travel Experience",
+    title: "15+ Years of Industrial Experience",
   },
   {
     icon: MdOutlineVerified,
@@ -63,7 +63,7 @@ const Looking = () => {
       <div className="absolute top-0 left-0 w-full">
         <div className="flex justify-center items-center -mt-8 -mb-4">
           <div className="p-4 flex-wrap flex justify-center md:w-1/2 w-80 items-center border-t-2 border-white text-center bg-black text-white font-bold text-2xl md:text-3xl rounded-xl shadow-[0_4px_10px_rgba(255,255,255,0.5)]">
-            Why You Are Travel With Viva Vista
+            Why Travel With Viva Vista
           </div>
         </div>
       </div>
@@ -82,11 +82,25 @@ const Looking = () => {
             variants={itemVariants}
           >
             <div className="flex justify-center items-center mb-4">
-              <div className="rounded-xl shadow-lg bg-white transition-colors duration-700 ease-out p-4 md:p-6">
-                <option.icon className="text-[#00AEEF] text-3xl md:text-4xl" />
+              {/* <div className="rounded-xl relative shadow-lg bg-white transition-colors duration-700 ease-out p-4 md:p-6">
+                <div
+                  className={`absolute top-0 right-0 h-5 w-5 bg-green-500  rounded-full transform -translate-y-1/2 translate-x-1/2 transition-transform duration-500 md:group-hover:scale-[2] lg:group-hover:scale-[5] group-hover:scale-[4]`}
+                ></div>
+                <option.icon className="text-[#00AEEF] z-10 text-3xl md:text-4xl" />
+              </div> */}
+              <div className="relative group rounded-xl shadow-lg bg-white transition-colors duration-700 ease-out p-4 md:p-6 overflow-hidden group">
+                {/* Expanding Background Shape on Hover */}
+                <div
+                  className="absolute top-0 right-0 h-16 w-16 bg-green-500 rounded-full transform -translate-y-1/2 translate-x-1/2
+                             transition-all duration-[2000ms] ease-in-out group-hover:scale-[15] group-hover:rounded-none group-hover:w-3/4 group-hover:h-full z-0"
+                ></div>
+
+                {/* Icon (Remains Unchanged) */}
+                <option.icon className="relative z-10 text-[#00AEEF] text-3xl md:text-4xl transition-all duration-300 ease-in-out group-hover:text-white" />
               </div>
             </div>
-            <h3 className="text-lg md:text-xl text-white font-bold">
+            {/* Fixed Height for Title */}
+            <h3 className="text-md md:text-xl text-white font-bold text-center leading-tight h-12 flex items-center justify-center">
               {option.title}
             </h3>
           </motion.div>

@@ -60,7 +60,7 @@ const FilterElement = ({
   };
 
   return (
-    <Card className="w-full max-w-sm border border-gray-100 shadow-lg p-1">
+    <Card className="w-full max-w-sm border border-gray-100 shadow-lg p-1 group">
       {/* Header: Price */}
       <CardHeader floated={false} className="flex flex-col items-center p-4">
         <Typography variant="small" className="text-gray-500">
@@ -172,6 +172,23 @@ const FilterElement = ({
         >
           Book Now
         </Button>
+        {/* <Button
+          size="lg"
+          className="
+    relative overflow-hidden bg-gray-200 w-full normal-case text-white font-semibold transition-all duration-[1000ms] ease-in-out
+    hover:text-white group"
+          onClick={handleSubmit}
+        >
+          <span
+            className="
+      absolute left-0 h-20 w-20 bg-[#e05c00] rounded-full transform -translate-x-1/2 -translate-y-1/2
+      transition-all duration-[1000ms] ease-in-out
+      group-hover:scale-[20] group-hover:w-full group-hover:h-full group-hover:rounded-none"
+          ></span>
+          <span className="relative z-10 text-deep-orange-600 transition-all duration-500 ease-in-out group-hover:text-white">
+            Book Now
+          </span>
+        </Button> */}
 
         {/* Phone / Call to Book */}
         <div className="text-center">

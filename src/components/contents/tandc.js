@@ -287,7 +287,8 @@ const tandc = [
     ],
   },
   {
-    mainTitle: "5. PTS",
+    // mainTitle: "5. PTS",
+    mainTitle: "5. STP",
     data: [
       {
         title: "Your Financial Security with Protected Trust Service",

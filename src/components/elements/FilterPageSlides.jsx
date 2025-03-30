@@ -59,9 +59,9 @@ const FilterPageSlides = ({ tripData, itinerary, prices }) => {
       <div className="w-full border rounded-lg shadow-lg overflow-hidden">
         <Tabs value={activeTab}>
           <TabsHeader
-            className="bg-gray-100 p-2 overflow-x-auto whitespace-nowrap flex-nowrap"
+            className="bg-gray-200 p-2 overflow-x-auto rounded-b-none whitespace-nowrap flex-nowrap"
             indicatorProps={{
-              className: "bg-transparent border-b-2 border-deep-orange-600",
+              className: "bg-transparent border-b-2 border-deep-orange-600 font-semibold",
             }}
           >
             {tabComponents.map(({ label, value }) => (
@@ -69,13 +69,15 @@ const FilterPageSlides = ({ tripData, itinerary, prices }) => {
                 key={value}
                 value={value}
                 onClick={() => setActiveTab(value)}
-                className={activeTab === value ? "text-deep-orange-500" : ""}
+                className={
+                  activeTab === value ? "text-deep-orange-500" : ""
+                }
               >
                 {label}
               </Tab>
             ))}
           </TabsHeader>
-          <div className="h-[600px] overflow-y-auto p-1 md:p-4 bg-white">
+          <div className="h-[600px] overflow-y-auto p-1 md:p-4 bg-gradient-to-t from-[#00AEEF] to-white">
             <TabsBody>
               {tabComponents.map(({ value, component }) => (
                 <TabPanel key={value} value={value}>

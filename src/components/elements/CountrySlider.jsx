@@ -278,7 +278,7 @@ const TravelPackages = ({ destinations }) => {
   };
 
   return (
-    <div className="container mx-auto space-y-16 px-0 md:px-10 py-10 select-none">
+    <div className="container mx-auto space-y-16 px-0 md:px-10 py-10 select-none bg-white">
       {destinations &&
         destinations.length > 0 &&
         destinations.map((destination, idx) => {
@@ -366,7 +366,7 @@ const TravelPackages = ({ destinations }) => {
                     // </div>
                     <div
                       key={deal._id}
-                      className="bg-white rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform group"
+                      className="bg-gradient-to-t from-[#00AEEF] to-white rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform group"
                       style={{ width: `${cardWidth}px`, minHeight: "400px" }} // Ensures uniform card height
                     >
                       <img
@@ -375,14 +375,14 @@ const TravelPackages = ({ destinations }) => {
                         alt={destination.name}
                       />
                       <div className="p-4 flex flex-col gap-2 flex-grow">
-                        <p className="text-gray-900 text-lg font-semibold line-clamp-2 h-12">
+                        <p className="text-white text-lg font-semibold line-clamp-2 h-12">
                           {deal.title}
                         </p>
-                        <p className="text-sm text-deep-orange-500 flex items-center gap-2">
+                        <p className="text-lg text-deep-orange-700 flex items-center gap-2">
                           <FaLocationDot size={16} />
                           {destination.name}
                         </p>
-                        <p className="text-md font-light text-gray-700 flex items-center gap-1">
+                        <p className="text-md font-light text-white flex items-center gap-1">
                           <FaStar size={18} className="text-amber-600" />
                           {deal["Rating "] || "No"} Rating
                         </p>

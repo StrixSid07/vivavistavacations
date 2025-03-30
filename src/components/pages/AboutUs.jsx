@@ -88,7 +88,7 @@ const AboutUs = () => {
             </div>
             <div className="feature flex flex-col items-center p-6 bg-white shadow-lg rounded-xl">
               <div className="text-5xl text-deep-orange-600 mb-4">
-                <FaHeadset />
+                <HiMiniShieldCheck />
               </div>
               <h3 className="text-xl font-semibold mb-2">
                 Unwavering Commitment
@@ -100,12 +100,13 @@ const AboutUs = () => {
             </div>
             <div className="feature flex flex-col items-center p-6 bg-white shadow-lg rounded-xl">
               <div className="text-5xl text-deep-orange-600 mb-4">
-                <HiMiniShieldCheck />
+                <FaHeadset />
               </div>
-              <h3 className="text-xl font-semibold mb-2">ATOL Protected</h3>
+              {/* Support Section */}
+              <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
               <p className="text-center text-gray-600">
-                Enjoy complete peace of mind with our fully ATOL-protected
-                holidays.
+                Enjoy complete peace of mind with our round-the-clock customer
+                support.
               </p>
             </div>
           </div>

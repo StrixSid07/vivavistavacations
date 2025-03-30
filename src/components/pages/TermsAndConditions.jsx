@@ -11,8 +11,8 @@ const TermsAndConditions = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-4xl font-bold text-center mb-8">
+    <div className="max-w-4xl mx-auto p-6 text-black">
+      <h1 className="text-4xl font-bold text-center mb-8 text-black">
         TERMS & CONDITIONS
       </h1>
 
@@ -113,7 +113,7 @@ const TermsAndConditions = () => {
             {/* Main Title */}
             <button
               onClick={() => toggleAccordion(mainIndex)}
-              className="w-full flex justify-between text-start items-center py-4 md:text-2xl text-xl font-medium md:font-semibold text-gray-900 focus:outline-none"
+              className="w-full flex justify-between text-start items-center py-4 md:text-2xl text-xl font-medium md:font-semibold text-black focus:outline-none"
             >
               <span>{section.mainTitle}</span>
               <FaChevronDown
@@ -139,17 +139,17 @@ const TermsAndConditions = () => {
                 >
                   {/* Render title only if it exists */}
                   {subSection.title && (
-                    <h2 className="text-xl font-semibold mb-2 text-gray-800">
+                    <h2 className="text-xl font-semibold mb-2 text-black">
                       {subSection.title}
                     </h2>
                   )}
                   {subSection.content.map((item, idx) => (
                     <div key={idx} className="mb-3">
-                      <p className="text-gray-700">{item.paragraph}</p>
+                      <p className="text-black">{item.paragraph}</p>
 
                       {/* List Items */}
                       {item.list && (
-                        <ul className="list-disc ml-6 text-gray-700">
+                        <ul className="list-disc ml-6 text-black">
                           {item.list.map((listItem, listIdx) => (
                             <li key={listIdx}>{listItem}</li>
                           ))}
@@ -158,7 +158,7 @@ const TermsAndConditions = () => {
 
                       {/* Sublist Items */}
                       {item.sublist && (
-                        <ul className="list-circle ml-8 text-gray-600">
+                        <ul className="list-circle ml-8 text-black">
                           {item.sublist.map((subItem, subIdx) => (
                             <li key={subIdx}>
                               {typeof subItem === "string"
@@ -167,7 +167,7 @@ const TermsAndConditions = () => {
 
                               {/* Childlist Items */}
                               {subItem.childlist && (
-                                <ul className="list-square ml-10 text-gray-500">
+                                <ul className="list-square ml-10 text-black">
                                   {subItem.childlist.map(
                                     (childItem, childIdx) => (
                                       <li key={childIdx}>{childItem}</li>

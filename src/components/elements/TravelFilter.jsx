@@ -198,7 +198,7 @@ const TravelFilter = () => {
         {/* Toggle Button positioned at the top-right of the card */}
         <Button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="md:hidden absolute top-2 left-2 bg-deep-orange-600 text-white p-2 rounded-full z-30"
+          className="md:hidden absolute top-2 left-2 bg-green-500 text-white p-2 rounded-full z-30"
         >
           {sidebarOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </Button>
@@ -230,6 +230,7 @@ const TravelFilter = () => {
             <div className="mb-4">
               <Input
                 label="Search"
+                color="green"
                 icon={<FaSearch size={16} />}
                 value={searchTerm}
                 onChange={(e) => {
@@ -242,7 +243,10 @@ const TravelFilter = () => {
 
             {/* Price Filter */}
             <div className="mb-4">
-              <Typography variant="paragraph" className="text-black mb-2">
+              <Typography
+                variant="paragraph"
+                className="text-green-500 font-semibold mb-2"
+              >
                 Price: £{filters.price}
               </Typography>
               <input
@@ -254,8 +258,8 @@ const TravelFilter = () => {
                 onChange={(e) =>
                   handleFilterChange("price", parseInt(e.target.value, 10))
                 }
-                className="w-full"
-                style={{ accentColor: "#FF5722", backgroundColor: "#D3D3D3" }}
+                className="w-full accent-green-500"
+                // style={{ accentColor: "#FF5722", backgroundColor: "#D3D3D3" }}
               />
             </div>
 
@@ -265,6 +269,7 @@ const TravelFilter = () => {
             </Typography>
             {boardOptions.map((board) => (
               <Checkbox
+                color="green"
                 key={board}
                 label={board}
                 checked={filters.boardBasis.includes(board)}
@@ -279,6 +284,7 @@ const TravelFilter = () => {
             </Typography>
             {hotelTypes.map((type) => (
               <Checkbox
+                color="green"
                 key={type}
                 label={type}
                 checked={filters.hotelType.includes(type)}
@@ -305,7 +311,7 @@ const TravelFilter = () => {
             </select>
 
             <Button
-              color="deep-orange"
+              color="green"
               className="mt-4 w-full"
               onClick={() =>
                 setFilters({
@@ -342,8 +348,8 @@ const TravelFilter = () => {
                     </div>
 
                     {/* Text Section */}
-                    <CardBody className="p-4 flex flex-col justify-center w-full md:w-96">
-                      <Typography variant="h6" className="text-deep-orange-500">
+                    <CardBody className="p-4 bg-gradient-to-b from-[#00AEEF]/90 to-white  flex flex-col justify-center w-full md:w-96">
+                      <Typography variant="h6" className="text-[#333333]">
                         {item.title}
                       </Typography>
                       <Typography className="text-black">
@@ -353,11 +359,11 @@ const TravelFilter = () => {
 
                     {/* Price & Button Section */}
                     <div className="w-full md:w-1/5 flex flex-col bg-gray-100 justify-center items-center gap-2 p-3 md:p-4">
-                      <Typography className="text-center font-semibold text-deep-orange-500">
+                      <Typography className="text-center font-semibold text-green-500">
                         £{item.price} per person
                       </Typography>
                       <Button
-                        color="deep-orange"
+                        color="green"
                         size="sm"
                         onClick={() => navigate(`/deals/${item.id}`)}
                       >
@@ -374,7 +380,7 @@ const TravelFilter = () => {
               <Button
                 onClick={() => setCurrentPage(currentPage - 1)}
                 disabled={currentPage === 1}
-                color="deep-orange"
+                color="green"
                 className="mx-1"
               >
                 Prev
@@ -385,7 +391,7 @@ const TravelFilter = () => {
               <Button
                 onClick={() => setCurrentPage(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                color="deep-orange"
+                color="green"
                 className="mx-1"
               >
                 Next
