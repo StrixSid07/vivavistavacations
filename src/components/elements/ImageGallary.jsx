@@ -14,7 +14,7 @@ const ImageGallery = ({ images }) => {
   };
 
   // Ensure all images have the base URL prepended
-//   const fullImageUrls = images.map((img) => `${BASE_URL}${img}`);
+  //   const fullImageUrls = images.map((img) => `${BASE_URL}${img}`);
 
   // Limit the collage to 5 images, but Lightbox still shows all
   const collageImages = images.slice(0, 5);

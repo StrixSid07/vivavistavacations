@@ -332,30 +332,62 @@ const TravelPackages = ({ destinations }) => {
                   }}
                 >
                   {destination.deals.map((deal) => (
+                    // <div
+                    //   key={deal._id}
+                    //   className="bg-white rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform group"
+                    //   style={{ width: `${cardWidth}px` }}
+                    // >
+                    //   <img
+                    //     src={deal.images[0]}
+                    //     className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    //     alt={destination.name}
+                    //   />
+                    //   <div className="p-4 flex flex-col gap-2">
+                    //     <p className="text-gray-900 text-lg font-semibold">
+                    //       {deal.title}
+                    //     </p>
+                    //     <p className="text-sm text-deep-orange-500 flex items-center gap-2">
+                    //       <FaLocationDot size={16} />
+                    //       {destination.name}
+                    //     </p>
+
+                    //     <p className="text-md font-light text-gray-700 flex items-center gap-1">
+                    //       <FaStar size={18} className="text-amber-600" />
+                    //       {deal["Rating "] || "No"} Rating
+                    //     </p>
+
+                    //     <Button
+                    //       onClick={() => handleViewDeals(deal._id)}
+                    //       className="w-full mt-2 bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md"
+                    //     >
+                    //       View Deal
+                    //     </Button>
+                    //   </div>
+                    // </div>
                     <div
                       key={deal._id}
                       className="bg-white rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform group"
-                      style={{ width: `${cardWidth}px` }}
+                      style={{ width: `${cardWidth}px`, minHeight: "400px" }} // Ensures uniform card height
                     >
                       <img
                         src={deal.images[0]}
                         className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                         alt={destination.name}
                       />
-                      <div className="p-4 flex flex-col gap-2">
-                        <p className="text-gray-900 text-lg font-semibold">
+                      <div className="p-4 flex flex-col gap-2 flex-grow">
+                        <p className="text-gray-900 text-lg font-semibold line-clamp-2 h-12">
                           {deal.title}
                         </p>
                         <p className="text-sm text-deep-orange-500 flex items-center gap-2">
                           <FaLocationDot size={16} />
                           {destination.name}
                         </p>
-                        {/*
-                      <p className="text-md font-light text-gray-700 flex items-center gap-1">
-                        <FaStar size={18} className="text-amber-600" />
-                        {deal["Rating "] || "No Rating"} Rating
-                      </p>
-                      */}
+                        <p className="text-md font-light text-gray-700 flex items-center gap-1">
+                          <FaStar size={18} className="text-amber-600" />
+                          {deal["Rating "] || "No"} Rating
+                        </p>
+                        <div className="flex-grow"></div>{" "}
+                        {/* Push button to the bottom */}
                         <Button
                           onClick={() => handleViewDeals(deal._id)}
                           className="w-full mt-2 bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md"

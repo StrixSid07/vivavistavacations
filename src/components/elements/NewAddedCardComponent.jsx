@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 const NewAddedCardComponent = ({
   id,
   images,
-  // location,
+  location,
   // packageDays,
   price,
   rating,
@@ -84,14 +84,17 @@ const NewAddedCardComponent = ({
               /Per Person
             </span>
           </Typography>
-          {/* <div className="flex items-center text-gray-700">
+          <div className="flex items-center text-gray-700">
             <BiCalendar className="mr-1 text-xl" />
-            <Typography variant="small">{packageDays} Nights</Typography>
-          </div> */}
+            <Typography variant="small">
+              {/* {packageDays} */}
+               7 Days
+               </Typography>
+          </div>
         </div>
 
         {/* Location */}
-        {/* <div className="flex items-center text-gray-700">
+        <div className="flex items-center text-gray-700">
           <HiOutlineLocationMarker
             size={18}
             className="mr-1 text-lg text-deep-orange-500"
@@ -102,7 +105,7 @@ const NewAddedCardComponent = ({
           >
             {location}
           </Typography>
-        </div> */}
+        </div>
 
         {/* Rating */}
         <div className="flex items-center space-x-2">

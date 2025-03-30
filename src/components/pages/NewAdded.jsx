@@ -270,8 +270,7 @@ const NewAdded = ({ data }) => {
   const nextImage = (index) => {
     setCurrentImageIndex((prev) => {
       const newIndex = [...prev];
-      newIndex[index] =
-        (newIndex[index] + 1) %data[index].images.length;
+      newIndex[index] = (newIndex[index] + 1) % data[index].images.length;
       return newIndex;
     });
   };
@@ -280,8 +279,8 @@ const NewAdded = ({ data }) => {
     setCurrentImageIndex((prev) => {
       const newIndex = [...prev];
       newIndex[index] =
-        (newIndex[index] - 1 +data[index].images.length) %
-       data[index].images.length;
+        (newIndex[index] - 1 + data[index].images.length) %
+        data[index].images.length;
       return newIndex;
     });
   };
@@ -328,9 +327,9 @@ const NewAdded = ({ data }) => {
                       images={property.images}
                       name={property.title}
                       price={property.prices[0].price}
-                      // location={property.location}
+                      location={property.destination?.name}
                       // packageDays={property.packageDays}
-                      rating={property.Rating}
+                      rating={property["Rating "]}
                       currentImage={currentImageIndex[index]}
                       nextImage={() => nextImage(index)}
                       prevImage={() => prevImage(index)}

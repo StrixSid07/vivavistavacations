@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { ImageGallery, FilterElement, FilterPageSlides } from "../elements";
 import { FaPlaneArrival, FaSpa, FaPlaneDeparture } from "react-icons/fa";
+import { FaLocationArrow } from "react-icons/fa6";
 import { Base_Url } from "../../utils/Api";
 
 const FilterPage = () => {
@@ -100,15 +101,19 @@ const FilterPage = () => {
     <div>
       <div className="">
         <div className="relative">
-          <h1 className="absolute bottom-0 z-30 left-4 text-lg text-white bg-black/40 w-1/2">
-            {tripData.title}
+          <h1 className="absolute bottom-0 z-30 left-0 text-lg text-white bg-black/40 w-1/2 p-2">
+            <span className="flex justify-start ml-4 items-center gap-4">
+              {" "}
+              <FaLocationArrow size={24} />
+              {tripData.title}
+            </span>
           </h1>
-          {/* <ImageGallery images={images} /> */}
-          <ImageGallery
+          <ImageGallery images={images} />
+          {/* <ImageGallery
             images={images.map(
               (img) => `https://vivavista-backend.onrender.com/uploads/${img}`
             )}
-          />
+          /> */}
         </div>
       </div>
       {/* <ImageGallery

@@ -20,10 +20,9 @@ const MainScreen = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
-        const response = await axios.get(
-          "https://vivavista-backend.onrender.com/api/home/homepage"
-        );
+        const response = await axios.get(`${Base_Url}/home/homepage`);
 
         setData({
           featuredDeals: response.data.featuredDeals,
@@ -31,10 +30,10 @@ const MainScreen = () => {
           reviews: response.data.reviews,
           blogs: response.data.blogs,
         });
-
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data", error);
+      } finally {
+        setLoading(false); // Ensure loading is false after response or error
       }
     };
     fetchData();
@@ -51,8 +50,8 @@ const MainScreen = () => {
   };
 
   return loading ? (
-    <div className="flex items-center justify-center h-screen bg-white">
-      <p className="text-2xl font-semibold">Loading...</p>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
     </div>
   ) : (
     <div>

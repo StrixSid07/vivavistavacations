@@ -1,5 +1,6 @@
 import logo from "./vivavista.svg";
 import homebg from "./home.jpg";
+import Uk from "./bg/Uk.jpg";
 import contact from "./contact.svg";
 import payment1 from "./payment/payment-card-1.png";
 import payment2 from "./payment/payment-card-2.png";
@@ -19,4 +20,5 @@ export {
   payment5,
   support,
   aboutus,
+  Uk,
 };

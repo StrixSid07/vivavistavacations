@@ -22,7 +22,9 @@ const travelDeals = [
     board: "Bed & Breakfast",
     hotelType: "Romantic Hotel",
     rating: 4,
-    images: ["https://placehold.co/300x200"],
+    images: [
+      "https://images.unsplash.com/photo-1476802379768-84b0af3e39ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
   },
   {
     id: "67e82ded76f06faa1a6fde35",
@@ -32,7 +34,9 @@ const travelDeals = [
     board: "Bed & Breakfast",
     hotelType: "City Hotel",
     rating: 4,
-    images: ["https://placehold.co/200x200"],
+    images: [
+      "https://plus.unsplash.com/premium_photo-1666283181610-b95ee7e55465?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
   },
   {
     id: "67e82ded76f06faa1a6fde35",
@@ -42,7 +46,9 @@ const travelDeals = [
     board: "Bed & Breakfast",
     hotelType: "City Hotel",
     rating: 4,
-    images: ["https://placehold.co/300x200"],
+    images: [
+      "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
   },
   {
     id: "67e82ded76f06faa1a6fde35",
@@ -52,7 +58,9 @@ const travelDeals = [
     board: "Bed & Breakfast",
     hotelType: "Beach Hotel",
     rating: 5,
-    images: ["https://placehold.co/300x200"],
+    images: [
+      "https://images.unsplash.com/photo-1689024613649-48021cef3908?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
   },
   {
     id: "67e82ded76f06faa1a6fde35",
@@ -62,7 +70,9 @@ const travelDeals = [
     board: "Bed & Breakfast",
     hotelType: "Luxury Hotel",
     rating: 5,
-    images: ["https://placehold.co/200x200"],
+    images: [
+      "https://images.unsplash.com/photo-1555881400-69a2384edcd4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
   },
   {
     id: "67e82ded76f06faa1a6fde35",
@@ -72,7 +82,9 @@ const travelDeals = [
     board: "Room Only",
     hotelType: "City Hotel",
     rating: 4,
-    images: ["https://placehold.co/300x200"],
+    images: [
+      "https://images.unsplash.com/photo-1562065748-4f77ced5f764?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
   },
   {
     id: "67e82ded76f06faa1a6fde35",
@@ -82,7 +94,9 @@ const travelDeals = [
     board: "All Inclusive",
     hotelType: "Beach Hotel",
     rating: 5,
-    images: ["https://placehold.co/300x200"],
+    images: [
+      "https://images.unsplash.com/photo-1486591913781-4bee9ed65bfe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
   },
   {
     id: "67e82ded76f06faa1a6fde35",
@@ -92,7 +106,9 @@ const travelDeals = [
     board: "Bed & Breakfast",
     hotelType: "City Hotel",
     rating: 4,
-    images: ["https://placehold.co/300x200"],
+    images: [
+      "https://images.unsplash.com/photo-1605101100278-5d1deb2b6498?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
   },
   {
     id: "67e82ded76f06faa1a6fde35",
@@ -102,7 +118,9 @@ const travelDeals = [
     board: "Room Only",
     hotelType: "Luxury Hotel",
     rating: 5,
-    images: ["https://placehold.co/300x200"],
+    images: [
+      "https://images.unsplash.com/photo-1531572753322-ad063cecc140?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
   },
 ];
 
@@ -198,7 +216,7 @@ const TravelFilter = () => {
           <div
             className={`${
               sidebarOpen ? "translate-x-0" : "translate-x-full"
-            } fixed top-0 right-0 z-40 w-3/4 h-full bg-gray-50 p-4 md:p-6 border-l transition-transform duration-300 md:relative md:translate-x-0 md:w-1/4`}
+            } fixed top-0 right-0 z-30 w-3/4 h-full bg-gray-50 p-4 md:p-6 border-l transition-transform duration-300 md:relative md:translate-x-0 md:w-1/4`}
           >
             <Typography
               variant="h5"
@@ -312,10 +330,10 @@ const TravelFilter = () => {
                 {currentDeals.map((item) => (
                   <Card
                     key={item.id}
-                    className="shadow-md rounded-lg w-full md:w-[48rem] h-64 flex flex-row overflow-hidden"
+                    className="shadow-md rounded-lg w-full md:w-[48rem] md:h-[16rem] flex flex-col md:flex-row overflow-hidden"
                   >
                     {/* Image Section */}
-                    <div className="w-2/5 h-full shrink-0 rounded-r-none">
+                    <div className="w-full md:w-2/5 h-48 md:h-full shrink-0 rounded-b-none md:rounded-r-none">
                       <img
                         src={item.images[0]}
                         alt={item.title}
@@ -324,7 +342,7 @@ const TravelFilter = () => {
                     </div>
 
                     {/* Text Section */}
-                    <CardBody className="p-4 flex flex-col justify-center w-96 min-h-full">
+                    <CardBody className="p-4 flex flex-col justify-center w-full md:w-96">
                       <Typography variant="h6" className="text-deep-orange-500">
                         {item.title}
                       </Typography>
@@ -334,8 +352,8 @@ const TravelFilter = () => {
                     </CardBody>
 
                     {/* Price & Button Section */}
-                    <div className="w-1/5 flex flex-col bg-gray-100 justify-center items-center gap-4 p-4">
-                      <Typography className="text-center md:font-bold font-semibold text-deep-orange-500">
+                    <div className="w-full md:w-1/5 flex flex-col bg-gray-100 justify-center items-center gap-2 p-3 md:p-4">
+                      <Typography className="text-center font-semibold text-deep-orange-500">
                         £{item.price} per person
                       </Typography>
                       <Button
