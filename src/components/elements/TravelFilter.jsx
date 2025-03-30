@@ -326,7 +326,7 @@ const TravelFilter = () => {
             </Button>
           </div>
 
-          {/* Travel Deals */}
+          {/* Travel Deals Section */}
           <div className="w-full md:w-3/4 p-4 md:p-6">
             <Typography variant="h4" className="text-black mb-6">
               Showing {filteredDeals.length} Results
