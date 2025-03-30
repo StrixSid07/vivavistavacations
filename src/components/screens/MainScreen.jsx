@@ -77,7 +77,7 @@ const MainScreen = () => {
       {/* <NewAdded data={data?.featuredDeals} /> */}
       {data?.featuredDeals && <NewAdded data={data.featuredDeals} />}
       {/* <NewAdded data={selectPackage || []} /> */}
-      {/* <div className="md:h-12 h-5 -mt-1 bg-gradient-to-t from-green-500 to-green-500"></div> */}
+      <div className="md:h-12 h-5 -mt-1 bg-gradient-to-t from-[#00AEEF] to-[#00AEEF]"></div>
       <div className="container mt-4 md:mt-0 flex flex-col justify-center items-center mx-auto p-4 text-center">
         <h3 className="text-xl md:text-2xl  text-orange-600 mb-6 font-medium">
           Popular Destinations
