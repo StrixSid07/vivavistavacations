@@ -15,7 +15,6 @@ import { Base_Url } from "../../utils/Api";
 const MainScreen = () => {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
-  // const [loading, setLoading] = useState(true);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
