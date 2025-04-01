@@ -278,7 +278,7 @@ const TravelPackages = ({ destinations }) => {
   };
 
   return (
-    <div className="container mx-auto space-y-16 px-0 md:px-10 py-10 select-none bg-white">
+    <div className="container mx-auto space-y-16 px-0 md:px-10 py-10 select-none">
       {destinations &&
         destinations.length > 0 &&
         destinations.map((destination, idx) => {

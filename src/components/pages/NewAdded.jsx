@@ -239,7 +239,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules"; // ✅ Correct import for Swiper v8+
 import "swiper/css";
 
-const NewAdded = ({ data }) => {
+const NewAdded = ({ data = [], loadingData }) => {
   const getChunkSize = () => {
     if (window.innerWidth >= 1024) return 3;
     if (window.innerWidth >= 768) return 2;
@@ -267,8 +267,21 @@ const NewAdded = ({ data }) => {
     Array(data.length).fill(0)
   );
 
+  useEffect(() => {
+    setCurrentImageIndex(Array(data.length).fill(0));
+  }, [data]);
+
+  // const nextImage = (index) => {
+  //   setCurrentImageIndex((prev) => {
+  //     const newIndex = [...prev];
+  //     newIndex[index] = (newIndex[index] + 1) % data[index].images.length;
+  //     return newIndex;
+  //   });
+  // };
+
   const nextImage = (index) => {
     setCurrentImageIndex((prev) => {
+      if (!data[index] || !data[index].images) return prev;
       const newIndex = [...prev];
       newIndex[index] = (newIndex[index] + 1) % data[index].images.length;
       return newIndex;
@@ -284,6 +297,35 @@ const NewAdded = ({ data }) => {
       return newIndex;
     });
   };
+
+  if (loadingData || !data.length) {
+    return (
+      <div className="p-3 bg-gradient-to-t from-[#00AEEF] to-white flex justify-center">
+        <div className="w-full max-w-6xl mx-auto">
+          <div className="flex justify-center gap-10">
+            {Array.from({ length: chunkSize }).map((_, index) => (
+              <div
+                key={index}
+                className={`rounded-xl bg-white shadow-md p-4 h-[30rem] animate-pulse relative ${
+                  chunkSize === 1
+                    ? "w-full"
+                    : chunkSize === 2
+                    ? "w-1/2"
+                    : "w-1/3"
+                }`}
+              >
+                <div className=" h-[16rem] bg-gray-300 rounded-md"></div>
+                <div className="mt-4 h-3 w-3/4 bg-gray-300 rounded-full"></div>
+                <div className="mt-2 h-2 w-1/2 bg-gray-300 rounded-full"></div>
+                <div className="mt-2 h-2 w-2/3 bg-gray-300 rounded-full"></div>
+                <div className="mt-2 h-10 w-[20.5rem] bg-gray-300 rounded-md absolute left-4 bottom-4"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="p-3 bg-gradient-to-t from-[#00AEEF] to-white flex justify-center">

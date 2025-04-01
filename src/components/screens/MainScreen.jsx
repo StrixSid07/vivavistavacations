@@ -16,10 +16,12 @@ const MainScreen = () => {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [loading2, setLoading2] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
+      setLoading2(true);
       try {
         const response = await axios.get(`${Base_Url}/home/homepage`);
         setData({
@@ -28,7 +30,9 @@ const MainScreen = () => {
           reviews: response.data.reviews,
           blogs: response.data.blogs,
         });
+        setLoading2(false);
       } catch (error) {
+        setLoading2(false);
         console.error("Error fetching data", error);
       } finally {
         setLoading(false); // Ensure loading is false after response or error
@@ -47,11 +51,12 @@ const MainScreen = () => {
     navigate("/ContactUs");
   };
 
-  return loading ? (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
-    </div>
-  ) : (
+  // return loading ? (
+  //   <div className="flex items-center justify-center min-h-screen bg-gray-100">
+  //     <div className="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+  //   </div>
+  // ) : 
+  return (
     <div>
       <div className="relative">
         {/* This is the Home component */}
@@ -73,10 +78,13 @@ const MainScreen = () => {
         </div>
       </div>
       {/* <NewAdded data={data?.featuredDeals} /> */}
-      {data?.featuredDeals && <NewAdded data={data.featuredDeals} />}
+      {/* {data?.featuredDeals && (
+        <NewAdded data={data.featuredDeals || []} loadingData={loading2} />
+      )} */}
+      <NewAdded data={data?.featuredDeals || []} loadingData={loading} />
       {/* <NewAdded data={selectPackage || []} /> */}
       <div className="md:h-12 h-5 -mt-1 bg-gradient-to-t from-[#00AEEF] to-[#00AEEF]"></div>
-      <div className="container mt-4 md:mt-0 flex flex-col justify-center items-center mx-auto p-4 text-center">
+      <div className="mt-4 md:mt-0 flex flex-col w-full bg-gradient-to-t from-green-500/90 to-white justify-center items-center mx-auto p-4 text-center">
         <h3 className="text-xl md:text-2xl  text-orange-600 mb-6 font-medium">
           Popular Destinations
         </h3>

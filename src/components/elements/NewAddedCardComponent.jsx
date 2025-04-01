@@ -30,6 +30,9 @@ const NewAddedCardComponent = ({
 }) => {
   const navigate = useNavigate();
 
+  console.log("Current Image Index:", currentImage);
+  console.log("Current Image URL:", images[currentImage]);
+
   const handleViewDetails = () => {
     navigate(`/deals/${id}`); // ✅ Navigate to deal details page
   };
@@ -86,10 +89,7 @@ const NewAddedCardComponent = ({
           </Typography>
           <div className="flex items-center text-gray-700">
             <BiCalendar className="mr-1 text-xl" />
-            <Typography variant="small">
-              {/* {packageDays} */}
-               7 Days
-               </Typography>
+            <Typography variant="small">{/* {packageDays} */}7 Days</Typography>
           </div>
         </div>
 

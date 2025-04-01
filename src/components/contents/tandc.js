@@ -158,15 +158,15 @@ const tandc = [
             sublist: [
               {
                 paragraph:
-                  "(a) Book with Confidence - When you purchase an ATOL-protected flight or flight-inclusive package from us, you will receive an ATOL Certificate. This certificate outlines the financial protection provided, where to find further details, and who to contact in case of any issues. Your money is financially safeguarded when booking a flight or flight-inclusive package with Viva Vista Vacations.",
+                  "(a) Book with Confidence - When you purchase an XYZ-protected flight or flight-inclusive package from us, you will receive an XYZ Certificate. This certificate outlines the financial protection provided, where to find further details, and who to contact in case of any issues. Your money is financially safeguarded when booking a flight or flight-inclusive package with Viva Vista Vacations.",
               },
               {
                 paragraph:
-                  "(b) Service Fulfillment - We, or the suppliers identified on your ATOL Certificate, are responsible for providing the services listed. In cases where we or the supplier cannot fulfill these services due to insolvency, an alternative ATOL holder may step in to provide the services or a suitable alternative at no additional cost to you. You agree that in such cases, the alternative ATOL holder will assume responsibility for fulfilling your booking, and you must pay any outstanding balances to them. If no alternative ATOL holder is appointed, you may be entitled to make a claim under the ATOL scheme (or with your credit card issuer, if applicable).",
+                  "(b) Service Fulfillment - We, or the suppliers identified on your XYZ Certificate, are responsible for providing the services listed. In cases where we or the supplier cannot fulfill these services due to insolvency, an alternative XYZ holder may step in to provide the services or a suitable alternative at no additional cost to you. You agree that in such cases, the alternative XYZ holder will assume responsibility for fulfilling your booking, and you must pay any outstanding balances to them. If no alternative XYZ holder is appointed, you may be entitled to make a claim under the XYZ scheme (or with your credit card issuer, if applicable).",
               },
               {
                 paragraph:
-                  "(c) Compensation & Claims - If neither we nor the suppliers listed on your ATOL Certificate can provide the booked services due to insolvency, the Trustees of the Air Travel Trust may provide compensation or benefits under the ATOL scheme. By accepting such payments or benefits, you agree to assign your rights to those Trustees, including any claims against us, the travel provider, or your credit card issuer (if applicable). Such claims may also be reassigned to another authorized body if they have already covered your claim under the ATOL scheme.",
+                  "(c) Compensation & Claims - If neither we nor the suppliers listed on your XYZ Certificate can provide the booked services due to insolvency, the Trustees of the Air Travel Trust may provide compensation or benefits under the XYZ scheme. By accepting such payments or benefits, you agree to assign your rights to those Trustees, including any claims against us, the travel provider, or your credit card issuer (if applicable). Such claims may also be reassigned to another authorized body if they have already covered your claim under the XYZ scheme.",
               },
               {
                 paragraph:

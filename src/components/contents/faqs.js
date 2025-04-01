@@ -34,13 +34,13 @@ const faqs = [
     links: [],
   },
   {
-    question: "What is ATOL, and How Does It Affect Me?",
+    question: "What is XYZ, and How Does It Affect Me?",
     answer:
-      "The Air Travel Organisers Licence (ATOL) is a financial protection scheme that safeguards travelers if a tour operator ceases trading. Our ATOL number is ****. When you book a flight and hotel package with Viva Vista Vacations, every part of your holiday is financially protected under the ATOL scheme. However, ATOL protection does not cover hotel-only bookings or cancelled flights. Once your booking is confirmed, you will receive an ATOL certificate outlining your protection. In the unlikely event that we cease trading, the ATOL scheme ensures that any money paid will be refunded or that you will be repatriated.",
+      "The Air Travel Organisers Licence (XYZ) is a financial protection scheme that safeguards travelers if a tour operator ceases trading. Our XYZ number is ****. When you book a flight and hotel package with Viva Vista Vacations, every part of your holiday is financially protected under the XYZ scheme. However, XYZ protection does not cover hotel-only bookings or cancelled flights. Once your booking is confirmed, you will receive an XYZ certificate outlining your protection. In the unlikely event that we cease trading, the XYZ scheme ensures that any money paid will be refunded or that you will be repatriated.",
     contactNumber: "",
     lists: [],
-    linktitle: ["CAA website", "ATOL certificate"],
-    links: ["https://www.caa.co.uk/", "https://www.atol.org/"],
+    linktitle: ["CAA website", "XYZ certificate"],
+    links: ["https://www.caa.co.uk/", "https://www.XYZ.org/"],
   },
   {
     question: "How Do I Contact Viva Vista Vacations for Complaints?",
@@ -54,7 +54,7 @@ const faqs = [
     question:
       "Is My Holiday Booking Financially Protected with Viva Vista Vacations?",
     answer:
-      "We are a Member of ATOL and PTS. All package holidays booked with Viva Vista Vacations are covered by a financial protection scheme, and we will inform you before booking if your trip qualifies as a package. Some flights and flight-inclusive holidays on our website are financially protected under the ATOL scheme. However, standalone services such as hotels or individual flights may not be covered. For more details, please refer to our Terms and Conditions.",
+      "We are a Member of XYZ and PTS. All package holidays booked with Viva Vista Vacations are covered by a financial protection scheme, and we will inform you before booking if your trip qualifies as a package. Some flights and flight-inclusive holidays on our website are financially protected under the XYZ scheme. However, standalone services such as hotels or individual flights may not be covered. For more details, please refer to our Terms and Conditions.",
     contactNumber: "",
     lists: [],
     linktitle: ["TermsAndConditions"],
@@ -105,7 +105,7 @@ const faqs = [
   {
     question: "Is Viva Vista Vacations a Legitimate Company?",
     answer:
-      "Yes, Viva Vista Vacations is a legitimate and trusted travel company. We are a Member of PTS and ATOL, ensuring that your bookings are financially protected. All package holidays booked with us are covered by a financial protection scheme. However, hotel-only or flight-only bookings may not be protected.",
+      "Yes, Viva Vista Vacations is a legitimate and trusted travel company. We are a Member of PTS and XYZ, ensuring that your bookings are financially protected. All package holidays booked with us are covered by a financial protection scheme. However, hotel-only or flight-only bookings may not be protected.",
     contactNumber: "",
     lists: [],
     links: [],
