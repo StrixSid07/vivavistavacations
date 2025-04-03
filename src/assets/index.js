@@ -8,6 +8,8 @@ import payment2 from "./payment/payment-card-2.png";
 import payment3 from "./payment/payment-card-3.png";
 import payment4 from "./payment/payment-card-4.png";
 import payment5 from "./payment/payment-card-5.png";
+import payment6 from "./payment/payment-card-6.png";
+import certilogo from "./payment/certilogo.png";
 import support from "./payment/customer-support.png";
 import aboutus from "./about/aboutus.jpg";
 export {
@@ -19,8 +21,10 @@ export {
   payment3,
   payment4,
   payment5,
+  payment6,
   support,
   aboutus,
+  certilogo,
   Uk,
   water,
 };

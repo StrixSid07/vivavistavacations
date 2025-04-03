@@ -7,3 +7,35 @@
 body {
   font-family: "Winky Sans", sans-serif;
 }
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0); /* Background of the scrollbar track */
+  border-radius: 1px; /* Radius of the scrollbar track */
+}
+
+@keyframes scrollEffect {
+  0% {
+    background: rgb(0, 115, 180);
+  }
+  50% {
+    background: rgb(0, 115, 190);
+  }
+  100% {
+    background: rgb(0, 120, 200);
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 115, 180); /* Initial color of the scrollbar thumb */
+  border-radius: 2px; /* Radius of the scrollbar thumb */
+  transition: background 0.5s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 87, 34); /* Color of the scrollbar thumb on hover */
+}

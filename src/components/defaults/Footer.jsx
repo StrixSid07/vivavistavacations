@@ -3,20 +3,19 @@ import { Link, useLocation } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
-  FaTwitter,
   FaWhatsapp,
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
 import { HiChevronRight } from "react-icons/hi";
 import { FaLocationDot } from "react-icons/fa6";
+import { PiXLogoFill } from "react-icons/pi";
 import {
+  certilogo,
   logo,
   payment1,
   payment2,
-  payment3,
-  payment4,
-  payment5,
+  payment6,
   support,
 } from "../../assets";
 
@@ -159,12 +158,12 @@ const Footer = () => {
                 href="#"
                 className="transition-all ease-out duration-500 group-hover:text-blue-500"
               >
-                <FaTwitter size={24} />
+                <PiXLogoFill size={24} />
               </a>
             </div>
             <div className=" flex flex-col justify-center items-center space-y-2 group mt-2">
               <a
-                href="#"
+                href="https://wa.me/442037805023"
                 className="transition-all ease-out duration-500 group-hover:text-green-700"
               >
                 <FaWhatsapp size={24} />
@@ -207,16 +206,14 @@ const Footer = () => {
             We Accept:
           </h2>
           <div className="grid md:grid-cols-3 grid-cols-5 gap-1 md:max-w-60 max-w-80">
-            {[payment1, payment2, payment3, payment4, payment5].map(
-              (payment, index) => (
-                <img
-                  key={index}
-                  src={payment}
-                  alt={`Payment method ${index + 1}`}
-                  className="h-12"
-                />
-              )
-            )}
+            {[payment1, payment2, payment6].map((payment, index) => (
+              <img
+                key={index}
+                src={payment}
+                alt={`Payment method ${index + 1}`}
+                className="h-12"
+              />
+            ))}
           </div>
 
           <div className="flex md:flex-col flex-row items-start justify-center text-center mt-6">
@@ -253,23 +250,25 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="flex flex-col justify-center items-center mb-2">
+        <h1>Boook With Confiodence</h1>
+        <img src={certilogo} className="h-14 mt-2 w-auto object-fill" alt="" />
+      </div>
 
       <div className="border-t border-gray-700 pt-1 text-center">
         <div className="flex flex-col justify-center items-center mb-6 md:hidden">
           <h2 className="md:text-2xl text-lg font-medium md:font-bold mb-5 md:text-center">
             We Accept:
           </h2>
-          <div className="grid md:grid-cols-3 grid-cols-5 gap-1 md:max-w-60 max-w-80">
-            {[payment1, payment2, payment3, payment4, payment5].map(
-              (payment, index) => (
-                <img
-                  key={index}
-                  src={payment}
-                  alt={`Payment method ${index + 1}`}
-                  className="h-12"
-                />
-              )
-            )}
+          <div className="grid md:grid-cols-3 grid-cols-3 gap-1 md:max-w-60 max-w-80">
+            {[payment1, payment2, payment6].map((payment, index) => (
+              <img
+                key={index}
+                src={payment}
+                alt={`Payment method ${index + 1}`}
+                className="h-12"
+              />
+            ))}
           </div>
         </div>
 
@@ -295,12 +294,12 @@ const Footer = () => {
               href="#"
               className="transition-all ease-out duration-500 group-hover:text-blue-500"
             >
-              <FaTwitter size={24} />
+              <PiXLogoFill size={24} />
             </a>
           </div>
           <div className=" flex flex-col justify-center items-center space-y-2 group mt-2">
             <a
-              href="#"
+              href="https://wa.me/442037805023"
               className="transition-all ease-out duration-500 group-hover:text-green-700"
             >
               <FaWhatsapp size={24} />

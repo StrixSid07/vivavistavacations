@@ -15,6 +15,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { Map } from "../elements";
+import { FaLocationDot } from "react-icons/fa6";
 
 const ContactUs = () => {
   return (
@@ -44,7 +45,10 @@ const ContactUs = () => {
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-deep-orange-500">
                   Address
                 </h1>
-                <p className="text-base md:text-lg lg:text-xl">Your Address</p>
+                <p className="text-base flex justify-center items-center gap-4 md:text-lg lg:text-xl">
+                  <FaLocationDot className="text-red-500" size={24} /> 01, 195-197 Wood Street, London,
+                  England, E17 3NU
+                </p>
               </div>
               {/* Contact Info */}
               <div className="mb-6">

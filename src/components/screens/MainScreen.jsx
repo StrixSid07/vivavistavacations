@@ -83,9 +83,9 @@ const MainScreen = () => {
       )} */}
       <NewAdded data={data?.featuredDeals || []} loadingData={loading} />
       {/* <NewAdded data={selectPackage || []} /> */}
-      <div className="md:h-12 h-5 -mt-1 bg-gradient-to-t from-[#00AEEF] to-[#00AEEF]"></div>
-      <div className="mt-4 md:mt-0 flex flex-col w-full bg-gradient-to-t from-green-500/90 to-white justify-center items-center mx-auto p-4 text-center">
-        <h3 className="text-xl md:text-2xl  text-orange-600 mb-6 font-medium">
+      <div className="md:h-12 h-5 -mt-1 bg-gradient-to-t from-[#0073b4] to-[#0073b4]"></div>
+      <div className="mt-4 md:mt-0 flex flex-col w-full bg-gradient-to-t from-[#1ABC9C] to-white justify-center items-center mx-auto p-4 text-center">
+        <h3 className="text-xl md:text-2xl  text-deep-orange-600 mb-6 font-medium">
           Popular Destinations
         </h3>
         <h2 className="text-3xl md:text-4xl max-w-3xl text-center font-semibold mb-6">

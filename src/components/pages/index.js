@@ -20,6 +20,7 @@ import PrivacyPolicy from "./PrivacyPolicy";
 import TermsAndConditions from "./TermsAndConditions";
 import CookiePolicy from "./CookiePolicy";
 import FilterPage from "./FilterPage";
+import TopDeals from "./TopDeals";
 
 export {
   Home,
@@ -43,4 +44,5 @@ export {
   TermsAndConditions,
   CookiePolicy,
   FilterPage,
+  TopDeals,
 };

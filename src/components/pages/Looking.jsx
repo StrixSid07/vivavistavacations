@@ -59,7 +59,7 @@ const Looking = () => {
   };
 
   return (
-    <div className="relative h-auto bg-gradient-to-t from-[#00AEEF] to-white rounded-t-2xl -mt-3 pb-4 md:pb-12 lg:pb-16 border-t-2 border-white z-10">
+    <div className="relative h-auto bg-gradient-to-t from-[#0078D4] to-white rounded-t-2xl -mt-3 pb-4 md:pb-12 lg:pb-16 border-t-2 border-white z-10">
       <div className="absolute top-0 left-0 w-full">
         <div className="flex justify-center items-center -mt-8 -mb-4">
           <div className="p-4 flex-wrap flex justify-center md:w-1/2 w-80 items-center border-t-2 border-white text-center bg-black text-white font-bold text-2xl md:text-3xl rounded-xl shadow-[0_4px_10px_rgba(255,255,255,0.5)]">
@@ -96,7 +96,7 @@ const Looking = () => {
                 ></div>
 
                 {/* Icon (Remains Unchanged) */}
-                <option.icon className="relative z-10 text-[#00AEEF] text-3xl md:text-4xl transition-all duration-300 ease-in-out group-hover:text-white" />
+                <option.icon className="relative z-10 text-[#0078D4] text-3xl md:text-4xl transition-all duration-300 ease-in-out group-hover:text-white" />
               </div>
             </div>
             {/* Fixed Height for Title */}

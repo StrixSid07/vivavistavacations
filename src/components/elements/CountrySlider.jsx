@@ -366,7 +366,7 @@ const TravelPackages = ({ destinations }) => {
                     // </div>
                     <div
                       key={deal._id}
-                      className="bg-gradient-to-t from-[#00AEEF] to-white rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform group"
+                      className="bg-gradient-to-t from-[#0073b4] to-white rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform group"
                       style={{ width: `${cardWidth}px`, minHeight: "400px" }} // Ensures uniform card height
                     >
                       <img

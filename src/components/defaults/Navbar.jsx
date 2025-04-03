@@ -41,7 +41,7 @@ const Navbar = () => {
       name: "Hot Bargains",
       href: "#",
       dropdown: [
-        { name: "Top Deals", href: "/filter" },
+        { name: "Top Deals", href: "/topdeals" },
         { name: "Beach Holidays", href: "/beachholidays" },
         { name: "City Breaks", href: "/citybreakes" },
         { name: "Luxury Holidays", href: "/luxaryholidays" },
@@ -66,7 +66,7 @@ const Navbar = () => {
       name: "Hot Bargains",
       href: "#",
       dropdown: [
-        { name: "Top Deals", href: "/filter" },
+        { name: "Top Deals", href: "/topdeals" },
         { name: "Beach Holidays", href: "/beachholidays" },
         { name: "City Breaks", href: "/citybreakes" },
         { name: "Luxury Holidays", href: "/luxaryholidays" },
@@ -207,7 +207,7 @@ const Navbar = () => {
                         <button
                           className={`flex justify-between items-center gap-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out 
                             ${
-                              item.name === "Hot Bargains"
+                              item.name === "Hot Bargains" 
                                 ? "animate-blink"
                                 : ""
                             }

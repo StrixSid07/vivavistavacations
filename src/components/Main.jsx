@@ -23,6 +23,7 @@ import {
   TermsAndConditions,
   CookiePolicy,
   FilterPage,
+  TopDeals,
 } from "./pages";
 import { MainScreen } from "./screens";
 import TravelFilter from "./elements/TravelFilter";
@@ -99,7 +100,6 @@ const Main = () => {
           <Routes>
             <Route path="/" element={<MainScreen />} />
             <Route path="/search" element={<TravelFilter />} />
-            <Route path="/topdeals" element={<MainScreen />} />
             <Route path="/beachholidays" element={<MainScreen />} />
             <Route path="/citybreakes" element={<MainScreen />} />
             <Route path="/luxaryholidays" element={<MainScreen />} />
@@ -120,6 +120,7 @@ const Main = () => {
             <Route path="/cookies" element={<CookiePolicy />} />
             <Route path="/deals/:id" element={<FilterPage />} />
             <Route path="/Blogs" element={<Blogs />} />
+            <Route path="/topdeals" element={<TopDeals />} />
             <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
             {/* Catch-all route for unmatched paths */}

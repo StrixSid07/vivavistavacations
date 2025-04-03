@@ -30,15 +30,12 @@ const NewAddedCardComponent = ({
 }) => {
   const navigate = useNavigate();
 
-  console.log("Current Image Index:", currentImage);
-  console.log("Current Image URL:", images[currentImage]);
-
   const handleViewDetails = () => {
     navigate(`/deals/${id}`); // ✅ Navigate to deal details page
   };
 
   return (
-    <Card className="max-w-[24rem] w-full overflow-hidden shadow-lg rounded-lg">
+    <Card className="max-w-[24rem] min-h-[30rem] w-full overflow-hidden shadow-lg rounded-lg">
       {/* Image Section */}
       <CardHeader
         floated={false}
@@ -77,7 +74,7 @@ const NewAddedCardComponent = ({
       </CardHeader>
 
       {/* Card Content */}
-      <CardBody className="p-4 space-y-3">
+      <CardBody className="p-4 space-y-3 flex-grow flex flex-col">
         {/* Price & Nights */}
         <div className="flex items-center justify-between">
           <Typography variant="h5" className="font-bold text-black">

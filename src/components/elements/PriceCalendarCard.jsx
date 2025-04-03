@@ -34,7 +34,7 @@ const PriceCalendar = ({ prices }) => {
             <h3 className="text-2xl font-semibold text-gray-900">
               {trip.country} - {trip.airport}
             </h3>
-            <p className="text-orange-500 font-bold text-lg">${trip.price}</p>
+            <p className="text-deep-orange-500 font-bold text-lg">£{trip.price}</p>
           </CardHeader>
 
           <CardBody className="p-4">
