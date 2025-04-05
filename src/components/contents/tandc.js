@@ -287,15 +287,13 @@ const tandc = [
     ],
   },
   {
-    // mainTitle: "5. PTS",
     mainTitle: "5. STP",
     data: [
       {
-        title: "Your Financial Security with Protected Trust Service",
+        title: " ",
         content: [
           {
-            paragraph:
-              "At Viva Vista Vacations, we prioritize your peace of mind. That's why we are proud to be part of the PTS (Protected Trust Service), ensuring your payments are fully protected. With PTS, your funds are securely held in a trust account, giving you complete financial security and confidence when booking with us. Travel with ease, knowing your money is safe every step of the way. For more details, feel free to contact us!",
+            paragraph: "",
             linktitle: "",
             links: "",
             contactnumber: "",

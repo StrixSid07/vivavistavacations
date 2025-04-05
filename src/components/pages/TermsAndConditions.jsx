@@ -38,11 +38,7 @@ const TermsAndConditions = () => {
           United Kingdom, trading as a Travel Organiser and Travel Agent
           (company registration number 16227067). Our registered office address
           is 01, 195-197 Wood Street, London, England, E17 3NU. 
-          {/* , and we operate
-          under ATOL protection where applicable. We hold an Air Travel
-          Organiser's Licence (ATOL) number ***** granted by the Civil Aviation
-          Authority ('CAA'). vivavistavacation.co.uk is a trading name of Viva
-          Vista Vacations Limited. */}
+          
         </p>
         <p>
           References to “you” and “your” in these terms apply to the traveller
