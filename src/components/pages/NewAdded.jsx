@@ -238,6 +238,8 @@ import { NewAddedCardComponent } from "../elements";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules"; // ✅ Correct import for Swiper v8+
 import "swiper/css";
+import { pattern, water, white, whiteelement } from "../../assets";
+import { MdPattern } from "react-icons/md";
 
 const NewAdded = ({ data = [], loadingData }) => {
   const getChunkSize = () => {
@@ -300,7 +302,17 @@ const NewAdded = ({ data = [], loadingData }) => {
 
   if (loadingData || !data.length) {
     return (
-      <div className="p-3 bg-gradient-to-t from-[#00AEEF] to-white flex justify-center">
+      <div className="relative px-2 py-6 flex bg-gradient bg-gradient-to-t from-[#0073b4] to-white/30 justify-center">
+        <div
+          className="absolute inset-0 opacity-20 z-0 bg-repeat filter invert"
+          style={{
+            backgroundImage: `url(${pattern})`,
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+          }}
+        >
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-white/90 hidden md:flex"></div> */}
+        </div>
         <div className="w-full max-w-6xl mx-auto">
           <div className="flex justify-center gap-10">
             {Array.from({ length: chunkSize }).map((_, index) => (
@@ -328,7 +340,17 @@ const NewAdded = ({ data = [], loadingData }) => {
   }
 
   return (
-    <div className="p-3 bg-gradient-to-t from-[#0073b4] to-white flex justify-center">
+    <div className="px-2 py-6 bg-gradient bg-gradient-to-t from-[#0073b4] to-white/30 flex justify-center relative">
+      <div
+        className="absolute inset-0 opacity-20 z-0 bg-repeat filter invert"
+        style={{
+          backgroundImage: `url(${pattern})`,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-white/90 hidden md:flex"></div> */}
+      </div>
       <div className="w-full max-w-6xl mx-auto">
         <Swiper
           modules={[Autoplay]} // ✅ Use `modules` prop for Swiper v8+

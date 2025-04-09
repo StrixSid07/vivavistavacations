@@ -1,7 +1,11 @@
 import logo from "./vivavista.svg";
 import homebg from "./home.jpg";
 import Uk from "./bg/UK.jpg";
+import bg6 from "./bg/bg-6.jpg";
 import water from "./bg/water.jpg";
+import white from "./bg/offwhite.png";
+import pattern from "./bg/pattern.png";
+import whiteelement from "./bg/whiteelements.png";
 import contact from "./contact.svg";
 import payment1 from "./payment/payment-card-1.png";
 import payment2 from "./payment/payment-card-2.png";
@@ -27,4 +31,8 @@ export {
   certilogo,
   Uk,
   water,
+  white,
+  whiteelement,
+  bg6,
+  pattern,
 };

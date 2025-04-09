@@ -4,6 +4,7 @@ import { MdOutlineVerified } from "react-icons/md";
 import { PiCalendarStarFill } from "react-icons/pi";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { bg6 } from "../../assets";
 
 const lookingOptions = [
   {
@@ -59,18 +60,28 @@ const Looking = () => {
   };
 
   return (
-    <div className="relative h-auto bg-gradient-to-t from-[#0078D4] to-white rounded-t-2xl -mt-3 pb-4 md:pb-12 lg:pb-16 border-t-2 border-white z-10">
+    <div
+      className="relative h-auto bg-gradient-to-t from-[#0078D4] to-white rounded-t-2xl -mt-3 pb-8 md:pb-16 lg:pb-20 border-t-2 border-white z-10"
+      style={{
+        backgroundImage: `url(${bg6})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Title */}
       <div className="absolute top-0 left-0 w-full">
-        <div className="flex justify-center items-center -mt-8 -mb-4">
-          <div className="p-4 flex-wrap flex justify-center md:w-1/2 w-80 items-center border-t-2 border-white text-center bg-black text-white font-bold text-2xl md:text-3xl rounded-xl shadow-[0_4px_10px_rgba(255,255,255,0.5)]">
-            Why Travel With Viva Vista
+        <div className="flex justify-center items-center -mt-8">
+          <div className="px-6 py-4 flex-wrap text-center bg-black text-white font-bold text-xl md:text-3xl rounded-xl shadow-[0_4px_10px_rgba(255,255,255,0.5)]">
+            Defined by Service, Driven by Experience
           </div>
         </div>
       </div>
 
+      {/* Cards */}
       <motion.div
         ref={ref}
-        className="flex flex-wrap justify-around items-center mt-20 md:mt-28 overflow-hidden"
+        className="flex flex-wrap justify-center gap-6 px-6 mt-24 md:mt-32"
         variants={containerVariants}
         initial="hidden"
         animate={controls}
@@ -78,29 +89,22 @@ const Looking = () => {
         {lookingOptions.map((option, index) => (
           <motion.div
             key={index}
-            className="text-center p-4 group mb-8 md:mb-0 w-full md:w-1/2 lg:w-1/5 mt-4 md:mt-0"
+            className="bg-white w-64 h-64 md:w-72 md:h-72 rounded-2xl shadow-xl text-center group transition-all duration-500 hover:scale-105 relative overflow-hidden"
             variants={itemVariants}
           >
-            <div className="flex justify-center items-center mb-4">
-              {/* <div className="rounded-xl relative shadow-lg bg-white transition-colors duration-700 ease-out p-4 md:p-6">
-                <div
-                  className={`absolute top-0 right-0 h-5 w-5 bg-green-500  rounded-full transform -translate-y-1/2 translate-x-1/2 transition-transform duration-500 md:group-hover:scale-[2] lg:group-hover:scale-[5] group-hover:scale-[4]`}
-                ></div>
-                <option.icon className="text-[#00AEEF] z-10 text-3xl md:text-4xl" />
-              </div> */}
-              <div className="relative group rounded-xl shadow-lg bg-white transition-colors duration-700 ease-out p-4 md:p-6 overflow-hidden group">
-                {/* Expanding Background Shape on Hover */}
-                <div
-                  className="absolute top-0 right-0 h-16 w-16 bg-green-500 rounded-full transform -translate-y-1/2 translate-x-1/2
-                             transition-all duration-[2000ms] ease-in-out group-hover:scale-[15] group-hover:rounded-none group-hover:w-3/4 group-hover:h-full z-0"
-                ></div>
+            {/* Animated Background Accent */}
+            <div className="absolute top-0 right-0 h-40 w-40 bg-green-500 rounded-full transform -translate-y-1/2 translate-x-1/2 transition-all duration-[2000ms] ease-in-out group-hover:scale-[15] group-hover:rounded-none group-hover:w-full group-hover:h-full z-0"></div>
 
-                {/* Icon (Remains Unchanged) */}
-                <option.icon className="relative z-10 text-[#0078D4] text-3xl md:text-4xl transition-all duration-300 ease-in-out group-hover:text-white" />
-              </div>
+            {/* Icon */}
+            <div className="relative z-10 flex items-center justify-center h-2/3">
+              <option.icon
+                size={72}
+                className="text-[#0078D4] text-4xl md:text-5xl group-hover:text-white transition-all duration-300"
+              />
             </div>
-            {/* Fixed Height for Title */}
-            <h3 className="text-md md:text-xl text-white font-bold text-center leading-tight h-12 flex items-center justify-center">
+
+            {/* Title */}
+            <h3 className="relative z-10 text-[#0078D4] text-lg md:text-xl font-semibold group-hover:text-white transition-colors duration-300 px-4">
               {option.title}
             </h3>
           </motion.div>

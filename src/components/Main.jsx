@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, ExtraNavbar, Footer, CardOver, SpeedDiel } from "./defaults";
+import { Navbar, Footer, CardOver, SpeedDiel } from "./defaults";
 import {
   BrowserRouter as Router,
   Routes,
@@ -58,22 +58,6 @@ const Main = () => {
     <Router>
       <div className="overflow-x-hidden relative">
         {/* <div
-          className={`z-50 top-0 transition-transform duration-0 ease-out ${
-            hideExtraNavbar ? "-translate-y-full duration-300" : ""
-          }`}
-        >
-          <ExtraNavbar />
-        </div>
-
-        <div
-          className={`fixed w-full z-40 transition-transform duration-0 ease-out ${
-            hideExtraNavbar ? "top-0" : ""
-          }`}
-        >
-          <Navbar />
-        </div> */}
-
-        <div
           className={`fixed w-full z-50 bg-[#2E4A42] ${
             // Only hide ExtraNavbar if hideExtraNavbar is true and the device is larger than tablet
             hideExtraNavbar && !isMobileOrTablet
@@ -82,9 +66,9 @@ const Main = () => {
           }`}
         >
           <ExtraNavbar />
-        </div>
+        </div> */}
 
-        <div
+        {/* <div
           className={`fixed w-full z-40 ${
             // For mobile/tablet, always position Navbar below ExtraNavbar (e.g., top-[30px])
             isMobileOrTablet
@@ -95,8 +79,13 @@ const Main = () => {
           }`}
         >
           <Navbar />
+        </div> */}
+
+        <div className="fixed w-full z-40 top-0">
+          <Navbar />
         </div>
-        <div className="md:mt-28 mt-24">
+
+        <div className="md:mt-24 mt-24">
           <Routes>
             <Route path="/" element={<MainScreen />} />
             <Route path="/search" element={<TravelFilter />} />

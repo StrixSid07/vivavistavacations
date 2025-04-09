@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 const SpeedDiel = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-3 px-3 py-4 md:gap-4 md:px-4 md:py-6 rounded-2xl bg-white/70 transition-colors duration-500 ease-in-out hover:bg-white shadow-lg z-50">
+    <div className="flex flex-col justify-center items-center gap-3 px-1 py-2 md:gap-4 md:px-3 md:py-5 rounded-2xl md:bg-white/70 bg-white/50 transition-colors duration-500 ease-in-out hover:bg-white shadow-lg z-50">
       {/* Phone Link */}
       <a
         href="tel:+02037805023"

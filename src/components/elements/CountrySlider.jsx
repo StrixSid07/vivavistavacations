@@ -390,9 +390,9 @@ const TravelPackages = ({ destinations }) => {
                         {/* Push button to the bottom */}
                         <Button
                           onClick={() => handleViewDeals(deal._id)}
-                          className="w-full mt-2 bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md"
+                          className="w-full mt-2 bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md normal-case"
                         >
-                          View Deal
+                          Discover More
                         </Button>
                       </div>
                     </div>

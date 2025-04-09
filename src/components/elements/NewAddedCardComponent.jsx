@@ -117,9 +117,9 @@ const NewAddedCardComponent = ({
       <CardFooter className="p-4">
         <Button
           onClick={handleViewDetails}
-          className="w-full bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md"
+          className="w-full bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md normal-case"
         >
-          View Details
+          Discover More
         </Button>
       </CardFooter>
     </Card>

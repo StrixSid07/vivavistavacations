@@ -55,7 +55,7 @@ const MainScreen = () => {
   //   <div className="flex items-center justify-center min-h-screen bg-gray-100">
   //     <div className="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
   //   </div>
-  // ) : 
+  // ) :
   return (
     <div>
       <div className="relative">
@@ -64,7 +64,7 @@ const MainScreen = () => {
         <Home homeslides={homeslides || []} />
 
         {/* Recent Projects section overlapping the Home component */}
-        <div className="absolute md:bottom-0 left-0 w-full z-10 flex justify-center items-center md:bg-white font-body text-md text-white py-2 md:p-4">
+        <div className="absolute md:bottom-0 left-0 w-full z-10 flex justify-center items-center md:bg-white font-body text-md text-white py-2 md:p-4 p-10">
           <SearchBar
             airports={airports}
             destinations={destinations}
@@ -72,9 +72,9 @@ const MainScreen = () => {
           />
         </div>
       </div>
-      <div className="mt-[350px] md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
+      <div className="mt-[500px] md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
         <div className="text-2xl md:text-4xl mt-10 font-bold text-center max-w-4xl">
-          Select Your best Package For Your Travel
+          This Week's Best - No Fluff, Just Value.
         </div>
       </div>
       {/* <NewAdded data={data?.featuredDeals} /> */}
@@ -83,7 +83,6 @@ const MainScreen = () => {
       )} */}
       <NewAdded data={data?.featuredDeals || []} loadingData={loading} />
       {/* <NewAdded data={selectPackage || []} /> */}
-      <div className="md:h-12 h-5 -mt-1 bg-gradient-to-t from-[#0073b4] to-[#0073b4]"></div>
       <div className="mt-4 md:mt-0 flex flex-col w-full bg-gradient-to-t from-[#1ABC9C] to-white justify-center items-center mx-auto p-4 text-center">
         <h3 className="text-xl md:text-2xl  text-deep-orange-600 mb-6 font-medium">
           Popular Destinations
