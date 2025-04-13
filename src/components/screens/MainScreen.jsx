@@ -17,6 +17,7 @@ const MainScreen = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
+  const [slides, setSlides] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +31,7 @@ const MainScreen = () => {
           reviews: response.data.reviews,
           blogs: response.data.blogs,
         });
+        console.log(response.data.featuredDeals);
         setLoading2(false);
       } catch (error) {
         setLoading2(false);
@@ -39,6 +41,24 @@ const MainScreen = () => {
       }
     };
     fetchData();
+  }, []);
+
+  const fetchSlides = async () => {
+    try {
+      const res = await axios.get(`${Base_Url}/carousel`);
+      const allSlides = res.data.flatMap((item) =>
+        item.images.map((url) => ({
+          image: url,
+        }))
+      );
+      setSlides(allSlides);
+    } catch (err) {
+      console.error("Error fetching carousel images:", err.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchSlides();
   }, []);
 
   useEffect(() => {
@@ -61,7 +81,7 @@ const MainScreen = () => {
       <div className="relative">
         {/* This is the Home component */}
         {/* <Home homeslides={data?.homeslides || homeslides || []} /> */}
-        <Home homeslides={homeslides || []} />
+        <Home homeslides={slides || homeslides || []} />
 
         {/* Recent Projects section overlapping the Home component */}
         <div className="absolute md:bottom-0 left-0 w-full z-10 flex justify-center items-center md:bg-white font-body text-md text-white py-2 md:p-4 p-10">

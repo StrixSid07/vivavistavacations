@@ -48,7 +48,7 @@ const FilterPage = () => {
           data.prices.map((price) => ({
             country: price.country,
             airport: price.airport,
-            date: price.date,
+            startdate: price.startdate,
             price: price.price,
             flightDetails: price.flightDetails, // Keeping flight details if needed
           }))
@@ -129,7 +129,7 @@ const FilterPage = () => {
         <FilterElement
           basePrice={prices.length ? prices[0].price : 479}
           departureDates={prices.map((p) =>
-            new Date(p.date).toLocaleDateString("en-GB")
+            new Date(p.startdate).toLocaleDateString("en-GB")
           )}
           departureAirports={prices.map((p) => p.airport)}
           onBookingSubmit={handleBookingSubmit}

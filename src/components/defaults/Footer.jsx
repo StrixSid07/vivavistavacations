@@ -16,7 +16,7 @@ import {
   payment1,
   payment2,
   payment6,
-  support,
+  availability,
 } from "../../assets";
 
 const currentYear = new Date().getFullYear();
@@ -37,6 +37,13 @@ const Footer = () => {
     { name: "Blog", href: "/" },
   ];
 
+  const navMaps = [
+    { name: "United Kingdom", href: "/uk", flag: "https://flagcdn.com/gb.svg" },
+    { name: "United States", href: "/us", flag: "https://flagcdn.com/us.svg" },
+    { name: "Canada", href: "/canada", flag: "https://flagcdn.com/ca.svg" },
+    { name: "Ireland", href: "/ireland", flag: "https://flagcdn.com/ie.svg" },
+  ];
+
   // Scroll to top on route change
   const { pathname } = useLocation();
 
@@ -48,49 +55,40 @@ const Footer = () => {
     <footer className="bg-[#0b1121] text-white py-10 px-5 md:px-10 md:pt-28 lg:px-10 pt-20">
       <div className="max-w-full p-10 mx-auto grid grid-cols-1 md:grid-cols-5 gap-6">
         {/* Column 1: About Section */}
-        <div>
+        <div className="flex flex-col items-start">
           <img
             src={logo}
             alt="Viva Vissta  Vacation"
             className="h-24 md:mb-4"
           />
-          <div className="flex justify-center items-center gap-2 md:hidden mb-4">
-            <div className="flex flex-col justify-center items-center w-56 md:hidden">
+          <p className="mb-4 flex flex-wrap">Your Journey, Our Expertise.</p>
+          <div className="flex justify-center flex-col items-start gap-2 mb-4">
+            <a
+              href="https://wa.me/442037805023" // Replace with your WhatsApp link
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center w-52 justify-between gap-1 bg-green-600 text-white font-medium px-3 py-3 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-300"
+            >
+              <FaWhatsapp className="text-xl" />
+              <span>Chat on WhatsApp</span>
+              <HiChevronRight className="text-xl" />
+            </a>
+            <div className="flex flex-col justify-center items-center w-48">
               {/* Icon with circular background and border */}
               <div className="w-24 h-24 flex items-center justify-center bg-[#304F47] rounded-full border-2 border-orange-500 mt-6">
-                <img src={support} className="h-20 p-2" alt="support" />
+                <img src={availability} className="h-20 p-2" alt="support" />
               </div>
               {/* Text below the icon */}
               <p className="mt-3 text-orange-500 font-medium">
                 Around-the-Clock Care!
               </p>
             </div>
-            <a
-              href="https://wa.me/442037805023" // Replace with your WhatsApp link
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center w-60 justify-between mb-8 gap-2 bg-green-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-300"
-            >
-              <FaWhatsapp className="text-xl" />
-              <span>Chat on WhatsApp</span>
-              <HiChevronRight className="text-xl" />
-            </a>
           </div>
-
-          <h2 className="md:text-2xl text-xl md:font-bold font-medium mb-5">
-            Viva Vista Vacations
-          </h2>
-          <p className="mb-4 flex flex-wrap">
-            Discover the best travel deals with Viva Vista Vacations.
-          </p>
-          <p className="mb-4 flex flex-wrap">
-            Book your dream holiday with our exclusive offers.
-          </p>
         </div>
 
         {/* Column 2: Contact Info */}
         <div>
-          <h2 className="text-2xl font-bold mb-5">Contact Info</h2>
+          <h2 className="text-xl font-bold mb-5">Contact Info</h2>
           <ul className="space-y-4">
             <li className="flex items-center gap-2">
               <div className="flex items-center gap-2 text-white text-center sm:text-left mb-4 sm:mb-0">
@@ -139,7 +137,8 @@ const Footer = () => {
           <div className="md:flex mt-4 space-x-4 hidden">
             <div className=" flex flex-col justify-center items-center space-y-2 group">
               <a
-                href="#"
+                href="https://www.facebook.com/share/1DQGeYZjJJ/?mibextid=wwXIfr"
+                target="_new"
                 className="transition-all ease-out duration-500 group-hover:text-blue-900"
               >
                 <FaFacebookF size={24} />
@@ -147,7 +146,8 @@ const Footer = () => {
             </div>
             <div className=" flex flex-col justify-center items-center space-y-2 group mt-2">
               <a
-                href="#"
+                href="https://www.instagram.com/vivavistavacations?igsh=MTVqdHBjaGZlZGVhOA=="
+                target="_new"
                 className="transition-all ease-out duration-500 group-hover:text-pink-500"
               >
                 <FaInstagram size={24} />
@@ -155,7 +155,8 @@ const Footer = () => {
             </div>
             <div className=" flex flex-col justify-center items-center space-y-2 group mt-2">
               <a
-                href="#"
+                href="https://x.com/vivavvacations?s=11"
+                target="_new"
                 className="transition-all ease-out duration-500 group-hover:text-blue-500"
               >
                 <PiXLogoFill size={24} />
@@ -164,6 +165,7 @@ const Footer = () => {
             <div className=" flex flex-col justify-center items-center space-y-2 group mt-2">
               <a
                 href="https://wa.me/442037805023"
+                target="_new"
                 className="transition-all ease-out duration-500 group-hover:text-green-700"
               >
                 <FaWhatsapp size={24} />
@@ -174,7 +176,7 @@ const Footer = () => {
 
         {/* Column 3: Quick Links */}
         <div className="flex flex-col md:ml-12">
-          <h2 className="text-2xl font-bold mb-5 flex flex-row">Quick Links</h2>
+          <h2 className="text-xl font-bold mb-5 flex flex-row">Quick Links</h2>
           <ul className="space-y-4">
             {quickLinks.map((item, index) => (
               <li key={index}>
@@ -188,7 +190,7 @@ const Footer = () => {
 
         {/* Column 4: Information Links */}
         <div className="flex flex-col">
-          <h2 className="text-2xl font-bold mb-5">Information</h2>
+          <h2 className="text-xl font-bold mb-5">Information</h2>
           <ul className="space-y-4">
             {navInfos.map((item, index) => (
               <li key={index}>
@@ -200,53 +202,46 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Column 5: We Accepts */}
-        <div className="md:flex flex-col justify-center items-center hidden">
-          <h2 className="md:text-2xl text-lg font-medium md:font-bold mb-5 md:text-center">
-            We Accept:
+        <div className="flex flex-col items-center justify-center px-4 md:-mt-28">
+          {/* Title */}
+          <h2 className="text-lg md:text-xl font-bold mb-5 text-center md:flex hidden">
+            Payment Partners
           </h2>
-          <div className="grid md:grid-cols-3 grid-cols-5 gap-1 md:max-w-60 max-w-80">
+
+          {/* Payment Logos */}
+          <div className="md:grid grid-cols-3 gap-4 md:gap-6 mb-6 place-items-center hidden">
             {[payment1, payment2, payment6].map((payment, index) => (
               <img
                 key={index}
                 src={payment}
                 alt={`Payment method ${index + 1}`}
-                className="h-12"
+                className="h-12 object-contain"
               />
             ))}
           </div>
 
-          <div className="flex md:flex-col flex-row items-start justify-center text-center mt-6">
-            <div className="md:hidden">
-              {/* Icon with circular background and border */}
-              <div className="w-16 h-16 flex items-center justify-center bg-[#304F47] rounded-full border-2 border-orange-500">
-                <img src={support} className="h-16 p-2" alt="support" />
-              </div>
-              {/* Text below the icon */}
-              <p className="mt-3 text-start text-orange-500 font-bold">
-                Around-the-Clock Care!
-              </p>
-            </div>
-            <a
-              href="https://wa.me/442037805023" // Replace with your WhatsApp link
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center w-60 justify-between gap-2 bg-green-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-300"
-            >
-              <FaWhatsapp className="text-xl" />
-              <span>Chat on WhatsApp</span>
-              <HiChevronRight className="text-xl" />
-            </a>
-            <div className="md:flex flex-col justify-center items-center w-56 hidden">
-              {/* Icon with circular background and border */}
-              <div className="w-24 h-24 flex items-center justify-center bg-[#304F47] rounded-full border-2 border-orange-500 mt-6">
-                <img src={support} className="h-20 p-2" alt="support" />
-              </div>
-              {/* Text below the icon */}
-              <p className="mt-3 text-orange-500 font-bold">
-                Around-the-Clock Care!
-              </p>
-            </div>
+          {/* Nav List (Country Links) */}
+          <div className="w-full max-w-sm">
+            <h2 className="text-lg md:text-xl font-bold mb-5 text-center md:hidden -ml-[50px]">
+            With a Personal Travel Touch.
+            </h2>
+            <ul className="space-y-4 -ml-[16px] md:ml-6">
+              {navMaps.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.href}
+                    className="hover:text-orange-600 flex items-center gap-2"
+                  >
+                    <img
+                      src={item.flag}
+                      alt={item.name}
+                      className="w-5 h-4 rounded-sm object-cover"
+                    />
+                    <span>{item.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -258,7 +253,7 @@ const Footer = () => {
       <div className="border-t border-gray-700 pt-1 text-center">
         <div className="flex flex-col justify-center items-center mb-6 md:hidden">
           <h2 className="md:text-2xl text-lg font-medium md:font-bold mb-5 md:text-center">
-            We Accept:
+            Payment Partners
           </h2>
           <div className="grid md:grid-cols-3 grid-cols-3 gap-1 md:max-w-60 max-w-80">
             {[payment1, payment2, payment6].map((payment, index) => (
@@ -275,7 +270,7 @@ const Footer = () => {
         <div className="flex mt-4 justify-center items-center space-x-8 md:hidden">
           <div className=" flex flex-col justify-center items-center space-y-2 group">
             <a
-              href="#"
+              href="https://www.facebook.com/share/1DQGeYZjJJ/?mibextid=wwXIfr"
               className="transition-all ease-out duration-500 group-hover:text-blue-900"
             >
               <FaFacebookF size={24} />
@@ -283,7 +278,7 @@ const Footer = () => {
           </div>
           <div className=" flex flex-col justify-center items-center space-y-2 group mt-2">
             <a
-              href="#"
+              href="https://www.instagram.com/vivavistavacations?igsh=MTVqdHBjaGZlZGVhOA=="
               className="transition-all ease-out duration-500 group-hover:text-pink-500"
             >
               <FaInstagram size={24} />
@@ -291,7 +286,7 @@ const Footer = () => {
           </div>
           <div className=" flex flex-col justify-center items-center space-y-2 group mt-2">
             <a
-              href="#"
+              href="https://x.com/vivavvacations?s=11"
               className="transition-all ease-out duration-500 group-hover:text-blue-500"
             >
               <PiXLogoFill size={24} />

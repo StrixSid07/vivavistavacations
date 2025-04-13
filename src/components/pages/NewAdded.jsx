@@ -273,14 +273,6 @@ const NewAdded = ({ data = [], loadingData }) => {
     setCurrentImageIndex(Array(data.length).fill(0));
   }, [data]);
 
-  // const nextImage = (index) => {
-  //   setCurrentImageIndex((prev) => {
-  //     const newIndex = [...prev];
-  //     newIndex[index] = (newIndex[index] + 1) % data[index].images.length;
-  //     return newIndex;
-  //   });
-  // };
-
   const nextImage = (index) => {
     setCurrentImageIndex((prev) => {
       if (!data[index] || !data[index].images) return prev;
@@ -361,7 +353,6 @@ const NewAdded = ({ data = [], loadingData }) => {
           spaceBetween={20} // Default for mobile view
           breakpoints={{
             768: {
-              // md and above (you can adjust the breakpoint)
               spaceBetween: 40,
             },
           }}
@@ -392,12 +383,14 @@ const NewAdded = ({ data = [], loadingData }) => {
                       name={property.title}
                       price={property.prices[0].price}
                       location={property.destination?.name}
-                      // packageDays={property.packageDays}
-                      rating={property["Rating "]}
+                      packageDays={property.days}
+                      rating={property.prices[0].hotel.tripAdvisorRating}
+                      reviews={property.prices[0].hotel.tripAdvisorReviews}
+                      basis={property.boardBasis}
                       currentImage={currentImageIndex[index]}
                       nextImage={() => nextImage(index)}
                       prevImage={() => prevImage(index)}
-                      // tag={property.tag}
+                      tag={property.tag}
                     />
                   </div>
                 ))}

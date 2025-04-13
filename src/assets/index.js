@@ -13,9 +13,13 @@ import payment3 from "./payment/payment-card-3.png";
 import payment4 from "./payment/payment-card-4.png";
 import payment5 from "./payment/payment-card-5.png";
 import payment6 from "./payment/payment-card-6.png";
+import availability from "./payment/availability.png";
 import certilogo from "./payment/certilogo.png";
 import support from "./payment/customer-support.png";
 import aboutus from "./about/aboutus.jpg";
+import home from "./icons/home.png";
+import packageImg from "./icons/package.png";
+import hot from "./icons/hot.png";
 export {
   logo,
   homebg,
@@ -26,6 +30,7 @@ export {
   payment4,
   payment5,
   payment6,
+  availability,
   support,
   aboutus,
   certilogo,
@@ -35,4 +40,7 @@ export {
   whiteelement,
   bg6,
   pattern,
+  home,
+  hot,
+  packageImg,
 };

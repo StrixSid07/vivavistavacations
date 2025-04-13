@@ -192,7 +192,7 @@ const SearchBar = ({ roomOptions }) => {
       try {
         const [airportRes, destinationRes] = await Promise.all([
           axios.get(`${Base_Url}/airport`),
-          axios.get(`${Base_Url}/dropdown-destionation`),
+          axios.get(`${Base_Url}/destinations/dropdown-destionation`),
         ]);
 
         setAirports(airportRes.data);
@@ -544,7 +544,7 @@ const SearchBar = ({ roomOptions }) => {
       className="w-full md:w-fit bg-[#0073b4]/95 rounded-xl mx-auto -mt-28 md:-mt-16 shadow-lg flex flex-col md:flex-row items-stretch overflow-hidden"
     >
       {/* Departure Airport */}
-      <div className="flex flex-col justify-center w-full md:w-48 border-b md:border-b-0 md:border-r border-black px-4 py-3">
+      <div className="flex flex-col justify-center w-full md:w-48 border-b md:border-b-0 md:border-r border-black px-4 py-6">
         <label className="flex items-center gap-2 text-md text-white mb-2">
           <FaPlaneDeparture /> Departure
         </label>

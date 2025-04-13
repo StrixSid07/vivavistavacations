@@ -6,11 +6,12 @@ import {
   FaChevronDown,
   FaPhoneAlt,
   FaEnvelope,
+  FaHome,
 } from "react-icons/fa";
 import { useMediaQuery } from "react-responsive";
 import { Link, useLocation } from "react-router-dom";
 import { navbarStyles } from "../../styles/styles";
-import { logo } from "../../assets";
+import { logo, home, packageImg, hot } from "../../assets";
 
 const sidebarVariants = {
   hidden: { x: "-100%", opacity: 0 },
@@ -41,9 +42,9 @@ const itemVariants = {
 
 const Navbar = () => {
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Package", href: "/home" },
-    { name: "Hotel Bargains", href: "/topdeals" },
+    { name: "Home", href: "/", icon: home },
+    { name: "Package", href: "/home", icon: packageImg },
+    { name: "Hotel Bargains", href: "/topdeals", icon: hot },
     // {
     //   name: "Hot Bargains",
     //   href: "#",
@@ -417,7 +418,7 @@ const Navbar = () => {
                     ) : (
                       <Link
                         to={item.href}
-                        className={`block px-4 py-2 rounded-full bg-transparent transition-all duration-500 ease-in-out
+                        className={`flex flex-col justify-center items-center px-4 py-2 rounded-full bg-transparent transition-all duration-500 ease-in-out
                            ${
                              item.name === "Hotel Bargains"
                                ? "animate-blink"
@@ -430,6 +431,11 @@ const Navbar = () => {
                           }`}
                         onClick={closeAllDropdowns}
                       >
+                        <img
+                          src={item.icon}
+                          alt=""
+                          className="h-10 w-10 object-cover"
+                        />
                         {item.name}
                       </Link>
                     )}
@@ -447,7 +453,7 @@ const Navbar = () => {
                   <img
                     src={flagUrls[region]}
                     alt={`${region} flag`}
-                    className="w-5 h-5 object-cover"
+                    className="w-5 h-4 object-cover"
                   />
                   <span>{region}</span>
                   <motion.div
@@ -478,7 +484,7 @@ const Navbar = () => {
                         <img
                           src={flagUrls[item]}
                           alt={`${item} flag`}
-                          className="w-5 h-5 object-cover"
+                          className="w-5 h-4 object-cover"
                         />
                         <span>{item}</span>
                       </li>

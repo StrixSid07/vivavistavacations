@@ -12,7 +12,7 @@ const PriceCalendar = ({ prices }) => {
       : prices.filter((p) => p.country === "UK");
   };
 
-  const [selectedDate, setSelectedDate] = useState(prices[0]?.date || "");
+  const [selectedDate, setSelectedDate] = useState(prices[0]?.startdate || "");
   const filteredPrices = getFilteredPrices();
 
   return (
@@ -40,7 +40,7 @@ const PriceCalendar = ({ prices }) => {
           <CardBody className="p-4">
             <p className="text-gray-700">
               <strong>Departure Date:</strong>{" "}
-              {format(new Date(trip.date), "dd MMM yyyy")}
+              {trip.startdate ? format(new Date(trip.startdate), "dd MMM yyyy") : "Date not available"}
             </p>
             <p className="text-gray-700">
               <strong>Airport:</strong> {trip.airport}
