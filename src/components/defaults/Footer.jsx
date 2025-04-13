@@ -41,7 +41,7 @@ const Footer = () => {
     { name: "United Kingdom", href: "/uk", flag: "https://flagcdn.com/gb.svg" },
     { name: "United States", href: "/us", flag: "https://flagcdn.com/us.svg" },
     { name: "Canada", href: "/canada", flag: "https://flagcdn.com/ca.svg" },
-    { name: "Ireland", href: "/ireland", flag: "https://flagcdn.com/ie.svg" },
+    { name: "Australia", href: "/australia", flag: "https://flagcdn.com/au.svg" },
   ];
 
   // Scroll to top on route change

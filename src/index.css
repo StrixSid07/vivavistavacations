@@ -8,6 +8,10 @@ body {
   font-family: "Winky Sans", sans-serif;
 }
 
+.customfonts {
+  font-family: "Winky Sans", sans-serif;
+}
+
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 8px; /* Width of the scrollbar */

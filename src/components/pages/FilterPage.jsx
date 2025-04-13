@@ -109,16 +109,8 @@ const FilterPage = () => {
             </span>
           </h1>
           <ImageGallery images={images} />
-          {/* <ImageGallery
-            images={images.map(
-              (img) => `https://vivavista-backend.onrender.com/uploads/${img}`
-            )}
-          /> */}
         </div>
       </div>
-      {/* <ImageGallery
-        images={images.map((img) => `http://localhost:5001/uploads/${img}`)}
-      /> */}
       <div className="flex md:flex-row flex-col items-center justify-center md:items-start gap-8 md:justify-between md:p-24 p-4 mt-4 md:-mt-10">
         <FilterPageSlides
           tripData={tripData}

@@ -81,7 +81,7 @@ const Looking = () => {
       {/* Cards */}
       <motion.div
         ref={ref}
-        className="flex flex-wrap justify-center gap-6 px-6 mt-24 md:mt-32"
+        className="flex flex-wrap md:justify-between justify-center gap-6 px-6 mt-24 md:mt-32"
         variants={containerVariants}
         initial="hidden"
         animate={controls}
@@ -89,7 +89,7 @@ const Looking = () => {
         {lookingOptions.map((option, index) => (
           <motion.div
             key={index}
-            className="bg-white w-64 h-64 md:w-72 md:h-72 rounded-2xl shadow-xl text-center group transition-all duration-500 hover:scale-105 relative overflow-hidden"
+            className="bg-white w-64 h-64 md:w-56 md:h-56 rounded-2xl shadow-xl text-center group transition-all duration-500 hover:scale-105 relative overflow-hidden"
             variants={itemVariants}
           >
             {/* Animated Background Accent */}

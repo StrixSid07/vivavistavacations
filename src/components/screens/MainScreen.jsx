@@ -31,7 +31,6 @@ const MainScreen = () => {
           reviews: response.data.reviews,
           blogs: response.data.blogs,
         });
-        console.log(response.data.featuredDeals);
         setLoading2(false);
       } catch (error) {
         setLoading2(false);
@@ -93,7 +92,7 @@ const MainScreen = () => {
         </div>
       </div>
       <div className="mt-[500px] md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
-        <div className="text-2xl md:text-4xl mt-10 font-bold text-center max-w-4xl">
+        <div className="text-2xl md:text-4xl mt-10 font-bold text-center max-w-4xl customfonts">
           This Week's Best - No Fluff, Just Value.
         </div>
       </div>
