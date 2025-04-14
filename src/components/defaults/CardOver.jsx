@@ -60,7 +60,7 @@ const CardOver = () => {
         </div>
 
         {/* Right Section: Logo */}
-        <div className="flex justify-center md:justify-end w-full md:w-1/3">
+        <div className="flex justify-center md:justify-end z-0 w-full md:w-1/3">
           <img
             src={logo}
             alt="Logo"

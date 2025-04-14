@@ -1,47 +1,100 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { Switch } from "@material-tailwind/react";
+import { AnimatePresence, motion } from "framer-motion";
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+const Itinerary = ({ itinerary, openDays, setOpenDays }) => {
+  const allOpen = openDays.every(Boolean);
 
-const staggerContainer = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
+  const toggleDay = (idx) => {
+    setOpenDays((prev) => prev.map((v, i) => (i === idx ? !v : v)));
+  };
 
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
+  const toggleAll = () => {
+    setOpenDays(itinerary.map(() => !allOpen));
+  };
 
-const Itinerary = ({itinerary}) => {
+  if (!itinerary || itinerary.length === 0) {
+    return (
+      <div className="max-w-3xl mx-auto p-4">
+        <h2 className="text-2xl font-semibold">Tour Plan</h2>
+        <p className="text-gray-600 mt-2">No itinerary available.</p>
+      </div>
+    );
+  }
+
   return (
-    <div>
-      <motion.div variants={staggerContainer} className="max-w-3xl px-4 py-10">
-        <motion.div className="space-y-8 border-l-2 border-[#FF6B6B] pl-8">
-          {itinerary.map((event, index) => (
-            <motion.div key={index} className="relative" variants={item}>
-              <div className="absolute -left-12 top-0 p-1.5 rounded-xl bg-white shadow-md">
-                {event.icon}
+    <div className="max-w-3xl mx-auto p-4">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-2xl font-semibold">Tour Plan</h2>
+        <div className="flex items-center gap-2">
+          <Switch
+            id="expand-all-switch"
+            ripple={false}
+            checked={allOpen}
+            label="Expand all"
+            onChange={toggleAll}
+            className="h-full w-full checked:bg-blue-500"
+            containerProps={{ className: "w-11 h-6" }}
+            circleProps={{ className: "before:hidden left-0.5 border-none" }}
+          />
+        </div>
+      </div>
+
+      <div className="relative border-l-2 border-gray-200">
+        {itinerary.map((day, idx) => {
+          const isOpen = openDays[idx];
+          const isFirst = idx === 0;
+          const isLast = idx === itinerary.length - 1;
+
+          return (
+            <div key={idx} className="mb-6 pl-8 relative">
+              {/* Timeline marker */}
+              <div
+                className={`absolute -left-5 top-1 p-2 rounded-full bg-blue-500 text-white z-10 ${
+                  (!isFirst || !isLast) && "border-4 border-white"
+                }`}
+              >
+                <FaMapMarkerAlt size={16} />
               </div>
-              <h3 className="text-xl font-semibold text-deep-orange-500">
-                Day {event.day}: {event.title}
-              </h3>
-              <p className="text-black mt-2">{event.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
+
+              {/* Header */}
+              <button
+                onClick={() => toggleDay(idx)}
+                className="w-full flex justify-between items-center text-left py-2 focus:outline-none"
+              >
+                <span className="font-medium text-lg">
+                  Day {String(idx + 1).padStart(2, "0")} : {day.title}
+                </span>
+                {isOpen ? (
+                  <FiChevronUp className="text-gray-600" />
+                ) : (
+                  <FiChevronDown className="text-gray-600" />
+                )}
+              </button>
+
+              {/* Animated Content */}
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    key={`panel-${idx}`}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="py-2 text-gray-700">
+                      {day.description || "No details available."}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
