@@ -3,13 +3,15 @@ import {
   Flame,
   Sparkles,
   Utensils,
+  Grid2X2CheckIcon,
+  TicketsIcon,
   Ruler,
   Waves,
   Users,
   BedDouble,
   Clock,
   Globe2,
-  Info,
+  TelescopeIcon,
   PlusCircle,
   ShieldCheck,
   Hotel,
@@ -68,11 +70,11 @@ const Overview = ({
   hotels,
 }) => {
   return (
-    <div className="p-6 space-y-8">
+    <div className="space-y-8">
       {/* Header */}
       <div>
         <h1 className="text-3xl sm:text-4xl font-bold text-orange-600 flex items-center gap-3">
-          <Info className="w-7 h-7 text-orange-500" />
+          <TelescopeIcon className="w-7 h-7 text-orange-500" />
           Discover the Deal
         </h1>
         <p className="text-gray-700 text-base sm:text-lg mt-3 leading-relaxed">
@@ -142,7 +144,7 @@ const Overview = ({
       {/* What's Included */}
       <Section
         title="What's Included"
-        icon={<Utensils className="w-6 h-6 text-green-500" />}
+        icon={<Grid2X2CheckIcon className="w-6 h-6 text-green-500" />}
         items={whatsIncluded}
       />
 
@@ -164,7 +166,7 @@ const Overview = ({
       {hotels?.length > 0 && (
         <div>
           <h2 className="text-2xl font-semibold mb-3 text-gray-800 flex items-center gap-2">
-            <Hotel className="w-6 h-6 text-orange-500" />
+            <TicketsIcon className="w-6 h-6 text-orange-500" />
             Accommodation
           </h2>
           <AccommodationSlider hotels={hotels} />

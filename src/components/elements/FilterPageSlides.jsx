@@ -20,8 +20,20 @@ const FilterPageSlides = ({
   exclusiveAdditions,
   termsAndConditions,
   whatsIncluded,
+  selectedTrip,
+  setSelectedTrip,
+  setSelectedDate, // Add this prop
+  setSelectedAirport, // Add this prop
 }) => {
   const [activeTab, setActiveTab] = useState("overview");
+
+  const handleTripSelect = (trip) => {
+    setSelectedTrip(trip);
+    setSelectedDate(
+      trip.startdate ? new Date(trip.startdate).toLocaleDateString("en-GB") : ""
+    );
+    setSelectedAirport(trip.airport);
+  };
 
   const [openDays, setOpenDays] = useState(
     () => itinerary?.map(() => false) || []
@@ -50,7 +62,7 @@ const FilterPageSlides = ({
   );
   const PriceCalendarComponent = () => (
     <div className="md:p-4">
-      <PriceCalendar prices={prices} />
+      <PriceCalendar prices={prices} onTripSelect={handleTripSelect} />
     </div>
   );
   const TermsComponent = () => (

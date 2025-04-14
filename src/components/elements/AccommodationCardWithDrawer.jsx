@@ -33,55 +33,58 @@ const AccommodationCard = ({ hotel }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl p-4 shadow-md flex flex-col w-80 mr-4 shrink-0">
-      {/* Hotel Header */}
-      <div className="flex items-center gap-2 mb-2">
-        <Hotel className="w-6 h-6 text-blue-500" />
+    <div className="bg-white rounded-2xl p-5 shadow-lg flex flex-col md:w-80 w-64 mr-4 shrink-0">
+      {/* Hotel Name */}
+      <div className="flex items-center gap-3 mb-3">
+        <Hotel className="w-5 h-5 text-blue-500" />
         <h2 className="text-lg font-semibold text-gray-800">
           {hotel.name || "Hotel Name"}
         </h2>
       </div>
-      {/* Short description */}
-      <p className="text-sm text-gray-600 mb-3">
+
+      {/* Short Description */}
+      <p className="text-sm text-gray-600 mb-4 leading-relaxed">
         {hotel.about
           ? hotel.about.substring(0, 150) + "..."
           : "No description available."}
       </p>
-      {/* Rating Section */}
+
+      {/* Rating */}
       <div className="flex items-center gap-1 mb-4">
         {rating ? (
           <>
             {renderStars()}
-            <span className="text-gray-800 text-base ml-1">
-              {rating.toFixed(1)} ({reviews} Reviews)
+            <span className="text-sm text-gray-700 ml-2 font-medium">
+              {rating.toFixed(1)}{" "}
+              <span className="text-gray-500">({reviews} reviews)</span>
             </span>
           </>
         ) : (
-          <span className="text-base text-gray-500 italic">No reviews yet</span>
+          <span className="text-sm text-gray-500 italic">No reviews yet</span>
         )}
       </div>
-      {/* View More Button */}
-      <Button size="sm" onClick={openDrawer}>
+
+      {/* Button */}
+      <Button size="sm" onClick={openDrawer} color="blue">
         View More
       </Button>
 
-      {/* Drawer for Hotel Details */}
+      {/* Drawer */}
       <Drawer
         placement="right"
         open={drawerOpen}
         onClose={closeDrawer}
-        className="p-4 pt-28 pb-4 z-[9999]"
-        size={600}
-        dismiss={{ outsidePress: true, escapeKey: false }}
-        overlay={true}
+        className="p-5 pt-28 z-[9999]"
+        size={500}
+        dismiss={{ outsidePress: true, escapeKey: true }}
+        overlay
       >
-        {/* Scrollable content container */}
         <div className="overflow-y-auto h-full pr-2">
           <div className="mb-6 flex items-center justify-between">
-            <Typography variant="h5" color="blue-gray">
+            <Typography variant="h5" color="blue">
               {hotel.name}
             </Typography>
-            <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
+            <IconButton variant="text" color="red" onClick={closeDrawer}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -98,143 +101,131 @@ const AccommodationCard = ({ hotel }) => {
               </svg>
             </IconButton>
           </div>
-          <Typography color="gray" className="mb-4 pr-4 font-normal">
+
+          {/* About */}
+          <Typography color="black" className="mb-4 pr-4 leading-relaxed">
             {hotel.about || "No description available."}
           </Typography>
 
           {/* Facilities */}
-          <div className="mb-4">
-            <Typography variant="h6" color="gray">
-              Facilities:
-            </Typography>
-            {hotel.facilities && hotel.facilities.length > 0 ? (
-              <ul className="list-disc pl-5 text-gray-700">
+          {hotel.facilities?.length > 0 && (
+            <section className="mb-4">
+              <Typography variant="h6" className="mb-1 text-black">
+                Facilities:
+              </Typography>
+              <ul className="list-disc pl-6 text-gray-900 text-sm space-y-1">
                 {hotel.facilities.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
-            ) : (
-              <Typography color="gray">No facilities available.</Typography>
-            )}
-          </div>
+            </section>
+          )}
 
           {/* Location */}
-          <div className="mb-4">
-            <Typography variant="h6" color="gray">
-              Location:
-            </Typography>
-            <Typography color="gray">
-              {hotel.location || "Location not provided."}
-            </Typography>
-          </div>
+          {hotel.location && (
+            <section className="mb-4">
+              <Typography variant="h6" className="mb-1 text-black">
+                Location:
+              </Typography>
+              <Typography className="text-sm text-gray-900">
+                {hotel.location}
+              </Typography>
+            </section>
+          )}
 
-          {/* External Booking Link */}
+          {/* Booking Link */}
           {hotel.externalBookingLink && (
-            <div className="mb-4">
-              <Typography variant="h6" color="gray">
+            <section className="mb-4">
+              <Typography variant="h6" className="mb-1 text-black">
                 Booking:
               </Typography>
               <a
                 href={hotel.externalBookingLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 text-sm hover:underline"
               >
                 Book Now
               </a>
-            </div>
+            </section>
           )}
 
-          {/* Hotel Images */}
-          {hotel.images && hotel.images.length > 0 && (
-            <div className="mb-4">
-              <Typography variant="h6" color="gray">
-                Hotel Images:
+          {/* Images */}
+          {(hotel.images?.length > 0 ||
+            hotel.tripAdvisorPhotos?.length > 0) && (
+            <section className="mb-4">
+              <Typography variant="h6" className="mb-2 text-black">
+                Images:
               </Typography>
-              <div className="grid grid-cols-2 gap-2 mt-2">
-                {hotel.images.map((img, idx) => (
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  ...(hotel.images || []),
+                  ...(hotel.tripAdvisorPhotos || []),
+                ].map((img, idx) => (
                   <img
                     key={idx}
                     src={img}
                     alt={`Hotel Image ${idx + 1}`}
-                    className="rounded-lg w-full object-cover max-h-40"
+                    className="rounded-lg w-full object-cover h-40"
                   />
                 ))}
               </div>
-            </div>
-          )}
-
-          {/* TripAdvisor Photos */}
-          {hotel.tripAdvisorPhotos && hotel.tripAdvisorPhotos.length > 0 && (
-            <div className="mb-4">
-              <Typography variant="h6" color="gray">
-                TripAdvisor Photos:
-              </Typography>
-              <div className="grid grid-cols-2 gap-2 mt-2">
-                {hotel.tripAdvisorPhotos.map((photo, index) => (
-                  <img
-                    key={index}
-                    src={photo}
-                    alt={`TripAdvisor Photo ${index + 1}`}
-                    className="rounded-lg w-full object-cover max-h-40"
-                  />
-                ))}
-              </div>
-            </div>
+            </section>
           )}
 
           {/* Room Types */}
-          {hotel.rooms && hotel.rooms.length > 0 && (
-            <div className="mb-4">
-              <Typography variant="h6" color="gray">
+          {hotel.rooms?.length > 0 && (
+            <section className="mb-4">
+              <Typography variant="h6" className="mb-1 text-black">
                 Room Options:
               </Typography>
-              <ul className="pl-5 text-gray-700 list-disc">
+              <ul className="pl-6 list-disc text-sm text-gray-900 space-y-1">
                 {hotel.rooms.map((room, idx) => (
                   <li key={idx}>
                     {room.numberofrooms} rooms for {room.guestCapacity} guest(s)
                   </li>
                 ))}
               </ul>
-            </div>
+            </section>
           )}
 
           {/* Latest Reviews */}
-          {hotel.tripAdvisorLatestReviews &&
-            hotel.tripAdvisorLatestReviews.length > 0 && (
-              <div className="mb-4">
-                <Typography variant="h6" color="gray">
-                  Latest Reviews:
-                </Typography>
-                <ul className="pl-4 mt-2 space-y-2">
-                  {hotel.tripAdvisorLatestReviews.map((rev, i) => (
-                    <li
-                      key={i}
-                      className="border-l-4 pl-3 border-blue-500 text-sm text-gray-700"
-                    >
-                      <p>"{rev.review}"</p>
-                      <p className="text-yellow-600">Rating: {rev.rating}/5</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          {hotel.tripAdvisorLatestReviews?.length > 0 && (
+            <section className="mb-4">
+              <Typography variant="h6" className="mb-2 text-black">
+                Latest Reviews:
+              </Typography>
+              <ul className="space-y-3">
+                {hotel.tripAdvisorLatestReviews.map((rev, i) => (
+                  <li
+                    key={i}
+                    className="bg-gray-100 p-3 rounded-lg shadow-sm text-sm text-gray-700"
+                  >
+                    <p className="italic mb-1">"{rev.review}"</p>
+                    <p className="text-amber-700 font-medium">
+                      Rating: {rev.rating}/5
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {/* TripAdvisor Link */}
           {hotel.tripAdvisorLink && (
-            <div className="mb-4">
-              <Typography variant="h6" color="gray">
+            <section className="mb-4">
+              <Typography variant="h6" className="mb-1 text-black">
                 TripAdvisor:
               </Typography>
               <a
                 href={hotel.tripAdvisorLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 text-sm hover:underline"
               >
                 View on TripAdvisor
               </a>
-            </div>
+            </section>
           )}
         </div>
       </Drawer>

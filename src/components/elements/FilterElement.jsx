@@ -22,16 +22,21 @@ const FilterElement = ({
   basePrice, // Price per person (number)
   initialAdultCount = 1, // Optional initial count (default: 2)
   onBookingSubmit, // Callback function to handle submit
+  selectedDate, // Rename here
+  selectedAirport,// Rename here
+  onDateChange, // setter from parent
+  onAirportChange, // setter from parent
 }) => {
+  // const [adultCount, setAdultCount] = useState(initialAdultCount);
+  // const [selectedDate, setSelectedDate] = useState(
+  //   departureDates && departureDates.length > 0 ? departureDates[0] : ""
+  // );
+  // const [selectedAirport, setSelectedAirport] = useState(
+  //   departureAirports && departureAirports.length > 0
+  //     ? departureAirports[0]
+  //     : ""
+  // );
   const [adultCount, setAdultCount] = useState(initialAdultCount);
-  const [selectedDate, setSelectedDate] = useState(
-    departureDates && departureDates.length > 0 ? departureDates[0] : ""
-  );
-  const [selectedAirport, setSelectedAirport] = useState(
-    departureAirports && departureAirports.length > 0
-      ? departureAirports[0]
-      : ""
-  );
 
   // Decrement but never go below 1
   const handleDecrement = () => {
@@ -87,11 +92,23 @@ const FilterElement = ({
           >
             Departure Date
           </Typography>
-          <Select
+          {/* <Select
             label="Select Date"
             size="md"
             value={selectedDate}
             onChange={(value) => setSelectedDate(value)}
+          >
+            {departureDates.map((date, idx) => (
+              <Option key={idx} value={date}>
+                {date}
+              </Option>
+            ))}
+          </Select> */}
+          <Select
+            label="Select Date"
+            size="md"
+            value={selectedDate}
+            onChange={(value) => onDateChange(value)}
           >
             {departureDates.map((date, idx) => (
               <Option key={idx} value={date}>
@@ -109,11 +126,23 @@ const FilterElement = ({
           >
             Departure Airport
           </Typography>
-          <Select
+          {/* <Select
             label="Select Airport"
             size="md"
             value={selectedAirport}
             onChange={(value) => setSelectedAirport(value)}
+          >
+            {departureAirports.map((airport, idx) => (
+              <Option key={idx} value={airport}>
+                {airport}
+              </Option>
+            ))}
+          </Select> */}
+          <Select
+            label="Select Airport"
+            size="md"
+            value={selectedAirport}
+            onChange={(value) => onAirportChange(value)}
           >
             {departureAirports.map((airport, idx) => (
               <Option key={idx} value={airport}>

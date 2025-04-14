@@ -28,6 +28,9 @@ const FilterPage = () => {
   const [loading, setLoading] = useState(true);
   const rating = hotels?.[0]?.tripAdvisorRating;
   const reviews = hotels?.[0]?.tripAdvisorReviews;
+  const [selectedTrip, setSelectedTrip] = useState(null);
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedAirport, setSelectedAirport] = useState("");
 
   const renderStars = () => {
     const stars = [];
@@ -309,14 +312,24 @@ const FilterPage = () => {
           exclusiveAdditions={exclusiveAdditions}
           termsAndConditions={termsAndConditions}
           whatsIncluded={whatsIncluded}
+          selectedTrip={selectedTrip}
+          setSelectedTrip={setSelectedTrip}
+          setSelectedDate={setSelectedDate}
+          setSelectedAirport={setSelectedAirport}
         />
         <FilterElement
-          basePrice={prices.length ? prices[0].price : 479}
+          basePrice={
+            selectedTrip?.price || (prices.length ? prices[0].price : 0)
+          }
           departureDates={prices.map((p) =>
             new Date(p.startdate).toLocaleDateString("en-GB")
           )}
           departureAirports={prices.map((p) => p.airport)}
+          selectedDate={selectedDate} // Pass selected date
+          selectedAirport={selectedAirport} // Pass selected airport
           onBookingSubmit={handleBookingSubmit}
+          onDateChange={setSelectedDate} // renamed prop
+          onAirportChange={setSelectedAirport}
         />
       </div>
     </div>
