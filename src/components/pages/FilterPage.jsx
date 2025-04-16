@@ -217,6 +217,13 @@ const FilterPage = () => {
     console.log("Submitted Booking Data:", bookingData);
   };
 
+  const priceMap = prices.reduce((acc, p) => {
+    const dateKey = new Date(p.startdate).toLocaleDateString("en-GB"); // Ensure this matches your parsed date format
+    // console.log("Date Key:", dateKey, "Price:", p.price); // Debugging log for date and price
+    acc[dateKey] = p.price;
+    return acc;
+  }, {});
+
   if (loading)
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -330,6 +337,7 @@ const FilterPage = () => {
           onBookingSubmit={handleBookingSubmit}
           onDateChange={setSelectedDate} // renamed prop
           onAirportChange={setSelectedAirport}
+          priceMap={priceMap}
         />
       </div>
     </div>

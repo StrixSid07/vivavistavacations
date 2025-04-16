@@ -21,7 +21,7 @@ import {
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Base_Url } from "../../utils/Api";
 
-const TopDeals = () => {
+const Packages = () => {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [imageIndex, setImageIndex] = useState({});
@@ -34,7 +34,7 @@ const TopDeals = () => {
   useEffect(() => {
     const fetchDeals = async () => {
       try {
-        const response = await axios.get(`${Base_Url}/trending/topdeals`);
+        const response = await axios.get(`${Base_Url}/deals`);
         setDeals(response.data);
         setImageIndex(
           response.data.reduce((acc, deal) => ({ ...acc, [deal._id]: 0 }), {})
@@ -74,7 +74,7 @@ const TopDeals = () => {
   return (
     <div className="min-h-screen p-6 bg-gradient-to-t from-blue-900 via-blue-700 to-green-500 animate-gradient-x">
       <h1 className="text-4xl font-bold text-center mb-8 text-white drop-shadow-lg">
-        Top Deals
+        Packages
       </h1>
       {loading ? (
         <p className="text-center text-gray-300">Loading...</p>
@@ -231,4 +231,4 @@ const TopDeals = () => {
   );
 };
 
-export default TopDeals;
+export default Packages;

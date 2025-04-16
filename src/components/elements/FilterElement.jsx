@@ -15,6 +15,7 @@ import {
   FaHeadphonesAlt,
   FaPhoneAlt,
 } from "react-icons/fa";
+import CalendarView from "./CalendarView";
 
 const FilterElement = ({
   departureDates, // Array of departure dates (strings)
@@ -23,9 +24,10 @@ const FilterElement = ({
   initialAdultCount = 1, // Optional initial count (default: 2)
   onBookingSubmit, // Callback function to handle submit
   selectedDate, // Rename here
-  selectedAirport,// Rename here
+  selectedAirport, // Rename here
   onDateChange, // setter from parent
   onAirportChange, // setter from parent
+  priceMap,
 }) => {
   // const [adultCount, setAdultCount] = useState(initialAdultCount);
   // const [selectedDate, setSelectedDate] = useState(
@@ -67,17 +69,17 @@ const FilterElement = ({
   return (
     <Card className="w-full max-w-sm border border-gray-100 shadow-lg p-1 group">
       {/* Header: Price */}
-      <CardHeader floated={false} className="flex flex-col items-center p-4">
-        <Typography variant="small" className="text-gray-500">
+      <CardHeader
+        floated={false}
+        className="flex flex-col items-center p-4 bg-gradient-to-r from-blue-500 to-indigo-600"
+      >
+        <Typography variant="small" className="text-white">
           Price from
         </Typography>
-        <Typography
-          variant="h3"
-          className="font-bold leading-tight text-[#F56600]"
-        >
+        <Typography variant="h3" className="font-bold leading-tight text-white">
           £{basePrice}
         </Typography>
-        <Typography variant="small" className="text-gray-500">
+        <Typography variant="small" className="text-white">
           per person
         </Typography>
       </CardHeader>
@@ -186,7 +188,10 @@ const FilterElement = ({
           <Typography variant="small" className="font-medium text-gray-700">
             Total Price:
           </Typography>
-          <Typography variant="h5" className="font-bold text-[#F56600]">
+          <Typography
+            variant="h5"
+            className="font-bold tracking-wide bg-transparent bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600"
+          >
             £{totalPrice}
           </Typography>
         </div>
@@ -196,7 +201,7 @@ const FilterElement = ({
       <CardFooter className="p-4 pt-2 space-y-4">
         <Button
           size="lg"
-          className="bg-[#F56600] hover:bg-[#e05c00] w-full normal-case text-white font-semibold"
+          className="transition-colors duration-500 ease-in-out bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-700 w-full normal-case text-white font-semibold"
           onClick={handleSubmit}
         >
           Book Now
@@ -218,6 +223,12 @@ const FilterElement = ({
             Book Now
           </span>
         </Button> */}
+
+        <CalendarView
+          departureDates={departureDates}
+          departureAirports={departureAirports}
+          priceMap={priceMap}
+        />
 
         {/* Phone / Call to Book */}
         <div className="text-center">

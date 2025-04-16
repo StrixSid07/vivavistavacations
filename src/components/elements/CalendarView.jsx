@@ -1,0 +1,143 @@
+import React, { useState, useMemo } from "react";
+import dayjs from "dayjs";
+import clsx from "clsx";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(customParseFormat);
+
+const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
+  const parsedDates = useMemo(() => {
+    // Parse and sort the dates using the provided "DD/MM/YYYY" format
+    const sortedDates = departureDates
+      .map((d) => dayjs(d, "DD/MM/YYYY"))
+      .sort((a, b) => (a.isBefore(b) ? -1 : 1));
+
+    // Map each sorted date with its airport and price from the priceMap using the same format
+    return sortedDates.map((date, i) => ({
+      date,
+      airport: departureAirports[i % departureAirports.length],
+      price: priceMap[date.format("DD/MM/YYYY")] || 0,
+    }));
+  }, [departureDates, departureAirports, priceMap]);
+
+  const [currentMonth, setCurrentMonth] = useState(
+    parsedDates[0]?.date.startOf("month") || dayjs().startOf("month")
+  );
+
+  const dateMap = useMemo(() => {
+    const map = {};
+    parsedDates.forEach(({ date, airport, price }) => {
+      map[date.format("DD/MM/YYYY")] = { airport, price };
+    });
+    return map;
+  }, [parsedDates]);
+
+  const startOfMonth = currentMonth.startOf("month");
+  const endOfMonth = currentMonth.endOf("month");
+
+  const startDay = startOfMonth.day(); // 0 (Sun) - 6 (Sat)
+  const totalDays = endOfMonth.date();
+  const days = [];
+
+  for (let i = 0; i < startDay; i++) {
+    days.push(null);
+  }
+
+  for (let i = 1; i <= totalDays; i++) {
+    const date = currentMonth.date(i).format("DD/MM/YYYY");
+    days.push({
+      day: i,
+      date,
+      info: dateMap[date] || null,
+    });
+  }
+
+  const handleMonthChange = (direction) => {
+    const currentIndex = parsedDates.findIndex((d) =>
+      d.date.isSame(currentMonth, "month")
+    );
+
+    let target;
+    if (direction === "prev") {
+      for (let i = currentIndex - 1; i >= 0; i--) {
+        if (!parsedDates[i].date.isSame(currentMonth, "month")) {
+          target = parsedDates[i].date;
+          break;
+        }
+      }
+    } else if (direction === "next") {
+      for (let i = currentIndex + 1; i < parsedDates.length; i++) {
+        if (!parsedDates[i].date.isSame(currentMonth, "month")) {
+          target = parsedDates[i].date;
+          break;
+        }
+      }
+    }
+
+    if (target) {
+      setCurrentMonth(target.startOf("month"));
+    }
+  };
+
+  return (
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+      {/* Header with gradient background */}
+      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 flex justify-between items-center">
+        <button
+          onClick={() => handleMonthChange("prev")}
+          className="bg-white text-blue-500 rounded-full w-8 h-8 flex items-center justify-center shadow-md hover:bg-blue-100"
+        >
+          ←
+        </button>
+        <h2 className="text-lg font-bold text-white">
+          {currentMonth.format("MMMM YYYY")}
+        </h2>
+        <button
+          onClick={() => handleMonthChange("next")}
+          className="bg-white text-blue-500 rounded-full w-8 h-8 flex items-center justify-center shadow-md hover:bg-blue-100"
+        >
+          →
+        </button>
+      </div>
+
+      {/* Weekdays */}
+      <div className="grid grid-cols-7 text-center text-sm font-medium my-2 text-gray-600">
+        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
+          <div key={d}>{d}</div>
+        ))}
+      </div>
+
+      {/* Days grid */}
+      <div className="grid grid-cols-7 gap-1 text-xs p-2">
+        {days.map((day, i) =>
+          day ? (
+            <div
+              key={i}
+              className={clsx(
+                "p-2 rounded-md text-center border",
+                day.info
+                  ? "bg-white border-blue-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-indigo-600 hover:text-white cursor-pointer"
+                  : "text-gray-400",
+                day.date === dayjs().format("DD/MM/YYYY") &&
+                  "border-2 border-yellow-500"
+              )}
+            >
+              <div className="font-semibold">{day.day}</div>
+              {day.info && (
+                <div className="mt-1">
+                  <div className="text-xs font-medium">£{day.info.price}</div>
+                  <div className="text-[0.65rem]">
+                    {day.info.airport}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div key={i} className="p-2" />
+          )
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default CalendarView;

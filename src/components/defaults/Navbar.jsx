@@ -43,8 +43,8 @@ const itemVariants = {
 const Navbar = () => {
   const navItems = [
     { name: "Home", href: "/", icon: home },
-    { name: "Package", href: "/home", icon: packageImg },
-    { name: "Hotel Bargains", href: "/topdeals", icon: hot },
+    { name: "Package", href: "/packages", icon: packageImg },
+    { name: "Hot Bargains", href: "/topdeals", icon: hot },
     // {
     //   name: "Hot Bargains",
     //   href: "#",
@@ -69,8 +69,8 @@ const Navbar = () => {
 
   const navItemsForMobile = [
     { name: "Home", href: "/" },
-    { name: "Package", href: "/home" },
-    { name: "Hotel Bargains", href: "/topdeals" },
+    { name: "Package", href: "/packages" },
+    { name: "Hot Bargains", href: "/topdeals" },
     // {
     //   name: "Hot Bargains",
     //   href: "#",
@@ -337,7 +337,7 @@ const Navbar = () => {
                         to={item.href}
                         className={`block px-4 py-2 rounded-lg transition-all duration-500 ease-in-out
                            ${
-                             item.name === "Hotel Bargains"
+                             item.name === "Hot Bargains"
                                ? "animate-blink"
                                : ""
                            }
@@ -420,7 +420,7 @@ const Navbar = () => {
                         to={item.href}
                         className={`flex flex-col justify-center items-center px-4 py-2 rounded-full bg-transparent transition-all duration-500 ease-in-out
                            ${
-                             item.name === "Hotel Bargains"
+                             item.name === "Hot Bargains"
                                ? "animate-blink"
                                : ""
                            }

@@ -73,7 +73,7 @@ const Overview = ({
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl sm:text-4xl font-bold text-orange-600 flex items-center gap-3">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-wide bg-transparent bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center gap-3">
           <TelescopeIcon className="w-7 h-7 text-orange-500" />
           Discover the Deal
         </h1>
@@ -156,11 +156,11 @@ const Overview = ({
       />
 
       {/* Terms & Conditions */}
-      <Section
+      {/* <Section
         title="Terms & Conditions"
         icon={<ShieldCheck className="w-6 h-6 text-indigo-500" />}
         items={termsAndConditions}
-      />
+      /> */}
 
       {/* Hotels Slider */}
       {hotels?.length > 0 && (

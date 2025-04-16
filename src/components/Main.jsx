@@ -24,6 +24,7 @@ import {
   CookiePolicy,
   FilterPage,
   TopDeals,
+  Packages,
 } from "./pages";
 import { MainScreen } from "./screens";
 import TravelFilter from "./elements/TravelFilter";
@@ -110,6 +111,7 @@ const Main = () => {
             <Route path="/deals/:id" element={<FilterPage />} />
             <Route path="/Blogs" element={<Blogs />} />
             <Route path="/topdeals" element={<TopDeals />} />
+            <Route path="/packages" element={<Packages />} />
             <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
             {/* Catch-all route for unmatched paths */}

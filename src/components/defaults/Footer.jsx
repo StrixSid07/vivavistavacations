@@ -246,7 +246,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center mb-2">
-        <h1>Boook With Confiodence</h1>
+        <h1>Boook With Confidence</h1>
         <img src={certilogo} className="h-14 mt-2 w-auto object-fill" alt="" />
       </div>
 

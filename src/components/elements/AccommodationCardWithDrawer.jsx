@@ -65,7 +65,11 @@ const AccommodationCard = ({ hotel }) => {
       </div>
 
       {/* Button */}
-      <Button size="sm" onClick={openDrawer} color="blue">
+      <Button
+        size="sm"
+        onClick={openDrawer}
+        className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-500"
+      >
         View More
       </Button>
 

@@ -42,7 +42,7 @@ const NewAddedCardComponent = ({
       transition={{ duration: 0.3 }}
       className="transition-shadow hover:shadow-2xl"
     >
-      <Card className="max-w-[24rem] min-h-[30rem] w-full overflow-hidden border border-gray-200 rounded-2xl">
+      <Card className="min-h-[30rem] w-[22rem] overflow-hidden border border-gray-200 rounded-2xl">
         {/* Image Section */}
         <CardHeader
           floated={false}
@@ -88,43 +88,53 @@ const NewAddedCardComponent = ({
         </CardHeader>
 
         {/* Card Content */}
-        <CardBody className="p-5 flex flex-col space-y-4">
+        <CardBody className="p-5 flex flex-col flex-grow space-y-4">
           {/* Price + Rating */}
           <div className="flex items-center justify-between">
             {/* Rating & Reviews */}
-            <div className="flex items-center gap-1 text-amber-500">
-              {rating ? (
-                <>
-                  {/* Dynamic Stars */}
-                  {Array.from({ length: 5 }, (_, i) => {
-                    if (i + 1 <= Math.floor(rating)) {
-                      return (
-                        <FaStar key={i} className="text-sm text-amber-500" />
-                      );
-                    } else if (i < rating) {
-                      return (
-                        <FaStarHalfAlt
-                          key={i}
-                          className="text-sm text-amber-500"
-                        />
-                      );
-                    } else {
-                      return (
-                        <FaRegStar key={i} className="text-sm text-gray-300" />
-                      );
-                    }
-                  })}
+            <div className="flex flex-col items-start gap-1">
+              {/* Stars Row */}
+              <div className="flex items-center gap-1 text-amber-500">
+                {rating
+                  ? Array.from({ length: 5 }, (_, i) => {
+                      if (i + 1 <= Math.floor(rating)) {
+                        return (
+                          <FaStar key={i} className="text-sm text-amber-500" />
+                        );
+                      } else if (i < rating) {
+                        return (
+                          <FaStarHalfAlt
+                            key={i}
+                            className="text-sm text-amber-500"
+                          />
+                        );
+                      } else {
+                        return (
+                          <FaRegStar
+                            key={i}
+                            className="text-sm text-gray-300"
+                          />
+                        );
+                      }
+                    })
+                  : // if no rating, we’ll still show placeholder stars but in gray
+                    Array.from({ length: 5 }, (_, i) => (
+                      <FaRegStar key={i} className="text-sm text-gray-300" />
+                    ))}
+              </div>
 
-                  <span className="text-gray-800 text-sm font-medium ml-1">
-                    {rating.toFixed(1)} ({reviews} Reviews)
-                  </span>
-                </>
+              {/* Review Count */}
+              {rating ? (
+                <span className="text-gray-800 text-sm font-medium">
+                  {rating.toFixed(1)} ({reviews} Reviews)
+                </span>
               ) : (
                 <span className="text-gray-500 text-sm italic">
                   No reviews yet
                 </span>
               )}
             </div>
+
             <Typography className="text-lg font-bold text-deep-orange-600">
               £{price}
               <span className="text-sm font-normal text-gray-500 ml-1">
@@ -136,7 +146,7 @@ const NewAddedCardComponent = ({
           {/* Name */}
           <Typography
             variant="h6"
-            className="text-xl font-semibold text-gray-900"
+            className="text-xl font-semibold text-gray-900 truncate w-[20rem]"
           >
             {name}
           </Typography>

@@ -13,49 +13,61 @@ const PriceCalendar = ({ prices, onTripSelect }) => {
   const filteredPrices = getFilteredPrices();
 
   return (
-    <div className="space-y-6">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-800">Select Your Trip</h2>
+    <div className="space-y-8 px-4 md:px-0">
+      <div className="text-center mb-4">
+        <h2 className="text-4xl font-extrabold text-gray-900">
+          Choose Your Perfect Trip
+        </h2>
+        <p className="mt-2 text-gray-600">
+          Select a departure date and airport to see your best price.
+        </p>
       </div>
 
-      {filteredPrices.map((trip, index) => (
-        <Card
-          key={index}
-          className="shadow-md border border-gray-200 rounded-xl"
-        >
-          <CardHeader
-            floated={false}
-            shadow={false}
-            className="text-center p-4 bg-gray-50 rounded-t-xl"
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {filteredPrices.map((trip, idx) => (
+          <Card
+            key={idx}
+            className="group transform transition-transform hover:scale-[1.02] shadow-lg hover:shadow-2xl border border-gray-200 rounded-2xl overflow-hidden"
           >
-            <h3 className="text-2xl font-semibold text-gray-900">
-              {trip.country} - {trip.airport}
-            </h3>
-            <p className="text-deep-orange-500 font-bold text-lg">
-              £{trip.price}
-            </p>
-          </CardHeader>
-
-          <CardBody className="p-4 space-y-3">
-            <p className="text-gray-700">
-              <strong>Departure Date:</strong>{" "}
-              {trip.startdate
-                ? format(new Date(trip.startdate), "dd MMM yyyy")
-                : "Date not available"}
-            </p>
-            <p className="text-gray-700">
-              <strong>Airport:</strong> {trip.airport}
-            </p>
-
-            <Button
-              onClick={() => onTripSelect(trip)}
-              className="w-full bg-[#F56600] hover:bg-[#e05c00] text-white"
+            <CardHeader
+              floated={false}
+              shadow={false}
+              className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-center py-6"
             >
-              Select This Trip
-            </Button>
-          </CardBody>
-        </Card>
-      ))}
+              <h3 className="text-2xl font-semibold">
+                {trip.country} — {trip.airport}
+              </h3>
+              <p className="mt-1 text-3xl font-bold tracking-tight">
+                £{trip.price}
+              </p>
+            </CardHeader>
+
+            <CardBody className="p-6 space-y-4 bg-white">
+              <div className="flex items-center justify-between">
+                <span className="font-medium text-gray-700">Departure:</span>
+                <span className="text-gray-900">
+                  {trip.startdate
+                    ? format(new Date(trip.startdate), "dd MMM yyyy")
+                    : "TBA"}
+                </span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="font-medium text-gray-700">Airport:</span>
+                <span className="text-gray-900">{trip.airport}</span>
+              </div>
+            </CardBody>
+
+            <div className="p-6 bg-gray-50">
+              <Button
+                onClick={() => onTripSelect(trip)}
+                className="w-full py-3 font-semibold normal-case tracking-wide transition-colors duration-500 ease-in-out bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-700"
+              >
+                Select This Trip
+              </Button>
+            </div>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 };
