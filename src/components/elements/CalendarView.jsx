@@ -115,7 +115,7 @@ const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
               className={clsx(
                 "p-2 rounded-md text-center border",
                 day.info
-                  ? "bg-white border-blue-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-indigo-600 hover:text-white cursor-pointer"
+                  ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:shadow-md cursor-pointer"
                   : "text-gray-400",
                 day.date === dayjs().format("DD/MM/YYYY") &&
                   "border-2 border-yellow-500"

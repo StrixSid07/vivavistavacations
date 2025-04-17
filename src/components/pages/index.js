@@ -22,6 +22,7 @@ import CookiePolicy from "./CookiePolicy";
 import FilterPage from "./FilterPage";
 import TopDeals from "./TopDeals";
 import Packages from "./Packages";
+import GroupBookingForm from "./GroupBookingForm";
 
 export {
   Home,
@@ -47,4 +48,5 @@ export {
   FilterPage,
   TopDeals,
   Packages,
+  GroupBookingForm,
 };

@@ -17,7 +17,7 @@ const lookingOptions = [
   },
   {
     icon: PiCalendarStarFill,
-    title: "15+ Years of Industrial Experience",
+    title: "15+ Years of Industry Experience",
   },
   {
     icon: MdOutlineVerified,

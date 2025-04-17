@@ -58,7 +58,7 @@ const ImageGallery2 = ({ images }) => {
             <motion.img
               src={src}
               alt={`Travel ${index + 2}`}
-              className="w-full object-cover md:h-[300px] h-[120px]"
+              className="w-full object-cover md:h-[220px] h-[120px]"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             />

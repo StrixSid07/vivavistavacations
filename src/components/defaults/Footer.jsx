@@ -33,7 +33,7 @@ const Footer = () => {
   const quickLinks = [
     { name: "Contact Us", href: "/ContactUs" },
     { name: "Cookies", href: "/cookies" },
-    { name: "Group Booking", href: "/" },
+    { name: "Group Booking", href: "/groupbooking" },
     { name: "Blog", href: "/" },
   ];
 

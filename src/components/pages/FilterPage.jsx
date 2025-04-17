@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { Base_Url } from "../../utils/Api";
+import SimilarDealsSlider from "../elements/SimilarDealsSlider";
 
 const FilterPage = () => {
   const { id } = useParams();
@@ -310,20 +311,30 @@ const FilterPage = () => {
         </div>
       </div>
       <div className="flex md:flex-row flex-col items-center justify-center md:items-start gap-8 md:justify-between md:p-24 p-4 mt-4 md:-mt-10">
-        <FilterPageSlides
-          tripData={tripData}
-          itinerary={itinerary}
-          prices={prices}
-          hotels={hotels}
-          availableCountries={availableCountries}
-          exclusiveAdditions={exclusiveAdditions}
-          termsAndConditions={termsAndConditions}
-          whatsIncluded={whatsIncluded}
-          selectedTrip={selectedTrip}
-          setSelectedTrip={setSelectedTrip}
-          setSelectedDate={setSelectedDate}
-          setSelectedAirport={setSelectedAirport}
-        />
+        <div className="flex flex-col justify-start items-start md:w-[100rem] w-full gap-8">
+          <div className="z-30">
+            <FilterPageSlides
+              tripData={tripData}
+              itinerary={itinerary}
+              prices={prices}
+              hotels={hotels}
+              availableCountries={availableCountries}
+              exclusiveAdditions={exclusiveAdditions}
+              termsAndConditions={termsAndConditions}
+              whatsIncluded={whatsIncluded}
+              selectedTrip={selectedTrip}
+              setSelectedTrip={setSelectedTrip}
+              setSelectedDate={setSelectedDate}
+              setSelectedAirport={setSelectedAirport}
+            />
+          </div>
+          <div className="w-full bg-gray-200 rounded-xl z-20">
+            <SimilarDealsSlider
+              destinationId={tripData.destination._id}
+              dealId={id}
+            />
+          </div>
+        </div>
         <FilterElement
           basePrice={
             selectedTrip?.price || (prices.length ? prices[0].price : 0)

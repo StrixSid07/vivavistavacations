@@ -79,7 +79,7 @@ const AccommodationCard = ({ hotel }) => {
         open={drawerOpen}
         onClose={closeDrawer}
         className="p-5 pt-28 z-[9999]"
-        size={500}
+        size={1000}
         dismiss={{ outsidePress: true, escapeKey: true }}
         overlay
       >
