@@ -139,6 +139,30 @@ const Packages = () => {
                         {deal.description}
                       </p>
                     </div>
+                    <div className="flex justify-between items-start mt-4 mb-4">
+                      <div className="flex items-center gap-2 text-sm text-gray-700">
+                        <MapPin className="w-4 h-4 text-indigo-500" />
+                        <span className="font-medium">
+                          {deal.destination?.name}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-2 text-sm text-gray-700">
+                        <CalendarDays className="w-4 h-4 text-indigo-500" />
+                        <span>{deal.days} Days</span>
+                      </div>
+
+                      <div className="flex items-center gap-2 text-sm text-gray-700">
+                        {deal.boardBasis && (
+                          <>
+                            <FaCircle className="w-1 h-1 text-gray-400" />
+                            <span className="font-medium">
+                              {deal.boardBasis}
+                            </span>
+                          </>
+                        )}
+                      </div>
+                    </div>
                     <p className="text-deep-orange-600 font-bold mt-2">
                       Starting from: ${deal.prices[0]?.price || "N/A"}
                     </p>

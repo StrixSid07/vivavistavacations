@@ -71,7 +71,7 @@ const Looking = () => {
     >
       {/* Title */}
       <div className="absolute top-0 left-0 w-full">
-        <div className="flex justify-center items-center -mt-8">
+        <div className="flex justify-center items-center -mt-8 md:px-0 px-4">
           <div className="px-6 py-4 flex-wrap text-center bg-[#0078D4] text-white font-bold text-xl md:text-3xl rounded-xl shadow-[0_4px_10px_rgba(255,255,255,0.5)]">
             Defined by Service, Driven by Experience
           </div>

@@ -291,7 +291,7 @@ const FilterElement = ({
       >
         <DialogBody className="overflow-auto max-h-[90vh] flex justify-center">
           <div className="w-full">
-            <ConciergeFormCard />
+            <ConciergeFormCard handleClose={() => setOpenDialog(false)}  />
           </div>
         </DialogBody>
       </Dialog>

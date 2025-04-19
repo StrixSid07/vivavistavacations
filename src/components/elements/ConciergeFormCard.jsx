@@ -16,7 +16,7 @@ import { X } from "lucide-react";
 import React from "react";
 import { useCountries } from "use-react-countries";
 
-const ConciergeFormCard = () => {
+const ConciergeFormCard = ({ handleClose }) => {
   const { countries } = useCountries();
   const [country, setCountry] = React.useState(0);
 
@@ -50,8 +50,8 @@ const ConciergeFormCard = () => {
             Together!
           </Typography>
         </div>
-        <button>
-          <X className="w-5 h-5 text-gray-500 hover:text-black" />
+        <button onClick={handleClose}>
+          <X className="w-6 h-6 text-black hover:text-red-500 rounded-md bg-red-50 hover:bg-red-100" />
         </button>
       </div>
 

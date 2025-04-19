@@ -1,7 +1,9 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import dayjs from "dayjs";
 import clsx from "clsx";
+import { Dialog, DialogBody } from "@material-tailwind/react";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import ConciergeFormCard from "./ConciergeFormCard";
 dayjs.extend(customParseFormat);
 
 const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
@@ -78,10 +80,29 @@ const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
     }
   };
 
+  const [openDialog, setOpenDialog] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [selectedDayInfo, setSelectedDayInfo] = React.useState(null);
+
+  const handleSubmit = (info) => {
+    setSelectedDayInfo(info);
+    setOpenDialog(true);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
+
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="max-w-sm mx-auto p-2 bg-white rounded-xl shadow-md overflow-hidden">
       {/* Header with gradient background */}
-      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 flex justify-between items-center">
+      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 flex justify-between items-center rounded-md">
         <button
           onClick={() => handleMonthChange("prev")}
           className="bg-white text-blue-500 rounded-full w-8 h-8 flex items-center justify-center shadow-md hover:bg-blue-100"
@@ -112,6 +133,7 @@ const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
           day ? (
             <div
               key={i}
+              onClick={day.info ? () => handleSubmit(day.info) : undefined}
               className={clsx(
                 "p-2 rounded-md text-center border",
                 day.info
@@ -125,9 +147,7 @@ const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
               {day.info && (
                 <div className="mt-1 flex flex-col justify-center  items-center">
                   <div className="text-xs font-normal">£{day.info.price}</div>
-                  <div className="text-[0.68rem]">
-                    {day.info.airport}
-                  </div>
+                  <div className="text-[0.68rem]">{day.info.airport}</div>
                 </div>
               )}
             </div>
@@ -136,6 +156,21 @@ const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
           )
         )}
       </div>
+      <Dialog
+        open={openDialog}
+        handler={() => setOpenDialog(false)}
+        size={isMobile ? "md" : "xs"}
+        className="p-0 bg-transparent"
+      >
+        <DialogBody className="overflow-auto max-h-[90vh] flex justify-center">
+          <div className="w-full">
+            <ConciergeFormCard
+              handleClose={() => setOpenDialog(false)}
+              // selectedInfo={selectedDayInfo}
+            />
+          </div>
+        </DialogBody>
+      </Dialog>
     </div>
   );
 };

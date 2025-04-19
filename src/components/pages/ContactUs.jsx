@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import axios from "axios";
 import {
   Card,
   Input,
   Textarea,
   Button,
   Typography,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Alert,
 } from "@material-tailwind/react";
 import { Uk } from "../../assets";
 import {
@@ -14,10 +20,80 @@ import {
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import { Map } from "../elements";
 import { FaLocationDot } from "react-icons/fa6";
+import { useCountries } from "use-react-countries";
+import { Base_Url } from "../../utils/Api";
 
 const ContactUs = () => {
+  const { countries } = useCountries();
+  const [country, setCountry] = useState(0);
+
+  useEffect(() => {
+    if (countries.length) {
+      const defaultIndex = countries.findIndex(
+        (c) => c.name === "United Kingdom"
+      );
+      if (defaultIndex !== -1) {
+        setCountry(defaultIndex);
+      }
+    }
+  }, [countries]);
+
+  const { name, flags, countryCallingCode } = countries[country] || {
+    name: "United Kingdom",
+    flags: { svg: "https://flagcdn.com/gb.svg" },
+    countryCallingCode: "+44",
+  };
+
+  const [alert, setAlert] = React.useState({
+    open: false,
+    color: "green",
+    message: "",
+  });
+
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      phone: `${countryCallingCode} ${formData.phone}`,
+      message: formData.message,
+    };
+    try {
+      const res = await axios.post(`${Base_Url}/contact/contactus`, payload);
+      setAlert({
+        open: true,
+        color: "green",
+        message:
+          "Thank you for connecting with Viva Vista Vacations! We will get back to you shortly.",
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      setAlert({
+        open: true,
+        color: "red",
+        message:
+          "Oops! Something went wrong. Please check your details or try again later.",
+      });
+      console.error("Error sending message:", error);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex flex-col items-center overflow-hidden mt-4 md:mt-12 lg:mt-16 mb-8">
       <img
@@ -26,7 +102,27 @@ const ContactUs = () => {
         className="fixed inset-0 w-full h-screen object-cover z-[-1]"
       />
       <div className="fixed inset-0 z-[-1]"></div>
+
       <div className="relative container mx-auto px-4 md:px-8 lg:px-16 py-8 md:py-16 space-y-8">
+        {alert.open && (
+          <Alert
+            animate={{
+              mount: { y: 0 },
+              unmount: { y: 100 },
+            }}
+            color={alert.color}
+            variant="gradient"
+            className="relative mb-4 pr-10"
+          >
+            {alert.message}
+            <button
+              onClick={() => setAlert({ ...alert, open: false })}
+              className="absolute top-4 right-4 text-sm text-white hover:text-gray-200"
+            >
+              <XMarkIcon className="h-6 w-6" />
+            </button>
+          </Alert>
+        )}
         <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -46,8 +142,8 @@ const ContactUs = () => {
                   Address
                 </h1>
                 <p className="text-base flex justify-center items-center gap-4 md:text-lg lg:text-xl">
-                  <FaLocationDot className="text-red-500" size={24} /> 01, 195-197 Wood Street, London,
-                  England, E17 3NU
+                  <FaLocationDot className="text-red-500" size={24} /> 01,
+                  195-197 Wood Street, London, England, E17 3NU
                 </p>
               </div>
               {/* Contact Info */}
@@ -125,29 +221,92 @@ const ContactUs = () => {
                 We'd love to hear from you! Fill out the form below to get in
                 touch.
               </Typography>
-              <form className="mt-8 w-full">
+              <form className="mt-8 w-full" onSubmit={handleSubmit}>
                 <div className="mb-4 flex flex-col gap-4">
                   <Input
                     size="lg"
                     placeholder="Your Name"
                     label="Name"
                     color="blue"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                   <Input
                     size="lg"
                     placeholder="Your Email"
                     label="Email"
+                    name="email"
                     color="blue"
+                    value={formData.email}
+                    onChange={handleChange}
                   />
-                  <Input
+                  {/* Phone Input With Country Code */}
+                  <div className="relative flex w-full">
+                    <Menu placement="bottom-start">
+                      <MenuHandler>
+                        <Button
+                          ripple={false}
+                          variant="text"
+                          color="blue-gray"
+                          className="flex h-10 items-center gap-2 rounded-r-none border border-r-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3"
+                        >
+                          <img
+                            src={flags.svg}
+                            alt={name}
+                            className="h-4 w-5 object-cover"
+                          />
+                          {countryCallingCode}
+                        </Button>
+                      </MenuHandler>
+                      <MenuList className="max-h-[20rem] max-w-[18rem]">
+                        {countries.map(
+                          ({ name, flags, countryCallingCode }, index) => (
+                            <MenuItem
+                              key={name}
+                              className="flex items-center gap-2"
+                              onClick={() => setCountry(index)}
+                            >
+                              <img
+                                src={flags.svg}
+                                alt={name}
+                                className="h-4 w-5 object-cover"
+                              />
+                              {name}
+                              <span className="ml-auto">
+                                {countryCallingCode}
+                              </span>
+                            </MenuItem>
+                          )
+                        )}
+                      </MenuList>
+                    </Menu>
+                    <Input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      variant="border"
+                      color="blue"
+                      placeholder="Mobile Number"
+                      className="rounded-l-none !border-t-blue-gray-200 focus:!border-t-blue-500"
+                      labelProps={{
+                        className: "before:content-none after:content-none",
+                      }}
+                      containerProps={{ className: "min-w-0" }}
+                    />
+                  </div>
+                  <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     size="lg"
-                    placeholder="Your Phone"
-                    label="Phone"
+                    label="Message"
                     color="blue"
                   />
-                  <Textarea size="lg" label="Message" color="blue" />
                 </div>
                 <Button
+                  type="submit"
                   className="mt-6 text-white"
                   color="deep-orange"
                   fullWidth
