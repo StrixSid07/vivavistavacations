@@ -64,7 +64,7 @@ export default function GroupBookingForm() {
 
           <form className="space-y-5 md:space-y-6">
             {/* Row 1: Title, Name, Email */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1">
               <div className="relative flex w-full">
                 <Menu placement="bottom-start">
                   <MenuHandler>
@@ -95,7 +95,6 @@ export default function GroupBookingForm() {
                   containerProps={{ className: "min-w-0" }}
                 />
               </div>
-              <Input label="Enter your email" icon={<FaEnvelope />} />
             </div>
 
             {/* Row 2: Phone, Adults, Children */}
@@ -147,42 +146,44 @@ export default function GroupBookingForm() {
                   containerProps={{ className: "min-w-0" }}
                 />
               </div>
+              <Input label="Enter your email" icon={<FaEnvelope />} />
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Select
-                  size="md"
-                  animate={{
-                    mount: { y: 0 },
-                    unmount: { y: 25 },
-                  }}
-                  label="Adults"
-                >
-                  {adultOptions.map((option) => (
-                    <Option key={option} value={option}>
-                      {option}
-                    </Option>
-                  ))}
-                </Select>
-                <Select
-                  size="md"
-                  animate={{
-                    mount: { y: 0 },
-                    unmount: { y: 25 },
-                  }}
-                  label="Children (Age 2–11)"
-                >
-                  {childrenOptions.map((option) => (
-                    <Option key={option} value={option}>
-                      {option}
-                    </Option>
-                  ))}
-                </Select>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Select
+                size="md"
+                animate={{
+                  mount: { y: 0 },
+                  unmount: { y: 25 },
+                }}
+                label="Adults"
+              >
+                {adultOptions.map((option) => (
+                  <Option key={option} value={option}>
+                    {option}
+                  </Option>
+                ))}
+              </Select>
+              <Select
+                size="md"
+                animate={{
+                  mount: { y: 0 },
+                  unmount: { y: 25 },
+                }}
+                label="Children (Age 2–11)"
+              >
+                {childrenOptions.map((option) => (
+                  <Option key={option} value={option}>
+                    {option}
+                  </Option>
+                ))}
+              </Select>
             </div>
 
             {/* Row 3: Call Time */}
             <Input
               label="When would be a convenient time to call you?"
+              variant="border"
               className="w-full"
             />
 
