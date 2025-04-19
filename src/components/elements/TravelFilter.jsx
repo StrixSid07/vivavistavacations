@@ -467,7 +467,7 @@ import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Base_Url } from "../../utils/Api";
 
-const boardOptions = ["All Inclusive", "Bed & Breakfast", "Room Only"];
+const boardOptions = ["All Inclusive", "Half Board", "Full Board"];
 const hotelTypes = [
   "Beach Hotel",
   "City Hotel",
@@ -624,7 +624,7 @@ const TravelFilter = () => {
 
   const handleResetFilters = () => {
     setFilters({
-      price: 500,
+      price: 899,
       boardBasis: [],
       hotelType: [],
       rating: "",

@@ -233,7 +233,7 @@ const FilterPage = () => {
     );
 
   return (
-    <div className="z-50">
+    <div className="z-50 flex flex-col justify-center items-center w-full">
       <div className="">
         <div className="relative">
           {/* <h1 className="absolute bottom-0 z-30 left-0 text-lg text-white bg-black/40 w-1/2 p-2">
@@ -310,7 +310,7 @@ const FilterPage = () => {
           </div>
         </div>
       </div>
-      <div className="flex md:flex-row flex-col items-center justify-center md:items-start gap-8 md:justify-between md:p-24 p-4 mt-4 md:-mt-10">
+      {/* <div className="flex md:flex-row flex-col items-center justify-center md:items-start gap-8 md:justify-between md:p-24 p-4 mt-4 md:-mt-10">
         <div className="flex flex-col justify-start items-start md:w-[100rem] w-full gap-8">
           <div className="z-30">
             <FilterPageSlides
@@ -350,6 +350,52 @@ const FilterPage = () => {
           onAirportChange={setSelectedAirport}
           priceMap={priceMap}
         />
+      </div> */}
+      <div className="grid md:grid-cols-[2fr_1fr] grid-cols-1 gap-4 p-4 lg:p-4 mt-8 w-full max-w-7xl mx-auto">
+        {/* Left Side: Slides + Similar Deals */}
+        <div className="flex flex-col gap-6 w-full">
+          <div className="rounded-xl shadow-md z-30">
+            <FilterPageSlides
+              tripData={tripData}
+              itinerary={itinerary}
+              prices={prices}
+              hotels={hotels}
+              availableCountries={availableCountries}
+              exclusiveAdditions={exclusiveAdditions}
+              termsAndConditions={termsAndConditions}
+              whatsIncluded={whatsIncluded}
+              selectedTrip={selectedTrip}
+              setSelectedTrip={setSelectedTrip}
+              setSelectedDate={setSelectedDate}
+              setSelectedAirport={setSelectedAirport}
+            />
+          </div>
+          <div className="rounded-xl overflow-x-hidden shadow-md bg-gray-200 z-20">
+            <SimilarDealsSlider
+              destinationId={tripData.destination._id}
+              dealId={id}
+            />
+          </div>
+        </div>
+
+        {/* Right Side: Filter Element */}
+        <div className="w-full h-fit">
+          <FilterElement
+            basePrice={
+              selectedTrip?.price || (prices.length ? prices[0].price : 0)
+            }
+            departureDates={prices.map((p) =>
+              new Date(p.startdate).toLocaleDateString("en-GB")
+            )}
+            departureAirports={prices.map((p) => p.airport)}
+            selectedDate={selectedDate}
+            selectedAirport={selectedAirport}
+            onBookingSubmit={handleBookingSubmit}
+            onDateChange={setSelectedDate}
+            onAirportChange={setSelectedAirport}
+            priceMap={priceMap}
+          />
+        </div>
       </div>
     </div>
   );

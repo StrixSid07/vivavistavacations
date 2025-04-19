@@ -5,13 +5,17 @@ import {
   FaTimes,
   FaChevronDown,
   FaPhoneAlt,
+  FaChevronRight,
   FaEnvelope,
   FaHome,
 } from "react-icons/fa";
 import { useMediaQuery } from "react-responsive";
 import { Link, useLocation } from "react-router-dom";
 import { navbarStyles } from "../../styles/styles";
-import { logo, home, packageImg, hot } from "../../assets";
+import { logo, home, packageImg, hot, beach, earth } from "../../assets";
+import axios from "axios";
+import { Base_Url } from "../../utils/Api";
+import { slugify } from "../../utils/slugify";
 
 const sidebarVariants = {
   hidden: { x: "-100%", opacity: 0 },
@@ -41,56 +45,70 @@ const itemVariants = {
 };
 
 const Navbar = () => {
+  const [holidayCategories, setHolidayCategories] = useState([]);
+  const [destinationCategories, setDestinationCategories] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${Base_Url}/holidays/dropdown-holiday`)
+      .then(({ data }) => setHolidayCategories(data))
+      .catch((err) => console.error("Error fetching holiday categories:", err));
+    axios
+      .get(`${Base_Url}/destinations/dropdown-destionation`)
+      .then(({ data }) => setDestinationCategories(data))
+      .catch((err) =>
+        console.error("Error fetching destination categories:", err)
+      );
+  }, []);
+
   const navItems = [
-    { name: "Home", href: "/", icon: home },
+    // { name: "Home", href: "/", icon: home },
     { name: "Package", href: "/packages", icon: packageImg },
     { name: "Hot Bargains", href: "/topdeals", icon: hot },
-    // {
-    //   name: "Hot Bargains",
-    //   href: "#",
-    //   dropdown: [
-    //     { name: "Top Deals", href: "/topdeals" },
-    //     { name: "Beach Holidays", href: "/beachholidays" },
-    //     { name: "City Breaks", href: "/citybreakes" },
-    //     { name: "Luxury Holidays", href: "/luxaryholidays" },
-    //   ],
-    // },
-    // {
-    //   name: "Destinations",
-    //   href: "#",
-    //   dropdown: [
-    //     { name: "Europe", href: "/europe" },
-    //     { name: "Asia", href: "/asia" },
-    //     { name: "Caribbean", href: "/caribbean" },
-    //     { name: "Middle East", href: "/middleeast" },
-    //   ],
-    // },
+    {
+      name: "Holidays",
+      href: "#",
+      icon: beach,
+      dropdown: holidayCategories.map(({ name }) => ({
+        name,
+        // href: `/${name}`,
+        href: `/holidays/${slugify(name)}`,
+      })),
+    },
+    {
+      name: "Destinations",
+      href: "#",
+      icon: earth,
+      dropdown: destinationCategories.map(({ name }) => ({
+        name,
+        href: `/destinations/${slugify(name)}`,
+      })),
+    },
   ];
 
   const navItemsForMobile = [
-    { name: "Home", href: "/" },
+    // { name: "Home", href: "/" },
     { name: "Package", href: "/packages" },
     { name: "Hot Bargains", href: "/topdeals" },
-    // {
-    //   name: "Hot Bargains",
-    //   href: "#",
-    //   dropdown: [
-    //     { name: "Top Deals", href: "/topdeals" },
-    //     { name: "Beach Holidays", href: "/beachholidays" },
-    //     { name: "City Breaks", href: "/citybreakes" },
-    //     { name: "Luxury Holidays", href: "/luxaryholidays" },
-    //   ],
-    // },
-    // {
-    //   name: "Destinations",
-    //   href: "#",
-    //   dropdown: [
-    //     { name: "Europe", href: "/europe" },
-    //     { name: "Asia", href: "/asia" },
-    //     { name: "Caribbean", href: "/caribbean" },
-    //     { name: "Middle East", href: "/middleeast" },
-    //   ],
-    // },
+    {
+      name: "Holidays",
+      href: "#",
+      icon: beach,
+      dropdown: holidayCategories.map(({ name }) => ({
+        name,
+        // href: `/${name}`,
+        href: `/holidays/${slugify(name)}`,
+      })),
+    },
+    {
+      name: "Destinations",
+      href: "#",
+      icon: earth,
+      dropdown: destinationCategories.map(({ name }) => ({
+        name,
+        href: `/destinations/${slugify(name)}`,
+      })),
+    },
   ];
 
   const flagUrls = {
@@ -133,8 +151,6 @@ const Navbar = () => {
   };
 
   const handleMouseLeave = (index, e) => {
-    // Check if the mouse is still inside the container.
-    // e.currentTarget is the container div, e.relatedTarget is where the mouse entered next.
     if (e.currentTarget.contains(e.relatedTarget)) {
       return; // Still inside the dropdown container, so do nothing.
     }
@@ -147,6 +163,12 @@ const Navbar = () => {
   const closeAllDropdowns = () => {
     setDropdownStates({});
   };
+
+  useEffect(() => {
+    if (!isSidebarOpen) {
+      closeAllDropdowns();
+    }
+  }, [isSidebarOpen]);
 
   // Optional: function to check if any dropdown item is active based on location.
   const isDropdownActive = (dropdown) => {
@@ -175,7 +197,10 @@ const Navbar = () => {
         // Mobile version: uses click to toggle sidebar
         <nav className={`${navbarStyles.backgroundColor} font-medium`}>
           <div className="container mx-auto flex justify-between items-center p-4">
-            <img src={logo} alt="VivaVistaFe" className="h-16 select-none" />
+            <Link to="/">
+              {" "}
+              <img src={logo} alt="VivaVistaFe" className="h-16 select-none" />
+            </Link>
             <div className="relative bg-[#0073b4] rounded-xl p-2">
               <button
                 className="cursor-pointer flex items-center space-x-2 text-lg font-medium text-white hover:text-black transition-colors duration-500 ease-in-out"
@@ -213,11 +238,13 @@ const Navbar = () => {
                         setIsDropdownOpen(false);
                       }}
                     >
-                      <img
-                        src={flagUrls[item]}
-                        alt={`${item} flag`}
-                        className="w-5 h-5 object-cover"
-                      />
+                      <Link to="/">
+                        <img
+                          src={flagUrls[item]}
+                          alt={`${item} flag`}
+                          className="w-5 h-5 object-cover"
+                        />
+                      </Link>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -260,7 +287,7 @@ const Navbar = () => {
               <hr className="w-full border-[0.1px] border-gray-900 mt-4" />
             </div>
             <div
-              className="overflow-y-auto -mt-8"
+              className="overflow-y-visible -mt-8"
               style={{ maxHeight: "calc(100% - 5rem)" }}
             >
               <motion.ul
@@ -305,7 +332,7 @@ const Navbar = () => {
                         </button>
                         {dropdownStates[index] && (
                           <motion.ul
-                            className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-auto p-4 z-50"
+                            className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-auto p-4 z-50 max-h-60 overflow-y-auto"
                             initial="hidden"
                             animate="visible"
                             variants={sidebarVariants}
@@ -314,18 +341,18 @@ const Navbar = () => {
                               <motion.li key={subIndex} variants={itemVariants}>
                                 <Link
                                   to={subItem.href}
-                                  className={`block px-4 py-2 rounded-md transition-all duration-500 ease-in-out
-                                     ${
-                                       location.pathname === subItem.href
-                                         ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                                         : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
-                                     }`}
+                                  className={`flex justify-start items-center gap-1 px-4 py-2 rounded-md transition-all duration-500 ease-in-out
+            ${
+              location.pathname === subItem.href
+                ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
+                : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
+            }`}
                                   onClick={() => {
                                     closeAllDropdowns();
                                     toggleSidebar();
                                   }}
                                 >
-                                  {subItem.name}
+                                  <FaChevronRight /> {subItem.name}
                                 </Link>
                               </motion.li>
                             ))}
@@ -337,9 +364,7 @@ const Navbar = () => {
                         to={item.href}
                         className={`block px-4 py-2 rounded-lg transition-all duration-500 ease-in-out
                            ${
-                             item.name === "Hot Bargains"
-                               ? "animate-blink"
-                               : ""
+                             item.name === "Hot Bargains" ? "animate-blink" : ""
                            }
                           ${
                             location.pathname === item.href
@@ -362,21 +387,32 @@ const Navbar = () => {
         </nav>
       ) : (
         // Desktop version: dropdown opens on hover
-        <nav className={navbarStyles.backgroundColor}>
-          <div className="container mx-auto font-bold flex justify-between items-center p-4">
+        <nav className={`${navbarStyles.backgroundColor} shadow-md`}>
+          <div className="container mx-auto font-bold flex justify-between items-center p-1">
             <div className="flex justify-between items-center gap-10">
-              <img src={logo} alt="VivaVistaFe" className="h-16 select-none" />
+              <Link to="/">
+                <img
+                  src={logo}
+                  alt="VivaVistaFe"
+                  className="h-16 select-none"
+                />
+              </Link>
               <ul className="flex space-x-6">
                 {navItems.map((item, index) => (
                   <li key={index} className="relative">
                     {item.dropdown ? (
                       <div
-                        className="relative"
+                        className="relative flex flex-col justify-center items-center"
                         onMouseEnter={() => handleMouseEnter(index)}
                         onMouseLeave={(e) => handleMouseLeave(index, e)}
                       >
+                        <img
+                          src={item.icon}
+                          alt=""
+                          className="h-10 w-10 object-cover mt-2 mr-4"
+                        />
                         <button
-                          className={`flex justify-between items-center gap-2 px-4 py-2 rounded-full bg-transparent transition-all duration-700 ease-in-out
+                          className={`flex justify-between items-center gap-2 px-4 rounded-full bg-transparent transition-all duration-700 ease-in-out
                           ${item.name === "Hot Bargains" ? "animate-blink" : ""}
                           ${
                             dropdownStates[index]
@@ -396,18 +432,19 @@ const Navbar = () => {
                           </motion.div>
                         </button>
                         {dropdownStates[index] && (
-                          <ul className="absolute left-0 top-full bg-white shadow-lg rounded-lg w-48 z-50">
+                          <ul className="absolute grid grid-cols-3 gap-4 top-full bg-white drop-shadow-lg shadow-lg rounded-lg w-[700px] z-50 pt-10">
                             {item.dropdown.map((subItem, subIndex) => (
                               <li key={subIndex}>
                                 <Link
                                   to={subItem.href}
-                                  className={`block px-4 py-2 rounded-full transition-all duration-500 ease-in-out ${
+                                  className={`flex justify-start items-center gap-1 px-4 py-2 rounded-full transition-all duration-500 ease-in-out ${
                                     location.pathname === subItem.href
                                       ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
                                       : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:text-deep-orange-500 hover:bg-transparent`
                                   }`}
                                   onClick={closeAllDropdowns}
                                 >
+                                  <FaChevronRight />
                                   {subItem.name}
                                 </Link>
                               </li>
@@ -420,9 +457,7 @@ const Navbar = () => {
                         to={item.href}
                         className={`flex flex-col justify-center items-center px-4 py-2 rounded-full bg-transparent transition-all duration-500 ease-in-out
                            ${
-                             item.name === "Hot Bargains"
-                               ? "animate-blink"
-                               : ""
+                             item.name === "Hot Bargains" ? "animate-blink" : ""
                            }
                           ${
                             location.pathname === item.href

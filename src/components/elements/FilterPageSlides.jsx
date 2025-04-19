@@ -91,7 +91,7 @@ const FilterPageSlides = ({
   ];
 
   return (
-    <div className="md:w-[60rem] w-[22rem] flex justify-center">
+    <div className="w-full flex justify-center">
       <div className="w-full border rounded-lg shadow-lg overflow-hidden">
         <Tabs value={activeTab}>
           <TabsHeader

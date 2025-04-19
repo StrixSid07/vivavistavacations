@@ -42,7 +42,7 @@ const ImageGallery2 = ({ images }) => {
           <motion.img
             src={collageImages[0]}
             alt="Main Travel"
-            className="w-full h-full object-cover"
+            className="w-full h-[450px] object-cover"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           />

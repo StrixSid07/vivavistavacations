@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 body {
-  font-family: "Winky Sans", sans-serif;
+  /* font-family: "Winky Sans", sans-serif !important; */
 }
 
 .customfonts {
-  font-family: "Winky Sans", sans-serif;
+  /* font-family: "Winky Sans", sans-serif; */
 }
 
 /* Custom scrollbar styles */

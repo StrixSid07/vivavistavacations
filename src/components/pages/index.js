@@ -22,6 +22,8 @@ import CookiePolicy from "./CookiePolicy";
 import FilterPage from "./FilterPage";
 import TopDeals from "./TopDeals";
 import Packages from "./Packages";
+import Holidays from "./Holidays";
+import Destinations from "./Destinations";
 import GroupBookingForm from "./GroupBookingForm";
 
 export {
@@ -48,5 +50,7 @@ export {
   FilterPage,
   TopDeals,
   Packages,
+  Holidays,
+  Destinations,
   GroupBookingForm,
 };

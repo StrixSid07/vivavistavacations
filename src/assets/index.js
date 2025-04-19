@@ -21,6 +21,9 @@ import aboutus from "./about/aboutus.jpg";
 import home from "./icons/home.png";
 import packageImg from "./icons/package.png";
 import hot from "./icons/hot.png";
+import beach from "./icons/beach.png";
+import earth from "./icons/earth.png";
+import groupbooking from "./bg/GroupBooking.jpg";
 export {
   logo,
   homebg,
@@ -43,6 +46,9 @@ export {
   pattern,
   home,
   hot,
+  earth,
+  beach,
   packageImg,
   airplane,
+  groupbooking,
 };

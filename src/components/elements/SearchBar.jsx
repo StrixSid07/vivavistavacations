@@ -645,7 +645,7 @@ const SearchBar = ({ roomOptions }) => {
           >
             <FaMinus />
           </button>
-          <span className="text-sm font-medium">{formData.rooms || 1}</span>
+          <span className="text-sm font-bold text-black">{formData.rooms || 1}</span>
           <button
             type="button"
             onClick={() =>
@@ -679,7 +679,7 @@ const SearchBar = ({ roomOptions }) => {
           >
             <FaMinus />
           </button>
-          <span className="text-sm font-medium">{formData.guests || 1}</span>
+          <span className="text-sm font-bold text-black">{formData.guests || 1}</span>
           <button
             type="button"
             onClick={() =>

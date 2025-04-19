@@ -141,7 +141,7 @@ const AccommodationCard = ({ hotel }) => {
           {hotel.externalBookingLink && (
             <section className="mb-4">
               <Typography variant="h6" className="mb-1 text-black">
-                Booking:
+                External Links:
               </Typography>
               <a
                 href={hotel.externalBookingLink}
@@ -149,7 +149,7 @@ const AccommodationCard = ({ hotel }) => {
                 rel="noopener noreferrer"
                 className="text-blue-500 text-sm hover:underline"
               >
-                Book Now
+                Visit Hotel Website
               </a>
             </section>
           )}

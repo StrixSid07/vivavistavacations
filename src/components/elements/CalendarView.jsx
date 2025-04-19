@@ -79,7 +79,7 @@ const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div className="max-w-sm mx-auto p-2 bg-white rounded-xl shadow-md overflow-hidden">
       {/* Header with gradient background */}
       <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 flex justify-between items-center">
         <button
@@ -121,11 +121,11 @@ const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
                   "border-2 border-yellow-500"
               )}
             >
-              <div className="font-semibold">{day.day}</div>
+              <div className="font-medium">{day.day}</div>
               {day.info && (
-                <div className="mt-1">
-                  <div className="text-xs font-medium">£{day.info.price}</div>
-                  <div className="text-[0.65rem]">
+                <div className="mt-1 flex flex-col justify-center  items-center">
+                  <div className="text-xs font-normal">£{day.info.price}</div>
+                  <div className="text-[0.68rem]">
                     {day.info.airport}
                   </div>
                 </div>

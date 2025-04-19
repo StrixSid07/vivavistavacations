@@ -26,6 +26,8 @@ import {
   TopDeals,
   Packages,
   GroupBookingForm,
+  Holidays,
+  Destinations,
 } from "./pages";
 import { MainScreen } from "./screens";
 import TravelFilter from "./elements/TravelFilter";
@@ -87,7 +89,7 @@ const Main = () => {
           <Navbar />
         </div>
 
-        <div className="md:mt-28 mt-24">
+        <div className="md:mt-[88px] mt-24">
           <Routes>
             <Route path="/" element={<MainScreen />} />
             <Route path="/search" element={<TravelFilter />} />
@@ -113,6 +115,8 @@ const Main = () => {
             <Route path="/Blogs" element={<Blogs />} />
             <Route path="/topdeals" element={<TopDeals />} />
             <Route path="/packages" element={<Packages />} />
+            <Route path="/holidays/:name" element={<Holidays />} />
+            <Route path="/destinations/:name" element={<Destinations />} />
             <Route path="/groupbooking" element={<GroupBookingForm />} />
             <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/blog/:id" element={<BlogDetail />} />

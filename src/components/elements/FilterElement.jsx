@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardHeader,
@@ -8,6 +8,8 @@ import {
   Button,
   Select,
   Option,
+  Dialog,
+  DialogBody,
 } from "@material-tailwind/react";
 import {
   FaLock,
@@ -16,6 +18,7 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import CalendarView from "./CalendarView";
+import ConciergeFormCard from "./ConciergeFormCard";
 
 const FilterElement = ({
   departureDates, // Array of departure dates (strings)
@@ -54,20 +57,36 @@ const FilterElement = ({
   const totalPrice = basePrice * adultCount;
 
   // Submit booking data to parent component
+  // const handleSubmit = () => {
+  //   const bookingData = {
+  //     selectedDate,
+  //     selectedAirport,
+  //     adultCount,
+  //     totalPrice,
+  //   };
+  //   if (onBookingSubmit) {
+  //     onBookingSubmit(bookingData);
+  //   }
+  // };
   const handleSubmit = () => {
-    const bookingData = {
-      selectedDate,
-      selectedAirport,
-      adultCount,
-      totalPrice,
-    };
-    if (onBookingSubmit) {
-      onBookingSubmit(bookingData);
-    }
+    setOpenDialog(true); // Show the concierge dialog
   };
 
+  const [openDialog, setOpenDialog] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
+
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <Card className="w-full max-w-sm border border-gray-100 shadow-lg p-1 group">
+    <Card className="w-full max-w-md border border-gray-100 shadow-lg p-1 group">
       {/* Header: Price */}
       <CardHeader
         floated={false}
@@ -264,6 +283,18 @@ const FilterElement = ({
           </div>
         </div>
       </CardFooter>
+      <Dialog
+        open={openDialog}
+        handler={() => setOpenDialog(false)}
+        size={isMobile ? "md" : "xs"}
+        className="p-0 bg-transparent"
+      >
+        <DialogBody className="overflow-auto max-h-[90vh] flex justify-center">
+          <div className="w-full">
+            <ConciergeFormCard />
+          </div>
+        </DialogBody>
+      </Dialog>
     </Card>
   );
 };
