@@ -181,11 +181,19 @@ export default function GroupBookingForm() {
             </div>
 
             {/* Row 3: Call Time */}
-            <Input
-              label="When would be a convenient time to call you?"
-              variant="border"
-              className="w-full"
-            />
+            <div className="w-full flex flex-col gap-4">
+              <label className="text-sm text-gray-700 font-medium">
+                When would be a convenient time to call you?
+              </label>
+              <div className="flex items-center gap-4">
+                <div className="flex flex-col w-full">
+                  <Input label="From" type="time" variant="border" className="w-full" />
+                </div>
+                <div className="flex flex-col w-full">
+                  <Input label="To" type="time" variant="border" className="w-full" />
+                </div>
+              </div>
+            </div>
 
             {/* Row 4: Additional Notes */}
             <Textarea label="Additional Requirements" rows={4} />

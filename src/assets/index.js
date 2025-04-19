@@ -24,6 +24,9 @@ import hot from "./icons/hot.png";
 import beach from "./icons/beach.png";
 import earth from "./icons/earth.png";
 import groupbooking from "./bg/GroupBooking.jpg";
+import destination from "./bg/Destination.jpg";
+import holidays from "./bg/Holidays.jpg";
+import packages from "./bg/Packages.jpg";
 export {
   logo,
   homebg,
@@ -51,4 +54,7 @@ export {
   packageImg,
   airplane,
   groupbooking,
+  destination,
+  holidays,
+  packages,
 };
