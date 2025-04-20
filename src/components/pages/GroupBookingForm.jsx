@@ -12,13 +12,16 @@ import {
   CardBody,
 } from "@material-tailwind/react";
 import { useCountries } from "use-react-countries";
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
+import { MdClose } from "react-icons/md";
 import { groupbooking } from "../../assets";
 
 const Title = ["Mr.", "Mrs.", "Miss."];
 
 export default function GroupBookingForm() {
+  const navigate = useNavigate();
   const [phone, setPhone] = useState("");
   const [title, setTitle] = React.useState(0);
   const { countries } = useCountries();
@@ -56,7 +59,14 @@ export default function GroupBookingForm() {
       </div>
 
       {/* Form Section */}
-      <Card className="w-full max-w-4xl mx-auto p-4 md:p-6 md:-mt-20 rounded-2xl shadow-lg bg-white relative z-10">
+      <Card className="w-full max-w-4xl mx-auto md:p-6 md:-mt-20 rounded-2xl shadow-lg bg-white relative z-10">
+        <button
+          onClick={() => navigate("/")}
+          className="absolute top-2 right-2 bg-red-100 rounded-md hover:text-red-500"
+          aria-label="Close"
+        >
+          <MdClose size={24} />
+        </button>
         <CardBody>
           <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-800">
             Group Booking Enquiries
@@ -187,10 +197,20 @@ export default function GroupBookingForm() {
               </label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex flex-col w-full">
-                  <Input label="From" type="time" variant="border" className="w-full" />
+                  <Input
+                    label="From"
+                    type="time"
+                    variant="border"
+                    className="w-full"
+                  />
                 </div>
                 <div className="flex flex-col w-full">
-                  <Input label="To" type="time" variant="border" className="w-full" />
+                  <Input
+                    label="To"
+                    type="time"
+                    variant="border"
+                    className="w-full"
+                  />
                 </div>
               </div>
             </div>

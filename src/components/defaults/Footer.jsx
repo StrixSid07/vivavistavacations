@@ -27,7 +27,6 @@ const Footer = () => {
     { name: "FAQ's", href: "/faq" },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms & Conditions", href: "/termsandcondition" },
-    { name: "Services", href: "/" },
   ];
 
   const quickLinks = [

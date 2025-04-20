@@ -141,7 +141,7 @@ const ContactUs = () => {
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-deep-orange-500">
                   Address
                 </h1>
-                <p className="text-base flex justify-center items-center gap-4 md:text-lg lg:text-xl">
+                <p className="text-base flex justify-center text-left items-center gap-4 md:text-lg lg:text-xl">
                   <FaLocationDot className="text-red-500" size={24} /> 01,
                   195-197 Wood Street, London, England, E17 3NU
                 </p>
@@ -174,7 +174,7 @@ const ContactUs = () => {
                   className="flex flex-col justify-center items-center space-y-2 group"
                 >
                   <a
-                    href="https://www.facebook.com/"
+                    href="https://www.facebook.com/share/1DQGeYZjJJ/?mibextid=wwXIfr"
                     target="_new"
                     className="transition-all ease-out duration-500 group-hover:text-blue-900"
                   >
@@ -189,7 +189,7 @@ const ContactUs = () => {
                   className="flex flex-col justify-center items-center space-y-2 group"
                 >
                   <a
-                    href="https://www.instagram.com/"
+                    href="https://www.instagram.com/vivavistavacations?igsh=MTVqdHBjaGZlZGVhOA=="
                     target="_new"
                     className="group-hover:text-pink-500"
                   >

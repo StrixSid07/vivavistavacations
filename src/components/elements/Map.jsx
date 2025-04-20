@@ -39,7 +39,7 @@ const Map = ({ latitude, longitude, title, mapId }) => {
   }, [latitude, longitude, title, mapId]);
 
   return (
-    <div id="map" className="h-[474px] rounded-md overflow-hidden shadow-md transition duration-700 ease-in-out hover:shadow-2xl"></div>
+    <div id="map" className="h-[474px] rounded-md overflow-hidden shadow-lg transition duration-700 ease-in-out hover:shadow-2xl"></div>
   );
 };
 
