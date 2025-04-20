@@ -27,6 +27,7 @@ import groupbooking from "./bg/GroupBooking.jpg";
 import destination from "./bg/Destination.jpg";
 import holidays from "./bg/Holidays.jpg";
 import packages from "./bg/Packages.jpg";
+import topdeals from "./bg/Topdeals.jpg";
 export {
   logo,
   homebg,
@@ -57,4 +58,5 @@ export {
   destination,
   holidays,
   packages,
+  topdeals,
 };
