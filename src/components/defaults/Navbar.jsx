@@ -135,11 +135,19 @@ const Navbar = () => {
     setIsSidebarOpen(false);
   };
 
+  // const toggleDropdown = (index) => {
+  //   setDropdownStates((prevState) => ({
+  //     ...prevState,
+  //     [index]: !prevState[index],
+  //   }));
+  // };
+
   const toggleDropdown = (index) => {
-    setDropdownStates((prevState) => ({
-      ...prevState,
-      [index]: !prevState[index],
-    }));
+    setDropdownStates((prevState) => {
+      const newState = {};
+      newState[index] = !prevState[index]; // toggle clicked one
+      return newState;
+    });
   };
 
   // Update dropdown states on hover

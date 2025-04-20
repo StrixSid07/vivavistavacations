@@ -91,8 +91,8 @@ const MainScreen = () => {
           />
         </div>
       </div>
-      <div className="mt-[500px] md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
-        <div className="text-2xl md:text-4xl mt-10 font-bold text-center max-w-4xl customfonts">
+      <div className="mt-[540px] md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
+        <div className="text-xl md:text-4xl p-2 md:p-0 mt-10 font-bold text-center max-w-4xl customfonts -mb-12 mb:mb-0">
           This Week's Best - No Fluff, Just Value.
         </div>
       </div>
@@ -106,7 +106,7 @@ const MainScreen = () => {
         <h3 className="text-xl md:text-2xl  text-deep-orange-600 mb-6 font-medium">
           Popular Destinations
         </h3>
-        <h2 className="text-3xl md:text-4xl max-w-3xl text-center font-semibold mb-6">
+        <h2 className="text-xl md:text-4xl max-w-3xl text-center font-semibold mb-2 md:mb-6">
           Select Our Best Popular Destinations
         </h2>
         {data?.destination && <CountrySlider destinations={data.destination} />}

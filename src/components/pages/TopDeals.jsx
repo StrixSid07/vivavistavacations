@@ -177,7 +177,7 @@ const TopDeals = () => {
                         </div>
                       </div>
                       <p className="text-deep-orange-600 font-bold mt-2">
-                        Starting from: ${deal.prices[0]?.price || "N/A"}
+                        Starting from: £{deal.prices[0]?.price || "N/A"}
                       </p>
                     </CardBody>
 

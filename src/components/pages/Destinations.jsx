@@ -199,7 +199,7 @@ const Destinations = () => {
                         </div>
 
                         <p className="text-lg font-bold text-gradient bg-gradient-to-r from-indigo-400 to-teal-500 bg-clip-text text-transparent">
-                          Starting from ${deal.prices[0]?.price || "N/A"}
+                          Starting from £{deal.prices[0]?.price || "N/A"}
                         </p>
                       </div>
                     </CardBody>

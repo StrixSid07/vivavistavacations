@@ -246,65 +246,67 @@ const FilterPage = () => {
           {/* <ImageGallery images={images} /> */}
           <ImageGallery2 images={images} />
         </div>
-        <div className="bg-gray-100 rounded-xl max-w-5xl p-5 w-full mx-auto mt-6 shadow-md">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative">
-            {/* Top Deal Badge */}
-            {tripData.isTopDeal && (
-              <div className="absolute top-0 right-0 bg-yellow-500 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl flex items-center gap-2">
-                <Sparkles className="w-5 h-5" />
-                Top Deal
-              </div>
-            )}
+        <div className=" p-3 -mb-6 md:p-2 md:mb-0">
+          <div className="bg-gray-100 rounded-xl max-w-5xl p-5 w-full mx-auto mt-6 shadow-md">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative">
+              {/* Top Deal Badge */}
+              {tripData.isTopDeal && (
+                <div className="absolute top-0 right-0 bg-yellow-500 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl flex items-center gap-2">
+                  <Sparkles className="w-5 h-5" />
+                  Top Deal
+                </div>
+              )}
 
-            {/* Top Deal Badge */}
-            {tripData.isHotdeal && (
-              <div className="absolute top-0 right-0 bg-orange-400 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl flex items-center gap-2">
-                <Flame className="w-5 h-5" />
-                Hot Deal
-              </div>
-            )}
+              {/* Top Deal Badge */}
+              {tripData.isHotdeal && (
+                <div className="absolute top-0 right-0 bg-orange-400 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl flex items-center gap-2">
+                  <Flame className="w-5 h-5" />
+                  Hot Deal
+                </div>
+              )}
 
-            {/* Left Section */}
-            <div className="flex-1 flex flex-col gap-1">
-              <div className="flex items-center gap-2 text-2xl font-semibold text-gray-800">
-                <Hotel className="w-6 h-6 text-blue-500" />
-                {tripData.title || "Trip Title"}
-              </div>
+              {/* Left Section */}
+              <div className="flex-1 flex flex-col gap-1 mt-10 md:mt-0">
+                <div className="flex items-center gap-2 text-2xl font-semibold text-gray-800">
+                  <Hotel className="w-6 h-6 text-blue-500" />
+                  {tripData.title || "Trip Title"}
+                </div>
 
-              <div className="flex items-center gap-2 text-base text-gray-600">
-                <CalendarCheck className="w-5 h-5 text-green-600" />
-                {tripData.days || 0} Nights
-              </div>
-            </div>
-
-            {/* Middle Section */}
-            <div className="flex-1 flex flex-col gap-1">
-              <div className="flex items-center gap-2 text-base text-gray-600">
-                <MapPin className="w-5 h-5 text-red-500" />
-                {tripData.destination?.name || "Unknown Location"}
+                <div className="flex items-center gap-2 text-base text-gray-600">
+                  <CalendarCheck className="w-5 h-5 text-green-600" />
+                  {tripData.days || 0} Nights
+                </div>
               </div>
 
-              <div className="flex items-center gap-2 text-base text-gray-600">
-                <Tag className="w-5 h-5 text-purple-500" />
-                {tripData.tag || "General Package"}
-              </div>
-            </div>
+              {/* Middle Section */}
+              <div className="flex-1 flex flex-col gap-3 md:-mt-8 mt-0">
+                <div className="flex items-center gap-2 text-base text-gray-600">
+                  <MapPin className="w-5 h-5 text-red-500" />
+                  {tripData.destination?.name || "Unknown Location"}
+                </div>
 
-            {/* Rating Section */}
-            <div className="flex-1 flex flex-col mt-8 md:items-end gap-1">
-              <div className="flex items-center gap-1">
-                {rating ? (
-                  <>
-                    {renderStars()}
-                    <span className="text-gray-800 text-base ml-1">
-                      {rating.toFixed(1)} ({reviews} Reviews)
+                <div className="flex items-center gap-2 text-base text-gray-600">
+                  <Tag className="w-5 h-5 text-purple-500" />
+                  {tripData.tag || "General Package"}
+                </div>
+              </div>
+
+              {/* Rating Section */}
+              <div className="flex-1 flex flex-col mt-8 md:items-end gap-1">
+                <div className="flex items-center gap-1">
+                  {rating ? (
+                    <>
+                      {renderStars()}
+                      <span className="text-gray-800 text-base ml-1">
+                        {rating.toFixed(1)} ({reviews} Reviews)
+                      </span>
+                    </>
+                  ) : (
+                    <span className="text-base text-gray-500 italic">
+                      No reviews yet
                     </span>
-                  </>
-                ) : (
-                  <span className="text-base text-gray-500 italic">
-                    No reviews yet
-                  </span>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -396,7 +398,7 @@ const FilterPage = () => {
             priceMap={priceMap}
           />
         </div>
-      </div>  
+      </div>
     </div>
   );
 };
