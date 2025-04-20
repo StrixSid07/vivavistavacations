@@ -43,13 +43,13 @@ export default function GroupBookingForm() {
   childrenOptions.push("10+");
 
   return (
-    <div className="relative flex flex-col md:flex-row items-center justify-center h-screen px-6 md:pt-0 pt-20 bg-white">
+    <div className="relative flex flex-col md:flex-row items-center justify-center md:h-screen h-auto px-6 md:pt-0 py-10 md:py-0 md:mb-0 -mb-12 bg-white">
       {/* Full page background image */}
       <div className="absolute inset-0 z-0">
         <img
           src={groupbooking} // Replace with actual image path
           alt="Group Booking"
-          className="w-full h-screen object-cover"
+          className="w-full md:h-screen h-full object-cover"
         />
         {/* Dark overlay to make the content more readable */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -185,7 +185,7 @@ export default function GroupBookingForm() {
               <label className="text-sm text-gray-700 font-medium">
                 When would be a convenient time to call you?
               </label>
-              <div className="flex items-center gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex flex-col w-full">
                   <Input label="From" type="time" variant="border" className="w-full" />
                 </div>

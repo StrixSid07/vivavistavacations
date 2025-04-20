@@ -353,7 +353,7 @@ const FilterPage = () => {
       </div> */}
       <div className="grid md:grid-cols-[2fr_1fr] grid-cols-1 gap-4 p-4 lg:p-4 mt-8 w-full max-w-7xl mx-auto">
         {/* Left Side: Slides + Similar Deals */}
-        <div className="flex flex-col gap-6 w-full">
+        <div className="flex flex-col gap-6 w-full max-w-4xl">
           <div className="rounded-xl shadow-md z-30">
             <FilterPageSlides
               tripData={tripData}
@@ -396,7 +396,7 @@ const FilterPage = () => {
             priceMap={priceMap}
           />
         </div>
-      </div>
+      </div>  
     </div>
   );
 };
