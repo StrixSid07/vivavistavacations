@@ -39,7 +39,7 @@ export default function DealCard({
 
   return (
     <motion.div transition={{ duration: 0.3 }} className="w-[24rem] mx-auto">
-      <Card className="flex flex-row md:w-full w-[344px] rounded-2xl overflow-hidden min-h-[280px] shadow-lg transition-shadow hover:shadow-xl">
+      <Card className="flex flex-row md:w-full w-[340px] rounded-2xl overflow-hidden min-h-[280px] shadow-lg transition-shadow hover:shadow-xl">
         {/* Left Image Section */}
         <CardHeader
           shadow={false}

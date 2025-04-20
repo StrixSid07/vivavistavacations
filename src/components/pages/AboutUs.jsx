@@ -2,8 +2,27 @@ import { FaHeadset, FaTag } from "react-icons/fa";
 import { HiMiniShieldCheck } from "react-icons/hi2";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { aboutus } from "../../assets"; // assuming you have an asset for the image
+import { Dialog, DialogBody } from "@material-tailwind/react";
+import ConciergeFormCard from "../elements/ConciergeFormCard";
+import { useState, useEffect } from "react";
 
 const AboutUs = () => {
+  const handleSubmit = () => {
+    setOpenDialog(true); // Show the concierge dialog
+  };
+
+  const [openDialog, setOpenDialog] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
+
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="font-sans">
       {/* Hero Section with Overlay */}
@@ -125,11 +144,26 @@ const AboutUs = () => {
             Viva Vista Vacations be your guide to crafting the perfect journey,
             one that leaves you with memories that will last a lifetime.
           </p>
-          <button className="mt-6 px-6 py-3 bg-white text-[#304F47] font-bold rounded-lg shadow-lg transition-colors duration-500 ease-in-out hover:bg-deep-orange-600 hover:text-white">
+          <button
+            onClick={handleSubmit}
+            className="mt-6 px-6 py-3 bg-white text-[#304F47] font-bold rounded-lg shadow-lg transition-colors duration-500 ease-in-out hover:bg-deep-orange-600 hover:text-white"
+          >
             Start Planning Now
           </button>
         </div>
       </section>
+      <Dialog
+        open={openDialog}
+        handler={() => setOpenDialog(false)}
+        size={isMobile ? "md" : "xs"}
+        className="p-0 bg-transparent"
+      >
+        <DialogBody className="overflow-auto max-h-[90vh] flex justify-center">
+          <div className="w-full">
+            <ConciergeFormCard handleClose={() => setOpenDialog(false)} />
+          </div>
+        </DialogBody>
+      </Dialog>
     </div>
   );
 };

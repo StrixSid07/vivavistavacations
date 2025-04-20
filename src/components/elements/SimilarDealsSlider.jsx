@@ -29,7 +29,7 @@ export default function SimilarDealsSlider({ destinationId, dealId }) {
 
   const scroll = (direction = "left") => {
     if (!sliderRef.current) return;
-    const distance = sliderRef.current.clientWidth * 0.8;
+    const distance = sliderRef.current.clientWidth * 1;
     sliderRef.current.scrollBy({
       left: direction === "left" ? -distance : distance,
       behavior: "smooth",
@@ -57,7 +57,7 @@ export default function SimilarDealsSlider({ destinationId, dealId }) {
   };
 
   return (
-    <div className="relative">
+    <div className="relative flex justify-center items-center mx-auto">
       {/* Scroll Buttons */}
       <button
         onClick={() => scroll("left")}
@@ -75,7 +75,7 @@ export default function SimilarDealsSlider({ destinationId, dealId }) {
       {/* Deal Cards Slider */}
       <div
         ref={sliderRef}
-        className="flex overflow-x-auto space-x-4 px-12 md:py-12 py-12 scroll-smooth snap-x snap-mandatory bg-transparent"
+        className="flex overflow-x-auto mx-auto space-x-2 md:space-x-4 px-2 md:px-12 md:py-12 py-12 scroll-smooth snap-x snap-mandatory bg-transparent"
       >
         {deals.map((deal, index) => (
           <div

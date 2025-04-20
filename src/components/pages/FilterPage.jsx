@@ -251,7 +251,7 @@ const FilterPage = () => {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative">
               {/* Top Deal Badge */}
               {tripData.isTopDeal && (
-                <div className="absolute top-0 right-0 bg-yellow-500 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl flex items-center gap-2">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 md:mt-0 md:mr-0 bg-yellow-500 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl flex items-center gap-2">
                   <Sparkles className="w-5 h-5" />
                   Top Deal
                 </div>
@@ -259,14 +259,14 @@ const FilterPage = () => {
 
               {/* Top Deal Badge */}
               {tripData.isHotdeal && (
-                <div className="absolute top-0 right-0 bg-orange-400 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl flex items-center gap-2">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 md:mt-0 md:mr-0 bg-orange-400 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl flex items-center gap-2">
                   <Flame className="w-5 h-5" />
                   Hot Deal
                 </div>
               )}
 
               {/* Left Section */}
-              <div className="flex-1 flex flex-col gap-1 mt-10 md:mt-0">
+              <div className="flex-1 flex flex-col gap-1 mt-6 md:mt-0">
                 <div className="flex items-center gap-2 text-2xl font-semibold text-gray-800">
                   <Hotel className="w-6 h-6 text-blue-500" />
                   {tripData.title || "Trip Title"}
