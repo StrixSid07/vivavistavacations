@@ -112,7 +112,7 @@ const Main = () => {
             <Route path="/termsandcondition" element={<TermsAndConditions />} />
             <Route path="/cookies" element={<CookiePolicy />} />
             <Route path="/deals/:id" element={<FilterPage />} />
-            <Route path="/Blogs" element={<Blogs />} />
+            <Route path="/blogs" element={<Blogs />} />
             <Route path="/topdeals" element={<TopDeals />} />
             <Route path="/packages" element={<Packages />} />
             <Route path="/holidays/:name" element={<Holidays />} />

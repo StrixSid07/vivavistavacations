@@ -1,34 +1,72 @@
-import React from 'react';
-import { Card, CardHeader, CardBody, Typography, Button } from '@material-tailwind/react';
-import { motion } from 'framer-motion';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
+import { motion } from "framer-motion";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
-// Animation variants
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
 
-// Sample blog post data (Replace with actual data from your state or props)
-const samplePost = {
-  title: "Understanding Real Estate Market Trends in 2024",
-  image: "https://picsum.photos/800/400",
-  date: "2024-08-01",
-  author: "Emily Johnson",
-  summary: "Stay ahead of the curve by understanding the latest real estate market trends. Explore the key factors shaping the market this year and what they mean for buyers and sellers.",
-  content: "The real estate market is constantly evolving, influenced by various factors including economic conditions, interest rates, and demographic shifts. This post provides an in-depth analysis of the current market trends, highlighting key indicators and expert predictions for the remainder of 2024. Whether you're a buyer, seller, or investor, understanding these trends will help you make informed decisions and navigate the market effectively."
-};
-
 const BlogDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  
-  // Replace with actual data fetching logic
-  const post = samplePost; // Replace this with the blog post data based on the `id` from API or state
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const handleBack = () => {
-    navigate('/blogs'); // Change to the route where your blog list is located
+    navigate("/blogs");
   };
+
+  useEffect(() => {
+    if (!id) return;
+
+    axios
+      .get(`https://vivavista-backend.onrender.com/api/home/blogs/${id}`)
+      .then((res) => {
+        const blog = res.data;
+        setPost({
+          title: blog.title,
+          image: blog.image,
+          date: blog.createdAt,
+          author: "Viva Vista Team", // update if API gives author
+          summary:
+            blog.content
+              ?.replace(/<[^>]+>/g, "")
+              .slice(0, 200)
+              .trim() + "...",
+          content: blog.content, // HTML content (you may render it as HTML if needed)
+        });
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching blog:", err);
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="text-center text-xl py-20 bg-gray-50 min-h-screen">
+        Loading blog...
+      </div>
+    );
+  }
+
+  if (!post) {
+    return (
+      <div className="text-center text-xl py-20 text-red-500">
+        Blog not found.
+      </div>
+    );
+  }
 
   return (
     <motion.div
@@ -44,21 +82,31 @@ const BlogDetail = () => {
         </Button>
         <Card className="max-w-4xl mx-auto shadow-lg">
           <CardHeader floated={false} className="h-96">
-            <img src={post.image} alt={post.title} className="object-cover h-full w-full rounded-t-lg" />
+            <img
+              src={post.image}
+              alt={post.title}
+              className="object-cover h-full w-full rounded-t-lg"
+            />
           </CardHeader>
           <CardBody className="p-6">
             <Typography variant="h3" className="mb-4">
               {post.title}
             </Typography>
             <Typography className="text-gray-500 mb-4">
-              By {post.author} on {new Date(post.date).toLocaleDateString()}
+              By {post.author} on{" "}
+              {new Date(post.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </Typography>
             <Typography className="text-gray-700 mb-6">
               {post.summary}
             </Typography>
-            <Typography className="text-gray-900 mb-6">
-              {post.content}
-            </Typography>
+            <Typography
+              className="text-gray-900 prose prose-blue max-w-none"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
           </CardBody>
         </Card>
       </div>

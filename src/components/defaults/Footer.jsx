@@ -33,14 +33,18 @@ const Footer = () => {
     { name: "Contact Us", href: "/ContactUs" },
     { name: "Cookies", href: "/cookies" },
     { name: "Group Booking", href: "/groupbooking" },
-    { name: "Blog", href: "/" },
+    { name: "Blog", href: "/blogs" },
   ];
 
   const navMaps = [
     { name: "United Kingdom", href: "/uk", flag: "https://flagcdn.com/gb.svg" },
     { name: "United States", href: "/us", flag: "https://flagcdn.com/us.svg" },
     { name: "Canada", href: "/canada", flag: "https://flagcdn.com/ca.svg" },
-    { name: "Australia", href: "/australia", flag: "https://flagcdn.com/au.svg" },
+    {
+      name: "Australia",
+      href: "/australia",
+      flag: "https://flagcdn.com/au.svg",
+    },
   ];
 
   // Scroll to top on route change
@@ -222,7 +226,7 @@ const Footer = () => {
           {/* Nav List (Country Links) */}
           <div className="w-full max-w-sm">
             <h2 className="text-lg md:text-xl font-bold mb-5 text-center md:hidden -ml-[50px]">
-            With a Personal Travel Touch.
+              With a Personal Travel Touch.
             </h2>
             <ul className="space-y-4 -ml-[16px] md:ml-6">
               {navMaps.map((item, index) => (
