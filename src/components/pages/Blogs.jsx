@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Blog from "../elements/Blog";
+import { Base_Url } from "../../utils/Api";
 
 const Blogs = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -10,7 +11,7 @@ const Blogs = () => {
 
   useEffect(() => {
     axios
-      .get("https://vivavista-backend.onrender.com/api/home/blogs")
+      .get(`${Base_Url}/home/blogs`)
       .then((res) => {
         const formatted = res.data.map((post) => ({
           id: post._id,

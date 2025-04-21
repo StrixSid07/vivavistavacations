@@ -9,6 +9,7 @@ import {
 import { motion } from "framer-motion";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { Base_Url } from "../../utils/Api";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -29,7 +30,7 @@ const BlogDetail = () => {
     if (!id) return;
 
     axios
-      .get(`https://vivavista-backend.onrender.com/api/home/blogs/${id}`)
+      .get(`${Base_Url}/home/blogs/${id}`)
       .then((res) => {
         const blog = res.data;
         setPost({
