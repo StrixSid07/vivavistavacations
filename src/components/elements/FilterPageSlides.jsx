@@ -24,6 +24,9 @@ const FilterPageSlides = ({
   setSelectedTrip,
   setSelectedDate, // Add this prop
   setSelectedAirport, // Add this prop
+  departureDates, // Array of departure dates (strings)
+  departureAirports, // Array of departure airports (strings)
+  priceMap,
 }) => {
   const [activeTab, setActiveTab] = useState("overview");
 
@@ -62,7 +65,13 @@ const FilterPageSlides = ({
   );
   const PriceCalendarComponent = () => (
     <div className="md:p-4">
-      <PriceCalendar prices={prices} onTripSelect={handleTripSelect} />
+      <PriceCalendar
+        prices={prices}
+        onTripSelect={handleTripSelect}
+        departureDates={departureDates}
+        departureAirports={departureAirports}
+        priceMap={priceMap}
+      />
     </div>
   );
   const TermsComponent = () => (
@@ -106,7 +115,7 @@ const FilterPageSlides = ({
                 key={value}
                 value={value}
                 onClick={() => setActiveTab(value)}
-                className={activeTab === value ? "text-deep-orange-500" : ""}
+                className={activeTab === value ? "text-deep-orange-500" : "z-0"}
               >
                 {label}
               </Tab>

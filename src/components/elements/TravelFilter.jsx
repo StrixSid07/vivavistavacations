@@ -484,7 +484,17 @@ const TravelFilter = () => {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(true); // Open by default
+  const [initialMargin, setInitialMargin] = useState(true);
+  const [sidebarClosedOnce, setSidebarClosedOnce] = useState(false);
 
+  // Track when sidebar is closed for the first time
+  useEffect(() => {
+    if (!sidebarOpen && !sidebarClosedOnce) {
+      setInitialMargin(false); // remove mt-10
+      setSidebarClosedOnce(true); // lock it forever
+    }
+  }, [sidebarOpen, sidebarClosedOnce]);
   // useEffect(() => {
   //   const fetchDeals = async () => {
   //     try {
@@ -568,7 +578,6 @@ const TravelFilter = () => {
     rating: "",
   });
   const [searchTerm, setSearchTerm] = useState("");
-  const [sidebarOpen, setSidebarOpen] = useState(true); // Open by default
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
 
@@ -771,7 +780,10 @@ const TravelFilter = () => {
 
           {/* Travel Deals Section */}
           <div className="w-full md:w-3/4 p-4 md:p-6">
-            <Typography variant="h4" className="text-black mb-6">
+            <Typography
+              variant="h4"
+              className={`${initialMargin ? "mt-10" : "mt-0"} text-black mb-6`}
+            >
               Showing {filteredDeals.length} Results
             </Typography>
             <div

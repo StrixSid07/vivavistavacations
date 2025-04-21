@@ -73,7 +73,10 @@ const ImageGallery2 = ({ images }) => {
               bg-black/40 p-2 rounded-full backdrop-blur-sm
             "
           >
-            <button onClick={handleOpen} className="text-white text-lg transition duration-500 ease-in-out hover:text-orange-700">
+            <button
+              onClick={handleOpen}
+              className="text-white text-lg transition duration-500 ease-in-out hover:text-blue-500"
+            >
               <FaCamera />
             </button>
             <button className="text-white text-lg">

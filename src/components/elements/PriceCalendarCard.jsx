@@ -1,8 +1,15 @@
 import React from "react";
 import { format } from "date-fns";
 import { Card, CardBody, CardHeader, Button } from "@material-tailwind/react";
+import CalendarView from "./CalendarView";
 
-const PriceCalendar = ({ prices, onTripSelect }) => {
+const PriceCalendar = ({
+  prices,
+  onTripSelect,
+  departureDates,
+  departureAirports,
+  priceMap,
+}) => {
   const getFilteredPrices = () => {
     const uniqueCountries = [...new Set(prices.map((p) => p.country))];
     return uniqueCountries.length === 1
@@ -13,14 +20,21 @@ const PriceCalendar = ({ prices, onTripSelect }) => {
   const filteredPrices = getFilteredPrices();
 
   return (
-    <div className="space-y-8 px-4 md:px-0">
+    <div className="space-y-8 md:px-0">
       <div className="text-center mb-4">
-        <h2 className="text-4xl font-extrabold text-gray-900">
+        <h2 className="text-xl md:text-4xl font-extrabold text-gray-900">
           Choose Your Perfect Trip
         </h2>
         <p className="mt-2 text-gray-600">
           Select a departure date and airport to see your best price.
         </p>
+        <div className="md:hidden flex">
+          <CalendarView
+            departureDates={departureDates}
+            departureAirports={departureAirports}
+            priceMap={priceMap}
+          />
+        </div>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

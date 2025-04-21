@@ -247,66 +247,104 @@ const FilterPage = () => {
           <ImageGallery2 images={images} />
         </div>
         <div className=" p-3 -mb-6 md:p-2 md:mb-0">
-          <div className="bg-gray-100 rounded-xl max-w-5xl p-5 w-full mx-auto mt-6 shadow-md">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative">
-              {/* Top Deal Badge */}
-              {tripData.isTopDeal && (
-                <div className="absolute top-0 right-0 -mt-4 -mr-4 md:mt-0 md:mr-0 bg-yellow-500 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl flex items-center gap-2">
-                  <Sparkles className="w-5 h-5" />
-                  Top Deal
-                </div>
-              )}
+          <div className="bg-white border rounded-xl max-w-5xl w-full mx-auto mt-6 px-6 py-5 shadow-md relative">
+            {/* Top Deal Badge */}
+            {tripData.isTopDeal && (
+              <div className="absolute top-0 right-0 m-2 bg-yellow-400 text-sm font-semibold text-black px-3 py-1 rounded-tr-xl rounded-bl-xl flex items-center gap-1 shadow">
+                <Sparkles className="w-4 h-4" />
+                Top Deal
+              </div>
+            )}
 
-              {/* Top Deal Badge */}
-              {tripData.isHotdeal && (
-                <div className="absolute top-0 right-0 -mt-4 -mr-4 md:mt-0 md:mr-0 bg-orange-400 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl flex items-center gap-2">
-                  <Flame className="w-5 h-5" />
-                  Hot Deal
-                </div>
-              )}
+            {/* Top Deal Badge */}
+            {tripData.isHotdeal && (
+              <div className="absolute top-0 right-0 -mt-4 -mr-4 md:mt-0 md:mr-0 shadow-md bg-orange-400 text-sm font-semibold text-black px-4 py-1 rounded-bl-xl rounded-tr-xl flex items-center gap-2">
+                <Flame className="w-5 h-5" />
+                Hot Deal
+              </div>
+            )}
 
-              {/* Left Section */}
-              <div className="flex-1 flex flex-col gap-1 mt-6 md:mt-0">
-                <div className="flex items-center gap-2 text-2xl font-semibold text-gray-800">
-                  <Hotel className="w-6 h-6 text-blue-500" />
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              {/* LEFT SIDE */}
+              <div className="md:flex hidden flex-col gap-2">
+                {/* Title */}
+                <div className="flex items-center gap-2 text-lg font-bold text-gray-900">
+                  <Hotel className="w-5 h-5 text-blue-500" />
                   {tripData.title || "Trip Title"}
                 </div>
 
-                <div className="flex items-center gap-2 text-base text-gray-600">
-                  <CalendarCheck className="w-5 h-5 text-green-600" />
-                  {tripData.days || 0} Nights
+                {/* Details Row */}
+                <div className="md:flex hidden flex-wrap gap-4 text-sm text-gray-600">
+                  <div className="flex items-center gap-1">
+                    <MapPin className="w-4 h-4 text-red-500" />
+                    {tripData.destination?.name || "Unknown Location"}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Tag className="w-4 h-4 text-purple-500" />
+                    {tripData.tag || "Save 20%"}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <CalendarCheck className="w-4 h-4 text-green-600" />
+                    {tripData.days || 0} Nights
+                  </div>
                 </div>
               </div>
 
-              {/* Middle Section */}
-              <div className="flex-1 flex flex-col gap-3 md:-mt-8 mt-0">
-                <div className="flex items-center gap-2 text-base text-gray-600">
-                  <MapPin className="w-5 h-5 text-red-500" />
-                  {tripData.destination?.name || "Unknown Location"}
+              <div className="mobile view">
+                {" "}
+                <div className="flex-1 flex md:hidden flex-col gap-1 mt-6 md:mt-0">
+                  <div className="flex items-center gap-2 text-xl md:text-2xl font-semibold text-gray-800">
+                    <Hotel className="w-6 h-6 text-blue-500" />
+                    {tripData.title || "Trip Title"}
+                  </div>
                 </div>
-
-                <div className="flex items-center gap-2 text-base text-gray-600">
-                  <Tag className="w-5 h-5 text-purple-500" />
-                  {tripData.tag || "General Package"}
+                <div> </div>
+                {/* Middle Section */}
+                <div className="flex-1 flex md:hidden gap-3 md:-mt-8 mt-3">
+                  <div className="flex items-center gap-2 text-base text-gray-600">
+                    <MapPin className="w-6 h-7 text-red-500" />
+                    {tripData.destination?.name || "Unknown Location"}
+                  </div>
+                  <div className="flex items-center gap-2 text-base text-gray-600">
+                    <CalendarCheck className="w-6 h-7 text-green-600" />
+                    {tripData.days || 0} Nights
+                  </div>
+                  <div className="flex items-center gap-2 text-base text-gray-600">
+                    <Tag className="w-6 h-7 text-purple-500" />
+                    {tripData.tag || "General Package"}
+                  </div>
                 </div>
-              </div>
-
-              {/* Rating Section */}
-              <div className="flex-1 flex flex-col mt-8 md:items-end gap-1">
-                <div className="flex items-center gap-1">
-                  {rating ? (
-                    <>
-                      {renderStars()}
-                      <span className="text-gray-800 text-base ml-1">
-                        {rating.toFixed(1)} ({reviews} Reviews)
+                {/* Rating Section */}
+                <div className="flex-1 flex md:hidden flex-col md:mt-8 mt-4 md:items-end gap-1">
+                  <div className="flex items-center gap-1">
+                    {rating ? (
+                      <>
+                        {renderStars()}
+                        <span className="text-gray-800 text-base ml-1">
+                          {rating.toFixed(1)} ({reviews} Reviews)
+                        </span>
+                      </>
+                    ) : (
+                      <span className="text-base text-gray-500 italic">
+                        No reviews yet
                       </span>
-                    </>
-                  ) : (
-                    <span className="text-base text-gray-500 italic">
-                      No reviews yet
-                    </span>
-                  )}
+                    )}
+                  </div>
                 </div>
+              </div>
+
+              {/* RIGHT SIDE */}
+              <div className="md:flex hidden items-center gap-2 mt-2 md:mt-8 text-sm text-gray-800">
+                {rating ? (
+                  <>
+                    {renderStars()}
+                    <span className="ml-1">
+                      {rating.toFixed(1)} ({reviews} Reviews)
+                    </span>
+                  </>
+                ) : (
+                  <span className="italic text-gray-500">No reviews yet</span>
+                )}
               </div>
             </div>
           </div>
@@ -353,10 +391,10 @@ const FilterPage = () => {
           priceMap={priceMap}
         />
       </div> */}
-      <div className="grid md:grid-cols-[2fr_1fr] grid-cols-1 gap-4 p-4 lg:p-4 mt-8 w-full max-w-7xl mx-auto">
+      <div className="relative z-0 grid md:grid-cols-[2fr_1fr] grid-cols-1 gap-4 p-4 lg:p-4 mt-8 w-full max-w-7xl mx-auto">
         {/* Left Side: Slides + Similar Deals */}
         <div className="flex flex-col gap-6 w-full max-w-4xl">
-          <div className="rounded-xl shadow-md z-30">
+          <div className="rounded-xl shadow-md relative z-20">
             <FilterPageSlides
               tripData={tripData}
               itinerary={itinerary}
@@ -370,9 +408,14 @@ const FilterPage = () => {
               setSelectedTrip={setSelectedTrip}
               setSelectedDate={setSelectedDate}
               setSelectedAirport={setSelectedAirport}
+              departureDates={prices.map((p) =>
+                new Date(p.startdate).toLocaleDateString("en-GB")
+              )}
+              departureAirports={prices.map((p) => p.airport)}
+              priceMap={priceMap}
             />
           </div>
-          <div className="rounded-xl overflow-x-hidden shadow-md bg-gray-200 z-20">
+          <div className="rounded-xl relative overflow-x-hidden shadow-md bg-gray-200 z-10">
             <SimilarDealsSlider
               destinationId={tripData.destination._id}
               dealId={id}
@@ -381,7 +424,7 @@ const FilterPage = () => {
         </div>
 
         {/* Right Side: Filter Element */}
-        <div className="w-full h-fit">
+        <div className="w-full h-fit relative z-0">
           <FilterElement
             basePrice={
               selectedTrip?.price || (prices.length ? prices[0].price : 0)

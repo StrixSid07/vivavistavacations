@@ -78,7 +78,13 @@ const AccommodationCard = ({ hotel }) => {
         placement="right"
         open={drawerOpen}
         onClose={closeDrawer}
-        className="p-5 pt-28 z-[9999]"
+        // override the backdrop to cover the entire screen
+        overlayProps={{
+          className:
+            "fixed inset-0 z-[9998] bg-black bg-opacity-60 backdrop-blur-sm",
+        }}
+        // ensure the drawer panel itself stacks above that
+        className="fixed top-0 right-0 h-full z-[9999] p-5 pt-28"
         size={1000}
         dismiss={{ outsidePress: true, escapeKey: true }}
         overlay

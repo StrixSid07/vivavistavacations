@@ -645,7 +645,9 @@ const SearchBar = ({ roomOptions }) => {
           >
             <FaMinus />
           </button>
-          <span className="text-sm font-bold text-black">{formData.rooms || 1}</span>
+          <span className="text-sm font-bold text-black">
+            {formData.rooms || 1}
+          </span>
           <button
             type="button"
             onClick={() =>
@@ -679,7 +681,9 @@ const SearchBar = ({ roomOptions }) => {
           >
             <FaMinus />
           </button>
-          <span className="text-sm font-bold text-black">{formData.guests || 1}</span>
+          <span className="text-sm font-bold text-black">
+            {formData.guests || 1}
+          </span>
           <button
             type="button"
             onClick={() =>
@@ -696,12 +700,21 @@ const SearchBar = ({ roomOptions }) => {
       </div>
 
       {/* Search Button */}
-      <div className="flex flex-col justify-center items-center w-full md:w-48 bg-deep-orange-500 hover:bg-deep-orange-700 text-white font-bold transition-all duration-300 px-4 py-3">
+      {/* <div className="flex flex-col justify-center items-center w-full md:w-48 bg-deep-orange-500 hover:bg-deep-orange-700 text-white font-bold transition-all duration-300 px-4 py-3">
         <button type="submit" className="flex items-center gap-2 text-md">
           <FaSearch size={18} />
           <span>Search</span>
         </button>
-      </div>
+      </div> */}
+      <button
+        type="submit"
+        className="flex flex-col justify-center items-center w-full md:w-48 bg-deep-orange-500 hover:bg-deep-orange-700 text-white font-bold transition-all duration-300 px-4 py-3 cursor-pointer"
+      >
+        <div className="flex items-center gap-2 text-md">
+          <FaSearch size={18} />
+          <span>Search</span>
+        </div>
+      </button>
     </form>
   );
 };
