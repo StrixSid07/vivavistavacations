@@ -246,6 +246,9 @@ const FilterElement = ({
         </Button> */}
 
         <CalendarView
+          dealId={dealId}
+          dealtitle={dealtitle}
+          adultCount={adultCount}
           departureDates={departureDates}
           departureAirports={departureAirports}
           priceMap={priceMap}

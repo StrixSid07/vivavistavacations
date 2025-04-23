@@ -6,7 +6,14 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
 import ConciergeFormCard from "./ConciergeFormCard";
 dayjs.extend(customParseFormat);
 
-const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
+const CalendarView = ({
+  departureDates,
+  departureAirports,
+  priceMap,
+  dealId,
+  dealtitle,
+  adultCount,
+}) => {
   const parsedDates = useMemo(() => {
     // Parse and sort the dates using the provided "DD/MM/YYYY" format
     const sortedDates = departureDates
@@ -84,8 +91,13 @@ const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [selectedDayInfo, setSelectedDayInfo] = React.useState(null);
 
-  const handleSubmit = (info) => {
-    setSelectedDayInfo(info);
+  // const handleSubmit = (info) => {
+  //   setSelectedDayInfo(info);
+  //   setOpenDialog(true);
+  // };
+
+  const handleSubmit = (day) => {
+    setSelectedDayInfo(day); // `day` includes { day, date, info }
     setOpenDialog(true);
   };
 
@@ -133,7 +145,8 @@ const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
           day ? (
             <div
               key={i}
-              onClick={day.info ? () => handleSubmit(day.info) : undefined}
+              // onClick={day.info ? () => handleSubmit(day.info) : undefined}
+              onClick={day.info ? () => handleSubmit(day) : undefined}
               className={clsx(
                 "p-2 rounded-md text-center border",
                 day.info
@@ -164,9 +177,18 @@ const CalendarView = ({ departureDates, departureAirports, priceMap }) => {
       >
         <DialogBody className="overflow-auto max-h-[90vh] flex justify-center">
           <div className="w-full">
-            <ConciergeFormCard
+            {/* <ConciergeFormCard
               handleClose={() => setOpenDialog(false)}
               // selectedInfo={selectedDayInfo}
+            /> */}
+            <ConciergeFormCard
+              dealId={dealId}
+              dealtitle={dealtitle}
+              adultCount={adultCount}
+              totalPrice={selectedDayInfo?.info?.price}
+              selectedDate={selectedDayInfo?.date}
+              airport={selectedDayInfo?.info?.airport}
+              handleClose={() => setOpenDialog(false)}
             />
           </div>
         </DialogBody>
