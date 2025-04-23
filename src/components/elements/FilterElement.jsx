@@ -21,6 +21,8 @@ import CalendarView from "./CalendarView";
 import ConciergeFormCard from "./ConciergeFormCard";
 
 const FilterElement = ({
+  dealId,
+  dealtitle,
   departureDates, // Array of departure dates (strings)
   departureAirports, // Array of departure airports (strings)
   basePrice, // Price per person (number)
@@ -291,7 +293,15 @@ const FilterElement = ({
       >
         <DialogBody className="overflow-auto max-h-[90vh] flex justify-center">
           <div className="w-full">
-            <ConciergeFormCard handleClose={() => setOpenDialog(false)}  />
+            <ConciergeFormCard
+              dealId={dealId}
+              dealtitle={dealtitle}
+              adultCount={adultCount}
+              totalPrice={totalPrice}
+              selectedDate={selectedDate}
+              airport={selectedAirport}
+              handleClose={() => setOpenDialog(false)}
+            />
           </div>
         </DialogBody>
       </Dialog>

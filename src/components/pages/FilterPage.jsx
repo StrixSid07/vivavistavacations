@@ -214,6 +214,19 @@ const FilterPage = () => {
       });
   }, [id, navigate]);
 
+  useEffect(() => {
+    if (prices.length && !selectedDate && !selectedAirport) {
+      // grab the very first price object
+      const first = prices[0];
+      // format the date the same way you do for your <Select>
+      const formattedDate = new Date(first.startdate).toLocaleDateString(
+        "en-GB"
+      );
+      setSelectedDate(formattedDate);
+      setSelectedAirport(first.airport);
+    }
+  }, [prices, selectedDate, selectedAirport]);
+
   const handleBookingSubmit = (bookingData) => {
     console.log("Submitted Booking Data:", bookingData);
   };
@@ -426,6 +439,8 @@ const FilterPage = () => {
         {/* Right Side: Filter Element */}
         <div className="w-full h-fit relative z-0">
           <FilterElement
+            dealId={id}
+            dealtitle={tripData.title || " "}
             basePrice={
               selectedTrip?.price || (prices.length ? prices[0].price : 0)
             }
