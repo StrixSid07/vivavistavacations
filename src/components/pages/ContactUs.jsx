@@ -75,7 +75,7 @@ const ContactUs = () => {
       message: formData.message,
     };
     try {
-      const res = await axios.post(`${Base_Url}/contact/contactus`, payload);
+      const res = await axios.post(`${Base_Url}/mail/contactus`, payload);
       setAlert({
         open: true,
         color: "green",
@@ -83,6 +83,9 @@ const ContactUs = () => {
           "Thank you for connecting with Viva Vista Vacations! We will get back to you shortly.",
       });
       setFormData({ name: "", email: "", phone: "", message: "" });
+      setTimeout(() => {
+        setAlert({ open: false, color: "", message: "" });
+      }, 4000);
     } catch (error) {
       setAlert({
         open: true,
@@ -90,6 +93,9 @@ const ContactUs = () => {
         message:
           "Oops! Something went wrong. Please check your details or try again later.",
       });
+      setTimeout(() => {
+        setAlert({ open: false, color: "", message: "" });
+      }, 4000);
       console.error("Error sending message:", error);
     }
   };

@@ -83,7 +83,7 @@ const Overview = ({
       </div>
 
       {/* Trip Summary */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 text-base sm:text-lg text-gray-700">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-5 text-base sm:text-lg text-gray-700">
         <InfoItem
           icon={<Globe2 className="text-blue-500 w-5 h-5" />}
           label="Countries"
@@ -96,7 +96,7 @@ const Overview = ({
         <InfoItem
           icon={<Utensils className="text-green-500 w-5 h-5" />}
           label="Board Basis"
-          value={tripData.boardBasis}
+          value={tripData.boardBasis.name}
         />
         <InfoItem
           icon={<Ruler className="text-purple-500 w-5 h-5" />}

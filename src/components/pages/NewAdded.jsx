@@ -388,7 +388,7 @@ const NewAdded = ({ data = [], loadingData }) => {
                       packageDays={property.days}
                       rating={property.prices[0].hotel.tripAdvisorRating}
                       reviews={property.prices[0].hotel.tripAdvisorReviews}
-                      basis={property.boardBasis}
+                      basis={property.boardBasis?.name}
                       currentImage={currentImageIndex[index]}
                       nextImage={() => nextImage(index)}
                       prevImage={() => prevImage(index)}

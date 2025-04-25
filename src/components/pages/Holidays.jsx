@@ -197,11 +197,11 @@ const Holidays = () => {
                         <div className="flex items-center gap-2 text-sm text-gray-700">
                           <CalendarDays className="w-4 h-4 text-indigo-500" />
                           <span>{deal.days} Nights</span>
-                          {deal.boardBasis && (
+                          {deal.boardBasis?.name && (
                             <>
                               <FaCircle className="w-1 h-1 text-gray-400" />
                               <span className="font-medium">
-                                {deal.boardBasis}
+                                {deal.boardBasis?.name}
                               </span>
                             </>
                           )}

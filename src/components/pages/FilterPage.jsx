@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { ImageGallery2, FilterElement, FilterPageSlides } from "../elements";
@@ -32,6 +32,8 @@ const FilterPage = () => {
   const [selectedTrip, setSelectedTrip] = useState(null);
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedAirport, setSelectedAirport] = useState("");
+  const leftCardRef = useRef(null);
+  const [leftHeight, setLeftHeight] = useState("auto");
 
   const renderStars = () => {
     const stars = [];
@@ -142,6 +144,7 @@ const FilterPage = () => {
           days: data.days,
           rooms: data.rooms,
           guests: data.guests,
+          LowDeposite: data.LowDeposite,
         });
 
         // Set images
@@ -227,6 +230,20 @@ const FilterPage = () => {
     }
   }, [prices, selectedDate, selectedAirport]);
 
+  useEffect(() => {
+    const updateHeight = () => {
+      if (window.innerWidth >= 768 && leftCardRef.current) {
+        setLeftHeight(leftCardRef.current.offsetHeight);
+      } else {
+        setLeftHeight("auto");
+      }
+    };
+
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, [tripData]);
+
   const handleBookingSubmit = (bookingData) => {
     console.log("Submitted Booking Data:", bookingData);
   };
@@ -259,8 +276,11 @@ const FilterPage = () => {
           {/* <ImageGallery images={images} /> */}
           <ImageGallery2 images={images} />
         </div>
-        <div className=" p-3 -mb-6 md:p-2 md:mb-0">
-          <div className="bg-white border rounded-xl max-w-5xl w-full mx-auto mt-6 px-6 py-5 shadow-md relative">
+        <div className="flex flex-col md:flex-row justify-between gap-2 items-start p-3 -mb-6 md:p-2 md:mb-0">
+          <div
+            ref={leftCardRef}
+            className="bg-white border rounded-xl max-w-5xl w-full mx-auto mt-6 px-6 py-5 shadow-md relative"
+          >
             {/* Top Deal Badge */}
             {tripData.isTopDeal && (
               <div className="absolute top-0 right-0 m-2 bg-yellow-400 text-sm font-semibold text-black px-3 py-1 rounded-tr-xl rounded-bl-xl flex items-center gap-1 shadow">
@@ -313,7 +333,7 @@ const FilterPage = () => {
                 </div>
                 <div> </div>
                 {/* Middle Section */}
-                <div className="flex-1 flex md:hidden gap-3 md:-mt-8 mt-3">
+                <div className="grid grid-cols-1 md:hidden gap-4 md:-mt-8 mt-3">
                   <div className="flex items-center gap-2 text-base text-gray-600">
                     <MapPin className="w-6 h-7 text-red-500" />
                     {tripData.destination?.name || "Unknown Location"}
@@ -361,6 +381,19 @@ const FilterPage = () => {
               </div>
             </div>
           </div>
+          {tripData.LowDeposite && (
+            <div
+              className="bg-white border rounded-xl max-w-sm w-full md:h-[leftHeight] h-auto mx-auto mt-6 px-4 py-3 shadow-md relative flex flex-col"
+              style={{ height: leftHeight }}
+            >
+              <h2 className="text-md font-semibold text-gray-800">
+                Low Deposit
+              </h2>
+              <div className="overflow-y-auto pr-2" style={{ flex: 1 }}>
+                {tripData.LowDeposite}
+              </div>
+            </div>
+          )}
         </div>
       </div>
       {/* <div className="flex md:flex-row flex-col items-center justify-center md:items-start gap-8 md:justify-between md:p-24 p-4 mt-4 md:-mt-10">

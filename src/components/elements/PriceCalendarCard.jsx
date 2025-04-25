@@ -28,7 +28,7 @@ const PriceCalendar = ({
         <p className="mt-2 text-gray-600">
           Select a departure date and airport to see your best price.
         </p>
-        <div className="md:hidden flex">
+        <div className="flex">
           <CalendarView
             departureDates={departureDates}
             departureAirports={departureAirports}
@@ -48,9 +48,9 @@ const PriceCalendar = ({
               shadow={false}
               className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-center py-6"
             >
-              <h3 className="text-2xl font-semibold">
+              {/* <h3 className="text-2xl font-semibold">
                 {trip.country} — {trip.airport}
-              </h3>
+              </h3> */}
               <p className="mt-1 text-3xl font-bold tracking-tight">
                 £{trip.price}
               </p>

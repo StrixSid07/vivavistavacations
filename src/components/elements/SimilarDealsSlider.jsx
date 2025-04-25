@@ -92,7 +92,7 @@ export default function SimilarDealsSlider({ destinationId, dealId }) {
               packageDays={deal.days}
               rating={deal.prices[0]?.hotel?.tripAdvisorRating}
               reviews={deal.prices[0]?.hotel?.tripAdvisorReviews}
-              basis={deal.boardBasis}
+              basis={deal.boardBasis?.name}
               currentImage={currentImageIndex[index] || 0}
               nextImage={() => nextImage(index)}
               prevImage={() => prevImage(index)}

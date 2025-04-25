@@ -261,7 +261,7 @@ const TravelPackages = ({ destinations }) => {
 
                         {/* Basis */}
                         <p className="text-gray-100 text-sm font-medium flex items-center gap-2 drop-shadow">
-                          <FaCircle size={7} /> {deal.boardBasis || "N/A"}
+                          <FaCircle size={7} /> {deal.boardBasis.name|| "N/A"}
                         </p>
 
                         <hr className="border-gray-300" />
