@@ -12,22 +12,45 @@ const CalendarView = ({
   priceMap,
   dealId,
   dealtitle,
+  setSelectedTrip,
   adultCount,
+  setLedprice,
+  selectedAirport,
 }) => {
   const parsedDates = useMemo(() => {
     // Parse and sort the dates using the provided "DD/MM/YYYY" format
+    console.log("this is selected airport", selectedAirport);
+    console.log("this is departure airports", departureAirports);
+
     const sortedDates = departureDates
       .map((d) => dayjs(d, "DD/MM/YYYY"))
       .sort((a, b) => (a.isBefore(b) ? -1 : 1));
 
     // Map each sorted date with its airport and price from the priceMap using the same format
-    return sortedDates.map((date, i) => ({
-      date,
-      airport: departureAirports[i % departureAirports.length],
-      price: priceMap[date.format("DD/MM/YYYY")] || 0,
-    }));
-  }, [departureDates, departureAirports, priceMap]);
+    const allParsedDates = sortedDates.map((date, i) => {
+      const airport = departureAirports[i % departureAirports.length][0]; // Access the first element of the array
+      return {
+        date,
+        airport,
+        price: priceMap[date.format("DD/MM/YYYY")] || 0,
+      };
+    });
 
+    console.log("this is all parsed dates", allParsedDates);
+    const finaldata = allParsedDates.filter(
+      (d) => d.airport._id === selectedAirport
+    );
+    // Filter the parsed dates based on the selected airport (_id matches)
+    // const lowestPrice = Math.min(...finaldata.map((d) => d.price));
+    // console.log(typeof setLedprice, lowestPrice);
+    // if (typeof setLedprice === "function") {
+    //   setLedprice(lowestPrice); // or any price you want to set after filtering etc.
+    // }
+
+    return finaldata; // Compare by _id
+  }, [departureDates, departureAirports, priceMap, selectedAirport]);
+
+  console.log("parsh data", parsedDates);
   const [currentMonth, setCurrentMonth] = useState(
     parsedDates[0]?.date.startOf("month") || dayjs().startOf("month")
   );
@@ -110,6 +133,23 @@ const CalendarView = ({
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  useEffect(() => {
+    if (!parsedDates.length) return;
+
+    const datesInCurrentMonth = parsedDates.filter((d) =>
+      d.date.isSame(currentMonth, "month")
+    );
+
+    if (datesInCurrentMonth.length > 0) {
+      const lowestPrice = Math.min(...datesInCurrentMonth.map((d) => d.price));
+
+      if (typeof setLedprice === "function") {
+        setLedprice(lowestPrice);
+      }
+    }
+  }, [currentMonth, parsedDates, setLedprice]);
+
+
 
   return (
     <div className="max-w-sm mx-auto p-2 bg-white rounded-xl shadow-md overflow-hidden">
@@ -160,7 +200,7 @@ const CalendarView = ({
               {day.info && (
                 <div className="mt-1 flex flex-col justify-center  items-center">
                   <div className="text-xs font-normal">£{day.info.price}</div>
-                  <div className="text-[0.68rem]">{day.info.airport}</div>
+                  <div className="text-[0.68rem]">{day.info.airport?.code}</div>
                 </div>
               )}
             </div>

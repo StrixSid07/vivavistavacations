@@ -26,6 +26,7 @@ const FilterElement = ({
   departureDates, // Array of departure dates (strings)
   departureAirports, // Array of departure airports (strings)
   basePrice, // Price per person (number)
+  setSelectedTrip,
   initialAdultCount = 1, // Optional initial count (default: 2)
   onBookingSubmit, // Callback function to handle submit
   selectedDate, // Rename here
@@ -33,6 +34,7 @@ const FilterElement = ({
   onDateChange, // setter from parent
   onAirportChange, // setter from parent
   priceMap,
+  setLedprice,
 }) => {
   // const [adultCount, setAdultCount] = useState(initialAdultCount);
   // const [selectedDate, setSelectedDate] = useState(
@@ -44,8 +46,16 @@ const FilterElement = ({
   //     : ""
   // );
   const [adultCount, setAdultCount] = useState(initialAdultCount);
+  console.log(departureAirports);
+  // Flatten the departureAirports (if it's a nested array)
+  const flatDepartureAirports = departureAirports.flat();
+  
+  // Get unique airports based on `_id`
+  const uniqueDepartureAirports = [
+    ...new Set(flatDepartureAirports.map((airport) => airport._id)),
+  ].map((id) => flatDepartureAirports.find((airport) => airport._id === id));
 
-  // Decrement but never go below 1
+  console.log("THIS IS UNIQUE", uniqueDepartureAirports);
   const handleDecrement = () => {
     setAdultCount((prev) => Math.max(1, prev - 1));
   };
@@ -167,9 +177,9 @@ const FilterElement = ({
             value={selectedAirport}
             onChange={(value) => onAirportChange(value)}
           >
-            {departureAirports.map((airport, idx) => (
-              <Option key={idx} value={airport}>
-                {airport}
+            {uniqueDepartureAirports.map((airport, idx) => (
+              <Option key={airport._id} value={airport._id}>
+                {airport.name} ({airport.code})
               </Option>
             ))}
           </Select>
@@ -252,6 +262,9 @@ const FilterElement = ({
           departureDates={departureDates}
           departureAirports={departureAirports}
           priceMap={priceMap}
+          setSelectedTrip={setSelectedTrip}
+          setLedprice={setLedprice}
+          selectedAirport={selectedAirport}
         />
 
         {/* Phone / Call to Book */}

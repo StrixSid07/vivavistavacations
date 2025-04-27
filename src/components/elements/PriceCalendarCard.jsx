@@ -8,7 +8,9 @@ const PriceCalendar = ({
   onTripSelect,
   departureDates,
   departureAirports,
+  selectedAirport,
   priceMap,
+  setLedprice,
 }) => {
   const getFilteredPrices = () => {
     const uniqueCountries = [...new Set(prices.map((p) => p.country))];
@@ -18,6 +20,7 @@ const PriceCalendar = ({
   };
 
   const filteredPrices = getFilteredPrices();
+  console.log("this is filter data of card", filteredPrices);
 
   return (
     <div className="space-y-8 md:px-0">
@@ -33,6 +36,8 @@ const PriceCalendar = ({
             departureDates={departureDates}
             departureAirports={departureAirports}
             priceMap={priceMap}
+            selectedAirport={selectedAirport}
+            setLedprice={setLedprice}
           />
         </div>
       </div>
@@ -67,7 +72,7 @@ const PriceCalendar = ({
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-medium text-gray-700">Airport:</span>
-                <span className="text-gray-900">{trip.airport}</span>
+                <span className="text-gray-900">{trip.airport[0].code}</span>
               </div>
             </CardBody>
 

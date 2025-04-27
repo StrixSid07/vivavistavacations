@@ -30,6 +30,7 @@ const FilterPage = () => {
   const rating = hotels?.[0]?.tripAdvisorRating;
   const reviews = hotels?.[0]?.tripAdvisorReviews;
   const [selectedTrip, setSelectedTrip] = useState(null);
+  const [ledPrice, setLedprice] = useState(null); // State to store the lowest price
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedAirport, setSelectedAirport] = useState("");
   const leftCardRef = useRef(null);
@@ -51,6 +52,10 @@ const FilterPage = () => {
     }
 
     return stars;
+  };
+  const [sharedData, setSharedData] = useState("Data from Parent");
+  const updateSharedData = (newData) => {
+    setSharedData(newData);
   };
 
   const [data, setData] = useState({
@@ -129,7 +134,7 @@ const FilterPage = () => {
       .get(`${Base_Url}/deals/${id}`)
       .then((res) => {
         const data = res.data;
-
+        console.log(data);
         // Map trip details
         setTripData({
           title: data.title,
@@ -446,12 +451,14 @@ const FilterPage = () => {
               itinerary={itinerary}
               prices={prices}
               hotels={hotels}
+              Airport={selectedAirport}
               availableCountries={availableCountries}
               exclusiveAdditions={exclusiveAdditions}
               termsAndConditions={termsAndConditions}
               whatsIncluded={whatsIncluded}
               selectedTrip={selectedTrip}
               setSelectedTrip={setSelectedTrip}
+              setLedprice={setLedprice}
               setSelectedDate={setSelectedDate}
               setSelectedAirport={setSelectedAirport}
               departureDates={prices.map((p) =>
@@ -473,9 +480,13 @@ const FilterPage = () => {
         <div className="w-full h-fit relative z-0">
           <FilterElement
             dealId={id}
+            sharedData={sharedData}
+            updateSharedData={updateSharedData}
             dealtitle={tripData.title || " "}
+            setSelectedTrip={setSelectedTrip}
+            setLedprice={setLedprice}
             basePrice={
-              selectedTrip?.price || (prices.length ? prices[0].price : 0)
+              ledPrice !== null ? ledPrice : prices.length ? prices[0].price : 0
             }
             departureDates={prices.map((p) =>
               new Date(p.startdate).toLocaleDateString("en-GB")
