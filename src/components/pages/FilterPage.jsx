@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef,useContext } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { ImageGallery2, FilterElement, FilterPageSlides } from "../elements";
@@ -13,7 +13,7 @@ import {
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { Base_Url } from "../../utils/Api";
 import SimilarDealsSlider from "../elements/SimilarDealsSlider";
-
+import { LeadContext } from "../../contexts/LeadContext";
 const FilterPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -187,7 +187,7 @@ const FilterPage = () => {
             }))
           );
         }
-
+       
         // Set available countries if exists
         if (data.availableCountries && Array.isArray(data.availableCountries)) {
           setAvailableCountries(data.availableCountries);
@@ -266,6 +266,8 @@ const FilterPage = () => {
         <div className="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
       </div>
     );
+
+
 
   return (
     <div className="z-50 flex flex-col justify-center items-center w-full">
@@ -458,7 +460,7 @@ const FilterPage = () => {
               whatsIncluded={whatsIncluded}
               selectedTrip={selectedTrip}
               setSelectedTrip={setSelectedTrip}
-              setLedprice={setLedprice}
+             
               setSelectedDate={setSelectedDate}
               setSelectedAirport={setSelectedAirport}
               departureDates={prices.map((p) =>
@@ -483,11 +485,7 @@ const FilterPage = () => {
             sharedData={sharedData}
             updateSharedData={updateSharedData}
             dealtitle={tripData.title || " "}
-            setSelectedTrip={setSelectedTrip}
-            setLedprice={setLedprice}
-            basePrice={
-              ledPrice !== null ? ledPrice : prices.length ? prices[0].price : 0
-            }
+            setSelectedTrip={setSelectedTrip} 
             departureDates={prices.map((p) =>
               new Date(p.startdate).toLocaleDateString("en-GB")
             )}

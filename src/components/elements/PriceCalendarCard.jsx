@@ -37,7 +37,7 @@ const PriceCalendar = ({
             departureAirports={departureAirports}
             priceMap={priceMap}
             selectedAirport={selectedAirport}
-            setLedprice={setLedprice}
+            
           />
         </div>
       </div>

@@ -1,9 +1,10 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect ,useContext} from "react";
 import dayjs from "dayjs";
 import clsx from "clsx";
 import { Dialog, DialogBody } from "@material-tailwind/react";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import ConciergeFormCard from "./ConciergeFormCard";
+import {LeadContext} from "../../contexts/LeadContext";
 dayjs.extend(customParseFormat);
 
 const CalendarView = ({
@@ -13,10 +14,13 @@ const CalendarView = ({
   dealId,
   dealtitle,
   setSelectedTrip,
-  adultCount,
+  
   setLedprice,
   selectedAirport,
 }) => {
+  const { leadPrice, setLeadPrice } = useContext(LeadContext);
+  // const {dealId}=useContext(LeadContext);
+const {adultCount}=useContext(LeadContext); 
   const parsedDates = useMemo(() => {
     // Parse and sort the dates using the provided "DD/MM/YYYY" format
     console.log("this is selected airport", selectedAirport);
@@ -142,12 +146,9 @@ const CalendarView = ({
 
     if (datesInCurrentMonth.length > 0) {
       const lowestPrice = Math.min(...datesInCurrentMonth.map((d) => d.price));
-
-      if (typeof setLedprice === "function") {
-        setLedprice(lowestPrice);
-      }
+      setLeadPrice(lowestPrice);
     }
-  }, [currentMonth, parsedDates, setLedprice]);
+  }, [currentMonth, parsedDates, setLeadPrice]);
 
 
 

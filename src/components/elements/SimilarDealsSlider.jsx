@@ -75,7 +75,7 @@ export default function SimilarDealsSlider({ destinationId, dealId }) {
       {/* Deal Cards Slider */}
       <div
         ref={sliderRef}
-        className="flex overflow-x-auto mx-auto space-x-2 md:space-x-4 px-2 md:px-12 md:py-12 py-12 scroll-smooth snap-x snap-mandatory bg-transparent"
+        className="flex overflow-x-auto mx-auto space-x-2 md:space-x-4 px-2 md:px-12 md:py-12 py-12 scroll-smooth snap-x snap-mandatory bg-transparent scrollbar-hide"
       >
         {deals.map((deal, index) => (
           <div

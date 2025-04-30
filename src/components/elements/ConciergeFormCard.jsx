@@ -21,26 +21,27 @@ import {
   FaCalendarAlt,
   FaUserFriends,
 } from "react-icons/fa";
+import { useContext } from "react";
 import { X } from "lucide-react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { useCountries } from "use-react-countries";
 import axios from "axios";
 import { Base_Url } from "../../utils/Api";
-
+import { LeadContext } from "../../contexts/LeadContext";
 const ConciergeFormCard = ({
   handleClose,
   dealId,
   dealtitle,
   adultCount,
-  totalPrice,
+ 
   selectedDate,
   airport,
 }) => {
   const { countries } = useCountries();
   const [country, setCountry] = React.useState(0);
   const [subscribe, setSubscribe] = React.useState(false);
-
+  const {totalPrice,dealtitleform}=useContext(LeadContext);
   React.useEffect(() => {
     if (countries.length) {
       const defaultIndex = countries.findIndex(
@@ -180,7 +181,7 @@ const ConciergeFormCard = ({
         <div className="flex items-center gap-3 mb-2">
           <FaSuitcaseRolling className="text-blue-500 text-lg" />
           <Typography className="text-sm font-semibold text-blue-700">
-            <span className="font-bold">Deal:</span> {dealtitle}
+            <span className="font-bold">Deal:</span> {dealtitleform}
           </Typography>
         </div>
 

@@ -12,9 +12,18 @@ body {
   /* font-family: "Winky Sans", sans-serif; */
 }
 
+/* hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 4px; /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {

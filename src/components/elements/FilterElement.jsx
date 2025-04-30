@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useContext} from "react";
 import {
   Card,
   CardHeader,
@@ -19,13 +19,13 @@ import {
 } from "react-icons/fa";
 import CalendarView from "./CalendarView";
 import ConciergeFormCard from "./ConciergeFormCard";
-
+import { LeadContext } from "../../contexts/LeadContext";
 const FilterElement = ({
   dealId,
   dealtitle,
   departureDates, // Array of departure dates (strings)
   departureAirports, // Array of departure airports (strings)
-  basePrice, // Price per person (number)
+  
   setSelectedTrip,
   initialAdultCount = 1, // Optional initial count (default: 2)
   onBookingSubmit, // Callback function to handle submit
@@ -45,8 +45,13 @@ const FilterElement = ({
   //     ? departureAirports[0]
   //     : ""
   // );
-  const [adultCount, setAdultCount] = useState(initialAdultCount);
-  console.log(departureAirports);
+  
+  const { leadPrice, setLeadPrice } = useContext(LeadContext);
+  const {adultCount,setAdultCount}=useContext(LeadContext);
+  const {setTotalPrice,totalPrice,setDealIdForm,setDealtitleForm}=useContext(LeadContext);
+  setDealIdForm(dealId);
+  setDealtitleForm(dealtitle);
+
   // Flatten the departureAirports (if it's a nested array)
   const flatDepartureAirports = departureAirports.flat();
   
@@ -66,7 +71,8 @@ const FilterElement = ({
   };
 
   // Calculate total price dynamically
-  const totalPrice = basePrice * adultCount;
+  // const totalPrice = leadPrice * adultCount;
+  setTotalPrice(leadPrice * adultCount);
 
   // Submit booking data to parent component
   // const handleSubmit = () => {
@@ -96,7 +102,11 @@ const FilterElement = ({
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
+  useEffect(() => {
+    if (!selectedAirport && uniqueDepartureAirports.length > 0) {
+      onAirportChange(uniqueDepartureAirports[0]._id); // Auto-select the first airport
+    }
+  }, [selectedAirport, uniqueDepartureAirports, onAirportChange]); 
   return (
     <Card className="w-full max-w-md border border-gray-100 shadow-lg p-1 group">
       {/* Header: Price */}
@@ -108,7 +118,7 @@ const FilterElement = ({
           Price from
         </Typography>
         <Typography variant="h3" className="font-bold leading-tight text-white">
-          £{basePrice}
+          £{leadPrice}
         </Typography>
         <Typography variant="small" className="text-white">
           per person
@@ -118,7 +128,7 @@ const FilterElement = ({
       {/* Body: Selectors & Price */}
       <CardBody className="p-4 space-y-4">
         {/* Departure Date */}
-        <div>
+        {/* <div>
           <Typography
             variant="small"
             className="font-medium text-gray-700 mb-2"
@@ -137,7 +147,7 @@ const FilterElement = ({
               </Option>
             ))}
           </Select> */}
-          <Select
+          {/* <Select
             label="Select Date"
             size="md"
             value={selectedDate}
@@ -149,7 +159,7 @@ const FilterElement = ({
               </Option>
             ))}
           </Select>
-        </div>
+        </div> */} 
 
         {/* Departure Airport */}
         <div>
@@ -255,17 +265,16 @@ const FilterElement = ({
           </span>
         </Button> */}
 
-        <CalendarView
+        {/* <CalendarView
           dealId={dealId}
           dealtitle={dealtitle}
           adultCount={adultCount}
           departureDates={departureDates}
           departureAirports={departureAirports}
           priceMap={priceMap}
-          setSelectedTrip={setSelectedTrip}
-          setLedprice={setLedprice}
+          setSelectedTrip={setSelectedTrip} 
           selectedAirport={selectedAirport}
-        />
+        /> */}
 
         {/* Phone / Call to Book */}
         <div className="text-center">
