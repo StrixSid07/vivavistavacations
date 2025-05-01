@@ -76,7 +76,6 @@ const FilterPageSlides = ({
         priceMap={priceMap}
         selectedAirport={Airport}
         setLedprice={setLedprice}
-        priceswitch={priceswitch}
       />
     </div>
   );

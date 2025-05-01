@@ -23,8 +23,8 @@ const CalendarView = ({
 const {adultCount}=useContext(LeadContext); 
   const parsedDates = useMemo(() => {
     // Parse and sort the dates using the provided "DD/MM/YYYY" format
-    console.log("this is selected airport", selectedAirport);
-    console.log("this is departure airports", departureAirports);
+    // console.log("this is selected airport", selectedAirport);
+    // console.log("this is departure airports", departureAirports);
 
     const sortedDates = departureDates
       .map((d) => dayjs(d, "DD/MM/YYYY"))

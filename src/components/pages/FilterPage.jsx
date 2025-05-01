@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef,useContext } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { ImageGallery2, FilterElement, FilterPageSlides } from "../elements";
@@ -21,7 +21,6 @@ const FilterPage = () => {
   const [images, setImages] = useState([]);
   const [prices, setPrices] = useState([]);
   const [hotels, setHotels] = useState([]);
-  const [priceswitch,setPriceSwitch]=useState(false);
   const [availableCountries, setAvailableCountries] = useState([]);
   const [exclusiveAdditions, setExclusiveAdditions] = useState([]);
   const [termsAndConditions, setTermsAndConditions] = useState([]);
@@ -65,77 +64,13 @@ const FilterPage = () => {
     departureAirports: [],
   });
 
-  // useEffect(() => {
-  //   if (!id) return;
-  //   axios
-  //     .get(`${Base_Url}/deals/${id}`)
-  //     .then((res) => {
-  //       const data = res.data;
-
-  //       // Map trip details
-  //       setTripData({
-  //         title: data.title,
-  //         description: data.description,
-  //         destination: data.destination,
-  //         overview: data.description,
-  //         boardBasis: data.boardBasis,
-  //         distanceToCenter: `${data.distanceToCenter} km`,
-  //         distanceToBeach: `${data.distanceToBeach} m`,
-  //         isTopDeal: data.isTopDeal,
-  //       });
-
-  //       // Set images
-  //       setImages(data.images || []);
-
-  //       // Transform prices data
-  //       setPrices(
-  //         data.prices.map((price) => ({
-  //           country: price.country,
-  //           airport: price.airport,
-  //           startdate: price.startdate,
-  //           price: price.price,
-  //           flightDetails: price.flightDetails, // Keeping flight details if needed
-  //         }))
-  //       );
-
-  //       const itineraryData = [
-  //         {
-  //           day: 1,
-  //           title: "Arrival & Hotel Check-in",
-  //           description: `Arrive at ${data.destination.name} and check into your hotel.`,
-  //           icon: <FaPlaneArrival className="text-[#FF6B6B] text-xl" />,
-  //         },
-  //         ...Array.from({ length: 3 }, (_, i) => ({
-  //           day: i + 2,
-  //           title: "Luxury Spa & Relaxation",
-  //           description: "Enjoy a spa session with beautiful city views.",
-  //           icon: <FaSpa className="text-[#FF6B6B] text-xl" />,
-  //         })),
-  //         {
-  //           day: 5,
-  //           title: "Departure",
-  //           description: "Check out and head back home.",
-  //           icon: <FaPlaneDeparture className="text-[#FF6B6B] text-xl" />,
-  //         },
-  //       ];
-
-  //       setItinerary(itineraryData);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       console.error("Error fetching data:", err);
-  //       alert("This deal is no longer available."); // Show an alert
-  //       navigate("/"); // Redirect to home page
-  //     });
-  // }, [id, navigate]);
-
   useEffect(() => {
     if (!id) return;
     axios
       .get(`${Base_Url}/deals/${id}`)
       .then((res) => {
         const data = res.data;
-        console.log("this is fetch filter page data",data);
+        console.log("this is fetch filter page data", data);
         // Map trip details
         setTripData({
           title: data.title,
@@ -155,9 +90,6 @@ const FilterPage = () => {
 
         // Set images
         setImages(data.images || []);
-        if(data.priceswitch){
-setPriceSwitch(data.priceswitch);
-        }
         // Transform prices data
         setPrices(
           data.prices.map((price) => ({
@@ -166,6 +98,7 @@ setPriceSwitch(data.priceswitch);
             startdate: price.startdate,
             enddate: price.enddate,
             price: price.price,
+            priceswitch: price.priceswitch,
             flightDetails: price.flightDetails,
           }))
         );
@@ -190,7 +123,7 @@ setPriceSwitch(data.priceswitch);
             }))
           );
         }
-       
+
         // Set available countries if exists
         if (data.availableCountries && Array.isArray(data.availableCountries)) {
           setAvailableCountries(data.availableCountries);
@@ -270,20 +203,10 @@ setPriceSwitch(data.priceswitch);
       </div>
     );
 
-
-
   return (
     <div className="z-50 flex flex-col justify-center items-center w-full">
       <div className="">
         <div className="relative">
-          {/* <h1 className="absolute bottom-0 z-30 left-0 text-lg text-white bg-black/40 w-1/2 p-2">
-            <span className="flex justify-start ml-4 items-center gap-4">
-              {" "}
-              <FaLocationArrow size={24} />
-              {tripData.title}
-            </span>
-          </h1> */}
-          {/* <ImageGallery images={images} /> */}
           <ImageGallery2 images={images} />
         </div>
         <div className="flex flex-col md:flex-row justify-between gap-2 items-start p-3 -mb-6 md:p-2 md:mb-0">
@@ -406,47 +329,6 @@ setPriceSwitch(data.priceswitch);
           )}
         </div>
       </div>
-      {/* <div className="flex md:flex-row flex-col items-center justify-center md:items-start gap-8 md:justify-between md:p-24 p-4 mt-4 md:-mt-10">
-        <div className="flex flex-col justify-start items-start md:w-[100rem] w-full gap-8">
-          <div className="z-30">
-            <FilterPageSlides
-              tripData={tripData}
-              itinerary={itinerary}
-              prices={prices}
-              hotels={hotels}
-              availableCountries={availableCountries}
-              exclusiveAdditions={exclusiveAdditions}
-              termsAndConditions={termsAndConditions}
-              whatsIncluded={whatsIncluded}
-              selectedTrip={selectedTrip}
-              setSelectedTrip={setSelectedTrip}
-              setSelectedDate={setSelectedDate}
-              setSelectedAirport={setSelectedAirport}
-            />
-          </div>
-          <div className="w-full bg-gray-200 rounded-xl z-20">
-            <SimilarDealsSlider
-              destinationId={tripData.destination._id}
-              dealId={id}
-            />
-          </div>
-        </div>
-        <FilterElement
-          basePrice={
-            selectedTrip?.price || (prices.length ? prices[0].price : 0)
-          }
-          departureDates={prices.map((p) =>
-            new Date(p.startdate).toLocaleDateString("en-GB")
-          )}
-          departureAirports={prices.map((p) => p.airport)}
-          selectedDate={selectedDate} // Pass selected date
-          selectedAirport={selectedAirport} // Pass selected airport
-          onBookingSubmit={handleBookingSubmit}
-          onDateChange={setSelectedDate} // renamed prop
-          onAirportChange={setSelectedAirport}
-          priceMap={priceMap}
-        />
-      </div> */}
       <div className="relative z-0 grid md:grid-cols-[2fr_1fr] grid-cols-1 gap-4 p-4 lg:p-4 mt-8 w-full max-w-7xl mx-auto">
         {/* Left Side: Slides + Similar Deals */}
         <div className="flex flex-col gap-6 w-full max-w-4xl">
@@ -456,7 +338,6 @@ setPriceSwitch(data.priceswitch);
               itinerary={itinerary}
               prices={prices}
               hotels={hotels}
-              priceswitch={priceswitch}
               Airport={selectedAirport}
               availableCountries={availableCountries}
               exclusiveAdditions={exclusiveAdditions}
@@ -464,7 +345,6 @@ setPriceSwitch(data.priceswitch);
               whatsIncluded={whatsIncluded}
               selectedTrip={selectedTrip}
               setSelectedTrip={setSelectedTrip}
-             
               setSelectedDate={setSelectedDate}
               setSelectedAirport={setSelectedAirport}
               departureDates={prices.map((p) =>
@@ -489,7 +369,7 @@ setPriceSwitch(data.priceswitch);
             sharedData={sharedData}
             updateSharedData={updateSharedData}
             dealtitle={tripData.title || " "}
-            setSelectedTrip={setSelectedTrip} 
+            setSelectedTrip={setSelectedTrip}
             departureDates={prices.map((p) =>
               new Date(p.startdate).toLocaleDateString("en-GB")
             )}

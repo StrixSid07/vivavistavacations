@@ -11,7 +11,6 @@ const PriceCalendar = ({
   selectedAirport,
   priceMap,
   setLedprice,
-  priceswitch
 }) => {
   const getFilteredPrices = () => {
     const uniqueCountries = [...new Set(prices.map((p) => p.country))];
@@ -21,7 +20,7 @@ const PriceCalendar = ({
   };
 
   const filteredPrices = getFilteredPrices();
-  console.log("this is filter data of card", filteredPrices);
+  // console.log("this is filter data of card", filteredPrices);
 
   return (
     <div className="space-y-8 md:px-0">
@@ -33,18 +32,12 @@ const PriceCalendar = ({
           Select a departure date and airport to see your best price.
         </p>
         <div className="flex">
-        {priceswitch ? (
-    <p className="text-red-600 font-semibold">
-      Please contact the Viva Vista team to get the date and price of the current deal.
-    </p>
-  ) : (
-    <CalendarView
-      departureDates={departureDates}
-      departureAirports={departureAirports}
-      priceMap={priceMap}
-      selectedAirport={selectedAirport}
-    />
-  )}
+          <CalendarView
+            departureDates={departureDates}
+            departureAirports={departureAirports}
+            priceMap={priceMap}
+            selectedAirport={selectedAirport}
+          />
         </div>
       </div>
 
