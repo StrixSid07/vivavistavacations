@@ -1,10 +1,10 @@
-import React, { useState, useMemo, useEffect ,useContext} from "react";
+import React, { useState, useMemo, useEffect, useContext } from "react";
 import dayjs from "dayjs";
 import clsx from "clsx";
 import { Dialog, DialogBody } from "@material-tailwind/react";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import ConciergeFormCard from "./ConciergeFormCard";
-import {LeadContext} from "../../contexts/LeadContext";
+import { LeadContext } from "../../contexts/LeadContext";
 dayjs.extend(customParseFormat);
 
 const CalendarView = ({
@@ -20,11 +20,12 @@ const CalendarView = ({
 }) => {
   const { leadPrice, setLeadPrice } = useContext(LeadContext);
   // const {dealId}=useContext(LeadContext);
-const {adultCount}=useContext(LeadContext); 
+  const { adultCount } = useContext(LeadContext);
   const parsedDates = useMemo(() => {
     // Parse and sort the dates using the provided "DD/MM/YYYY" format
     // console.log("this is selected airport", selectedAirport);
     // console.log("this is departure airports", departureAirports);
+    console.log("priceswitch", priceswitch);
 
     const sortedDates = departureDates
       .map((d) => dayjs(d, "DD/MM/YYYY"))
@@ -66,6 +67,23 @@ const {adultCount}=useContext(LeadContext);
     });
     return map;
   }, [parsedDates]);
+
+  const priceswitchDates = useMemo(() => {
+    const map = new Map();
+
+    priceswitch.forEach((item) => {
+      if (!item.priceswitch) return;
+
+      const formattedStartDate = dayjs(item.startdate).format("DD/MM/YYYY");
+      const airportId = item.airport[0]?._id;
+
+      if (formattedStartDate && airportId) {
+        map.set(`${formattedStartDate}_${airportId}`, true);
+      }
+    });
+
+    return map;
+  }, [priceswitch]);
 
   const startOfMonth = currentMonth.startOf("month");
   const endOfMonth = currentMonth.endOf("month");
@@ -150,8 +168,6 @@ const {adultCount}=useContext(LeadContext);
     }
   }, [currentMonth, parsedDates, setLeadPrice]);
 
-
-
   return (
     <div className="max-w-sm mx-auto p-2 bg-white rounded-xl shadow-md overflow-hidden">
       {/* Header with gradient background */}
@@ -181,7 +197,7 @@ const {adultCount}=useContext(LeadContext);
       </div>
 
       {/* Days grid */}
-      <div className="grid grid-cols-7 gap-1 text-xs p-2">
+      {/* <div className="grid grid-cols-7 gap-1 text-xs p-2">
         {days.map((day, i) =>
           day ? (
             <div
@@ -202,6 +218,14 @@ const {adultCount}=useContext(LeadContext);
                 <div className="mt-1 flex flex-col justify-center  items-center">
                   <div className="text-xs font-normal">£{day.info.price}</div>
                   <div className="text-[0.68rem]">{day.info.airport?.code}</div>
+                  {day.info &&
+                    priceswitchDates.get(
+                      `${day.date}_${day.info.airport?._id}`
+                    ) && (
+                      <div className="text-[0.6rem] text-green-500 font-semibold">
+                        ON
+                      </div>
+                    )}
                 </div>
               )}
             </div>
@@ -209,7 +233,73 @@ const {adultCount}=useContext(LeadContext);
             <div key={i} className="p-2" />
           )
         )}
-      </div>
+      </div> */}
+      {parsedDates.some(
+        (d) =>
+          d.date.isSame(currentMonth, "month") &&
+          priceswitchDates.get(
+            `${d.date.format("DD/MM/YYYY")}_${d.airport._id}`
+          )
+      ) ? (
+        // If any date in the current month has priceswitch ON, show this message card
+        <div className="mt-4 p-6 bg-yellow-50 text-yellow-800 text-center rounded-xl shadow-md border border-yellow-300">
+          {(() => {
+            const match = parsedDates.find(
+              (d) =>
+                d.date.isSame(currentMonth, "month") &&
+                priceswitchDates.get(
+                  `${d.date.format("DD/MM/YYYY")}_${d.airport._id}`
+                )
+            );
+            return (
+              <div>
+                <p className="text-lg font-semibold">
+                  For this package 
+                  {/* on{" "} */}
+                  {/* <span className="underline"> */}
+                    {/* {match?.date.format("DD MMM YYYY")} */}
+                  {/* </span>{" "} */}
+                  at <strong>£{match?.price}</strong>,
+                </p>
+                <p className="mt-2 text-base font-medium">
+                  Connect us to book.
+                </p>
+              </div>
+            );
+          })()}
+        </div>
+      ) : (
+        // Otherwise, show the full calendar grid
+        <div className="grid grid-cols-7 gap-1 text-xs p-2">
+          {days.map((day, i) => {
+            if (!day) return <div key={i} className="p-2" />;
+            return (
+              <div
+                key={i}
+                onClick={day.info ? () => handleSubmit(day) : undefined}
+                className={clsx(
+                  "p-2 rounded-md text-center border",
+                  day.info
+                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:shadow-md cursor-pointer"
+                    : "text-gray-400",
+                  day.date === dayjs().format("DD/MM/YYYY") &&
+                    "border-2 border-yellow-500"
+                )}
+              >
+                <div className="font-medium">{day.day}</div>
+                {day.info && (
+                  <div className="mt-1 flex flex-col justify-center items-center">
+                    <div className="text-xs font-normal">£{day.info.price}</div>
+                    <div className="text-[0.68rem]">
+                      {day.info.airport?.code}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
       <Dialog
         open={openDialog}
         handler={() => setOpenDialog(false)}

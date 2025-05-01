@@ -20,7 +20,7 @@ const PriceCalendar = ({
   };
 
   const filteredPrices = getFilteredPrices();
-  // console.log("this is filter data of card", filteredPrices);
+  console.log("this is filter data of card", filteredPrices);
 
   return (
     <div className="space-y-8 md:px-0">
@@ -37,6 +37,7 @@ const PriceCalendar = ({
             departureAirports={departureAirports}
             priceMap={priceMap}
             selectedAirport={selectedAirport}
+            priceswitch={filteredPrices}
           />
         </div>
       </div>
@@ -60,7 +61,7 @@ const PriceCalendar = ({
               </p>
             </CardHeader>
 
-            <CardBody className="p-6 space-y-4 bg-white">
+            {/* <CardBody className="p-6 space-y-4 bg-white">
               <div className="flex items-center justify-between">
                 <span className="font-medium text-gray-700">Departure:</span>
                 <span className="text-gray-900">
@@ -73,16 +74,43 @@ const PriceCalendar = ({
                 <span className="font-medium text-gray-700">Airport:</span>
                 <span className="text-gray-900">{trip.airport[0].code}</span>
               </div>
+            </CardBody> */}
+
+            <CardBody className="p-6 space-y-4 bg-white">
+              {trip.priceswitch ? (
+                <div className="text-center text-gray-700 font-medium mb-4">
+                  Please contact us for this package's dates.
+                </div>
+              ) : (
+                <>
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-gray-700">
+                      Departure:
+                    </span>
+                    <span className="text-gray-900">
+                      {trip.startdate
+                        ? format(new Date(trip.startdate), "dd MMM yyyy")
+                        : "TBA"}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-gray-700">Airport:</span>
+                    <span className="text-gray-900">
+                      {trip.airport[0].code}
+                    </span>
+                  </div>
+                </>
+              )}
             </CardBody>
 
-            <div className="p-6 bg-gray-50">
+            {/* <div className="p-6 bg-gray-50">
               <Button
                 onClick={() => onTripSelect(trip)}
                 className="w-full py-3 font-semibold normal-case tracking-wide transition-colors duration-500 ease-in-out bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-700"
               >
                 Select This Trip
               </Button>
-            </div>
+            </div> */}
           </Card>
         ))}
       </div>
