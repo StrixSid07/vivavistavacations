@@ -63,7 +63,7 @@ const CardOver = () => {
 
       <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex flex-col justify-center items-center md:items-start space-y-4 w-full md:w-2/3">
-          <h1 className="text-xl md:text-3xl w-full text-center md:text-left text-white">
+          <h1 className="text-xl md:text-3xl w-full text-center md:text-left text-white customfontstitle">
             Love to Travel? So Do We - Let's Stay in Touch.
           </h1>
 

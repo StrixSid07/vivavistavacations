@@ -92,7 +92,7 @@ const MainScreen = () => {
         </div>
       </div>
       <div className="mt-[540px] md:mt-0 w-full z-10 flex justify-center items-center bg-white/30 font-body text-black py-2 mb-10">
-        <div className="text-xl md:text-4xl p-2 md:p-0 mt-10 font-bold text-center max-w-4xl customfonts -mb-12 mb:mb-0">
+        <div className="text-xl md:text-4xl p-2 md:p-0 mt-10 font-bold text-center max-w-4xl customfontstitle -mb-12 mb:mb-0">
           This Week's Best - No Fluff, Just Value.
         </div>
       </div>
@@ -103,10 +103,10 @@ const MainScreen = () => {
       <NewAdded data={data?.featuredDeals || []} loadingData={loading} />
       {/* <NewAdded data={selectPackage || []} /> */}
       <div className="mt-4 md:mt-0 flex flex-col w-full bg-gradient-to-t from-[#1ABC9C] to-white justify-center items-center mx-auto p-4 text-center">
-        <h3 className="text-xl md:text-2xl  text-deep-orange-600 mb-6 font-medium">
+        <h3 className="text-xl md:text-2xl  text-deep-orange-600 mb-6 font-medium customfontstitle">
           Popular Destinations
         </h3>
-        <h2 className="text-xl md:text-4xl max-w-3xl text-center font-semibold mb-2 md:mb-6">
+        <h2 className="text-xl md:text-4xl max-w-3xl text-center font-semibold mb-2 md:mb-6 customfontstitle">
           Select Our Best Popular Destinations
         </h2>
         {data?.destination && <CountrySlider destinations={data.destination} />}

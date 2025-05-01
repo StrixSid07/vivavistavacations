@@ -114,8 +114,9 @@ const TravelPackages = ({ destinations }) => {
                 >
                   <IoIosArrowDropleft className="w-6 h-6 md:w-12 md:h-12" />
                 </button>
-                <h2 className="absolute inset-0 flex items-center justify-center text-lg md:text-3xl font-bold text-white text-center pointer-events-none">
-                  {destination.name}
+                <h2 className="absolute inset-0 flex items-center justify-center text-lg md:text-3xl font-bold text-white text-center pointer-events-none customfontstitle">
+                  {/* {destination.name} */}
+                  {destination.name.split(",")[0].trim()}
                 </h2>
                 <button
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-white rounded-full hover:scale-110 transition-transform"
@@ -146,39 +147,6 @@ const TravelPackages = ({ destinations }) => {
                   }}
                 >
                   {destination.deals.map((deal) => (
-                    // <div
-                    //   key={deal._id}
-                    //   className="bg-white rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform group"
-                    //   style={{ width: `${cardWidth}px` }}
-                    // >
-                    //   <img
-                    //     src={deal.images[0]}
-                    //     className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    //     alt={destination.name}
-                    //   />
-                    //   <div className="p-4 flex flex-col gap-2">
-                    //     <p className="text-gray-900 text-lg font-semibold">
-                    //       {deal.title}
-                    //     </p>
-                    //     <p className="text-sm text-deep-orange-500 flex items-center gap-2">
-                    //       <FaLocationDot size={16} />
-                    //       {destination.name}
-                    //     </p>
-
-                    //     <p className="text-md font-light text-gray-700 flex items-center gap-1">
-                    //       <FaStar size={18} className="text-amber-600" />
-                    //       {deal["Rating "] || "No"} Rating
-                    //     </p>
-
-                    //     <Button
-                    //       onClick={() => handleViewDeals(deal._id)}
-                    //       className="w-full mt-2 bg-deep-orange-500 hover:bg-deep-orange-700 transition-all duration-500 ease-in-out text-white font-medium text-lg rounded-md"
-                    //     >
-                    //       View Deal
-                    //     </Button>
-                    //   </div>
-                    // </div>
-
                     <div
                       key={deal._id}
                       className="bg-gradient-to-t from-[#0073b4] to-white rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform group relative"
@@ -261,7 +229,7 @@ const TravelPackages = ({ destinations }) => {
 
                         {/* Basis */}
                         <p className="text-gray-100 text-sm font-medium flex items-center gap-2 drop-shadow">
-                          <FaCircle size={7} /> {deal.boardBasis.name|| "N/A"}
+                          <FaCircle size={7} /> {deal.boardBasis.name || "N/A"}
                         </p>
 
                         <hr className="border-gray-300" />
