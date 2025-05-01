@@ -1,10 +1,26 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
 import tandc from "../contents/tandc";
+import axios from "axios";
+import { Base_Url } from "../../utils/Api";
 
 const TermsAndConditions = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [terms, setTerms] = useState([]);
+
+  useEffect(() => {
+    const fetchTerms = async () => {
+      try {
+        const res = await axios.get(`${Base_Url}/terms`);
+        setTerms(res.data);
+      } catch (error) {
+        console.error("Error fetching terms:", error);
+      }
+    };
+
+    fetchTerms();
+  }, []);
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -37,8 +53,7 @@ const TermsAndConditions = () => {
           “we”, “us”, or “our”), a registered travel agency incorporated in the
           United Kingdom, trading as a Travel Organiser and Travel Agent
           (company registration number 16227067). Our registered office address
-          is 01, 195-197 Wood Street, London, England, E17 3NU. 
-          
+          is 01, 195-197 Wood Street, London, England, E17 3NU.
         </p>
         <p>
           References to “you” and “your” in these terms apply to the traveller
@@ -105,103 +120,37 @@ const TermsAndConditions = () => {
       </section>
 
       <div className="max-w-4xl mx-auto p-6">
-        {tandc.map((section, mainIndex) => (
-          <div key={mainIndex} className="mb-8">
-            {/* Main Title */}
+        {terms.map((term, index) => (
+          <div key={term._id} className="mb-8">
+            {/* Title */}
             <button
-              onClick={() => toggleAccordion(mainIndex)}
+              onClick={() => toggleAccordion(index)}
               className="w-full flex justify-between text-start items-center py-4 md:text-2xl text-xl font-medium md:font-semibold text-black focus:outline-none"
             >
-              <span>{section.mainTitle}</span>
+              <span>{term.title}</span>
               <FaChevronDown
                 className={`transition-transform duration-300 text-deep-orange-600 ${
-                  openIndex === mainIndex ? "rotate-180" : ""
+                  openIndex === index ? "rotate-180" : ""
                 }`}
               />
             </button>
 
+            {/* Content */}
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{
-                height: openIndex === mainIndex ? "auto" : 0,
-                opacity: openIndex === mainIndex ? 1 : 0,
+                height: openIndex === index ? "auto" : 0,
+                opacity: openIndex === index ? 1 : 0,
               }}
               transition={{ duration: 0.3 }}
               className="overflow-hidden"
             >
-              {section.data.map((subSection, subIndex) => (
+              <div className="mb-6 border-b border-gray-300 pb-4">
                 <div
-                  key={subIndex}
-                  className="mb-6 border-b border-gray-300 pb-4"
-                >
-                  {/* Render title only if it exists */}
-                  {subSection.title && (
-                    <h2 className="text-xl font-semibold mb-2 text-black">
-                      {subSection.title}
-                    </h2>
-                  )}
-                  {subSection.content.map((item, idx) => (
-                    <div key={idx} className="mb-3">
-                      <p className="text-black">{item.paragraph}</p>
-
-                      {/* List Items */}
-                      {item.list && (
-                        <ul className="list-disc ml-6 text-black">
-                          {item.list.map((listItem, listIdx) => (
-                            <li key={listIdx}>{listItem}</li>
-                          ))}
-                        </ul>
-                      )}
-
-                      {/* Sublist Items */}
-                      {item.sublist && (
-                        <ul className="list-circle ml-8 text-black">
-                          {item.sublist.map((subItem, subIdx) => (
-                            <li key={subIdx}>
-                              {typeof subItem === "string"
-                                ? subItem
-                                : subItem.paragraph}
-
-                              {/* Childlist Items */}
-                              {subItem.childlist && (
-                                <ul className="list-square ml-10 text-black">
-                                  {subItem.childlist.map(
-                                    (childItem, childIdx) => (
-                                      <li key={childIdx}>{childItem}</li>
-                                    )
-                                  )}
-                                </ul>
-                              )}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-
-                      {/* Link Section */}
-                      {item.linktitle && item.links && (
-                        <p className="mt-2">
-                          <strong>{item.linktitle}:</strong>{" "}
-                          <a
-                            href={item.links}
-                            className="text-deep-orange-600 underline"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {item.links}
-                          </a>
-                        </p>
-                      )}
-
-                      {/* Contact Number Section */}
-                      {item.contactnumber && (
-                        <p className="mt-2">
-                          <strong>Contact:</strong> {item.contactnumber}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
+                  className="text-black prose max-w-none"
+                  dangerouslySetInnerHTML={{ __html: term.content }}
+                />
+              </div>
             </motion.div>
           </div>
         ))}

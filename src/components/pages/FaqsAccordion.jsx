@@ -1,10 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
-import faqs from "../contents/faqs";
+import axios from "axios";
+import { Base_Url } from "../../utils/Api";
 
 const FaqsAccordion = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const [faqs, setFaqs] = useState([]);
+
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      try {
+        const res = await axios.get(`${Base_Url}/faqs`);
+        setFaqs(res.data);
+      } catch (error) {
+        console.error("Error fetching faqs:", error);
+      }
+    };
+
+    fetchFaqs();
+  }, []);
 
   const toggleAccordion = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -19,7 +34,7 @@ const FaqsAccordion = () => {
             onClick={() => toggleAccordion(index)}
             className="w-full flex justify-between items-center py-4 focus:outline-none"
           >
-            <span className="text-xl text-start font-medium md:w-full w-64">
+            <span className="text-xl text-start font-bold md:w-full w-64">
               {faq.question}
             </span>
             <FaChevronDown
@@ -37,7 +52,7 @@ const FaqsAccordion = () => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="py-2">
+            <div className="py-2 font-medium">
               <p className="mb-2 text-gray-700">{faq.answer}</p>
               {faq.contactNumber && (
                 <p className="mb-2 text-gray-700">
