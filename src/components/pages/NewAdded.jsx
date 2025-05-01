@@ -265,6 +265,7 @@ const NewAdded = ({ data = [], loadingData }) => {
   };
 
   const dataChunks = chunkData(data, chunkSize);
+  console.log("this is data chunk ",dataChunks);
   const [currentImageIndex, setCurrentImageIndex] = useState(
     Array(data.length).fill(0)
   );
@@ -379,21 +380,21 @@ const NewAdded = ({ data = [], loadingData }) => {
                         : "w-1/3"
                     }`}
                   >
-                    <NewAddedCardComponent
-                      id={property._id}
-                      images={property.images}
-                      name={property.title}
-                      price={property.prices[0].price}
-                      location={property.destination?.name}
-                      packageDays={property.days}
-                      rating={property.prices[0].hotel.tripAdvisorRating}
-                      reviews={property.prices[0].hotel.tripAdvisorReviews}
-                      basis={property.boardBasis?.name}
-                      currentImage={currentImageIndex[index]}
-                      nextImage={() => nextImage(index)}
-                      prevImage={() => prevImage(index)}
-                      tag={property.tag}
-                    />
+                                <NewAddedCardComponent
+              id={property?._id ?? "N/A"}
+              images={property?.images ?? []}
+              name={property?.title ?? "Untitled"}
+              price={property?.prices?.[0]?.price ?? "N/A"}
+              location={property?.destination?.name ?? "Unknown"}
+              packageDays={property?.days ?? 0}
+              rating={property?.prices?.[0]?.hotel?.tripAdvisorRating ?? 0}
+              reviews={property?.prices?.[0]?.hotel?.tripAdvisorReviews ?? 0}
+              basis={property?.boardBasis?.name ?? "N/A"}
+              currentImage={currentImageIndex[index] ?? 0}
+              nextImage={() => nextImage(index)}
+              prevImage={() => prevImage(index)}
+              tag={property?.tag ?? ""}
+            />
                   </div>
                 ))}
               </div>

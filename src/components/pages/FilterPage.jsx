@@ -21,6 +21,7 @@ const FilterPage = () => {
   const [images, setImages] = useState([]);
   const [prices, setPrices] = useState([]);
   const [hotels, setHotels] = useState([]);
+  const [priceswitch,setPriceSwitch]=useState(false);
   const [availableCountries, setAvailableCountries] = useState([]);
   const [exclusiveAdditions, setExclusiveAdditions] = useState([]);
   const [termsAndConditions, setTermsAndConditions] = useState([]);
@@ -134,7 +135,7 @@ const FilterPage = () => {
       .get(`${Base_Url}/deals/${id}`)
       .then((res) => {
         const data = res.data;
-        console.log(data);
+        console.log("this is fetch filter page data",data);
         // Map trip details
         setTripData({
           title: data.title,
@@ -154,7 +155,9 @@ const FilterPage = () => {
 
         // Set images
         setImages(data.images || []);
-
+        if(data.priceswitch){
+setPriceSwitch(data.priceswitch);
+        }
         // Transform prices data
         setPrices(
           data.prices.map((price) => ({
@@ -453,6 +456,7 @@ const FilterPage = () => {
               itinerary={itinerary}
               prices={prices}
               hotels={hotels}
+              priceswitch={priceswitch}
               Airport={selectedAirport}
               availableCountries={availableCountries}
               exclusiveAdditions={exclusiveAdditions}

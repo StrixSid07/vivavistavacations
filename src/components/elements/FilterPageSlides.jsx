@@ -15,6 +15,7 @@ const FilterPageSlides = ({
   tripData,
   itinerary,
   prices,
+  priceswitch,
   hotels,
   availableCountries,
   exclusiveAdditions,
@@ -75,6 +76,7 @@ const FilterPageSlides = ({
         priceMap={priceMap}
         selectedAirport={Airport}
         setLedprice={setLedprice}
+        priceswitch={priceswitch}
       />
     </div>
   );

@@ -14,7 +14,7 @@ const CalendarView = ({
   dealId,
   dealtitle,
   setSelectedTrip,
-  
+  priceswitch,
   setLedprice,
   selectedAirport,
 }) => {
