@@ -541,7 +541,7 @@ const SearchBar = ({ roomOptions }) => {
     // </form>
     <form
       onSubmit={handleSubmit}
-      className="w-full md:w-fit bg-[#0073b4]/95 rounded-xl mx-auto -mt-28 md:-mt-16 shadow-lg flex flex-col md:flex-row items-stretch overflow-hidden"
+      className="w-full md:w-fit bg-[#0073b4]/95 rounded-xl mx-auto -mt-28 md:-mt-16 shadow-lg flex flex-col md:flex-row items-stretch overflow-hidden customfontstitle"
     >
       {/* Departure Airport */}
       <div className="flex flex-col justify-center w-full md:w-48 border-b md:border-b-0 md:border-r border-black px-4 py-6">

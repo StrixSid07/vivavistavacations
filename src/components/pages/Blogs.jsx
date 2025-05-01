@@ -37,7 +37,7 @@ const Blogs = () => {
   return (
     <div className="mt-12 md:mt-16 lg:mt-20 bg-gradient-to-t from-blue-400 to-blue-100 min-h-screen">
       {loading ? (
-        <div className="text-center text-xl py-20">
+        <div className="text-center text-xl py-20 customfontstitle">
           Loading travel stories...
         </div>
       ) : (

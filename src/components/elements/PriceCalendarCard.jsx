@@ -25,13 +25,13 @@ const PriceCalendar = ({
   return (
     <div className="space-y-8 md:px-0">
       <div className="text-center mb-4">
-        <h2 className="text-xl md:text-4xl font-extrabold text-gray-900">
+        <h2 className="text-xl md:text-4xl font-extrabold text-gray-900 customfontstitle">
           Choose Your Perfect Trip
         </h2>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-2 text-gray-600 customfontstitle">
           Select a departure date and airport to see your best price.
         </p>
-        <div className="flex">
+        <div className="flex customfontstitle">
           <CalendarView
             departureDates={departureDates}
             departureAirports={departureAirports}
@@ -42,11 +42,11 @@ const PriceCalendar = ({
         </div>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 customfontstitle">
         {filteredPrices.map((trip, idx) => (
           <Card
             key={idx}
-            className="group transform transition-transform hover:scale-[1.02] shadow-lg hover:shadow-2xl border border-gray-200 rounded-2xl overflow-hidden"
+            className="group transform transition-transform w-60 hover:scale-[1.02] shadow-lg hover:shadow-2xl border border-gray-200 rounded-2xl overflow-hidden"
           >
             <CardHeader
               floated={false}
@@ -83,7 +83,7 @@ const PriceCalendar = ({
                 </div>
               ) : (
                 <>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-start justify-between">
                     <span className="font-medium text-gray-700">
                       Departure:
                     </span>

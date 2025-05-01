@@ -254,10 +254,10 @@ const CalendarView = ({
             return (
               <div>
                 <p className="text-lg font-semibold">
-                  For this package 
+                  For this package
                   {/* on{" "} */}
                   {/* <span className="underline"> */}
-                    {/* {match?.date.format("DD MMM YYYY")} */}
+                  {/* {match?.date.format("DD MMM YYYY")} */}
                   {/* </span>{" "} */}
                   at <strong>£{match?.price}</strong>,
                 </p>
@@ -307,7 +307,7 @@ const CalendarView = ({
         className="p-0 bg-transparent"
       >
         <DialogBody className="overflow-auto max-h-[90vh] flex justify-center">
-          <div className="w-full">
+          <div className="w-full customfontstitle">
             {/* <ConciergeFormCard
               handleClose={() => setOpenDialog(false)}
               // selectedInfo={selectedDayInfo}

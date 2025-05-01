@@ -33,7 +33,7 @@ const AccommodationCard = ({ hotel }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-5 shadow-lg flex flex-col md:w-80 w-64 mr-4 shrink-0">
+    <div className="bg-white rounded-2xl p-5 shadow-lg flex flex-col md:w-80 w-64 mr-4 shrink-0 customfontstitle">
       {/* Hotel Name */}
       <div className="flex items-center gap-3 mb-3">
         <Hotel className="w-5 h-5 text-blue-500" />
@@ -68,7 +68,7 @@ const AccommodationCard = ({ hotel }) => {
       <Button
         size="sm"
         onClick={openDrawer}
-        className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-500"
+        className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-500 customfontstitle"
       >
         View More
       </Button>
@@ -91,7 +91,7 @@ const AccommodationCard = ({ hotel }) => {
       >
         <div className="overflow-y-auto h-full pr-2">
           <div className="mb-6 flex items-center justify-between">
-            <Typography variant="h5" color="blue">
+            <Typography variant="h5" color="blue" className="customfontstitle">
               {hotel.name}
             </Typography>
             <IconButton variant="text" color="red" onClick={closeDrawer}>
@@ -113,14 +113,20 @@ const AccommodationCard = ({ hotel }) => {
           </div>
 
           {/* About */}
-          <Typography color="black" className="mb-4 pr-4 leading-relaxed">
+          <Typography
+            color="black"
+            className="mb-4 pr-4 leading-relaxed customfontstitle"
+          >
             {hotel.about || "No description available."}
           </Typography>
 
           {/* Facilities */}
           {hotel.facilities?.length > 0 && (
             <section className="mb-4">
-              <Typography variant="h6" className="mb-1 text-black">
+              <Typography
+                variant="h6"
+                className="mb-1 text-black customfontstitle"
+              >
                 Facilities:
               </Typography>
               <ul className="list-disc pl-6 text-gray-900 text-sm space-y-1">
@@ -134,10 +140,13 @@ const AccommodationCard = ({ hotel }) => {
           {/* Location */}
           {hotel.location && (
             <section className="mb-4">
-              <Typography variant="h6" className="mb-1 text-black">
+              <Typography
+                variant="h6"
+                className="mb-1 text-black customfontstitle"
+              >
                 Location:
               </Typography>
-              <Typography className="text-sm text-gray-900">
+              <Typography className="text-sm text-gray-900 customfontstitle">
                 {hotel.location}
               </Typography>
             </section>
@@ -146,7 +155,10 @@ const AccommodationCard = ({ hotel }) => {
           {/* Booking Link */}
           {hotel.externalBookingLink && (
             <section className="mb-4">
-              <Typography variant="h6" className="mb-1 text-black">
+              <Typography
+                variant="h6"
+                className="mb-1 text-black customfontstitle"
+              >
                 External Links:
               </Typography>
               <a
@@ -164,7 +176,10 @@ const AccommodationCard = ({ hotel }) => {
           {(hotel.images?.length > 0 ||
             hotel.tripAdvisorPhotos?.length > 0) && (
             <section className="mb-4">
-              <Typography variant="h6" className="mb-2 text-black">
+              <Typography
+                variant="h6"
+                className="mb-2 text-black customfontstitle"
+              >
                 Images:
               </Typography>
               <div className="grid grid-cols-2 gap-2">
@@ -186,7 +201,10 @@ const AccommodationCard = ({ hotel }) => {
           {/* Room Types */}
           {hotel.rooms?.length > 0 && (
             <section className="mb-4">
-              <Typography variant="h6" className="mb-1 text-black">
+              <Typography
+                variant="h6"
+                className="mb-1 text-black customfontstitle"
+              >
                 Room Options:
               </Typography>
               <ul className="pl-6 list-disc text-sm text-gray-900 space-y-1">
@@ -202,7 +220,10 @@ const AccommodationCard = ({ hotel }) => {
           {/* Latest Reviews */}
           {hotel.tripAdvisorLatestReviews?.length > 0 && (
             <section className="mb-4">
-              <Typography variant="h6" className="mb-2 text-black">
+              <Typography
+                variant="h6"
+                className="mb-2 text-black customfontstitle"
+              >
                 Latest Reviews:
               </Typography>
               <ul className="space-y-3">
@@ -224,14 +245,17 @@ const AccommodationCard = ({ hotel }) => {
           {/* TripAdvisor Link */}
           {hotel.tripAdvisorLink && (
             <section className="mb-4">
-              <Typography variant="h6" className="mb-1 text-black">
+              <Typography
+                variant="h6"
+                className="mb-1 text-black customfontstitle"
+              >
                 TripAdvisor:
               </Typography>
               <a
                 href={hotel.tripAdvisorLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 text-sm hover:underline"
+                className="text-blue-500 text-sm hover:underline customfontstitle"
               >
                 View on TripAdvisor
               </a>

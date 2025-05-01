@@ -28,6 +28,7 @@ import destination from "./bg/Destination.jpg";
 import holidays from "./bg/Holidays.jpg";
 import packages from "./bg/Packages.jpg";
 import topdeals from "./bg/Topdeals.jpg";
+import blog from "./bg/Blog.jpg";
 export {
   logo,
   homebg,
@@ -59,4 +60,5 @@ export {
   holidays,
   packages,
   topdeals,
+  blog,
 };

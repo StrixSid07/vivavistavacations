@@ -219,11 +219,14 @@ const ContactUs = () => {
               <Typography
                 variant="h4"
                 color="deep-orange"
-                className="text-center"
+                className="text-center customfontstitle"
               >
                 Get in Touch
               </Typography>
-              <Typography color="gray" className="mt-1 text-center font-normal">
+              <Typography
+                color="gray"
+                className="mt-1 text-center font-normal customfontstitle"
+              >
                 We'd love to hear from you! Fill out the form below to get in
                 touch.
               </Typography>
@@ -313,7 +316,7 @@ const ContactUs = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="mt-6 text-white"
+                  className="mt-6 text-white customfontstitle"
                   color="deep-orange"
                   fullWidth
                 >
@@ -321,7 +324,7 @@ const ContactUs = () => {
                 </Button>
                 <Typography
                   color="gray"
-                  className="mt-4 text-center font-normal"
+                  className="mt-4 text-center font-normal customfontstitle"
                 >
                   We respect your privacy. Your information will remain
                   confidential.

@@ -62,7 +62,7 @@ const TravelFilter = () => {
       if (formData.boardBasis?.length)
         params.boardBasis = formData.boardBasis.join(",");
       if (formData.holidayCategories?.length)
-        params.holidayCategories = formData.holidayCategories.join(",")
+        params.holidayCategories = formData.holidayCategories.join(",");
 
       // Create query string
       const queryString = new URLSearchParams(params).toString();
@@ -223,7 +223,7 @@ const TravelFilter = () => {
             <Typography
               variant="h5"
               color="deep-orange"
-              className="mb-4 text-black"
+              className="mb-4 text-black customfontstitle"
             >
               Filter Your Search
             </Typography>
@@ -239,7 +239,7 @@ const TravelFilter = () => {
                   setSearchTerm(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="w-full"
+                className="w-full customfontstitle"
               />
             </div>
 
@@ -247,7 +247,7 @@ const TravelFilter = () => {
             <div className="mb-4">
               <Typography
                 variant="paragraph"
-                className="text-green-500 font-semibold mb-2"
+                className="text-green-500 font-semibold mb-2 customfontstitle"
               >
                 Price: £{filters.price}
               </Typography>
@@ -265,7 +265,10 @@ const TravelFilter = () => {
             </div>
 
             {/* Board Basis Filter */}
-            <Typography variant="h6" className="text-black mb-2">
+            <Typography
+              variant="h6"
+              className="text-black mb-2 customfontstitle"
+            >
               Board Basis
             </Typography>
             <Menu placement="bottom-start">
@@ -315,7 +318,10 @@ const TravelFilter = () => {
             </Menu>
 
             {/* Holiday Categories Filter */}
-            <Typography variant="h6" className="text-black mb-2">
+            <Typography
+              variant="h6"
+              className="text-black mb-2 mt-4 customfontstitle"
+            >
               Holiday Categories
             </Typography>
             <Menu placement="bottom-start">
@@ -365,7 +371,10 @@ const TravelFilter = () => {
             </Menu>
 
             {/* Rating Filter */}
-            <Typography variant="h6" className="text-black mt-4 mb-2">
+            <Typography
+              variant="h6"
+              className="text-black mt-4 mb-2 customfontstitle"
+            >
               Rating
             </Typography>
             <select
@@ -383,7 +392,7 @@ const TravelFilter = () => {
 
             <Button
               color="green"
-              className="mt-4 w-full"
+              className="mt-4 w-full customfontstitle"
               onClick={handleResetFilters} // Reset filters and clear state
             >
               Reset Filters
@@ -394,7 +403,9 @@ const TravelFilter = () => {
           <div className="w-full md:w-3/4 p-4 md:p-6">
             <Typography
               variant="h4"
-              className={`${initialMargin ? "mt-10" : "mt-0"} text-black mb-6`}
+              className={`${
+                initialMargin ? "mt-10" : "mt-0"
+              } text-black mb-6 customfontstitle`}
             >
               Showing {filteredDeals.length} Results
             </Typography>
@@ -419,10 +430,13 @@ const TravelFilter = () => {
 
                     {/* Text Section */}
                     <CardBody className="p-4 bg-gradient-to-b from-[#00AEEF]/90 to-white flex flex-col justify-center w-full md:w-96">
-                      <Typography variant="h6" className="text-[#333333]">
+                      <Typography
+                        variant="h6"
+                        className="text-[#333333] customfontstitle"
+                      >
                         {item.title}
                       </Typography>
-                      <Typography className="text-black">
+                      <Typography className="text-black customfontstitle">
                         {item.destination?.name || "Unknown Destination"} -{" "}
                         {item.prices[0]?.flightDetails?.outbound?.airline ||
                           "N/A"}{" "}
@@ -432,12 +446,13 @@ const TravelFilter = () => {
 
                     {/* Price & Button Section */}
                     <div className="w-full md:w-1/5 flex flex-col bg-gray-100 justify-center items-center gap-2 p-3 md:p-4">
-                      <Typography className="text-center font-semibold text-green-500">
+                      <Typography className="text-center font-semibold text-green-500 customfontstitle">
                         £{item.prices[0]?.price || "N/A"} per person
                       </Typography>
                       <Button
                         color="green"
                         size="sm"
+                        className="customfontstitle"
                         onClick={() => navigate(`/deals/${item._id}`)}
                       >
                         View Deal

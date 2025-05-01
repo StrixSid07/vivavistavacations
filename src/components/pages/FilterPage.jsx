@@ -363,7 +363,7 @@ const FilterPage = () => {
         </div>
 
         {/* Right Side: Filter Element */}
-        <div className="w-full h-fit relative z-0">
+        <div className="w-full h-fit relative z-0 customfontstitle">
           <FilterElement
             dealId={id}
             sharedData={sharedData}

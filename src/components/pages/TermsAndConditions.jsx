@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
-import tandc from "../contents/tandc";
 import axios from "axios";
 import { Base_Url } from "../../utils/Api";
 

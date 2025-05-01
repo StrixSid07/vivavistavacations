@@ -34,14 +34,14 @@ const ConciergeFormCard = ({
   dealId,
   dealtitle,
   adultCount,
- 
+
   selectedDate,
   airport,
 }) => {
   const { countries } = useCountries();
   const [country, setCountry] = React.useState(0);
   const [subscribe, setSubscribe] = React.useState(false);
-  const {totalPrice,dealtitleform}=useContext(LeadContext);
+  const { totalPrice, dealtitleform } = useContext(LeadContext);
   React.useEffect(() => {
     if (countries.length) {
       const defaultIndex = countries.findIndex(
@@ -142,10 +142,13 @@ const ConciergeFormCard = ({
       {/* Header */}
       <div className="flex justify-between items-start mb-2">
         <div>
-          <Typography variant="h5" className="font-semibold">
+          <Typography variant="h5" className="font-semibold customfontstitle">
             Connect With Our Concierge
           </Typography>
-          <Typography variant="small" className="text-gray-600 mt-1">
+          <Typography
+            variant="small"
+            className="text-gray-600 mt-1 customfontstitle"
+          >
             Found Your Ideal Date and Price? Let's Personalize Your Booking
             Together!
           </Typography>
@@ -159,7 +162,7 @@ const ConciergeFormCard = ({
       <div className="flex flex-col md:flex-row gap-3">
         <a
           href="tel:+02037805023"
-          className="flex-1 bg-white border border-blue-500 text-blue-600 font-semibold rounded-lg px-2 py-2 text-center hover:bg-blue-50 transition"
+          className="flex-1 bg-white border border-blue-500 text-blue-600 font-semibold rounded-lg px-2 py-2 text-center hover:bg-blue-50 transition customfontstitle"
         >
           <span className="flex justify-center items-center gap-2">
             <FaPhoneAlt /> 0203 780 5023
@@ -178,27 +181,27 @@ const ConciergeFormCard = ({
       </div>
       <hr className="my-4" />
       <div className="p-4 rounded-xl border border-blue-100 bg-white">
-        <div className="flex items-center gap-3 mb-2">
+        <div className="flex items-start gap-3 mb-2">
           <FaSuitcaseRolling className="text-blue-500 text-lg" />
-          <Typography className="text-sm font-semibold text-blue-700">
+          <Typography className="text-sm font-semibold text-blue-700 customfontstitle">
             <span className="font-bold">Deal:</span> {dealtitleform}
           </Typography>
         </div>
 
         <div className="flex items-center gap-3 mb-2">
           <FaCalendarAlt className="text-blue-500 text-lg" />
-          <Typography className="text-sm font-semibold text-blue-700">
+          <Typography className="text-sm font-semibold text-blue-700 customfontstitle">
             <span className="font-bold">Date:</span> {selectedDate}
           </Typography>
         </div>
 
         <div className="flex items-center gap-3">
           <FaUserFriends className="text-blue-500 text-lg" />
-          <Typography className="text-sm font-semibold text-blue-700">
+          <Typography className="text-sm font-semibold text-blue-700 customfontstitle">
             <span className="font-bold">Adults:</span> {adultCount}
           </Typography>
 
-          <Typography className="text-sm font-semibold text-blue-700">
+          <Typography className="text-sm font-semibold text-blue-700 customfontstitle">
             <span className="font-bold">Total:</span> £{totalPrice}
           </Typography>
         </div>
@@ -216,7 +219,7 @@ const ConciergeFormCard = ({
         </Alert>
       )}
 
-      <Typography className="text-sm text-gray-700 mb-2">
+      <Typography className="text-sm text-gray-700 mb-2 customfontstitle">
         Or fill out the form below and we will get back to you:
       </Typography>
 
@@ -309,7 +312,10 @@ const ConciergeFormCard = ({
             checked={subscribe}
             onChange={(e) => setSubscribe(e.target.checked)}
           />
-          <label htmlFor="promo" className="text-sm text-gray-700">
+          <label
+            htmlFor="promo"
+            className="text-sm text-gray-700 customfontstitle"
+          >
             Subscribe to receive promotional offers, deals, and discounts.
           </label>
         </div>
@@ -318,7 +324,7 @@ const ConciergeFormCard = ({
           {/* Submit Button */}
           <Button
             type="submit"
-            className="transition-colors duration-500 ease-in-out bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-700 text-white"
+            className="transition-colors duration-500 ease-in-out bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-700 text-white customfontstitle"
           >
             SUBMIT
           </Button>

@@ -73,17 +73,17 @@ const Overview = ({
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-wide bg-transparent bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center gap-3">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-wide bg-transparent bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center gap-3 customfontstitle">
           <TelescopeIcon className="w-7 h-7 text-orange-500" />
           Discover the Deal
         </h1>
-        <p className="text-gray-700 text-base sm:text-lg mt-3 leading-relaxed">
+        <p className="text-gray-800 text-base sm:text-lg mt-3 leading-relaxed customfontstitle">
           {tripData.description}
         </p>
       </div>
 
       {/* Trip Summary */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-5 text-base sm:text-lg text-gray-700">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-5 text-base sm:text-lg text-gray-700 customfontstitle">
         <InfoItem
           icon={<Globe2 className="text-blue-500 w-5 h-5" />}
           label="Countries"
@@ -144,14 +144,16 @@ const Overview = ({
       {/* What's Included */}
       <Section
         title="What's Included"
-        icon={<Grid2X2CheckIcon className="w-6 h-6 text-green-500" />}
+        icon={
+          <Grid2X2CheckIcon className="w-6 h-6 text-green-500 customfontstitle" />
+        }
         items={whatsIncluded}
       />
 
       {/* Exclusive Additions */}
       <Section
         title="Exclusive Additions"
-        icon={<PlusCircle className="w-6 h-6 text-blue-500" />}
+        icon={<PlusCircle className="w-6 h-6 text-blue-500 customfontstitle" />}
         items={exclusiveAdditions}
       />
 
@@ -165,7 +167,7 @@ const Overview = ({
       {/* Hotels Slider */}
       {hotels?.length > 0 && (
         <div>
-          <h2 className="text-2xl font-semibold mb-3 text-gray-800 flex items-center gap-2">
+          <h2 className="text-2xl font-semibold mb-3 text-gray-800 flex items-center gap-2 customfontstitle">
             <TicketsIcon className="w-6 h-6 text-orange-500" />
             Accommodation
           </h2>

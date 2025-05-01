@@ -125,19 +125,19 @@ const NewAddedCardComponent = ({
 
               {/* Review Count */}
               {rating ? (
-                <span className="text-gray-800 text-sm font-medium">
+                <span className="text-gray-800 text-sm font-medium customfontstitle">
                   {rating.toFixed(1)} ({reviews} Reviews)
                 </span>
               ) : (
-                <span className="text-gray-500 text-sm italic">
+                <span className="text-gray-500 text-sm italic customfontstitle">
                   No reviews yet
                 </span>
               )}
             </div>
 
-            <Typography className="text-lg font-bold text-deep-orange-600">
+            <Typography className="text-lg font-bold text-deep-orange-600 customfontstitle">
               £{price}
-              <span className="text-sm font-normal text-gray-500 ml-1">
+              <span className="text-sm font-normal text-gray-500 ml-1 customfontstitle">
                 /Per Person
               </span>
             </Typography>
@@ -146,7 +146,7 @@ const NewAddedCardComponent = ({
           {/* Name */}
           <Typography
             variant="h6"
-            className="text-xl font-semibold text-gray-900 truncate w-[20rem]"
+            className="text-xl font-semibold text-gray-900 truncate w-[20rem] customfontstitle"
           >
             {name}
           </Typography>
@@ -154,7 +154,7 @@ const NewAddedCardComponent = ({
           {/* Basis */}
           <Typography
             variant="small"
-            className="text-gray-600 font-medium text-sm flex justify-start items-center gap-2"
+            className="text-gray-600 font-medium text-sm flex justify-start items-center gap-2 customfontstitle"
           >
             <FaCircle size={7} /> {basis}
           </Typography>
@@ -178,7 +178,7 @@ const NewAddedCardComponent = ({
         <CardFooter className="p-5 pt-0">
           <Button
             onClick={handleViewDetails}
-            className="w-full bg-deep-orange-500 hover:bg-deep-orange-600 text-white font-semibold text-base rounded-md py-2 transition duration-300 normal-case"
+            className="w-full bg-deep-orange-500 hover:bg-deep-orange-600 text-white font-semibold text-base rounded-md py-2 transition duration-300 normal-case customfontstitle"
           >
             Discover More
           </Button>

@@ -89,7 +89,7 @@ const Looking = () => {
         {lookingOptions.map((option, index) => (
           <motion.div
             key={index}
-            className="bg-white w-64 h-64 md:w-56 md:h-56 rounded-2xl shadow-xl text-center group transition-all duration-500 hover:scale-105 relative overflow-hidden"
+            className="bg-white w-64 h-64 md:w-60 md:h-60 rounded-2xl shadow-xl text-center group transition-all duration-500 hover:scale-105 relative overflow-hidden"
             variants={itemVariants}
           >
             {/* Animated Background Accent */}

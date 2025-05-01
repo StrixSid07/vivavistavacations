@@ -80,7 +80,7 @@ const FilterPageSlides = ({
     </div>
   );
   const TermsComponent = () => (
-    <div className="md:p-4">
+    <div className="md:p-4 customfontstitle">
       <TermsAndConditions />
     </div>
   );
@@ -120,7 +120,11 @@ const FilterPageSlides = ({
                 key={value}
                 value={value}
                 onClick={() => setActiveTab(value)}
-                className={activeTab === value ? "text-deep-orange-500" : "z-0"}
+                className={
+                  activeTab === value
+                    ? "text-deep-orange-500 z-0 customfontstitle"
+                    : "z-0 customfontstitle"
+                }
               >
                 {label}
               </Tab>

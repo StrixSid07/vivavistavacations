@@ -1,4 +1,4 @@
-import React, { useState, useEffect ,useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Card,
   CardHeader,
@@ -25,7 +25,7 @@ const FilterElement = ({
   dealtitle,
   departureDates, // Array of departure dates (strings)
   departureAirports, // Array of departure airports (strings)
-  
+
   setSelectedTrip,
   initialAdultCount = 1, // Optional initial count (default: 2)
   onBookingSubmit, // Callback function to handle submit
@@ -45,16 +45,17 @@ const FilterElement = ({
   //     ? departureAirports[0]
   //     : ""
   // );
-  
+
   const { leadPrice, setLeadPrice } = useContext(LeadContext);
-  const {adultCount,setAdultCount}=useContext(LeadContext);
-  const {setTotalPrice,totalPrice,setDealIdForm,setDealtitleForm}=useContext(LeadContext);
+  const { adultCount, setAdultCount } = useContext(LeadContext);
+  const { setTotalPrice, totalPrice, setDealIdForm, setDealtitleForm } =
+    useContext(LeadContext);
   setDealIdForm(dealId);
   setDealtitleForm(dealtitle);
 
   // Flatten the departureAirports (if it's a nested array)
   const flatDepartureAirports = departureAirports.flat();
-  
+
   // Get unique airports based on `_id`
   const uniqueDepartureAirports = [
     ...new Set(flatDepartureAirports.map((airport) => airport._id)),
@@ -106,7 +107,7 @@ const FilterElement = ({
     if (!selectedAirport && uniqueDepartureAirports.length > 0) {
       onAirportChange(uniqueDepartureAirports[0]._id); // Auto-select the first airport
     }
-  }, [selectedAirport, uniqueDepartureAirports, onAirportChange]); 
+  }, [selectedAirport, uniqueDepartureAirports, onAirportChange]);
   return (
     <Card className="w-full max-w-md border border-gray-100 shadow-lg p-1 group">
       {/* Header: Price */}
@@ -114,13 +115,16 @@ const FilterElement = ({
         floated={false}
         className="flex flex-col items-center p-4 bg-gradient-to-r from-blue-500 to-indigo-600"
       >
-        <Typography variant="small" className="text-white">
+        <Typography variant="small" className="text-white customfontstitle">
           Price from
         </Typography>
-        <Typography variant="h3" className="font-bold leading-tight text-white">
+        <Typography
+          variant="h3"
+          className="font-bold leading-tight text-white customfontstitle"
+        >
           £{leadPrice}
         </Typography>
-        <Typography variant="small" className="text-white">
+        <Typography variant="small" className="text-white customfontstitle">
           per person
         </Typography>
       </CardHeader>
@@ -147,7 +151,7 @@ const FilterElement = ({
               </Option>
             ))}
           </Select> */}
-          {/* <Select
+        {/* <Select
             label="Select Date"
             size="md"
             value={selectedDate}
@@ -159,13 +163,13 @@ const FilterElement = ({
               </Option>
             ))}
           </Select>
-        </div> */} 
+        </div> */}
 
         {/* Departure Airport */}
         <div>
           <Typography
             variant="small"
-            className="font-medium text-gray-700 mb-2"
+            className="font-medium text-gray-700 mb-2 customfontstitle"
           >
             Departure Airport
           </Typography>
@@ -185,6 +189,7 @@ const FilterElement = ({
             label="Select Airport"
             size="md"
             value={selectedAirport}
+            className="customfontstitle"
             onChange={(value) => onAirportChange(value)}
           >
             {uniqueDepartureAirports.map((airport, idx) => (
@@ -199,7 +204,7 @@ const FilterElement = ({
         <div>
           <Typography
             variant="small"
-            className="font-medium text-gray-700 mb-1"
+            className="font-medium text-gray-700 mb-1 customfontstitle"
           >
             Number of Travelers
           </Typography>
@@ -211,7 +216,7 @@ const FilterElement = ({
             >
               -
             </button>
-            <span className="flex-1 text-center font-medium">
+            <span className="flex-1 text-center font-medium customfontstitle">
               {adultCount} {adultCount === 1 ? "Adult" : "Adults"}
             </span>
             <button
@@ -226,12 +231,15 @@ const FilterElement = ({
 
         {/* Total Price */}
         <div className="flex items-center justify-between pt-2">
-          <Typography variant="small" className="font-medium text-gray-700">
+          <Typography
+            variant="small"
+            className="font-medium text-gray-700 customfontstitle"
+          >
             Total Price:
           </Typography>
           <Typography
             variant="h5"
-            className="font-bold tracking-wide bg-transparent bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600"
+            className="font-bold tracking-wide bg-transparent bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-600 customfontstitle"
           >
             £{totalPrice}
           </Typography>
@@ -242,7 +250,7 @@ const FilterElement = ({
       <CardFooter className="p-4 pt-2 space-y-4">
         <Button
           size="lg"
-          className="transition-colors duration-500 ease-in-out bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-700 w-full normal-case text-white font-semibold"
+          className="transition-colors duration-500 ease-in-out bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-700 w-full normal-case text-white font-semibold customfontstitle"
           onClick={handleSubmit}
         >
           Book Now
@@ -278,7 +286,10 @@ const FilterElement = ({
 
         {/* Phone / Call to Book */}
         <div className="text-center">
-          <Typography variant="small" className="text-gray-600 mb-1">
+          <Typography
+            variant="small"
+            className="text-gray-600 mb-1 customfontstitle"
+          >
             Or call us to book:
           </Typography>
           <div>
@@ -287,7 +298,10 @@ const FilterElement = ({
               className="flex items-center justify-center gap-2"
             >
               <FaPhoneAlt className="text-green-500" />
-              <Typography variant="large" className="font-bold text-black">
+              <Typography
+                variant="large"
+                className="font-bold text-black customfontstitle"
+              >
                 0204 505 9777
               </Typography>
             </a>

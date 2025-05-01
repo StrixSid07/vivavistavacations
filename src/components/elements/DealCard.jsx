@@ -110,19 +110,19 @@ export default function DealCard({
                       ))}
                 </div>
                 {rating ? (
-                  <span className="text-gray-800 text-sm font-medium truncate block max-w-[200px]">
+                  <span className="text-gray-800 text-sm font-medium truncate block max-w-[200px] customfontstitle">
                     {rating.toFixed(1)} ({reviews} Reviews)
                   </span>
                 ) : (
-                  <span className="text-gray-500 text-sm italic">
+                  <span className="text-gray-500 text-sm italic customfontstitle">
                     No reviews yet
                   </span>
                 )}
               </div>
 
-              <Typography className="text-lg font-bold text-deep-orange-600 whitespace-nowrap">
+              <Typography className="text-lg font-bold text-deep-orange-600 whitespace-nowrap customfontstitle">
                 £{price}
-                <span className="text-sm font-normal text-gray-500 ml-1">
+                <span className="text-sm font-normal text-gray-500 ml-1 customfontstitle">
                   /Per Person
                 </span>
               </Typography>
@@ -131,7 +131,7 @@ export default function DealCard({
             {/* Title */}
             <Typography
               variant="h5"
-              className="text-gray-900 font-semibold truncate"
+              className="text-gray-900 font-semibold truncate customfontstitle"
               title={name}
             >
               {name}
@@ -140,7 +140,7 @@ export default function DealCard({
             {/* Basis */}
             <Typography
               variant="small"
-              className="text-gray-600 font-medium text-sm flex items-center gap-2 truncate"
+              className="text-gray-600 font-medium text-sm flex items-center gap-2 truncate customfontstitle"
               title={basis}
             >
               <FaCircle size={6} /> {basis}
@@ -165,7 +165,7 @@ export default function DealCard({
           <CardFooter className="p-6 pt-0">
             <Button
               onClick={handleViewDetails}
-              className="bg-deep-orange-500 hover:bg-deep-orange-600 text-white font-semibold text-base rounded-md py-2 w-fit normal-case"
+              className="bg-deep-orange-500 hover:bg-deep-orange-600 text-white font-semibold text-base rounded-md py-2 w-fit normal-case customfontstitle"
             >
               Discover More
             </Button>

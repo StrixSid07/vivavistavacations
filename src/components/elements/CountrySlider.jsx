@@ -249,7 +249,7 @@ const TravelPackages = ({ destinations }) => {
                         {/* Button */}
                         <Button
                           onClick={() => handleViewDeals(deal._id)}
-                          className="w-full mt-2 bg-deep-orange-500 hover:bg-deep-orange-700 text-white font-medium text-lg rounded-md py-2 normal-case"
+                          className="w-full mt-2 bg-deep-orange-500 hover:bg-deep-orange-700 text-white font-medium text-lg rounded-md py-2 normal-case customfontstitle"
                         >
                           Discover More
                         </Button>

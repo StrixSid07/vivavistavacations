@@ -24,7 +24,7 @@ const AboutUs = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <div className="font-sans">
+    <div className="customfontstitle">
       {/* Hero Section with Overlay */}
       <section
         className="relative bg-cover bg-center h-80 flex items-center justify-center"
@@ -160,7 +160,15 @@ const AboutUs = () => {
       >
         <DialogBody className="overflow-auto max-h-[90vh] flex justify-center">
           <div className="w-full">
-            <ConciergeFormCard handleClose={() => setOpenDialog(false)} />
+            <ConciergeFormCard
+              dealId=""
+              dealtitle=""
+              adultCount={0}
+              totalPrice={0}
+              selectedDate=""
+              airport=""
+              handleClose={() => setOpenDialog(false)}
+            />
           </div>
         </DialogBody>
       </Dialog>
