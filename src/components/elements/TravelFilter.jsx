@@ -125,12 +125,14 @@ const TravelFilter = () => {
 
   // Filter Logic: includes search filtering on title & location
   const filteredDeals = deals.filter((deal) => {
+    console.log(deal.boardBasis.name);
+    console.log("this filter bordbasis", filters.boardBasis);
     const matchesPrice = deal.prices.some(
       (price) => price.price <= filters.price
     );
     const matchesBoard =
       filters.boardBasis.length === 0 ||
-      filters.boardBasis.includes(deal.boardBasis);
+      filters.boardBasis.includes(deal.boardBasis.name);
     const matchesHotel =
       filters.hotelType.length === 0 ||
       filters.hotelType.includes(deal.hotels[0]?.type); // Assuming hotels is an array and we check the first hotel type

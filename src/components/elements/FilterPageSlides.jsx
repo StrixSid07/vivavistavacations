@@ -23,6 +23,7 @@ const FilterPageSlides = ({
   whatsIncluded,
   selectedTrip,
   setLedprice,
+  pricesid,
   Airport,
   setSelectedTrip,
   setSelectedDate, // Add this prop
@@ -74,6 +75,7 @@ const FilterPageSlides = ({
         departureDates={departureDates}
         departureAirports={departureAirports}
         priceMap={priceMap}
+        pricesid={pricesid}
         selectedAirport={Airport}
         setLedprice={setLedprice}
       />

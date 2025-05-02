@@ -62,6 +62,7 @@ const FilterPage = () => {
     basePrice: 479,
     departureDates: [],
     departureAirports: [],
+
   });
 
   useEffect(() => {
@@ -100,6 +101,7 @@ const FilterPage = () => {
             price: price.price,
             priceswitch: price.priceswitch,
             flightDetails: price.flightDetails,
+            _id:price._id
           }))
         );
 
@@ -188,14 +190,19 @@ const FilterPage = () => {
   const handleBookingSubmit = (bookingData) => {
     console.log("Submitted Booking Data:", bookingData);
   };
-
   const priceMap = prices.reduce((acc, p) => {
-    const dateKey = new Date(p.startdate).toLocaleDateString("en-GB"); // Ensure this matches your parsed date format
-    // console.log("Date Key:", dateKey, "Price:", p.price); // Debugging log for date and price
-    acc[dateKey] = p.price;
+    const date = new Date(p.startdate).toLocaleDateString("en-GB"); // e.g., 07/05/2025
+    const key = `${date}_${p._id}`; // Combine date and unique ID
+  
+    acc[key] = {
+      value: p.price,
+      priceswitch: p.priceswitch ?? false,
+      pricesid: p._id,
+    };
+  
     return acc;
   }, {});
-
+  
   if (loading)
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -350,6 +357,7 @@ const FilterPage = () => {
               departureDates={prices.map((p) =>
                 new Date(p.startdate).toLocaleDateString("en-GB")
               )}
+              pricesid={prices.map((p) =>p._id)}
               departureAirports={prices.map((p) => p.airport)}
               priceMap={priceMap}
             />

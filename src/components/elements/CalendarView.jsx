@@ -9,6 +9,7 @@ dayjs.extend(customParseFormat);
 
 const CalendarView = ({
   departureDates,
+  pricesid,
   departureAirports,
   priceMap,
   dealId,
@@ -26,18 +27,29 @@ const CalendarView = ({
     // console.log("this is selected airport", selectedAirport);
     // console.log("this is departure airports", departureAirports);
     console.log("priceswitch", priceswitch);
-
+    console.log("price map",priceMap);
+    console.log("this is despature date",departureDates);
+console.log("this is id's",pricesid);
     const sortedDates = departureDates
       .map((d) => dayjs(d, "DD/MM/YYYY"))
       .sort((a, b) => (a.isBefore(b) ? -1 : 1));
+console.log("this is sortedDates ",sortedDates);
+console.log("this is airpot",departureAirports);
 
     // Map each sorted date with its airport and price from the priceMap using the same format
     const allParsedDates = sortedDates.map((date, i) => {
+      const formattedDate = date.format("DD/MM/YYYY");
+
+      const idprice=pricesid[i];
+      const fullKey = `${formattedDate}_${idprice}`;
+
       const airport = departureAirports[i % departureAirports.length][0]; // Access the first element of the array
+      console
       return {
         date,
         airport,
-        price: priceMap[date.format("DD/MM/YYYY")] || 0,
+        price: priceMap[fullKey] || 0,
+       
       };
     });
 
@@ -45,6 +57,17 @@ const CalendarView = ({
     const finaldata = allParsedDates.filter(
       (d) => d.airport._id === selectedAirport
     );
+    console.log("this is all finaldata", finaldata);
+    const finaltwo=finaldata.filter((d)=>d.price.priceswitch===false);
+    console.log("this is final two",finaltwo);
+    const finalThree=finaltwo.map((d) => {
+      // Destructure the price object and remove the 'priceswitch' field
+      const { price, ...rest } = d;
+      return {
+        ...rest, // Keep all other properties (e.g., airport, date)
+        price: price.value, // Keep only the price value
+      };
+    });
     // Filter the parsed dates based on the selected airport (_id matches)
     // const lowestPrice = Math.min(...finaldata.map((d) => d.price));
     // console.log(typeof setLedprice, lowestPrice);
@@ -52,7 +75,7 @@ const CalendarView = ({
     //   setLedprice(lowestPrice); // or any price you want to set after filtering etc.
     // }
 
-    return finaldata; // Compare by _id
+    return finalThree; // Compare by _id
   }, [departureDates, departureAirports, priceMap, selectedAirport]);
 
   console.log("parsh data", parsedDates);
@@ -63,10 +86,13 @@ const CalendarView = ({
   const dateMap = useMemo(() => {
     const map = {};
     parsedDates.forEach(({ date, airport, price }) => {
-      map[date.format("DD/MM/YYYY")] = { airport, price };
+      const key = date.format("DD/MM/YYYY");
+      if (!map[key]) map[key] = [];
+      map[key].push({ airport, price });
     });
     return map;
   }, [parsedDates]);
+  
 
   const priceswitchDates = useMemo(() => {
     const map = new Map();
@@ -84,7 +110,8 @@ const CalendarView = ({
 
     return map;
   }, [priceswitch]);
-
+  
+console.log("this is priceswitchdatae prices",priceswitchDates);
   const startOfMonth = currentMonth.startOf("month");
   const endOfMonth = currentMonth.endOf("month");
 
@@ -234,42 +261,17 @@ const CalendarView = ({
           )
         )}
       </div> */}
-      {parsedDates.some(
+      {/* {parsedDates.some(
         (d) =>
           d.date.isSame(currentMonth, "month") &&
           priceswitchDates.get(
             `${d.date.format("DD/MM/YYYY")}_${d.airport._id}`
           )
-      ) ? (
-        // If any date in the current month has priceswitch ON, show this message card
-        <div className="mt-4 p-6 bg-yellow-50 text-yellow-800 text-center rounded-xl shadow-md border border-yellow-300">
-          {(() => {
-            const match = parsedDates.find(
-              (d) =>
-                d.date.isSame(currentMonth, "month") &&
-                priceswitchDates.get(
-                  `${d.date.format("DD/MM/YYYY")}_${d.airport._id}`
-                )
-            );
-            return (
-              <div>
-                <p className="text-lg font-semibold">
-                  For this package
-                  {/* on{" "} */}
-                  {/* <span className="underline"> */}
-                  {/* {match?.date.format("DD MMM YYYY")} */}
-                  {/* </span>{" "} */}
-                  at <strong>£{match?.price}</strong>,
-                </p>
-                <p className="mt-2 text-base font-medium">
-                  Connect us to book.
-                </p>
-              </div>
-            );
-          })()}
-        </div>
-      ) : (
-        // Otherwise, show the full calendar grid
+      ) ? ( */}
+        {/* // If any date in the current month has priceswitch ON, show this message card
+       
+    
+        // Otherwise, show the full calendar grid */}
         <div className="grid grid-cols-7 gap-1 text-xs p-2">
           {days.map((day, i) => {
             if (!day) return <div key={i} className="p-2" />;
@@ -288,18 +290,20 @@ const CalendarView = ({
               >
                 <div className="font-medium">{day.day}</div>
                 {day.info && (
-                  <div className="mt-1 flex flex-col justify-center items-center">
-                    <div className="text-xs font-normal">£{day.info.price}</div>
-                    <div className="text-[0.68rem]">
-                      {day.info.airport?.code}
-                    </div>
-                  </div>
-                )}
+  <div className="mt-1 flex flex-col items-center space-y-1">
+    {day.info.map((info, idx) => (
+      <div key={idx} className="text-xs text-white">
+        £{info.price} <span className="text-[0.6rem]">({info.airport?.code})</span>
+      </div>
+    ))}
+  </div>
+)}
+
               </div>
             );
           })}
         </div>
-      )}
+   
       <Dialog
         open={openDialog}
         handler={() => setOpenDialog(false)}

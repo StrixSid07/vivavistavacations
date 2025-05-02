@@ -6,6 +6,7 @@ import CalendarView from "./CalendarView";
 const PriceCalendar = ({
   prices,
   onTripSelect,
+  pricesid,
   departureDates,
   departureAirports,
   selectedAirport,
@@ -21,7 +22,11 @@ const PriceCalendar = ({
 
   const filteredPrices = getFilteredPrices();
   console.log("this is filter data of card", filteredPrices);
-
+  function getMonthName(date) {
+    const options = { month: 'long' }; // 'long' for full month name, e.g. "January"
+    return new Date(date).toLocaleString('en-GB', options); // 'en-GB' for English month name
+  }
+  
   return (
     <div className="space-y-8 md:px-0">
       <div className="text-center mb-4">
@@ -36,14 +41,19 @@ const PriceCalendar = ({
             departureDates={departureDates}
             departureAirports={departureAirports}
             priceMap={priceMap}
+            pricesid={pricesid}
             selectedAirport={selectedAirport}
             priceswitch={filteredPrices}
           />
         </div>
       </div>
-
+      
+  <h6 className="text-xl md:text-4xl font-extrabold text-gray-900 customfontstitle">
+    Packages for different months that don't have dates for booking — please contact directly.
+  </h6>
       <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 customfontstitle">
         {filteredPrices.map((trip, idx) => (
+            trip.priceswitch ? (
           <Card
             key={idx}
             className="group transform transition-transform w-60 hover:scale-[1.02] shadow-lg hover:shadow-2xl border border-gray-200 rounded-2xl overflow-hidden"
@@ -79,11 +89,11 @@ const PriceCalendar = ({
             <CardBody className="p-6 space-y-4 bg-white">
               {trip.priceswitch ? (
                 <div className="text-center text-gray-700 font-medium mb-4">
-                  Please contact us for this package's dates.
+                  Please contact us for this package's dates for month :-{getMonthName(trip.startdate)}.
                 </div>
               ) : (
                 <>
-                  <div className="flex items-start justify-between">
+                  {/* <div className="flex items-start justify-between">
                     <span className="font-medium text-gray-700">
                       Departure:
                     </span>
@@ -98,7 +108,7 @@ const PriceCalendar = ({
                     <span className="text-gray-900">
                       {trip.airport[0].code}
                     </span>
-                  </div>
+                  </div> */}
                 </>
               )}
             </CardBody>
@@ -112,9 +122,12 @@ const PriceCalendar = ({
               </Button>
             </div> */}
           </Card>
+        ) : null
         ))}
       </div>
+    
     </div>
+  
   );
 };
 
