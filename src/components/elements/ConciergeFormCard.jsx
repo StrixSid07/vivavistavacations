@@ -42,6 +42,7 @@ const ConciergeFormCard = ({
   const [country, setCountry] = React.useState(0);
   const [subscribe, setSubscribe] = React.useState(false);
   const { totalPrice, dealtitleform } = useContext(LeadContext);
+  console.log("this is airport", dealId);
   React.useEffect(() => {
     if (countries.length) {
       const defaultIndex = countries.findIndex(

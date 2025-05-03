@@ -20,36 +20,36 @@ const CalendarView = ({
   selectedAirport,
 }) => {
   const { leadPrice, setLeadPrice } = useContext(LeadContext);
-  // const {dealId}=useContext(LeadContext);
+  console.log("this is deal id from clendercard", dealId);
+  const { dealIdform } = useContext(LeadContext);
   const { adultCount } = useContext(LeadContext);
   const parsedDates = useMemo(() => {
     // Parse and sort the dates using the provided "DD/MM/YYYY" format
     // console.log("this is selected airport", selectedAirport);
     // console.log("this is departure airports", departureAirports);
     console.log("priceswitch", priceswitch);
-    console.log("price map",priceMap);
-    console.log("this is despature date",departureDates);
-console.log("this is id's",pricesid);
+    console.log("price map", priceMap);
+    console.log("this is despature date", departureDates);
+    console.log("this is id's", pricesid);
     const sortedDates = departureDates
       .map((d) => dayjs(d, "DD/MM/YYYY"))
       .sort((a, b) => (a.isBefore(b) ? -1 : 1));
-console.log("this is sortedDates ",sortedDates);
-console.log("this is airpot",departureAirports);
+    console.log("this is sortedDates ", sortedDates);
+    console.log("this is airpot", departureAirports);
 
     // Map each sorted date with its airport and price from the priceMap using the same format
     const allParsedDates = sortedDates.map((date, i) => {
       const formattedDate = date.format("DD/MM/YYYY");
 
-      const idprice=pricesid[i];
+      const idprice = pricesid[i];
       const fullKey = `${formattedDate}_${idprice}`;
 
       const airport = departureAirports[i % departureAirports.length][0]; // Access the first element of the array
-      console
+      console;
       return {
         date,
         airport,
         price: priceMap[fullKey] || 0,
-       
       };
     });
 
@@ -58,9 +58,9 @@ console.log("this is airpot",departureAirports);
       (d) => d.airport._id === selectedAirport
     );
     console.log("this is all finaldata", finaldata);
-    const finaltwo=finaldata.filter((d)=>d.price.priceswitch===false);
-    console.log("this is final two",finaltwo);
-    const finalThree=finaltwo.map((d) => {
+    const finaltwo = finaldata.filter((d) => d.price.priceswitch === false);
+    console.log("this is final two", finaltwo);
+    const finalThree = finaltwo.map((d) => {
       // Destructure the price object and remove the 'priceswitch' field
       const { price, ...rest } = d;
       return {
@@ -92,7 +92,6 @@ console.log("this is airpot",departureAirports);
     });
     return map;
   }, [parsedDates]);
-  
 
   const priceswitchDates = useMemo(() => {
     const map = new Map();
@@ -110,8 +109,8 @@ console.log("this is airpot",departureAirports);
 
     return map;
   }, [priceswitch]);
-  
-console.log("this is priceswitchdatae prices",priceswitchDates);
+
+  console.log("this is priceswitchdatae prices", priceswitchDates);
   const startOfMonth = currentMonth.startOf("month");
   const endOfMonth = currentMonth.endOf("month");
 
@@ -268,42 +267,44 @@ console.log("this is priceswitchdatae prices",priceswitchDates);
             `${d.date.format("DD/MM/YYYY")}_${d.airport._id}`
           )
       ) ? ( */}
-        {/* // If any date in the current month has priceswitch ON, show this message card
+      {/* // If any date in the current month has priceswitch ON, show this message card
        
     
         // Otherwise, show the full calendar grid */}
-        <div className="grid grid-cols-7 gap-1 text-xs p-2">
-          {days.map((day, i) => {
-            if (!day) return <div key={i} className="p-2" />;
-            return (
-              <div
-                key={i}
-                onClick={day.info ? () => handleSubmit(day) : undefined}
-                className={clsx(
-                  "p-2 rounded-md text-center border",
-                  day.info
-                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:shadow-md cursor-pointer"
-                    : "text-gray-400",
-                  day.date === dayjs().format("DD/MM/YYYY") &&
-                    "border-2 border-yellow-500"
-                )}
-              >
-                <div className="font-medium">{day.day}</div>
-                {day.info && (
-  <div className="mt-1 flex flex-col items-center space-y-1">
-    {day.info.map((info, idx) => (
-      <div key={idx} className="text-xs text-white">
-        £{info.price} <span className="text-[0.6rem]">({info.airport?.code})</span>
+      <div className="grid grid-cols-7 gap-1 text-xs p-2">
+        {days.map((day, i) => {
+          if (!day) return <div key={i} className="p-2" />;
+          return (
+            <div
+              key={i}
+              onClick={day.info ? () => handleSubmit(day) : undefined}
+              className={clsx(
+                "p-2 rounded-md text-center border",
+                day.info
+                  ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:shadow-md cursor-pointer"
+                  : "text-gray-400",
+                day.date === dayjs().format("DD/MM/YYYY") &&
+                  "border-2 border-yellow-500"
+              )}
+            >
+              <div className="font-medium">{day.day}</div>
+              {day.info && (
+                <div className="mt-1 flex flex-col items-center space-y-1">
+                  {day.info.map((info, idx) => (
+                    <div key={idx} className="text-xs text-white">
+                      £{info.price}{" "}
+                      <span className="text-[0.6rem]">
+                        ({info.airport?.code})
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
-    ))}
-  </div>
-)}
 
-              </div>
-            );
-          })}
-        </div>
-   
       <Dialog
         open={openDialog}
         handler={() => setOpenDialog(false)}
@@ -317,12 +318,12 @@ console.log("this is priceswitchdatae prices",priceswitchDates);
               // selectedInfo={selectedDayInfo}
             /> */}
             <ConciergeFormCard
-              dealId={dealId}
+              dealId={dealIdform}
               dealtitle={dealtitle}
               adultCount={adultCount}
               totalPrice={selectedDayInfo?.info?.price}
               selectedDate={selectedDayInfo?.date}
-              airport={selectedDayInfo?.info?.airport}
+              airport={selectedDayInfo?.info[0]?.airport?.code}
               handleClose={() => setOpenDialog(false)}
             />
           </div>
