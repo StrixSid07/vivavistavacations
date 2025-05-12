@@ -237,25 +237,32 @@ const Navbar = () => {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="absolute right-0 mt-2 w-36 bg-white text-black rounded-lg shadow-lg overflow-hidden border"
                 >
-                  {["UK", "USA", "Canada"].map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 text-[#D35400] font-semibold cursor-pointer transition-all duration-200"
-                      onClick={() => {
-                        setRegion(item);
-                        setIsDropdownOpen(false);
-                      }}
-                    >
-                      <Link to="/">
+                  {["UK", "USA", "Canada"].map((item) => {
+                    const urls = {
+                      UK: "https://www.vivavistavacations.co.uk/",
+                      USA: "https://www.vivavistavacations.com/",
+                      Canada: "https://www.vivavistavacations.ca/",
+                    };
+
+                    return (
+                      <li
+                        key={item}
+                        className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 text-[#D35400] font-semibold cursor-pointer transition-all duration-200"
+                        onClick={() => {
+                          setRegion(item);
+                          setIsDropdownOpen(false);
+                          window.location.href = urls[item]; // ⬅️ Full redirect
+                        }}
+                      >
                         <img
                           src={flagUrls[item]}
                           alt={`${item} flag`}
                           className="w-5 h-5 object-cover"
                         />
-                      </Link>
-                      <span>{item}</span>
-                    </li>
-                  ))}
+                        <span>{item}</span>
+                      </li>
+                    );
+                  })}
                 </motion.ul>
               )}
             </div>
@@ -515,23 +522,32 @@ const Navbar = () => {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="absolute right-0 mt-2 w-36 bg-white text-black rounded-lg shadow-lg overflow-hidden border"
                   >
-                    {["UK", "USA", "Canada"].map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 text-[#D35400] font-semibold cursor-pointer transition-all duration-200"
-                        onClick={() => {
-                          setRegion(item);
-                          setIsDropdownOpen(false);
-                        }}
-                      >
-                        <img
-                          src={flagUrls[item]}
-                          alt={`${item} flag`}
-                          className="w-5 h-4 object-cover"
-                        />
-                        <span>{item}</span>
-                      </li>
-                    ))}
+                    {["UK", "USA", "Canada"].map((item) => {
+                      const urls = {
+                        UK: "https://www.vivavistavacations.co.uk/",
+                        USA: "https://www.vivavistavacations.com/",
+                        Canada: "https://www.vivavistavacations.ca/",
+                      };
+
+                      return (
+                        <li
+                          key={item}
+                          className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 text-[#D35400] font-semibold cursor-pointer transition-all duration-200"
+                          onClick={() => {
+                            setRegion(item);
+                            setIsDropdownOpen(false);
+                            window.location.href = urls[item]; // 🔁 Redirect to region site
+                          }}
+                        >
+                          <img
+                            src={flagUrls[item]}
+                            alt={`${item} flag`}
+                            className="w-5 h-4 object-cover"
+                          />
+                          <span>{item}</span>
+                        </li>
+                      );
+                    })}
                   </motion.ul>
                 )}
               </div>

@@ -72,9 +72,9 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="flex items-center w-52 justify-between gap-1 bg-green-600 text-white font-medium px-3 py-3 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-300"
             >
-              <FaWhatsapp className="text-xl" />
+              <FaWhatsapp className="text-md" />
               <span>Chat on WhatsApp</span>
-              <HiChevronRight className="text-xl" />
+              <HiChevronRight className="text-md" />
             </a>
             <div className="flex flex-col justify-center items-center w-48">
               {/* Icon with circular background and border */}
@@ -91,7 +91,7 @@ const Footer = () => {
 
         {/* Column 2: Contact Info */}
         <div>
-          <h2 className="text-xl font-bold mb-5">Contact Info</h2>
+          <h2 className="text-md font-bold mb-5">Contact Info</h2>
           <ul className="space-y-4">
             <li className="flex items-center gap-2">
               <div className="flex items-center gap-2 text-white text-center sm:text-left mb-4 sm:mb-0">
@@ -111,7 +111,7 @@ const Footer = () => {
               <span className="transition duration-700 ease-in-out hover:text-orange-600">
                 <a
                   href="mailto:admin@vivavistavactions.co.uk"
-                  className="block -mt-4 md:w-56 md:mt-0 overflow-hidden text-ellipsis md:whitespace-nowrap"
+                  className="block -mt-4 md:w-60 md:mt-0 overflow-hidden text-ellipsis md:whitespace-nowrap"
                 >
                   admin@vivavistavactions.co.uk
                 </a>
@@ -179,7 +179,7 @@ const Footer = () => {
 
         {/* Column 3: Quick Links */}
         <div className="flex flex-col md:ml-12">
-          <h2 className="text-xl font-bold mb-5 flex flex-row">Quick Links</h2>
+          <h2 className="text-md font-bold mb-5 flex flex-row">Quick Links</h2>
           <ul className="space-y-4">
             {quickLinks.map((item, index) => (
               <li key={index}>
@@ -193,7 +193,7 @@ const Footer = () => {
 
         {/* Column 4: Information Links */}
         <div className="flex flex-col">
-          <h2 className="text-xl font-bold mb-5">Information</h2>
+          <h2 className="text-md font-bold mb-5">Information</h2>
           <ul className="space-y-4">
             {navInfos.map((item, index) => (
               <li key={index}>
@@ -207,7 +207,7 @@ const Footer = () => {
 
         <div className="flex flex-col items-center justify-center px-4 md:-mt-28">
           {/* Title */}
-          <h2 className="text-lg md:text-xl font-bold mb-5 text-center md:flex hidden">
+          <h2 className="text-md md:text-md font-bold mb-5 text-center md:flex hidden">
             Payment Partners
           </h2>
 
@@ -225,7 +225,7 @@ const Footer = () => {
 
           {/* Nav List (Country Links) */}
           <div className="w-full max-w-sm">
-            <h2 className="text-lg md:text-xl font-bold mb-5 text-center md:hidden -ml-[50px]">
+            <h2 className="text-md md:text-md font-bold mb-5 text-center md:hidden -ml-[50px]">
               With a Personal Travel Touch.
             </h2>
             <ul className="space-y-4 -ml-[16px] md:ml-6">
@@ -249,13 +249,13 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center mb-2">
-        <h1>Boook With Confidence</h1>
+        <h1>Book With Confidence</h1>
         <img src={certilogo} className="h-14 mt-2 w-auto object-fill" alt="" />
       </div>
 
       <div className="border-t border-gray-700 pt-1 text-center">
         <div className="flex flex-col justify-center items-center mb-6 md:hidden">
-          <h2 className="md:text-2xl text-lg font-medium md:font-bold mb-5 md:text-center">
+          <h2 className="md:text-2xl text-md font-medium md:font-bold mb-5 md:text-center">
             Payment Partners
           </h2>
           <div className="grid md:grid-cols-3 grid-cols-3 gap-1 md:max-w-60 max-w-80">
@@ -324,7 +324,8 @@ const Footer = () => {
           warnings, and health. For the latest FCDO advice, visit
         </p>
         <a
-          href="www.travelaware.campaign.gov.uk"
+          href="https://travelaware.campaign.gov.uk/"
+          target="_new"
           className="text-blue-600 transition duration-700 hover:text-blue-400"
         >
           www.travelaware.campaign.gov.uk
